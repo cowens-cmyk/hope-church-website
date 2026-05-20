@@ -1,0 +1,356 @@
+/* =========================================================
+   HOPE CHURCH — DARK MODE
+   Activated by [data-theme="dark"] on <html>.
+   Layered over site.css; only overrides — no new visual ideas.
+
+   Surface hierarchy in dark mode:
+     bg-page   #0E141B   (was white)              -- deepest
+     bg-tint   #141B25   (was ink-050)            -- subtle section shift
+     bg-muted  #1A222E   (card surface)           -- elevated
+     ink-900   #1A1F26   (untouched)              -- dramatic dark blocks
+                                                     now read as "feature" panels
+   ========================================================= */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ---- Surface tokens ---- */
+  --bg-page:        #0E141B;
+  --bg-tint:        #141B25;
+  --bg-muted:       #1A222E;
+  --bg-brand-soft:  #0E2238;
+
+  /* ---- Foreground ---- */
+  --fg-1: #F1F4F8;
+  --fg-2: #B7BFCB;
+  --fg-3: #8C95A4;
+  --fg-4: #5E6877;
+
+  /* ---- Borders ---- */
+  --border-hairline: rgba(255,255,255,0.08);
+  --border-default:  rgba(255,255,255,0.14);
+  --border-strong:   rgba(255,255,255,0.28);
+
+  /* ---- Shadows: ground in true black ---- */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.40);
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.45);
+  --shadow-md: 0 8px 20px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.30);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.55), 0 4px 8px rgba(0,0,0,0.30);
+  --shadow-brand: 0 16px 32px rgba(0, 130, 202, 0.35);
+
+  /* ---- Status backgrounds need re-tuning ---- */
+  --success-bg: rgba(43,165,100,0.16);
+  --warning-bg: rgba(232,160,41,0.18);
+  --danger-bg:  rgba(214,69,69,0.18);
+  --info-bg:    rgba(0,130,202,0.16);
+}
+
+/* =========================================================
+   SECTIONS — formerly #fff
+   ========================================================= */
+[data-theme="dark"] .hero-b,
+[data-theme="dark"] .mission-bar,
+[data-theme="dark"] .new-here,
+[data-theme="dark"] .events-section,
+[data-theme="dark"] .missions-trips,
+[data-theme="dark"] .about-story,
+[data-theme="dark"] .about-origin,
+[data-theme="dark"] .about-team-cta,
+[data-theme="dark"] .about-faith,
+[data-theme="dark"] .staff-section,
+[data-theme="dark"] .discover-intro {
+  background: var(--bg-page);
+}
+
+/* SECTIONS — formerly var(--ink-050) */
+[data-theme="dark"] .messages-section,
+[data-theme="dark"] .ministries-section,
+[data-theme="dark"] .about-values,
+[data-theme="dark"] .about-mission,
+[data-theme="dark"] .about-beliefs,
+[data-theme="dark"] .visit-section,
+[data-theme="dark"] .app-band,
+[data-theme="dark"] .discover-cover,
+[data-theme="dark"] .steps-rails,
+[data-theme="dark"] .team-elders-section,
+[data-theme="dark"] .team-support-section,
+[data-theme="dark"] .section-alt {
+  background: var(--bg-tint);
+}
+
+/* The "dark" variant of messages-section -- push it slightly deeper
+   so it still reads as a "feature" panel against the now-dark page */
+[data-theme="dark"] .messages-section.dark {
+  background: #0a0f15;
+}
+
+/* =========================================================
+   CARDS — formerly background: #fff
+   ========================================================= */
+[data-theme="dark"] .ministry-card,
+[data-theme="dark"] .msg-card,
+[data-theme="dark"] .msg-list-card,
+[data-theme="dark"] .event-card,
+[data-theme="dark"] .event-card-big,
+[data-theme="dark"] .lifegroups-why-card,
+[data-theme="dark"] .lifegroup-card,
+[data-theme="dark"] .missions-tier,
+[data-theme="dark"] .missions-partner,
+[data-theme="dark"] .discover-card,
+[data-theme="dark"] .visit-card,
+[data-theme="dark"] .embed-frame,
+[data-theme="dark"] .step-rail,
+[data-theme="dark"] .value-card,
+[data-theme="dark"] .mission-pillar,
+[data-theme="dark"] .belief-card,
+[data-theme="dark"] .discover-faq details {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+[data-theme="dark"] .ministry-card:hover,
+[data-theme="dark"] .msg-card:hover,
+[data-theme="dark"] .msg-list-card:hover,
+[data-theme="dark"] .event-card:hover,
+[data-theme="dark"] .event-card-big:hover,
+[data-theme="dark"] .lifegroup-card:hover,
+[data-theme="dark"] .missions-partner:hover,
+[data-theme="dark"] .value-card:hover,
+[data-theme="dark"] .mission-pillar:hover {
+  border-color: var(--hope-sky);
+}
+
+/* Event date chip on photo card needs to keep contrast */
+[data-theme="dark"] .event-card-big-img .event-date {
+  background: var(--bg-muted); color: var(--hope-sky);
+}
+[data-theme="dark"] .event-date {
+  background: var(--bg-brand-soft); color: var(--hope-sky);
+}
+
+/* =========================================================
+   SITE HEADER
+   ========================================================= */
+[data-theme="dark"] .site-header {
+  background: rgba(14,20,27,0.92);
+  border-bottom-color: var(--border-hairline);
+}
+[data-theme="dark"] .site-nav a            { color: rgba(255,255,255,0.78); }
+[data-theme="dark"] .site-nav a:hover      { color: #fff; }
+[data-theme="dark"] .site-nav a.active     { color: var(--hope-sky); }
+[data-theme="dark"] .site-nav a.active::after { background: var(--hope-sky); }
+[data-theme="dark"] .site-burger           { color: rgba(255,255,255,0.85); }
+[data-theme="dark"] .site-burger:hover     { background: rgba(255,255,255,0.06); }
+
+/* Brand: swap to the white logo automatically in dark mode unless
+   the header is already in its own .dark variant */
+[data-theme="dark"] .site-header:not(.dark) .brand img {
+  /* a soft luminance flip — keeps any color but lifts dark logo on dark bg */
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+/* Nav dropdown */
+[data-theme="dark"] .nav-dropdown-trigger        { color: rgba(255,255,255,0.78); }
+[data-theme="dark"] .nav-dropdown-trigger:hover  { color: #fff; }
+[data-theme="dark"] .nav-dropdown-trigger.active { color: var(--hope-sky); }
+[data-theme="dark"] .nav-dropdown-panel {
+  background: #18202B;
+  border-color: var(--border-hairline);
+  box-shadow: var(--shadow-lg);
+}
+[data-theme="dark"] .nav-dropdown-eyebrow   { color: var(--hope-sky); }
+[data-theme="dark"] .nav-dropdown-item-label{ color: #fff; }
+[data-theme="dark"] .nav-dropdown-item-desc { color: rgba(255,255,255,0.6); }
+[data-theme="dark"] .nav-dropdown-item:hover{ background: rgba(255,255,255,0.05); }
+[data-theme="dark"] .nav-dropdown-item.active { background: rgba(0,130,202,0.18); }
+[data-theme="dark"] .nav-dropdown-item.active .nav-dropdown-item-label { color: var(--hope-sky); }
+
+/* Mobile menu */
+[data-theme="dark"] .mobile-menu                  { background: var(--bg-page); }
+[data-theme="dark"] .mobile-menu-nav a            { color: rgba(255,255,255,0.85); border-bottom-color: var(--border-hairline); }
+[data-theme="dark"] .mobile-menu-nav a:hover      { background: rgba(255,255,255,0.05); }
+[data-theme="dark"] .mobile-menu-nav a.active     { color: var(--hope-sky); }
+[data-theme="dark"] .mobile-menu-group-head       { color: rgba(255,255,255,0.85); border-bottom-color: var(--border-hairline); }
+[data-theme="dark"] .mobile-menu-group-items      { background: var(--bg-tint); border-bottom-color: var(--border-hairline); }
+[data-theme="dark"] .mobile-menu-group-items a    { color: rgba(255,255,255,0.78); }
+[data-theme="dark"] .mobile-menu-foot             { color: rgba(255,255,255,0.6); border-top-color: var(--border-hairline); }
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+[data-theme="dark"] .visit-field input,
+[data-theme="dark"] .visit-field select,
+[data-theme="dark"] .visit-field textarea {
+  background: var(--bg-page);
+  border-color: var(--border-default);
+  color: var(--fg-1);
+}
+[data-theme="dark"] .visit-field input::placeholder,
+[data-theme="dark"] .visit-field textarea::placeholder { color: var(--fg-3); }
+[data-theme="dark"] .visit-field input:focus,
+[data-theme="dark"] .visit-field select:focus,
+[data-theme="dark"] .visit-field textarea:focus {
+  border-color: var(--hope-sky);
+  box-shadow: 0 0 0 3px rgba(107,196,232,0.22);
+}
+[data-theme="dark"] .visit-success {
+  background: rgba(0,130,202,0.16);
+  border-color: rgba(107,196,232,0.30);
+  color: var(--hope-sky);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+[data-theme="dark"] .btn-secondary {
+  background: transparent;
+  color: var(--hope-sky);
+  border-color: var(--hope-sky);
+}
+[data-theme="dark"] .btn-secondary:hover {
+  background: rgba(107,196,232,0.12);
+  color: #fff;
+}
+[data-theme="dark"] .btn-ghost        { color: rgba(255,255,255,0.9); }
+[data-theme="dark"] .btn-ghost:hover  { background: rgba(255,255,255,0.08); }
+
+/* =========================================================
+   HERO B  (used as a light editorial split — needs dark adaptation)
+   ========================================================= */
+[data-theme="dark"] .hero-b-title             { color: var(--fg-1); }
+[data-theme="dark"] .hero-b-lead              { color: var(--fg-2); }
+[data-theme="dark"] .hero-b-meta              { border-top-color: var(--border-hairline); }
+[data-theme="dark"] .hero-b-meta-value        { color: var(--fg-1); }
+[data-theme="dark"] .hero-b-meta-label        { color: var(--fg-3); }
+
+/* =========================================================
+   MISSION BAR — keep colored words; flip the bottom border
+   ========================================================= */
+[data-theme="dark"] .mission-bar              { border-bottom-color: var(--border-hairline); }
+[data-theme="dark"] .mission-bar-eyebrow      { color: var(--fg-3); }
+
+/* =========================================================
+   EVENTS TOGGLE  (uses bg vars that we have re-pointed)
+   ========================================================= */
+[data-theme="dark"] .events-toggle {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+[data-theme="dark"] .events-toggle:hover {
+  background: #20283555;
+  border-color: var(--hope-sky);
+  box-shadow: var(--shadow-sm);
+}
+[data-theme="dark"] .events-toggle-chevron {
+  background: var(--bg-page);
+  border-color: var(--border-hairline);
+}
+[data-theme="dark"] .events-toggle.is-open .events-toggle-chevron {
+  background: var(--hope-blue);
+  border-color: var(--hope-blue);
+}
+
+/* =========================================================
+   CONNECT CARD
+   ========================================================= */
+[data-theme="dark"] .connect-checkbox {
+  background: var(--bg-muted);
+  color: var(--fg-1);
+}
+[data-theme="dark"] .connect-chip {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+  color: var(--fg-2);
+}
+[data-theme="dark"] .connect-chip:hover {
+  color: var(--hope-sky);
+  border-color: var(--hope-sky);
+}
+[data-theme="dark"] .connect-also {
+  background: rgba(0,130,202,0.14);
+}
+[data-theme="dark"] .connect-also strong { color: var(--hope-sky); }
+
+/* =========================================================
+   ABOUT  ·  doctrine accordion, scripture quote, etc
+   ========================================================= */
+[data-theme="dark"] .doctrine                { border-top-color: var(--border-hairline); }
+[data-theme="dark"] .doctrine:last-child     { border-bottom-color: var(--border-hairline); }
+[data-theme="dark"] .doctrine-accordion > summary:hover { background: rgba(107,196,232,0.04); }
+[data-theme="dark"] .doctrine-chevron {
+  background: var(--bg-muted);
+  color: var(--fg-2);
+}
+[data-theme="dark"] .doctrine-accordion[open] > summary .doctrine-chevron,
+[data-theme="dark"] .doctrine-accordion > summary:hover .doctrine-chevron {
+  background: rgba(0,130,202,0.18);
+  color: var(--hope-sky);
+}
+[data-theme="dark"] .doctrine-sub            { border-top-color: var(--border-hairline); }
+[data-theme="dark"] .doctrine-sub-item h4    { color: var(--hope-sky); }
+[data-theme="dark"] .about-faith-epigraph {
+  border-top-color: var(--border-hairline);
+  border-bottom-color: var(--border-hairline);
+  color: var(--fg-1);
+}
+[data-theme="dark"] .about-faith-epigraph cite { color: var(--hope-sky); }
+[data-theme="dark"] .about-story-inner p.lead-first::first-letter { color: var(--hope-sky); }
+[data-theme="dark"] .about-origin-copy h2,
+[data-theme="dark"] .about-team-cta-copy h2 { color: var(--fg-1); }
+[data-theme="dark"] .about-origin-copy p.lead { color: var(--fg-1); }
+[data-theme="dark"] .about-values-coda,
+[data-theme="dark"] .about-mission-coda      { color: var(--fg-2); }
+
+/* =========================================================
+   EMBED SLOT (the dashed placeholder card)
+   ========================================================= */
+[data-theme="dark"] .embed-slot {
+  background:
+    repeating-linear-gradient(45deg, var(--bg-tint), var(--bg-tint) 10px, var(--bg-page) 10px, var(--bg-page) 20px);
+  border-color: var(--border-default);
+}
+[data-theme="dark"] .embed-slot-title { color: var(--fg-1); }
+[data-theme="dark"] .embed-slot-desc  { color: var(--fg-3); }
+
+/* =========================================================
+   ANNOUNCEMENT BAR — keep navy in light, deepen in dark
+   ========================================================= */
+[data-theme="dark"] .announce-bar { background: #061226; }
+
+/* =========================================================
+   THEME TOGGLE BUTTON (sits in the sunday-strip)
+   ========================================================= */
+.theme-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.72);
+  font: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer;
+  padding: 5px 10px 5px 8px;
+  border-radius: 999px;
+  transition: color 140ms ease, background 140ms ease, border-color 140ms ease;
+  line-height: 1;
+}
+.theme-toggle:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.22);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--hope-sky);
+  outline-offset: 2px;
+}
+.theme-toggle-icon {
+  width: 14px; height: 14px;
+  display: inline-flex;
+}
+.theme-toggle-label {
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 720px) {
+  .theme-toggle-label { display: none; }
+  .theme-toggle { padding: 5px 8px; }
+}

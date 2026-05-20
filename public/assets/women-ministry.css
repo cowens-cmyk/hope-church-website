@@ -1,0 +1,402 @@
+/* =========================================================
+   WOVEN — Women's Ministry dedicated page styles
+   "But speaking the truth in love, we must grow up in every
+    way into him who is the head, into Christ, from whom the
+    whole body, joined and knit together..."  — Ephesians 4:15-16
+
+   Palette aligned with Hope Church brand: blues on white,
+   navy anchors for dark bands, sky washes for soft accents.
+   Mirrors the structure used by College & Career so the
+   ministry pages feel like one family.
+   ========================================================= */
+
+:root {
+  --wv-navy:       #061a3a;   /* near-black navy, matches CC anchor */
+  --wv-navy-soft:  #0d2750;
+  --wv-blue:       var(--hope-blue);
+  --wv-blue-deep:  var(--hope-navy);
+  --wv-sky:        var(--hope-sky);
+  --wv-bright:     var(--hope-bright);
+  --wv-wash:       #E6F4FB;   /* matches --bg-brand-soft */
+}
+
+/* =========================================================
+   Section 1 — Anchor hero: Woven mark + name + mission + verse
+   White surface, sky-blue wash glow, primary blue accents.
+   ========================================================= */
+.wv-anchor {
+  background: #fff;
+  padding: 120px 0 128px;
+  position: relative;
+  overflow: hidden;
+}
+.wv-anchor::before {
+  content: "";
+  position: absolute;
+  top: -160px; right: -200px;
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, rgba(107,196,232,0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.wv-anchor::after {
+  content: "";
+  position: absolute;
+  bottom: -200px; left: -240px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,130,202,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+.wv-anchor-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1.05fr;
+  gap: 88px; align-items: center;
+}
+
+/* Wordmark — the Woven logo carries the script name itself, so we
+   show it large at the top and use a small structural label below. */
+.wv-anchor-mark {
+  display: block;
+  margin: 0 0 36px;
+}
+.wv-anchor-mark img {
+  width: 360px; max-width: 100%; height: auto; display: block;
+}
+
+.wv-anchor-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--wv-blue);
+  margin-bottom: 22px;
+}
+.wv-anchor-eyebrow::before {
+  content: ""; width: 32px; height: 2px; background: var(--wv-blue);
+}
+
+.wv-anchor h1 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(40px, 5.2vw, 60px);
+  line-height: 1.02; letter-spacing: -0.025em;
+  margin: 0 0 18px;
+  color: var(--ink-900);
+}
+.wv-anchor h1 em { font-style: normal; color: var(--wv-blue); }
+
+.wv-anchor-mission {
+  font-size: 18.5px; line-height: 1.65;
+  color: var(--fg-2);
+  margin: 0 0 32px; max-width: 54ch;
+}
+.wv-anchor-mission strong { color: var(--ink-900); font-weight: 700; }
+
+.wv-anchor-divider {
+  width: 64px; height: 2px;
+  background: var(--wv-blue);
+  margin: 0 0 28px;
+  border-radius: 2px;
+}
+
+/* Verse — quiet, navy bar, italic display weight */
+.wv-verse {
+  position: relative;
+  padding: 0 0 0 22px;
+  border-left: 2px solid var(--wv-blue);
+  max-width: 56ch;
+  margin: 0;
+}
+.wv-verse-ref {
+  display: inline-block;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wv-blue-deep);
+  margin-bottom: 12px;
+}
+.wv-verse p {
+  font-family: var(--font-display); font-weight: 400;
+  font-style: italic;
+  font-size: 16.5px; line-height: 1.65;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+/* Right column: stacked photos with a faint dashed orbit between */
+.wv-anchor-media {
+  position: relative;
+  min-height: 560px;
+}
+.wv-photo-back, .wv-photo-front {
+  position: absolute;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--ink-100);
+  box-shadow: 0 40px 80px -24px rgba(6,26,58,0.28);
+}
+.wv-photo-back {
+  top: 0; right: 0;
+  width: 70%; aspect-ratio: 4/3;
+  transform: rotate(2deg);
+}
+.wv-photo-front {
+  bottom: 0; left: 0;
+  width: 72%; aspect-ratio: 5/4;
+  transform: rotate(-2.5deg);
+  z-index: 2;
+}
+.wv-photo-back img, .wv-photo-front img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.wv-anchor-media::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 240px; height: 240px;
+  margin: -120px 0 0 -120px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0,130,202,0.32);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* =========================================================
+   Section 2 — Three rhythms (Study · Gather · Pray)
+   Light tint, three crisp Hope-style cards.
+   ========================================================= */
+.wv-rhythms {
+  background: var(--ink-050);
+  padding: 112px 0;
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+}
+.wv-rhythms-head {
+  max-width: 760px; margin: 0 auto 56px; text-align: center;
+}
+.wv-rhythms-head .wv-eyebrow {
+  display: inline-block;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wv-blue);
+  margin-bottom: 18px;
+}
+.wv-rhythms-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(36px, 4.4vw, 48px);
+  line-height: 1.05; letter-spacing: -0.022em;
+  margin: 0 0 14px;
+  color: var(--ink-900);
+}
+.wv-rhythms-head h2 em { font-style: normal; color: var(--wv-blue); }
+.wv-rhythms-head p {
+  font-size: 17px; line-height: 1.6;
+  color: var(--fg-2); max-width: 580px;
+  margin: 0 auto;
+}
+
+.wv-rhythms-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+}
+.wv-rhythm {
+  background: #fff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 18px;
+  padding: 36px 32px 32px;
+  position: relative;
+  transition: transform var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out);
+}
+.wv-rhythm:hover {
+  transform: translateY(-3px);
+  border-color: var(--wv-blue);
+}
+.wv-rhythm-num {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--wv-blue);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.wv-rhythm-num::after {
+  content: ""; flex: 1; height: 1px; background: var(--border-hairline);
+}
+.wv-rhythm h3 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 26px; line-height: 1.15; letter-spacing: -0.015em;
+  margin: 0 0 12px; color: var(--ink-900);
+}
+.wv-rhythm p {
+  font-size: 15.5px; line-height: 1.65;
+  color: var(--fg-2); margin: 0;
+}
+
+/* =========================================================
+   Section 3 — "Knit together": full-bleed photo + nav copy.
+   Sits on navy, mirrors the dark feature band on the College page
+   so women's ministry has the same gravitas in the section flow.
+   ========================================================= */
+.wv-knit {
+  background: var(--wv-navy);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.wv-knit::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 85% 15%, rgba(0,171,248,0.20), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 12% 95%, rgba(0,130,202,0.20), transparent 60%);
+  pointer-events: none;
+}
+.wv-knit-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  align-items: stretch; min-height: 560px;
+}
+.wv-knit-photo {
+  position: relative; overflow: hidden;
+}
+.wv-knit-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.wv-knit-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 55%, var(--wv-navy) 100%);
+  pointer-events: none;
+}
+.wv-knit-copy {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 96px 80px 96px 64px;
+}
+.wv-knit-copy .wv-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--wv-sky);
+  margin-bottom: 22px;
+}
+.wv-knit-copy .wv-eyebrow::before {
+  content: ""; width: 32px; height: 2px; background: var(--wv-sky);
+}
+.wv-knit-copy h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.02; letter-spacing: -0.028em;
+  margin: 0 0 22px;
+  color: #fff;
+}
+.wv-knit-copy h2 em { font-style: normal; color: var(--wv-sky); }
+.wv-knit-copy p {
+  font-size: 17px; line-height: 1.7;
+  color: rgba(255,255,255,0.78);
+  margin: 0 0 16px; max-width: 48ch;
+}
+.wv-knit-copy p strong { color: #fff; font-weight: 600; }
+
+/* =========================================================
+   Section 4 — Calendar (Subsplash embed)
+   ========================================================= */
+.wv-calendar {
+  background: #fff;
+  padding: 112px 0;
+}
+.wv-calendar-head { max-width: 720px; margin: 0 auto 40px; text-align: center; }
+.wv-calendar-head .wv-eyebrow {
+  display: inline-block;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wv-blue);
+  margin-bottom: 18px;
+}
+.wv-calendar-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(34px, 4vw, 44px);
+  line-height: 1.05; letter-spacing: -0.022em;
+  margin: 0 0 14px; color: var(--ink-900);
+}
+.wv-calendar-head h2 em { font-style: normal; color: var(--wv-blue); }
+.wv-calendar-head p {
+  font-size: 17px; line-height: 1.6;
+  color: var(--fg-2); max-width: 560px;
+  margin: 0 auto;
+}
+.wv-calendar-frame {
+  background: var(--ink-050);
+  border: 1px solid var(--border-hairline);
+  border-radius: 18px;
+  padding: 12px;
+  min-height: 540px;
+}
+.wv-calendar-frame .subsplash-embed-host { min-height: 520px; }
+
+/* =========================================================
+   Section 5 — CTA band (Facebook + ask about Woven)
+   Navy with sky/blue glow, same DNA as the college CTA band.
+   ========================================================= */
+.wv-cta-band {
+  position: relative;
+  padding: 120px 0 112px;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,171,248,0.22), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 90%, rgba(107,196,232,0.16), transparent 60%),
+    var(--wv-navy);
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+.wv-cta-band > .container { position: relative; z-index: 1; }
+.wv-cta-band .wv-eyebrow {
+  display: inline-block;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wv-sky);
+  margin-bottom: 22px;
+}
+.wv-cta-band h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(38px, 5vw, 56px);
+  line-height: 1.02; letter-spacing: -0.024em;
+  color: #fff;
+  max-width: 760px; margin: 0 auto 22px;
+}
+.wv-cta-band h2 em { font-style: normal; color: var(--wv-bright); }
+.wv-cta-band > .container > p {
+  color: rgba(255,255,255,0.82);
+  font-size: 18px; line-height: 1.6;
+  max-width: 620px; margin: 0 auto 40px;
+}
+.wv-cta-back { margin-top: 32px; }
+.wv-cta-back a {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px; letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.wv-cta-back a:hover { color: #fff; }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1000px) {
+  .wv-anchor-inner { grid-template-columns: 1fr; gap: 56px; }
+  .wv-anchor-media { min-height: 460px; }
+  .wv-rhythms-grid { grid-template-columns: 1fr; gap: 16px; }
+  .wv-knit-grid { grid-template-columns: 1fr; }
+  .wv-knit-photo { min-height: 360px; }
+  .wv-knit-photo::after {
+    background: linear-gradient(180deg, transparent 55%, var(--wv-navy) 100%);
+  }
+  .wv-knit-copy { padding: 64px 32px 80px; }
+}
+@media (max-width: 720px) {
+  .wv-anchor { padding: 72px 0 88px; }
+  .wv-anchor-mark img { width: 260px; }
+  .wv-anchor-media { min-height: 380px; }
+  .wv-photo-back, .wv-photo-front { width: 78%; }
+  .wv-rhythms,
+  .wv-calendar,
+  .wv-cta-band { padding: 72px 0; }
+  .wv-rhythm { padding: 28px 24px 24px; }
+  .wv-rhythm-num::after { display: none; }
+  .wv-knit-copy { padding: 56px 24px 64px; }
+  .wv-knit-copy h2 { font-size: 34px; }
+}

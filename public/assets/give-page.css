@@ -1,0 +1,314 @@
+/* =========================================================
+   GIVE PAGE — Hope Church
+   Compact banner + embed-first ways to give + Why we give + Thanks
+   ========================================================= */
+
+/* ---------- Compact banner ---------- */
+.give-banner {
+  position: relative;
+  background:
+    radial-gradient(ellipse 70% 70% at 50% 40%, rgba(0, 130, 202, 0.22), transparent 70%),
+    linear-gradient(180deg, #00193D 0%, #00102A 100%);
+  color: #fff;
+  overflow: hidden;
+  padding: 56px 0 64px;
+}
+.give-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('icon-white.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 280px auto;
+  opacity: 0.05;
+  pointer-events: none;
+}
+.give-banner-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.give-banner-eyebrow {
+  color: var(--hope-sky, #6BC4E8);
+  margin-bottom: 14px;
+}
+.give-banner-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.give-banner-verse {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.give-banner-verse em { font-style: italic; }
+.give-banner-cite {
+  display: inline;
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* ---------- Ways to Give (embed first) ---------- */
+.give-ways {
+  background: var(--ink-050, #F4F6FA);
+  padding: 72px 0 88px;
+}
+
+.give-ways-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+/* Left column — embed prominent */
+.give-embed-wrap {
+  position: relative;
+}
+.give-embed-card {
+  background: #fff;
+  border: 1px solid var(--border-hairline, #E6EAF0);
+  border-radius: 18px;
+  padding: 24px 24px 16px;
+  box-shadow: 0 28px 64px -32px rgba(0, 30, 72, 0.28);
+  overflow: hidden;
+}
+.give-embed-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-hairline, #E6EAF0);
+}
+.give-embed-card-head .eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hope-blue, #0082CA);
+  margin-bottom: 4px;
+}
+.give-embed-card-head h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--ink-900);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.give-embed-host { min-height: 720px; }
+.give-embed-host iframe { width: 100%; border: 0; min-height: 720px; display: block; }
+
+/* Right column — ways list */
+.give-ways-list {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.give-ways-list-head h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: -0.015em;
+  color: var(--ink-900);
+  margin: 0 0 16px;
+}
+.give-ways-rule {
+  height: 1px;
+  background: var(--ink-200, #D9DEE6);
+  width: 100%;
+  margin-bottom: 8px;
+}
+.give-way {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.give-way-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border-hairline, #E6EAF0);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,30,72,0.06));
+}
+.give-way-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.005em;
+  color: var(--ink-900);
+  margin: 4px 0 6px;
+}
+.give-way-body p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-700, #404B5C);
+  margin: 0;
+}
+.give-way-address {
+  display: block;
+  font-style: normal;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid var(--border-hairline, #E6EAF0);
+  border-radius: 8px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-900);
+  font-weight: 500;
+  width: fit-content;
+}
+
+.give-secure {
+  margin-top: 4px;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid var(--border-hairline, #E6EAF0);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink-700, #404B5C);
+}
+
+/* ---------- Why We Give (now below) ---------- */
+.give-why {
+  background: #fff;
+  padding: 96px 0 88px;
+  border-top: 1px solid var(--border-hairline, #E6EAF0);
+}
+.give-why-inner {
+  max-width: 760px;
+  text-align: center;
+}
+.give-why-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(36px, 4.5vw, 52px);
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+  margin: 0 0 24px;
+}
+.give-why-rule {
+  width: 96px;
+  height: 1px;
+  background: var(--ink-200, #D9DEE6);
+  margin: 0 auto 36px;
+}
+.give-why-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--ink-700, #404B5C);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* ---------- Thanks band ---------- */
+.give-thanks {
+  background: var(--ink-050, #F4F6FA);
+  padding: 72px 0 88px;
+  text-align: center;
+  border-top: 1px solid var(--border-hairline, #E6EAF0);
+}
+.give-thanks-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--hope-blue, #0082CA);
+  margin: 0 0 16px;
+}
+.give-thanks-body {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(18px, 1.9vw, 22px);
+  line-height: 1.55;
+  color: var(--ink-900);
+  max-width: 720px;
+  margin: 0 auto;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .give-banner { padding: 44px 0 52px; }
+  .give-banner-verse {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .give-banner-cite { margin-left: 0; }
+  .give-ways { padding: 56px 0 72px; }
+  .give-ways-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .give-ways-list { position: static; }
+  .give-why { padding: 72px 0 64px; }
+  .give-thanks { padding: 56px 0 72px; }
+}
+
+@media (max-width: 560px) {
+  .give-banner { padding: 36px 0 44px; }
+  .give-banner-title { font-size: 36px; margin-bottom: 14px; }
+  .give-ways { padding: 40px 0 56px; }
+  .give-embed-card { padding: 16px 16px 10px; border-radius: 14px; }
+  .give-why { padding: 56px 0 48px; }
+  .give-why-rule { margin-bottom: 24px; }
+  .give-why-body { font-size: 16px; line-height: 1.75; }
+}
+
+/* ---------- Dark mode ---------- */
+[data-theme="dark"] .give-why {
+  background: var(--bg-1, #0B1220);
+  border-top-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .give-why-title,
+[data-theme="dark"] .give-why-body { color: var(--fg-1, #E8ECF3); }
+[data-theme="dark"] .give-why-rule { background: rgba(255,255,255,0.12); }
+
+[data-theme="dark"] .give-ways {
+  background: var(--bg-0, #060B17);
+}
+[data-theme="dark"] .give-ways-list-head h2,
+[data-theme="dark"] .give-way-body h3 { color: var(--fg-1, #E8ECF3); }
+[data-theme="dark"] .give-ways-rule { background: rgba(255,255,255,0.12); }
+[data-theme="dark"] .give-way-icon,
+[data-theme="dark"] .give-way-address,
+[data-theme="dark"] .give-secure,
+[data-theme="dark"] .give-embed-card {
+  background: var(--bg-2, #11192A);
+  border-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .give-way-body p,
+[data-theme="dark"] .give-secure { color: var(--fg-2, #B7C0CF); }
+[data-theme="dark"] .give-way-address { color: var(--fg-1, #E8ECF3); }
+[data-theme="dark"] .give-embed-card-head { border-bottom-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .give-embed-card-head h3 { color: var(--fg-1, #E8ECF3); }
+
+[data-theme="dark"] .give-thanks {
+  background: var(--bg-1, #0B1220);
+  border-top-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .give-thanks-body { color: var(--fg-1, #E8ECF3); }

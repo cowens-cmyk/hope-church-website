@@ -1,0 +1,600 @@
+/* =========================================================
+   WORSHIP & TECH — dedicated page styles
+   "Worship the LORD with gladness; come into his presence
+    with singing!"  — Psalm 100:2
+
+   This page leans into the visual vocabulary of the room
+   itself: dark walls, stage wash, bright LED screens, blue
+   spill light off the band. So we let Hope's deeper palette
+   carry it — near-black anchors, deep navy, sky/bright blue
+   accents — and a handful of glowing sky-blue washes that
+   mimic stage par cans.
+
+   Class prefix: wt- (worship/tech)
+   ========================================================= */
+
+:root {
+  --wt-night:     #08101F;   /* deepest stage shadow */
+  --wt-night-2:   #0E1B30;
+  --wt-navy:      #061a3a;   /* matches woven/college anchor */
+  --wt-navy-soft: #0d2750;
+  --wt-blue:      var(--hope-blue);
+  --wt-bright:    var(--hope-bright);
+  --wt-sky:       var(--hope-sky);
+  --wt-deep:      var(--hope-navy);
+  --wt-line:      rgba(255,255,255,0.08);
+  --wt-line-strong: rgba(255,255,255,0.18);
+}
+
+/* =========================================================
+   Section 1 — Anchor hero
+   Full-bleed dark stage photo, big display headline,
+   mission statement, primary "Sign Up" CTA.
+   ========================================================= */
+.wt-anchor {
+  position: relative;
+  background: var(--wt-night);
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+}
+.wt-anchor-bg {
+  position: absolute; inset: 0;
+  background-image: url('worship-stage-vocals.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  z-index: 0;
+}
+.wt-anchor-bg::after {
+  /* Cinematic vignette — heavier on the left where the copy sits */
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8,16,31,0.94) 0%, rgba(8,16,31,0.72) 38%, rgba(8,16,31,0.32) 70%, rgba(8,16,31,0.78) 100%),
+    linear-gradient(180deg, rgba(8,16,31,0.55) 0%, transparent 28%, transparent 60%, rgba(8,16,31,0.85) 100%);
+}
+.wt-anchor::before {
+  /* Stage-par-can glow, top right */
+  content: "";
+  position: absolute;
+  top: -180px; right: -160px;
+  width: 720px; height: 720px;
+  background: radial-gradient(circle, rgba(0,171,248,0.34) 0%, transparent 65%);
+  z-index: 1; pointer-events: none;
+  filter: blur(8px);
+}
+.wt-anchor::after {
+  /* Secondary glow, bottom left */
+  content: "";
+  position: absolute;
+  bottom: -200px; left: -180px;
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, rgba(107,196,232,0.22) 0%, transparent 65%);
+  z-index: 1; pointer-events: none;
+  filter: blur(8px);
+}
+.wt-anchor-inner {
+  position: relative; z-index: 2;
+  padding: 160px 0 180px;
+}
+.wt-anchor-copy { max-width: 760px; }
+
+.wt-anchor-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--wt-sky);
+  margin-bottom: 28px;
+}
+.wt-anchor-eyebrow::before {
+  content: ""; width: 36px; height: 2px; background: var(--wt-sky);
+}
+
+.wt-anchor h1 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(56px, 8.4vw, 124px);
+  line-height: 0.92; letter-spacing: -0.035em;
+  margin: 0 0 28px;
+  color: #fff;
+  text-wrap: balance;
+}
+.wt-anchor h1 .amp {
+  display: inline-block; color: var(--wt-bright);
+  font-style: italic; transform: translateY(-0.04em);
+  padding: 0 0.04em;
+}
+.wt-anchor h1 .line { display: block; }
+.wt-anchor h1 .line.tech { padding-left: 0.3em; }
+
+.wt-anchor-lead {
+  font-size: 19px; line-height: 1.6;
+  color: rgba(255,255,255,0.82);
+  margin: 0 0 40px; max-width: 52ch;
+}
+.wt-anchor-lead strong { color: #fff; font-weight: 600; }
+
+.wt-anchor-actions {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+/* Stats / quick facts row at the bottom of the hero */
+.wt-anchor-facts {
+  display: flex; gap: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--wt-line-strong);
+}
+.wt-anchor-facts dt {
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wt-sky);
+  margin-bottom: 8px;
+}
+.wt-anchor-facts dd {
+  margin: 0;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 26px; letter-spacing: -0.015em;
+  color: #fff;
+}
+.wt-anchor-facts dd s {
+  text-decoration: none;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+/* Right column — a stacked "stage moment" caption card,
+   anchored to the bottom-right of the hero. */
+.wt-anchor-card {
+  align-self: end;
+  background: rgba(13, 26, 46, 0.78);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--wt-line-strong);
+  border-radius: 18px;
+  padding: 26px 28px 24px;
+  max-width: 380px;
+  margin-left: auto;
+}
+.wt-anchor-card-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wt-bright);
+  margin-bottom: 14px;
+}
+.wt-anchor-card-label::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--wt-bright);
+  box-shadow: 0 0 0 4px rgba(0,171,248,0.18);
+  animation: wtPulse 2.4s ease-in-out infinite;
+}
+@keyframes wtPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(0,171,248,0.18); }
+  50%      { box-shadow: 0 0 0 8px rgba(0,171,248,0.05); }
+}
+.wt-anchor-card p {
+  font-family: var(--font-display); font-weight: 900;
+  font-style: italic;
+  font-size: 18px; line-height: 1.35;
+  color: #fff;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.wt-anchor-card cite {
+  display: block;
+  font-style: normal;
+  font-size: 12px; letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.6);
+}
+
+/* =========================================================
+   Section 2 — Two teams, one Sunday
+   ========================================================= */
+.wt-teams {
+  background: #fff;
+  padding: 120px 0;
+  position: relative;
+}
+.wt-teams-head {
+  max-width: 760px; margin: 0 auto 64px; text-align: center;
+}
+.wt-teams-head .wt-eyebrow {
+  display: inline-block;
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wt-blue);
+  margin-bottom: 18px;
+}
+.wt-teams-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(36px, 4.6vw, 52px);
+  line-height: 1.02; letter-spacing: -0.025em;
+  margin: 0 0 16px;
+  color: var(--ink-900);
+}
+.wt-teams-head h2 em { font-style: normal; color: var(--wt-blue); }
+.wt-teams-head p {
+  font-size: 17.5px; line-height: 1.65;
+  color: var(--fg-2); max-width: 580px;
+  margin: 0 auto;
+}
+
+.wt-teams-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.wt-team {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--wt-night);
+  min-height: 520px;
+  display: flex; flex-direction: column;
+  isolation: isolate;
+}
+.wt-team-photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  z-index: 0;
+  transition: transform 600ms var(--ease-out);
+}
+.wt-team:hover .wt-team-photo { transform: scale(1.04); }
+.wt-team-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8,16,31,0.10) 0%, rgba(8,16,31,0.45) 45%, rgba(8,16,31,0.95) 100%);
+}
+.wt-team.worship .wt-team-photo {
+  background-image: url('worship-team-three.jpg');
+  background-position: center 30%;
+}
+.wt-team.tech .wt-team-photo {
+  background-image: url('tech-sound-board.jpg');
+  background-position: center;
+}
+.wt-team-body {
+  position: relative; z-index: 1;
+  margin-top: auto;
+  padding: 36px 36px 36px;
+  color: #fff;
+}
+.wt-team-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wt-sky);
+  margin-bottom: 18px;
+}
+.wt-team-tag::before {
+  content: ""; width: 24px; height: 2px; background: var(--wt-sky);
+}
+.wt-team h3 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 42px; line-height: 1; letter-spacing: -0.025em;
+  margin: 0 0 14px;
+  color: #fff;
+}
+.wt-team-desc {
+  font-size: 15.5px; line-height: 1.6;
+  color: rgba(255,255,255,0.78);
+  margin: 0 0 22px;
+  max-width: 44ch;
+}
+.wt-team-roles {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0; padding: 0; list-style: none;
+}
+.wt-team-roles li {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+  padding: 7px 12px;
+  border: 1px solid var(--wt-line-strong);
+  border-radius: 999px;
+  color: rgba(255,255,255,0.86);
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.04);
+}
+
+/* =========================================================
+   Section 3 — The crew (roles grid)
+   ========================================================= */
+.wt-crew {
+  background: var(--ink-050);
+  padding: 112px 0 120px;
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+}
+.wt-crew-head {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.wt-crew-head .wt-eyebrow {
+  display: inline-block;
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wt-blue);
+  margin-bottom: 16px;
+}
+.wt-crew-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(34px, 4.2vw, 48px);
+  line-height: 1.04; letter-spacing: -0.022em;
+  margin: 0;
+  color: var(--ink-900);
+}
+.wt-crew-head h2 em { font-style: normal; color: var(--wt-blue); }
+.wt-crew-head p {
+  font-size: 16.5px; line-height: 1.65;
+  color: var(--fg-2);
+  margin: 0;
+  max-width: 48ch;
+}
+.wt-crew-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.wt-role {
+  background: #fff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  padding: 28px 26px 26px;
+  position: relative;
+  transition: transform var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+  display: flex; flex-direction: column;
+  min-height: 220px;
+}
+.wt-role:hover {
+  transform: translateY(-3px);
+  border-color: var(--wt-blue);
+  box-shadow: var(--shadow-md);
+}
+.wt-role-head {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 14px;
+}
+.wt-role-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: var(--bg-brand-soft);
+  color: var(--wt-blue);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wt-role-num {
+  margin-left: auto;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 13px; letter-spacing: 0.14em;
+  color: var(--ink-400);
+}
+.wt-role h3 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 21px; line-height: 1.15; letter-spacing: -0.012em;
+  margin: 0 0 10px;
+  color: var(--ink-900);
+}
+.wt-role p {
+  font-size: 14.5px; line-height: 1.6;
+  color: var(--fg-2); margin: 0 0 16px;
+}
+.wt-role-meta {
+  margin-top: auto;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.wt-role-meta span {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--wt-blue);
+  background: var(--bg-brand-soft);
+  padding: 5px 9px;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   Section 4 — The week (schedule)
+   Two-panel feature: photo on left, schedule timeline on right
+   ========================================================= */
+.wt-week {
+  background:
+    radial-gradient(ellipse 70% 60% at 90% 10%, rgba(0,171,248,0.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 8% 90%, rgba(107,196,232,0.10), transparent 60%),
+    var(--wt-navy);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.wt-week-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 620px;
+}
+.wt-week-photo {
+  position: relative; overflow: hidden;
+}
+.wt-week-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.wt-week-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 40%, rgba(6,26,58,0.96) 100%);
+}
+.wt-week-photo-label {
+  position: absolute; left: 32px; bottom: 28px;
+  z-index: 2;
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  padding: 9px 14px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+.wt-week-photo-label::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--wt-bright);
+}
+
+.wt-week-body {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 96px 80px 96px 64px;
+}
+.wt-week-body .wt-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--wt-sky);
+  margin-bottom: 22px;
+}
+.wt-week-body .wt-eyebrow::before {
+  content: ""; width: 32px; height: 2px; background: var(--wt-sky);
+}
+.wt-week-body h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(36px, 4.4vw, 52px);
+  line-height: 1.02; letter-spacing: -0.025em;
+  margin: 0 0 18px;
+  color: #fff;
+}
+.wt-week-body h2 em { font-style: normal; color: var(--wt-sky); }
+.wt-week-body > p {
+  font-size: 17px; line-height: 1.65;
+  color: rgba(255,255,255,0.78);
+  margin: 0 0 48px;
+  max-width: 46ch;
+}
+
+/* Schedule list — timeline-ish */
+.wt-schedule {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 24px;
+}
+.wt-sched-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 28px;
+  padding: 20px 0 22px;
+  border-top: 1px solid var(--wt-line-strong);
+  align-items: start;
+  position: relative;
+}
+.wt-sched-row:last-child {
+  border-bottom: 1px solid var(--wt-line-strong);
+}
+.wt-sched-time {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 30px; line-height: 1; letter-spacing: -0.02em;
+  color: var(--wt-sky);
+}
+.wt-sched-time s {
+  text-decoration: none;
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.55);
+  margin-top: 8px;
+}
+.wt-sched-detail h4 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 22px; line-height: 1.15;
+  margin: 0 0 8px;
+  color: #fff;
+}
+.wt-sched-detail h4 .who {
+  display: inline-block; vertical-align: middle;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wt-bright);
+  padding: 4px 9px;
+  border: 1px solid rgba(0,171,248,0.5);
+  border-radius: 999px;
+  margin-left: 10px;
+  transform: translateY(-2px);
+}
+.wt-sched-detail p {
+  font-size: 14.5px; line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  margin: 0;
+  max-width: 42ch;
+}
+
+/* =========================================================
+   Section 5 — CTA band
+   ========================================================= */
+.wt-cta-band {
+  position: relative;
+  padding: 120px 0 112px;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 25%, rgba(0,171,248,0.26), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 18% 85%, rgba(107,196,232,0.16), transparent 60%),
+    var(--wt-night);
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+.wt-cta-band > .container { position: relative; z-index: 1; }
+.wt-cta-band .wt-eyebrow {
+  display: inline-block;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wt-sky);
+  margin-bottom: 22px;
+}
+.wt-cta-band h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 1; letter-spacing: -0.028em;
+  color: #fff;
+  max-width: 780px; margin: 0 auto 22px;
+}
+.wt-cta-band h2 em { font-style: normal; color: var(--wt-bright); }
+.wt-cta-band > .container > p {
+  color: rgba(255,255,255,0.82);
+  font-size: 18px; line-height: 1.6;
+  max-width: 600px; margin: 0 auto 40px;
+}
+.wt-cta-back { margin-top: 32px; }
+.wt-cta-back a {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px; letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.wt-cta-back a:hover { color: #fff; }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1100px) {
+  .wt-anchor-inner { grid-template-columns: 1fr; gap: 48px; padding: 100px 0 120px; }
+  .wt-anchor-card { max-width: 100%; margin-left: 0; }
+  .wt-teams-grid { grid-template-columns: 1fr; }
+  .wt-crew-head { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+  .wt-crew-grid { grid-template-columns: repeat(2, 1fr); }
+  .wt-week-grid { grid-template-columns: 1fr; }
+  .wt-week-photo { min-height: 360px; }
+  .wt-week-photo::after {
+    background: linear-gradient(180deg, transparent 50%, rgba(6,26,58,0.96) 100%);
+  }
+  .wt-week-body { padding: 72px 32px 88px; }
+}
+@media (max-width: 720px) {
+  .wt-anchor-inner { padding: 80px 0 96px; }
+  .wt-anchor-facts { flex-direction: column; gap: 18px; }
+  .wt-teams { padding: 72px 0; }
+  .wt-team { min-height: 440px; }
+  .wt-team-body { padding: 28px 24px; }
+  .wt-team h3 { font-size: 34px; }
+  .wt-crew { padding: 72px 0; }
+  .wt-crew-grid { grid-template-columns: 1fr; }
+  .wt-week-body { padding: 56px 22px 72px; }
+  .wt-sched-row { grid-template-columns: 1fr; gap: 10px; }
+  .wt-cta-band { padding: 80px 0; }
+}

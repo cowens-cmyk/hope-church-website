@@ -1,0 +1,413 @@
+/* =========================================================
+   HOPE STUDENTS — dedicated page styles
+   7th–12th grade. Bold, high-contrast, blue-lit energy.
+   ========================================================= */
+
+:root {
+  --hs-ink:       #0c0e12;       /* near-black like the HS mark */
+  --hs-ink-soft:  #161922;
+  --hs-blue:      #00ABF8;       /* bright accent — matches worship stage lights */
+  --hs-blue-deep: #0082CA;       /* primary */
+  --hs-violet:    #4d52ff;       /* electric accent for chips */
+}
+
+/* ---------- Section 1: Intro / big statement + portrait photo ---------- */
+.hs-intro {
+  background: var(--hs-ink);
+  color: #fff;
+  padding: 120px 0 128px;
+  position: relative;
+  overflow: hidden;
+}
+.hs-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 15%, rgba(0,171,248,0.18), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 90%, rgba(77,82,255,0.20), transparent 60%);
+  pointer-events: none;
+}
+.hs-intro-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.hs-intro-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 12px; font-weight: 900; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--hs-blue);
+  margin-bottom: 24px;
+}
+.hs-intro-eyebrow::before {
+  content: ""; width: 32px; height: 2px; background: var(--hs-blue);
+}
+.hs-intro-copy h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 72px; line-height: 0.98; letter-spacing: -0.03em;
+  margin: 0 0 28px; color: #fff;
+}
+.hs-intro-copy h2 em {
+  font-style: normal;
+  color: var(--hs-blue);
+}
+.hs-intro-copy h2 .strike {
+  position: relative; display: inline-block;
+}
+.hs-intro-copy p {
+  font-size: 18px; line-height: 1.65;
+  color: rgba(255,255,255,0.78); margin: 0 0 18px;
+  max-width: 50ch;
+}
+.hs-intro-copy p strong { color: #fff; font-weight: 700; }
+
+.hs-intro-stats {
+  display: grid; grid-template-columns: repeat(3, auto);
+  gap: 40px; margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 28px;
+}
+.hs-stat-num {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 32px; line-height: 1; letter-spacing: -0.02em;
+  color: #fff; margin-bottom: 6px;
+}
+.hs-stat-num em { font-style: normal; color: var(--hs-blue); }
+.hs-stat-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.55);
+}
+
+/* Right-side photo with offset logo card */
+.hs-intro-media { position: relative; }
+.hs-intro-photo {
+  aspect-ratio: 4/5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+}
+.hs-intro-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.hs-intro-photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+}
+.hs-intro-logo-chip {
+  position: absolute;
+  left: -28px; bottom: -28px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px -12px rgba(0, 171, 248, 0.5);
+  width: 120px; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+}
+.hs-intro-logo-chip img {
+  width: 100%; height: auto; display: block;
+}
+.hs-intro-tag {
+  position: absolute;
+  right: -8px; top: 32px;
+  background: var(--hs-blue);
+  color: var(--hs-ink);
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px -4px rgba(0, 171, 248, 0.55);
+}
+
+/* ---------- Section 2: Wednesday Night — the main event ---------- */
+.hs-wednesday {
+  background: #fff;
+  padding: 120px 0;
+  position: relative;
+}
+.hs-wed-inner {
+  display: grid; grid-template-columns: 0.9fr 1.1fr;
+  gap: 72px; align-items: center;
+}
+.hs-wed-copy .eyebrow { color: var(--hs-blue-deep); margin-bottom: 18px; }
+.hs-wed-day {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(64px, 9vw, 120px); line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: var(--ink-900);
+  margin: 0 0 12px;
+}
+.hs-wed-day em { font-style: normal; color: var(--hs-blue-deep); }
+.hs-wed-times {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--ink-050);
+  border: 1px solid var(--border-hairline);
+  padding: 10px 18px;
+  border-radius: 999px;
+  margin-bottom: 28px;
+}
+.hs-wed-times-label {
+  font-size: 11px; font-weight: 900; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.hs-wed-times-val {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 17px; letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+.hs-wed-copy p {
+  font-size: 17px; line-height: 1.7; color: var(--fg-2);
+  margin: 0 0 16px; max-width: 52ch;
+}
+.hs-wed-copy p.lead {
+  font-size: 21px; line-height: 1.55;
+  color: var(--fg-1); margin-bottom: 22px;
+}
+
+/* What a night looks like — four-step beat list */
+.hs-beats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.hs-beat {
+  background: var(--ink-050);
+  border: 1px solid var(--border-hairline);
+  border-radius: 14px;
+  padding: 22px 22px 20px;
+  position: relative;
+  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+.hs-beat:hover {
+  transform: translateY(-2px);
+  border-color: var(--hs-blue-deep);
+}
+.hs-beat-num {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 11px; letter-spacing: 0.2em;
+  color: var(--hs-blue-deep);
+  margin-bottom: 8px;
+  display: block;
+}
+.hs-beat h4 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 22px; letter-spacing: -0.015em;
+  margin: 0 0 6px;
+  color: var(--ink-900);
+}
+.hs-beat p {
+  font-size: 14px; line-height: 1.5;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+/* ---------- Section 3: Sunday Mornings (lighter — secondary rhythm) ---------- */
+.hs-sunday {
+  background: var(--ink-050);
+  padding: 96px 0;
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+}
+.hs-sunday-inner {
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  gap: 80px; align-items: center;
+}
+.hs-sunday-copy .eyebrow { color: var(--hs-blue-deep); margin-bottom: 18px; }
+.hs-sunday-copy h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 52px; line-height: 1.02; letter-spacing: -0.025em;
+  margin: 0 0 22px;
+}
+.hs-sunday-copy h2 em { font-style: normal; color: var(--hs-blue-deep); }
+.hs-sunday-copy p {
+  font-size: 17px; line-height: 1.65; color: var(--fg-2);
+  margin: 0 0 18px; max-width: 54ch;
+}
+.hs-sunday-times {
+  margin-top: 28px;
+  display: flex; align-items: center; gap: 16px;
+  flex-wrap: wrap;
+}
+.hs-sunday-time {
+  background: #fff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 12px;
+  padding: 16px 22px;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 22px; letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+.hs-sunday-photo {
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 30px 70px -20px rgba(12, 14, 18, 0.35);
+}
+.hs-sunday-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* ---------- Section 4: Gallery / community ---------- */
+.hs-gallery {
+  background: #fff;
+  padding: 120px 0;
+}
+.hs-gallery-head {
+  max-width: 760px; margin: 0 auto 56px; text-align: center;
+}
+.hs-gallery-head .eyebrow { color: var(--hs-blue-deep); display: inline-block; margin-bottom: 18px; }
+.hs-gallery-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 48px; line-height: 1.05; letter-spacing: -0.025em;
+  margin: 0 0 14px;
+}
+.hs-gallery-head h2 em { font-style: normal; color: var(--hs-blue-deep); }
+.hs-gallery-head p {
+  font-size: 17px; line-height: 1.6; color: var(--fg-2);
+  max-width: 560px; margin: 0 auto;
+}
+
+/* Mosaic: 3 cols x 2 rows, one tall feature */
+.hs-mosaic {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: 280px 280px;
+  gap: 14px;
+  grid-template-areas:
+    "tall  small1 small2"
+    "tall  wide   wide";
+}
+.hs-mosaic-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+.hs-mosaic-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 600ms var(--ease-out);
+}
+.hs-mosaic-item:hover img { transform: scale(1.04); }
+.hs-mosaic-item .caption {
+  position: absolute; left: 16px; bottom: 14px;
+  font-size: 11px; font-weight: 900; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #fff;
+  background: rgba(0,0,0,0.55);
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.hs-mosaic-item.tall   { grid-area: tall; }
+.hs-mosaic-item.small1 { grid-area: small1; }
+.hs-mosaic-item.small2 { grid-area: small2; }
+.hs-mosaic-item.wide   { grid-area: wide; }
+
+/* ---------- Section 5: Calendar ---------- */
+.hs-calendar {
+  background: var(--ink-050);
+  padding: 112px 0;
+  border-top: 1px solid var(--border-hairline);
+}
+.hs-calendar-head { max-width: 720px; margin: 0 auto 40px; text-align: center; }
+.hs-calendar-head .eyebrow { color: var(--hs-blue-deep); display: inline-block; margin-bottom: 18px; }
+.hs-calendar-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 44px; line-height: 1.05; letter-spacing: -0.022em;
+  margin: 0 0 14px;
+}
+.hs-calendar-head p {
+  font-size: 17px; line-height: 1.6; color: var(--fg-2);
+  max-width: 560px; margin: 0 auto;
+}
+.hs-calendar-frame {
+  background: #fff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 18px;
+  padding: 12px;
+  min-height: 540px;
+}
+.hs-calendar-frame .subsplash-embed-host { min-height: 520px; }
+
+/* ---------- Section 6: CTA band (dark, with mark watermark) ---------- */
+.hs-cta-band {
+  position: relative;
+  padding: 120px 0 112px;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,171,248,0.20), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 90%, rgba(77,82,255,0.18), transparent 60%),
+    var(--hs-ink);
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+.hs-cta-band-mark {
+  position: absolute;
+  right: -80px; bottom: -100px;
+  width: 480px; height: auto;
+  opacity: 0.06;
+  pointer-events: none;
+}
+.hs-cta-band .eyebrow { color: var(--hs-blue); }
+.hs-cta-band h2 {
+  font-family: var(--font-display); font-weight: 900;
+  color: #fff; font-size: 60px;
+  letter-spacing: -0.025em; line-height: 1.0;
+  max-width: 820px; margin: 14px auto 22px;
+}
+.hs-cta-band h2 em { font-style: normal; color: var(--hs-blue); }
+.hs-cta-band p {
+  color: rgba(255,255,255,0.82); font-size: 18px;
+  max-width: 620px; margin: 0 auto 40px; line-height: 1.6;
+}
+.hs-cta-back { margin-top: 32px; }
+.hs-cta-back a {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px; letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.hs-cta-back a:hover { color: #fff; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .hs-intro-inner,
+  .hs-wed-inner,
+  .hs-sunday-inner { grid-template-columns: 1fr; gap: 56px; }
+  .hs-intro-copy h2 { font-size: 52px; }
+  .hs-sunday-copy h2 { font-size: 38px; }
+  .hs-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 220px 220px;
+    grid-template-areas:
+      "tall   tall"
+      "small1 small2"
+      "wide   wide";
+  }
+}
+@media (max-width: 720px) {
+  .hs-intro,
+  .hs-wednesday,
+  .hs-sunday,
+  .hs-gallery,
+  .hs-calendar,
+  .hs-cta-band { padding: 72px 0; }
+  .hs-intro-copy h2 { font-size: 40px; }
+  .hs-intro-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .hs-wed-day { font-size: 56px; }
+  .hs-gallery-head h2,
+  .hs-calendar-head h2 { font-size: 32px; }
+  .hs-cta-band h2 { font-size: 36px; }
+  .hs-beats { grid-template-columns: 1fr; }
+  .hs-mosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: 220px 200px 200px 200px;
+    grid-template-areas:
+      "tall"
+      "small1"
+      "small2"
+      "wide";
+  }
+  .hs-intro-logo-chip { width: 88px; height: 88px; left: 12px; bottom: -20px; padding: 12px; }
+  .hs-intro-tag { right: 12px; top: 12px; font-size: 11px; }
+}

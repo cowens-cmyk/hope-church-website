@@ -1,0 +1,321 @@
+/* =========================================================
+   KIDS MINISTRY — dedicated page styles
+   ========================================================= */
+
+/* ---- Section 1: Intro + Love.Grow.Serve.Go pillars ---- */
+.kids-intro { padding: 112px 0 96px; background: #fff; }
+.kids-intro-inner {
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  gap: 80px; align-items: center;
+  margin-bottom: 88px;
+}
+.kids-intro-copy .eyebrow { color: var(--hope-blue); margin-bottom: 18px; }
+.kids-intro-copy h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 56px; line-height: 1.02; letter-spacing: -0.025em;
+  margin: 0 0 28px;
+}
+.kids-intro-copy h2 em { font-style: normal; color: var(--hope-blue); }
+.kids-intro-copy p { font-size: 17px; line-height: 1.7; color: var(--fg-2); margin: 0 0 18px; }
+.kids-intro-copy p.lead { font-size: 20px; line-height: 1.6; color: var(--fg-1); margin-bottom: 22px; }
+.kids-intro-copy p strong { color: var(--fg-1); font-weight: 700; }
+.kids-photo-frame { aspect-ratio: 4/3; border-radius: 18px; overflow: hidden; }
+.kids-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.kids-pillars {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+}
+.kids-pillar {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 18px;
+  padding: 32px 28px 28px;
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.kids-pillar::before {
+  content: ''; position: absolute; left: 0; top: 0; right: 0; height: 5px;
+  background: var(--pillar-color);
+}
+.kids-pillar:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.kids-pillar-dot {
+  display: inline-block; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--pillar-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--pillar-color) 18%, transparent);
+  margin-bottom: 18px;
+}
+.kids-pillar h3 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 32px; line-height: 1; letter-spacing: -0.02em;
+  margin: 0 0 12px; color: var(--ink-900);
+}
+.kids-pillar-stop { color: var(--pillar-color); }
+.kids-pillar p { font-size: 14.5px; line-height: 1.55; color: var(--fg-2); margin: 0; }
+
+/* ---- Section 2: Hope Kids logo + Hyfi (dark) ---- */
+.kids-foundation {
+  background: #000;
+  padding: 120px 0;
+  position: relative; overflow: hidden;
+}
+.kids-foundation::before,
+.kids-foundation::after {
+  content: ''; position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.35; pointer-events: none;
+}
+.kids-foundation::before {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, #ff3fb4, transparent 70%);
+  top: -120px; left: -120px;
+}
+.kids-foundation::after {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, #00ABF8, transparent 70%);
+  bottom: -160px; right: -120px;
+}
+.kids-foundation-inner {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px;
+  align-items: center; position: relative; z-index: 1;
+}
+.kids-foundation-logo {
+  padding: 8px;
+}
+.kids-foundation-logo img {
+  width: 100%; height: auto; display: block;
+  filter: drop-shadow(0 12px 40px rgba(255, 63, 180, 0.25)) drop-shadow(0 8px 30px rgba(0, 171, 248, 0.2));
+}
+.kids-foundation-copy .eyebrow { color: #FF3FB4; margin-bottom: 18px; }
+.kids-foundation-copy h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 48px; line-height: 1.05; letter-spacing: -0.022em;
+  color: #fff; margin: 0 0 24px; max-width: 16ch;
+}
+.kids-foundation-copy p {
+  font-size: 16.5px; line-height: 1.7;
+  color: rgba(255,255,255,0.78); margin: 0 0 18px;
+}
+.kids-foundation-copy p strong { color: #fff; font-weight: 700; }
+.kids-foundation-coda {
+  margin-top: 28px !important;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  font-size: 18px !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+/* ---- Section 3: Sunday Mornings ---- */
+.kids-sundays { padding: 120px 0; background: var(--bg-1, #fff); }
+.kids-section-head { max-width: 760px; margin: 0 auto 56px; }
+.kids-section-head .eyebrow { color: var(--hope-blue); display: inline-block; margin-bottom: 18px; }
+.kids-section-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 44px; line-height: 1.05; letter-spacing: -0.022em;
+  margin: 0;
+}
+.kids-section-head-center { text-align: center; }
+.kids-service-times {
+  margin-top: 24px;
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 22px; color: var(--hope-blue); letter-spacing: -0.01em;
+}
+.kids-dot { color: var(--ink-300, #c9d0d8); }
+.kids-ages {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.kids-age-card {
+  background: var(--ink-050, #f6f8fb);
+  border: 1px solid var(--border-hairline);
+  border-radius: 18px;
+  padding: 36px 32px 32px;
+  position: relative; overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+.kids-age-card:hover { transform: translateY(-3px); border-color: var(--hope-blue); }
+.kids-age-num {
+  position: absolute; top: 18px; right: 24px;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 56px; line-height: 1; letter-spacing: -0.04em;
+  color: var(--hope-sky); opacity: 0.45;
+}
+.kids-age-label {
+  display: inline-block;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--hope-blue);
+  margin-bottom: 14px;
+}
+.kids-age-card h3 {
+  font-size: 24px; margin: 0 0 12px; letter-spacing: -0.01em;
+  font-weight: 800;
+}
+.kids-age-card p {
+  font-size: 15px; line-height: 1.6; color: var(--fg-2); margin: 0;
+}
+
+.kids-checkin-note {
+  margin-top: 40px;
+  display: flex; gap: 16px; align-items: flex-start;
+  background: #fff;
+  border: 1px solid var(--border-hairline);
+  border-left: 4px solid var(--hope-blue);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.kids-checkin-note svg { flex-shrink: 0; margin-top: 2px; }
+.kids-checkin-note p { font-size: 15px; line-height: 1.6; color: var(--fg-2); margin: 0; }
+.kids-checkin-note strong { color: var(--fg-1); }
+
+/* ---- Section 4: Photo gallery ---- */
+.kids-gallery-section { padding: 112px 0; background: #fff; }
+.kids-gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 190px;
+  gap: 18px;
+}
+.kids-gallery-item {
+  margin: 0; position: relative; overflow: hidden;
+  border-radius: 16px;
+  background: var(--ink-050);
+}
+.kids-gallery-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 600ms var(--ease-out);
+}
+.kids-gallery-item:hover img { transform: scale(1.04); }
+.kids-gallery-item figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 28px 22px 18px;
+  color: #fff; font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+}
+.kids-gallery-wide { grid-column: span 4; grid-row: span 2; }
+.kids-gallery-tall { grid-column: span 2; grid-row: span 2; }
+
+/* ---- Section 5: Safety ---- */
+.kids-safety { padding: 120px 0; background: var(--ink-050, #f6f8fb); }
+.kids-safety-inner {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px;
+  align-items: start;
+}
+.kids-safety-copy .eyebrow { color: var(--hope-blue); margin-bottom: 18px; }
+.kids-safety-copy h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 48px; line-height: 1.05; letter-spacing: -0.022em;
+  margin: 0 0 24px; max-width: 14ch;
+}
+.kids-safety-copy p {
+  font-size: 17px; line-height: 1.7; color: var(--fg-2); margin: 0 0 18px;
+}
+.kids-safety-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 18px;
+}
+.kids-safety-list li {
+  display: flex; gap: 18px; align-items: flex-start;
+  background: #fff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 14px;
+  padding: 22px 24px;
+}
+.kids-safety-check {
+  flex-shrink: 0;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--bg-brand-soft, #e6f4fb);
+  color: var(--hope-blue);
+  display: flex; align-items: center; justify-content: center;
+}
+.kids-safety-list li strong {
+  display: block; font-size: 15px; font-weight: 800;
+  letter-spacing: 0.02em; color: var(--hope-navy);
+  margin-bottom: 4px;
+}
+.kids-safety-list li p {
+  font-size: 14.5px; line-height: 1.55; color: var(--fg-2); margin: 0;
+}
+
+/* ---- Section 5.5: Calendar (Subsplash embed) ---- */
+.kids-calendar { padding: 112px 0; background: #fff; border-top: 1px solid var(--border-hairline); }
+.kids-calendar .kids-section-head { margin-bottom: 40px; }
+.kids-calendar .kids-section-head h2 { margin-bottom: 16px; }
+.kids-calendar .kids-section-head p {
+  font-size: 17px; line-height: 1.6; color: var(--fg-2);
+  max-width: 560px; margin: 0 auto;
+}
+.kids-calendar-frame {
+  background: var(--ink-050);
+  border: 1px solid var(--border-hairline);
+  border-radius: 18px;
+  padding: 12px;
+  min-height: 540px;
+}
+.kids-calendar-frame .subsplash-embed-host { min-height: 520px; }
+
+@media (max-width: 720px) {
+  .kids-calendar { padding: 64px 0; }
+}
+
+/* ---- Section 6: CTA band ---- */
+.kids-cta-band {
+  padding: 112px 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255,63,180,0.22), transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(0,171,248,0.18), transparent 55%),
+    linear-gradient(135deg, var(--ink-900) 0%, #000 100%);
+  color: #fff; text-align: center;
+  position: relative; overflow: hidden;
+}
+.kids-cta-band .eyebrow { color: #FF3FB4; }
+.kids-cta-band h2 {
+  font-family: var(--font-display); font-weight: 900;
+  color: #fff; font-size: 56px; letter-spacing: -0.02em; line-height: 1.05;
+  max-width: 800px; margin: 14px auto 20px;
+}
+.kids-cta-band p {
+  color: rgba(255,255,255,0.85); font-size: 18px;
+  max-width: 620px; margin: 0 auto 36px; line-height: 1.6;
+}
+.kids-cta-back { margin-top: 28px; }
+.kids-cta-back a {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px; letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.kids-cta-back a:hover { color: #fff; }
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .kids-intro-inner,
+  .kids-foundation-inner,
+  .kids-safety-inner { grid-template-columns: 1fr; gap: 48px; }
+  .kids-pillars { grid-template-columns: repeat(2, 1fr); }
+  .kids-ages { grid-template-columns: 1fr; gap: 14px; }
+  .kids-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+  .kids-gallery-wide, .kids-gallery-tall { grid-column: span 1; grid-row: span 1; }
+  .kids-intro-copy h2 { font-size: 38px; }
+  .kids-foundation-copy h2 { font-size: 34px; }
+  .kids-section-head h2 { font-size: 32px; }
+  .kids-safety-copy h2 { font-size: 34px; }
+  .kids-cta-band h2 { font-size: 36px; }
+}
+@media (max-width: 720px) {
+  .kids-intro,
+  .kids-foundation,
+  .kids-sundays,
+  .kids-gallery-section,
+  .kids-safety,
+  .kids-cta-band { padding: 64px 0; }
+  .kids-pillars { grid-template-columns: 1fr; }
+  .kids-pillar { padding: 24px; }
+  .kids-pillar h3 { font-size: 28px; }
+  .kids-gallery { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+  .kids-checkin-note { padding: 16px 18px; }
+  .kids-cta-band h2 { font-size: 28px; }
+  .kids-cta-band p { font-size: 16px; }
+  .kids-foundation-logo { padding: 0; }
+}

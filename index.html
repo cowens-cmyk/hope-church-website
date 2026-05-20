@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hope Church · Johnson City, TN</title>
+  <meta name="description" content="Hope Church — a contemporary church planted in Gray / Johnson City, Tennessee. Love God. Love people. Make disciples. Sundays at 8:00, 9:45 &amp; 11:30am."/>
+  <link rel="icon" href="/assets/icon-blue.png"/>
+
+  <link rel="stylesheet" href="/assets/site.css"/>
+  <link rel="stylesheet" href="/assets/kids-ministry.css"/>
+  <link rel="stylesheet" href="/assets/linked56-ministry.css"/>
+  <link rel="stylesheet" href="/assets/students-ministry.css"/>
+  <link rel="stylesheet" href="/assets/college-ministry.css"/>
+  <link rel="stylesheet" href="/assets/women-ministry.css"/>
+  <link rel="stylesheet" href="/assets/men-ministry.css"/>
+  <link rel="stylesheet" href="/assets/worship-ministry.css"/>
+  <link rel="stylesheet" href="/assets/fueledbyhope-ministry.css"/>
+  <link rel="stylesheet" href="/assets/give-page.css"/>
+  <link rel="stylesheet" href="/assets/dark-mode.css"/>
+
+  <!-- Theme detection — runs BEFORE React so there's no flash of light mode.
+       Respect the user's saved preference if any, otherwise auto by clock:
+       dark from 7:00pm through 6:59am local time, light otherwise. -->
+  <script>
+    (function () {
+      function resolveTheme() {
+        try {
+          var saved = localStorage.getItem('hope_theme'); // 'auto' | 'light' | 'dark'
+          if (saved === 'light' || saved === 'dark') return saved;
+        } catch (e) {}
+        var h = new Date().getHours();
+        return (h >= 19 || h < 7) ? 'dark' : 'light';
+      }
+      document.documentElement.dataset.theme = resolveTheme();
+    })();
+  </script>
+
+  <!-- Brand image paths referenced from JSX (logos, app screenshot, photos). -->
+  <script>
+    window.__resources = {
+      logoHorizBlue: '/assets/logo-horizontal-blue.png',
+      logoHorizWhite: '/assets/logo-horizontal-white.png',
+      logoStackedReversed: '/assets/logo-stacked-reversed.png',
+      iconWhite: '/assets/icon-white.png',
+      appScreenshot: '/assets/app-screenshot.png',
+      lobbyWelcome: '/assets/lobby-welcome.jpg',
+      aboutOriginWorship: '/assets/about-origin-worship.jpg',
+      aboutVisionWelcome: '/assets/about-vision-welcome.jpg',
+      aboutTeamGroup: '/assets/about-team-group.jpg'
+    };
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
