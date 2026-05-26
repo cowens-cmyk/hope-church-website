@@ -28,11 +28,25 @@
   --ink-200: #1F2937;  /* was #E4E7EB — slightly lighter for hover */
   --ink-300: #2A3441;  /* was form input borders — still readable */
 
-  /* ---- Foreground ---- */
-  --fg-1: #F1F4F8;
-  --fg-2: #B7BFCB;
-  --fg-3: #8C95A4;
-  --fg-4: #5E6877;
+  /* Mid-to-dark inks are referenced directly as text/icon colors in
+     give-page.css, worship-ministry.css, and site.css (event chevron,
+     admin drag handle, mobile-menu SVGs). Remap them to white so any
+     stray text using `var(--ink-400..700)` reads cleanly on dark.
+     --ink-800/--ink-900 stay as-is — they back the "feature panel"
+     dark blocks (bg-invert, hero scrims) and must remain dark. */
+  --ink-400: #FFFFFF;
+  --ink-500: #FFFFFF;
+  --ink-600: #FFFFFF;
+  --ink-700: #FFFFFF;
+
+  /* ---- Foreground ----
+     In dark mode every text token resolves to pure white. The grey
+     ladder we use in light mode (fg-2/3/4 → secondary/meta/disabled)
+     collapses here on purpose so no body copy renders grey-on-dark. */
+  --fg-1: #FFFFFF;
+  --fg-2: #FFFFFF;
+  --fg-3: #FFFFFF;
+  --fg-4: #FFFFFF;
 
   /* ---- Borders ---- */
   --border-hairline: rgba(255,255,255,0.08);
@@ -143,17 +157,17 @@
   background: rgba(14,20,27,0.92);
   border-bottom-color: var(--border-hairline);
 }
-[data-theme="dark"] .site-nav a            { color: rgba(255,255,255,0.78); }
+[data-theme="dark"] .site-nav a            { color: #fff; }
 [data-theme="dark"] .site-nav a:hover      { color: #fff; }
 [data-theme="dark"] .site-nav a.active     { color: var(--hope-sky); }
 [data-theme="dark"] .site-nav a.active::after { background: var(--hope-sky); }
-[data-theme="dark"] .site-burger           { color: rgba(255,255,255,0.85); }
+[data-theme="dark"] .site-burger           { color: #fff; }
 [data-theme="dark"] .site-burger:hover     { background: rgba(255,255,255,0.06); }
 
 /* Brand logo: SiteHeader now picks the right PNG (reversed in dark mode); no filter needed. */
 
 /* Nav dropdown */
-[data-theme="dark"] .nav-dropdown-trigger        { color: rgba(255,255,255,0.78); }
+[data-theme="dark"] .nav-dropdown-trigger        { color: #fff; }
 [data-theme="dark"] .nav-dropdown-trigger:hover  { color: #fff; }
 [data-theme="dark"] .nav-dropdown-trigger.active { color: var(--hope-sky); }
 [data-theme="dark"] .nav-dropdown-panel {
@@ -163,20 +177,20 @@
 }
 [data-theme="dark"] .nav-dropdown-eyebrow   { color: var(--hope-sky); }
 [data-theme="dark"] .nav-dropdown-item-label{ color: #fff; }
-[data-theme="dark"] .nav-dropdown-item-desc { color: rgba(255,255,255,0.6); }
+[data-theme="dark"] .nav-dropdown-item-desc { color: #fff; }
 [data-theme="dark"] .nav-dropdown-item:hover{ background: rgba(255,255,255,0.05); }
 [data-theme="dark"] .nav-dropdown-item.active { background: rgba(0,130,202,0.18); }
 [data-theme="dark"] .nav-dropdown-item.active .nav-dropdown-item-label { color: var(--hope-sky); }
 
 /* Mobile menu */
 [data-theme="dark"] .mobile-menu                  { background: var(--bg-page); }
-[data-theme="dark"] .mobile-menu-nav a            { color: rgba(255,255,255,0.85); border-bottom-color: var(--border-hairline); }
+[data-theme="dark"] .mobile-menu-nav a            { color: #fff; border-bottom-color: var(--border-hairline); }
 [data-theme="dark"] .mobile-menu-nav a:hover      { background: rgba(255,255,255,0.05); }
 [data-theme="dark"] .mobile-menu-nav a.active     { color: var(--hope-sky); }
-[data-theme="dark"] .mobile-menu-group-head       { color: rgba(255,255,255,0.85); border-bottom-color: var(--border-hairline); }
+[data-theme="dark"] .mobile-menu-group-head       { color: #fff; border-bottom-color: var(--border-hairline); }
 [data-theme="dark"] .mobile-menu-group-items      { background: var(--bg-tint); border-bottom-color: var(--border-hairline); }
-[data-theme="dark"] .mobile-menu-group-items a    { color: rgba(255,255,255,0.78); }
-[data-theme="dark"] .mobile-menu-foot             { color: rgba(255,255,255,0.6); border-top-color: var(--border-hairline); }
+[data-theme="dark"] .mobile-menu-group-items a    { color: #fff; }
+[data-theme="dark"] .mobile-menu-foot             { color: #fff; border-top-color: var(--border-hairline); }
 
 /* =========================================================
    FORMS
@@ -214,7 +228,7 @@
   background: rgba(107,196,232,0.12);
   color: #fff;
 }
-[data-theme="dark"] .btn-ghost        { color: rgba(255,255,255,0.9); }
+[data-theme="dark"] .btn-ghost        { color: #fff; }
 [data-theme="dark"] .btn-ghost:hover  { background: rgba(255,255,255,0.08); }
 
 /* =========================================================
@@ -661,5 +675,5 @@
 
 [data-theme="dark"] .hs-wed-times-label,
 [data-theme="dark"] .l56-calendar-badge {
-  color: rgba(255, 255, 255, 0.78);
+  color: #fff;
 }
