@@ -2510,7 +2510,19 @@
   border-color: var(--border-1);
 }
 @media (max-width: 720px) {
-  .connect-embed { min-height: 1400px; height: 1400px; }
+  /* Drop the card chrome on phones so the Planning Center form gets the
+     full screen width — at ~375px every pixel of nested padding hurts. */
+  .connect-embed-single { max-width: none; padding-left: 0; padding-right: 0; }
+  .connect-embed-wrap {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  .connect-embed { border-radius: 0; min-height: 1500px; height: 1500px; }
+  .connect-embed-fallback { padding: 12px 20px 6px; }
 }
 
 /* =========================================================
