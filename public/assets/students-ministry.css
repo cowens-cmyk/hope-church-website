@@ -56,7 +56,7 @@
 }
 .hs-intro-copy p {
   font-size: 18px; line-height: 1.65;
-  color: rgba(255,255,255,0.78); margin: 0 0 18px;
+  color: #fff; margin: 0 0 18px;
   max-width: 50ch;
 }
 .hs-intro-copy p strong { color: #fff; font-weight: 700; }
@@ -75,7 +75,7 @@
 .hs-stat-num em { font-style: normal; color: var(--hs-blue); }
 .hs-stat-label {
   font-size: 11px; font-weight: 800; letter-spacing: 0.15em;
-  text-transform: uppercase; color: rgba(255,255,255,0.55);
+  text-transform: uppercase; color: #fff;
 }
 
 /* Right-side photo with offset logo card */
@@ -358,12 +358,12 @@
 }
 .hs-cta-band h2 em { font-style: normal; color: var(--hs-blue); }
 .hs-cta-band p {
-  color: rgba(255,255,255,0.82); font-size: 18px;
+  color: #fff; font-size: 18px;
   max-width: 620px; margin: 0 auto 40px; line-height: 1.6;
 }
 .hs-cta-back { margin-top: 32px; }
 .hs-cta-back a {
-  color: rgba(255,255,255,0.7);
+  color: #fff;
   font-size: 14px; letter-spacing: 0.02em;
   text-decoration: none;
 }

@@ -101,7 +101,7 @@
 
 .fh-anchor-mission {
   font-size: 18px; line-height: 1.65;
-  color: rgba(255,255,255,0.82);
+  color: #fff;
   margin: 0 0 32px; max-width: 56ch;
 }
 .fh-anchor-mission strong { color: #fff; font-weight: 600; }
@@ -130,7 +130,7 @@
   font-family: var(--font-display); font-weight: 400;
   font-style: italic;
   font-size: 16.5px; line-height: 1.6;
-  color: rgba(255,255,255,0.85);
+  color: #fff;
   margin: 0;
 }
 .fh-verse em { font-style: italic; color: #fff; font-weight: 500; }
@@ -391,13 +391,13 @@
   color: transparent;
 }
 .fh-cta-band > .container > p {
-  color: rgba(255,255,255,0.82);
+  color: #fff;
   font-size: 18px; line-height: 1.65;
   max-width: 640px; margin: 0 auto 40px;
 }
 .fh-cta-back { margin-top: 32px; }
 .fh-cta-back a {
-  color: rgba(255,255,255,0.7);
+  color: #fff;
   font-size: 14px; letter-spacing: 0.02em;
   text-decoration: none;
 }

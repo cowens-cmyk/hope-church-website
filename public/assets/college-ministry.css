@@ -116,7 +116,7 @@
 }
 .cc-anchor-chip .sub {
   font-size: 13px; font-weight: 500;
-  color: rgba(255,255,255,0.7); margin-top: 6px;
+  color: #fff; margin-top: 6px;
 }
 
 /* =========================================================
@@ -249,13 +249,13 @@
   border-color: rgba(255,255,255,0.15);
 }
 .cc-rhythm-times .cc-dot { color: var(--ink-300); font-weight: 400; }
-.cc-rhythm-card.primary .cc-rhythm-times .cc-dot { color: rgba(255,255,255,0.3); }
+.cc-rhythm-card.primary .cc-rhythm-times .cc-dot { color: #fff; }
 .cc-rhythm-card p {
   font-size: 15.5px; line-height: 1.7; color: var(--fg-2);
   margin: 0 0 14px;
 }
 .cc-rhythm-card p:last-child { margin-bottom: 0; }
-.cc-rhythm-card.primary p { color: rgba(255,255,255,0.78); }
+.cc-rhythm-card.primary p { color: #fff; }
 .cc-rhythm-card.primary p strong { color: #fff; font-weight: 700; }
 
 /* =========================================================
@@ -302,7 +302,7 @@
 .cc-passion-head h2 em { font-style: normal; color: var(--cc-amber); }
 .cc-passion-head p {
   font-size: 18px; line-height: 1.6;
-  color: rgba(255,255,255,0.78);
+  color: #fff;
   max-width: 640px; margin: 0 auto;
 }
 
@@ -363,7 +363,7 @@
 .cc-passion-stat-label {
   font-size: 11px; font-weight: 800;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: #fff;
 }
 
 /* =========================================================
@@ -453,12 +453,12 @@
 }
 .cc-cta-band h2 em { font-style: normal; color: var(--cc-blue); }
 .cc-cta-band p {
-  color: rgba(255,255,255,0.82); font-size: 18px;
+  color: #fff; font-size: 18px;
   max-width: 620px; margin: 0 auto 40px; line-height: 1.6;
 }
 .cc-cta-back { margin-top: 32px; }
 .cc-cta-back a {
-  color: rgba(255,255,255,0.7);
+  color: #fff;
   font-size: 14px; letter-spacing: 0.02em;
   text-decoration: none;
 }

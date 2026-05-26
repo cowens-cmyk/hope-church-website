@@ -108,7 +108,7 @@
 
 .wt-anchor-lead {
   font-size: 19px; line-height: 1.6;
-  color: rgba(255,255,255,0.82);
+  color: #fff;
   margin: 0 0 40px; max-width: 52ch;
 }
 .wt-anchor-lead strong { color: #fff; font-weight: 600; }
@@ -139,7 +139,7 @@
 .wt-anchor-facts dd s {
   text-decoration: none;
   font-size: 14px;
-  color: rgba(255,255,255,0.6);
+  color: #fff;
   font-weight: 700;
   margin-left: 4px;
 }
@@ -185,7 +185,7 @@
   display: block;
   font-style: normal;
   font-size: 12px; letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.6);
+  color: #fff;
 }
 
 /* =========================================================
@@ -277,7 +277,7 @@
 }
 .wt-team-desc {
   font-size: 15.5px; line-height: 1.6;
-  color: rgba(255,255,255,0.78);
+  color: #fff;
   margin: 0 0 22px;
   max-width: 44ch;
 }
@@ -290,7 +290,7 @@
   padding: 7px 12px;
   border: 1px solid var(--wt-line-strong);
   border-radius: 999px;
-  color: rgba(255,255,255,0.86);
+  color: #fff;
   backdrop-filter: blur(4px);
   background: rgba(255,255,255,0.04);
 }
@@ -430,7 +430,7 @@
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 10.5px; font-weight: 800; letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
+  color: #fff;
   padding: 9px 14px;
   background: rgba(0,0,0,0.35);
   border: 1px solid rgba(255,255,255,0.18);
@@ -466,7 +466,7 @@
 .wt-week-body h2 em { font-style: normal; color: var(--wt-sky); }
 .wt-week-body > p {
   font-size: 17px; line-height: 1.65;
-  color: rgba(255,255,255,0.78);
+  color: #fff;
   margin: 0 0 48px;
   max-width: 46ch;
 }
@@ -499,7 +499,7 @@
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.55);
+  color: #fff;
   margin-top: 8px;
 }
 .wt-sched-detail h4 {
@@ -521,7 +521,7 @@
 }
 .wt-sched-detail p {
   font-size: 14.5px; line-height: 1.6;
-  color: rgba(255,255,255,0.72);
+  color: #fff;
   margin: 0;
   max-width: 42ch;
 }
@@ -557,13 +557,13 @@
 }
 .wt-cta-band h2 em { font-style: normal; color: var(--wt-bright); }
 .wt-cta-band > .container > p {
-  color: rgba(255,255,255,0.82);
+  color: #fff;
   font-size: 18px; line-height: 1.6;
   max-width: 600px; margin: 0 auto 40px;
 }
 .wt-cta-back { margin-top: 32px; }
 .wt-cta-back a {
-  color: rgba(255,255,255,0.7);
+  color: #fff;
   font-size: 14px; letter-spacing: 0.02em;
   text-decoration: none;
 }
