@@ -130,7 +130,7 @@ function KidsMinistryPage({ onNav }) {
 
           <div className="kids-checkin-note">
             <Icon name="clock" size={18} color="var(--hope-blue)"/>
-            <p><strong>Check-in opens 10 minutes before each service</strong> &mdash; giving parents time to get kids settled before worship begins. At the end of service, all K&ndash;4th graders are picked up in the large elementary classroom.</p>
+            <p><strong>Check-in opens 10 minutes before each service</strong> &mdash; giving parents time to get kids settled before worship begins. At the end of service, K&ndash;4th graders are picked up in their classrooms.</p>
           </div>
         </div>
       </section>
@@ -195,7 +195,7 @@ function KidsMinistryPage({ onNav }) {
         <div className="container">
           <span className="eyebrow">Parents</span>
           <h2>Serve alongside your kids.</h2>
-          <p>We invite and encourage parents to serve in Hope Kids on a rotating basis. There are many ways to get involved &mdash; and it&rsquo;s a great way to get to know other families with young children at Hope.</p>
+          <p>We invite and encourage parents to serve in Hope Kids on a rotating basis. There are many ways to get involved &mdash; and it&rsquo;s a great way to get to know other families with young children at Hope. If you&rsquo;re new to Hope, we ask that you complete our Discover Hope class before serving.</p>
           <div className="cta-band-actions">
             <Button variant="primary" size="xl" iconRight="arrow" onClick={() => window.open(SERVE_URL, '_blank', 'noopener')}>Serve in Hope Kids</Button>
             <Button variant="outline-on-dark" size="xl" icon="facebook" onClick={() => window.open(FB_URL, '_blank', 'noopener')}>Facebook Group</Button>
