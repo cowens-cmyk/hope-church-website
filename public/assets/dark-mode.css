@@ -634,3 +634,32 @@
 [data-theme="dark"] .l56-rhythm-card {
   color: var(--fg-1);
 }
+
+/* =========================================================
+   BRIGHTER LEAD COPY IN DARK MODE
+   Students, Linked 56, and Fueled by Hope all have several
+   body/lead paragraphs that hit var(--fg-2)/(--fg-3) — those map
+   to soft grey on dark surfaces. Bump them to high-contrast white
+   so they read clearly. Eyebrow-style labels stay slightly muted
+   so the visual hierarchy survives.
+   ========================================================= */
+[data-theme="dark"] .hs-wed-copy p,
+[data-theme="dark"] .hs-beat p,
+[data-theme="dark"] .hs-sunday-copy p,
+[data-theme="dark"] .hs-gallery-head p,
+[data-theme="dark"] .hs-calendar-head p,
+[data-theme="dark"] .l56-intro-copy p,
+[data-theme="dark"] .l56-pillar p,
+[data-theme="dark"] .l56-rhythm-card p,
+[data-theme="dark"] .l56-safety-note p,
+[data-theme="dark"] .l56-calendar-head p,
+[data-theme="dark"] .fh-secondhalf-copy p,
+[data-theme="dark"] .fh-gallery-head p,
+[data-theme="dark"] .fh-calendar-head p {
+  color: #fff;
+}
+
+[data-theme="dark"] .hs-wed-times-label,
+[data-theme="dark"] .l56-calendar-badge {
+  color: rgba(255, 255, 255, 0.78);
+}
