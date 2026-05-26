@@ -9,37 +9,8 @@ const { useState: useStatePP, useEffect: useEffectPP, useRef: useRefPP, useMemo:
 // Prayer Request Page
 // ============================================================
 function PrayerRequestPage() {
-  const [submitted, setSubmitted] = useStatePP(false);
-  const [form, setForm] = useStatePP({
-    name: '',
-    email: '',
-    phone: '',
-    confidential: false,
-    request: '',
-  });
-  const update = (k) => (e) => {
-    const v = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    setForm({ ...form, [k]: v });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const subject = encodeURIComponent('Prayer Request');
-    const body = encodeURIComponent(
-      `Hi Hope Church team,\n\n` +
-      `A new prayer request came in through the website:\n\n` +
-      `Name: ${form.name || '(anonymous)'}\n` +
-      `Email: ${form.email || '(none provided)'}\n` +
-      `Phone: ${form.phone || '(none provided)'}\n` +
-      `Keep confidential (elders/pastoral team only): ${form.confidential ? 'Yes' : 'No'}\n\n` +
-      `--- Request ---\n` +
-      `${form.request}\n\n` +
-      `Sent from hopejc.org`
-    );
-    window.location.href = `mailto:info@hopejc.org?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-  };
-
+  // Planning Center form — submissions land in PCO People and notify info@hopejc.org.
+  const formUrl = 'https://hopejc.churchcenter.com/people/forms/1235486';
   return (
     <div data-screen-label="Page · Prayer Requests">
       <PageHeader
@@ -49,52 +20,19 @@ function PrayerRequestPage() {
       />
       <section className="prayer-section">
         <div className="container prayer-grid">
-          <form className="prayer-card" onSubmit={handleSubmit}>
-            <h2>Share your request</h2>
-            <div className="sub">Every request is read by a real person on our team.</div>
-
-            {submitted && (
-              <div className="prayer-success">
-                Your email app should have opened with the request ready to send to <strong>info@hopejc.org</strong>. Just hit send and we&rsquo;ll start praying. Thanks for trusting us with this.
-              </div>
-            )}
-
-            <div className="prayer-field">
-              <label>Your name <span style={{color:'var(--fg-3)', fontWeight:600, textTransform:'none', letterSpacing:0}}>(optional)</span></label>
-              <input type="text" value={form.name} onChange={update('name')} placeholder="First and last name" />
+          <div className="connect-embed-wrap">
+            <iframe
+              src={`${formUrl}?open_in_church_center_modal=false`}
+              title="Prayer Request — Hope Church"
+              className="connect-embed"
+              loading="lazy"
+              allow="clipboard-write"
+            />
+            <div className="connect-embed-fallback">
+              Having trouble seeing the form?{' '}
+              <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
             </div>
-
-            <div className="prayer-field">
-              <label>Email <span style={{color:'var(--fg-3)', fontWeight:600, textTransform:'none', letterSpacing:0}}>(optional)</span></label>
-              <input type="email" value={form.email} onChange={update('email')} placeholder="you@example.com" />
-            </div>
-
-            <div className="prayer-field">
-              <label>Phone <span style={{color:'var(--fg-3)', fontWeight:600, textTransform:'none', letterSpacing:0}}>(optional)</span></label>
-              <input type="tel" value={form.phone} onChange={update('phone')} placeholder="(423) 555&ndash;0000" />
-            </div>
-
-            <div className="prayer-field">
-              <label>What can we pray for?</label>
-              <textarea
-                rows={6}
-                value={form.request}
-                onChange={update('request')}
-                required
-                placeholder="Share as much or as little as you'd like."
-              />
-            </div>
-
-            <label className="prayer-checkbox">
-              <input type="checkbox" checked={form.confidential} onChange={update('confidential')} />
-              <span>
-                <strong>Keep this confidential</strong>
-                Share only with our pastors and prayer team. (Otherwise, requests may be shared with our prayer chain.)
-              </span>
-            </label>
-
-            <Button variant="primary" size="lg" iconRight="arrow" type="submit">Send Prayer Request</Button>
-          </form>
+          </div>
 
           <aside className="prayer-aside">
             <div className="prayer-verse-card">

@@ -28,59 +28,24 @@ function PageHeader({ eyebrow, title, lead }) {
 
 // ---------- Visit Page ----------
 function VisitPage() {
-  const [submitted, setSubmitted] = useStateP(false);
-  const [form, setForm] = useStateP({
-    name: '', email: '', sunday: 'This Sunday, May 17', service: '9:45am', kids: 'Just me'
-  });
-  const update = (k) => (e) => setForm({ ...form, [k]: e.target.value });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`New first-time visit \u2014 ${form.name || 'Visitor'}`);
-    const body = encodeURIComponent(
-      `Hi Hope Church team,\n\n` +
-      `Someone planned a first visit through the website:\n\n` +
-      `Name: ${form.name}\n` +
-      `Email: ${form.email}\n` +
-      `Sunday: ${form.sunday}\n` +
-      `Service time: ${form.service}\n` +
-      `Kids joining: ${form.kids}\n\n` +
-      `Sent from hopejc.org`
-    );
-    window.location.href = `mailto:info@hopejc.org?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-  };
-
+  // Planning Center form — submissions land in PCO People and notify info@hopejc.org.
+  const formUrl = 'https://hopejc.churchcenter.com/people/forms/1235473';
   return (
     <>
       <PageHeader eyebrow="I'm New" title="We'll save you a seat." lead="Let us know you're coming and we'll meet you at the door, show you around, and help you find your way in." />
       <section className="visit-section">
         <div className="container visit-grid">
-          <div>
-            <div className="visit-card">
-              <h2>Plan your first visit</h2>
-              <div className="sub">Takes about 30 seconds.</div>
-              {submitted && <div className="visit-success">Thanks! We'll watch for you Sunday. Your email app should have opened — just hit send to let us know you're coming.</div>}
-              <form onSubmit={handleSubmit}>
-                <div className="visit-field"><label>Your name</label><input type="text" placeholder="First and last name" value={form.name} onChange={update('name')} required/></div>
-                <div className="visit-field"><label>Email</label><input type="email" placeholder="you@example.com" value={form.email} onChange={update('email')} required/></div>
-                <div className="visit-field"><label>Which Sunday?</label>
-                  <select value={form.sunday} onChange={update('sunday')}>
-                    <option>This Sunday, May 17</option><option>Sunday, May 24</option><option>Sunday, May 31</option>
-                  </select>
-                </div>
-                <div className="visit-field"><label>Service time</label>
-                  <select value={form.service} onChange={update('service')}>
-                    <option>8:00am</option><option>9:45am</option><option>11:30am</option>
-                  </select>
-                </div>
-                <div className="visit-field"><label>Kids joining you?</label>
-                  <select value={form.kids} onChange={update('kids')}>
-                    <option>Just me</option><option>1 child</option><option>2 children</option><option>3+ children</option>
-                  </select>
-                </div>
-                <Button variant="primary" size="lg" iconRight="arrow">Save My Seat</Button>
-              </form>
+          <div className="connect-embed-wrap">
+            <iframe
+              src={`${formUrl}?open_in_church_center_modal=false`}
+              title="Plan a Visit — Hope Church"
+              className="connect-embed"
+              loading="lazy"
+              allow="clipboard-write"
+            />
+            <div className="connect-embed-fallback">
+              Having trouble seeing the form?{' '}
+              <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
             </div>
           </div>
           <aside className="visit-aside">
@@ -800,47 +765,26 @@ function NextStepsPage() {
 }
 
 function ContactPage() {
-  const [submitted, setSubmitted] = useStateP(false);
-  const [form, setForm] = useStateP({
-    name: '', email: '', topic: 'General question', message: ''
-  });
-  const update = (k) => (e) => setForm({ ...form, [k]: e.target.value });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`${form.topic} \u2014 ${form.name || 'Website visitor'}`);
-    const body = encodeURIComponent(
-      `Hi Hope Church team,\n\n` +
-      `A new message came in through the website:\n\n` +
-      `Name: ${form.name}\n` +
-      `Email: ${form.email}\n` +
-      `Topic: ${form.topic}\n\n` +
-      `Message:\n${form.message}\n\n` +
-      `Sent from hopejc.org`
-    );
-    window.location.href = `mailto:info@hopejc.org?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-  };
-
+  // Planning Center form — submissions land in PCO People and notify info@hopejc.org.
+  const formUrl = 'https://hopejc.churchcenter.com/people/forms/1235481';
   return (
     <>
       <PageHeader eyebrow="Contact" title="We'd love to hear from you." lead="Whether you have a question, need prayer, or simply want to introduce yourself — every message lands with a real person on our team." />
       <section className="visit-section">
         <div className="container visit-grid">
-          <form className="visit-card" onSubmit={handleSubmit}>
-            <h2>Send us a note</h2>
-            <div className="sub">We usually reply within one business day.</div>
-            <div className="visit-field"><label>Your name</label><input type="text" value={form.name} onChange={update('name')} required/></div>
-            <div className="visit-field"><label>Email</label><input type="email" value={form.email} onChange={update('email')} required/></div>
-            <div className="visit-field"><label>What's this about?</label>
-              <select value={form.topic} onChange={update('topic')}>
-                <option>General question</option><option>Prayer request</option><option>Pastoral care</option><option>Wedding / Funeral</option><option>Media / Press</option>
-              </select>
+          <div className="connect-embed-wrap">
+            <iframe
+              src={`${formUrl}?open_in_church_center_modal=false`}
+              title="Contact Hope Church"
+              className="connect-embed"
+              loading="lazy"
+              allow="clipboard-write"
+            />
+            <div className="connect-embed-fallback">
+              Having trouble seeing the form?{' '}
+              <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
             </div>
-            <div className="visit-field"><label>Message</label><textarea rows={5} value={form.message} onChange={update('message')} required/></div>
-            <Button variant="primary" size="lg" iconRight="arrow" type="submit">Send</Button>
-            {submitted && <p className="sub" style={{marginTop:12, color:'var(--hope-blue)'}}>Your email app should have opened with the message ready to send to info@hopejc.org. Thanks for reaching out!</p>}
-          </form>
+          </div>
           <aside className="visit-aside">
             <h3>Hope Church</h3>
             <div className="visit-expect">
