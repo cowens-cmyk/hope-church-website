@@ -1,0 +1,699 @@
+/* ============================================================
+   Prayer Request page + Podcast page
+   Hope Church
+   ============================================================ */
+
+/* ---------- Prayer Request ---------- */
+.prayer-section { padding: 64px 0 112px; background: var(--bg-1); }
+.prayer-grid {
+  display: grid; gap: 48px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: start;
+}
+@media (max-width: 900px) { .prayer-grid { grid-template-columns: 1fr; } }
+
+.prayer-card {
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+}
+.prayer-card h2 {
+  font-family: var(--font-display);
+  font-size: 32px; line-height: 1.1; letter-spacing: -0.015em;
+  margin: 0 0 6px;
+}
+.prayer-card .sub { color: var(--fg-3); font-size: 14px; margin-bottom: 28px; }
+
+.prayer-field { margin-bottom: 18px; }
+.prayer-field label {
+  display: block; font-size: 12px; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--fg-2); margin-bottom: 8px;
+}
+.prayer-field input,
+.prayer-field select,
+.prayer-field textarea {
+  width: 100%;
+  background: var(--bg-1);
+  border: 1px solid var(--border-hairline);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font: inherit; font-size: 15px; color: var(--fg-1);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  font-family: inherit;
+}
+.prayer-field input:focus,
+.prayer-field select:focus,
+.prayer-field textarea:focus {
+  outline: none;
+  border-color: var(--hope-blue);
+  box-shadow: 0 0 0 3px rgba(0,130,202,0.15);
+}
+.prayer-field textarea { resize: vertical; min-height: 140px; }
+
+.prayer-checkbox {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 14px 16px;
+  background: var(--bg-brand-soft);
+  border-radius: 10px;
+  margin-bottom: 22px;
+  cursor: pointer;
+  font-size: 14px; color: var(--fg-2);
+  line-height: 1.5;
+}
+.prayer-checkbox input { margin-top: 2px; accent-color: var(--hope-blue); flex-shrink: 0; }
+.prayer-checkbox strong { color: var(--fg-1); display: block; margin-bottom: 2px; }
+
+.prayer-success {
+  background: var(--bg-brand-soft);
+  border-left: 3px solid var(--hope-blue);
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--fg-1);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Aside — verse + team note */
+.prayer-aside {
+  display: flex; flex-direction: column; gap: 28px;
+  position: sticky; top: 96px;
+}
+.prayer-verse-card {
+  background: var(--hope-navy);
+  color: #fff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.prayer-verse-card::before {
+  content: '“';
+  position: absolute;
+  top: -30px; left: 18px;
+  font-family: var(--font-display);
+  font-size: 200px;
+  line-height: 1;
+  color: rgba(255,255,255,0.08);
+  font-weight: 900;
+}
+.prayer-verse-card .v-eyebrow {
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--hope-sky); margin-bottom: 18px;
+  position: relative;
+}
+.prayer-verse-card blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px; line-height: 1.35; letter-spacing: -0.01em;
+  font-weight: 500;
+  position: relative;
+  text-wrap: pretty;
+}
+.prayer-verse-card cite {
+  display: block; margin-top: 16px;
+  font-size: 13px; font-style: normal;
+  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  position: relative;
+}
+
+.prayer-team-card {
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  padding: 28px 30px;
+}
+.prayer-team-card h3 {
+  font-size: 16px; font-weight: 800; margin: 0 0 6px;
+}
+.prayer-team-card p {
+  font-size: 14px; line-height: 1.55; color: var(--fg-2); margin: 0 0 14px;
+}
+.prayer-team-card .meta {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--fg-3);
+}
+.prayer-team-card .meta a { color: var(--hope-blue); font-weight: 600; }
+
+/* ---------- Podcast page ---------- */
+.podcast-tabs {
+  background: var(--bg-1);
+  padding: 0 0 0;
+  border-bottom: 1px solid var(--border-hairline);
+  position: sticky; top: 0; z-index: 5;
+}
+.podcast-tabs-inner {
+  display: flex; gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.podcast-tabs-inner::-webkit-scrollbar { display: none; }
+.podcast-tab {
+  background: none; border: 0;
+  padding: 18px 4px;
+  margin-right: 28px;
+  font: inherit;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--fg-3);
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.podcast-tab:hover { color: var(--fg-1); }
+.podcast-tab.active { color: var(--hope-blue); }
+.podcast-tab.active::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: -1px;
+  height: 2px; background: var(--hope-blue);
+}
+
+.podcast-section {
+  padding: 56px 0 112px;
+  background: var(--bg-1);
+}
+
+.podcast-channel-header {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 40px;
+  margin-bottom: 56px;
+  align-items: end;
+}
+@media (max-width: 720px) {
+  .podcast-channel-header {
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+.podcast-cover {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0,30,60,0.18), 0 8px 16px rgba(0,30,60,0.08);
+  background: linear-gradient(135deg, var(--hope-blue), var(--hope-navy));
+}
+.podcast-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.podcast-channel-text .eyebrow {
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--hope-blue);
+  margin-bottom: 14px;
+}
+.podcast-channel-text h1 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  font-weight: 900;
+  margin: 0 0 18px;
+}
+.podcast-channel-text p {
+  font-size: 17px; line-height: 1.55; color: var(--fg-2);
+  max-width: 640px;
+  margin: 0 0 22px;
+}
+.podcast-channel-links {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.podcast-link-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-hairline);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 700;
+  color: var(--fg-1);
+  transition: all 0.15s ease;
+}
+.podcast-link-pill:hover {
+  border-color: var(--hope-blue);
+  color: var(--hope-blue);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.podcast-link-pill svg { flex-shrink: 0; }
+
+/* Episode list */
+.podcast-episodes-header {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+.podcast-episodes-header h2 {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.podcast-episodes-header .count {
+  font-size: 12px; font-weight: 700;
+  color: var(--fg-3);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.podcast-episodes { display: flex; flex-direction: column; }
+
+.podcast-episode {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--border-hairline);
+  transition: background 0.12s ease;
+}
+.podcast-episode:hover { background: var(--bg-brand-soft); }
+.podcast-episode-num {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 800;
+  color: var(--fg-3);
+  width: 36px; text-align: right;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.podcast-episode-body { min-width: 0; }
+.podcast-episode-title {
+  font-size: 17px; font-weight: 700; margin: 0 0 4px;
+  color: var(--fg-1);
+  line-height: 1.3;
+}
+.podcast-episode-meta {
+  font-size: 13px; color: var(--fg-3);
+  display: flex; gap: 12px; align-items: center;
+  flex-wrap: wrap;
+}
+.podcast-episode-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--fg-3); opacity: 0.6; }
+.podcast-episode-subtitle {
+  color: var(--fg-2); font-weight: 600;
+}
+
+.podcast-play-btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-hairline);
+  background: var(--bg-card, #fff);
+  color: var(--hope-blue);
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  padding: 0;
+}
+.podcast-play-btn:hover {
+  background: var(--hope-blue);
+  color: #fff;
+  border-color: var(--hope-blue);
+  transform: scale(1.05);
+}
+.podcast-play-btn.is-playing {
+  background: var(--hope-blue);
+  color: #fff;
+  border-color: var(--hope-blue);
+}
+
+/* Now-playing dock */
+.podcast-dock {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  background: var(--ink-900, #0b1f33);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.18);
+  z-index: 100;
+  padding: 14px 0;
+  transform: translateY(110%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.podcast-dock.is-open { transform: translateY(0); }
+.podcast-dock-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+}
+@media (max-width: 720px) {
+  .podcast-dock-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .podcast-dock-meta { display: none; }
+}
+.podcast-dock-meta { min-width: 0; }
+.podcast-dock-show {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--hope-sky);
+  margin-bottom: 2px;
+}
+.podcast-dock-title {
+  font-size: 14px; font-weight: 700; line-height: 1.3;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.podcast-dock-audio { width: 100%; height: 36px; }
+.podcast-dock-audio::-webkit-media-controls-panel { background: transparent; }
+.podcast-dock-close {
+  background: rgba(255,255,255,0.06);
+  border: 0; color: rgba(255,255,255,0.7);
+  width: 32px; height: 32px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; padding: 0;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.podcast-dock-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+/* Loading / error */
+.podcast-loading,
+.podcast-error {
+  padding: 56px 24px; text-align: center;
+  color: var(--fg-3); font-size: 14px;
+}
+.podcast-error a { color: var(--hope-blue); font-weight: 700; }
+
+.podcast-skeleton {
+  display: flex; flex-direction: column;
+}
+.podcast-skeleton-row {
+  display: grid;
+  grid-template-columns: 36px minmax(0,1fr) 44px;
+  gap: 20px; align-items: center;
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+.podcast-skel-block {
+  height: 14px; border-radius: 4px;
+  background: linear-gradient(90deg, var(--ink-100,#e8eaef) 0%, var(--ink-050,#f3f4f7) 50%, var(--ink-100,#e8eaef) 100%);
+  background-size: 200% 100%;
+  animation: pSkel 1.4s ease-in-out infinite;
+}
+.podcast-skel-block.short { width: 40%; height: 12px; opacity: 0.65; margin-top: 8px; }
+.podcast-skel-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--ink-100,#e8eaef);
+}
+@keyframes pSkel {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Dark mode tweaks (mirroring site dark patterns) */
+[data-theme='dark'] .prayer-card,
+[data-theme='dark'] .prayer-team-card,
+[data-theme='dark'] .podcast-link-pill {
+  background: var(--bg-card, #1a2330);
+}
+[data-theme='dark'] .prayer-field input,
+[data-theme='dark'] .prayer-field select,
+[data-theme='dark'] .prayer-field textarea {
+  background: var(--bg-1);
+  color: var(--fg-1);
+}
+[data-theme='dark'] .podcast-episode:hover { background: rgba(0,130,202,0.08); }
+[data-theme='dark'] .podcast-play-btn { background: rgba(255,255,255,0.04); }
+
+/* ============================================================
+   Watch Live (footer accent link / button)
+   ============================================================ */
+.footer-cols a.footer-live-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--hope-sky, #6BC4E8);
+  font-weight: 700;
+}
+.footer-cols a.footer-live-link:hover { color: #fff; }
+.footer-live-row {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  display: flex;
+  justify-content: flex-start;
+}
+a.footer-live-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 20px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+a.footer-live-btn:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.40);
+  color: #fff;
+  text-decoration: none;
+}
+a.footer-live-btn .live-dot,
+.footer-cols a.footer-live-link .live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #ff3b30;
+  box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.6);
+  animation: footerLivePulse 1.8s ease-out infinite;
+  flex-shrink: 0;
+}
+@keyframes footerLivePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(255, 59, 48, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); }
+}
+
+/* ============================================================
+   App Page
+   ============================================================ */
+.app-page-hero {
+  position: relative;
+  background:
+    radial-gradient(1100px 600px at 85% 30%, rgba(0,130,202,0.18), transparent 60%),
+    radial-gradient(800px 500px at 10% 90%, rgba(0,30,60,0.55), transparent 70%),
+    linear-gradient(160deg, var(--hope-navy) 0%, #06192e 100%);
+  color: #fff;
+  padding: 96px 0 64px;
+  overflow: hidden;
+}
+.app-page-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.18) 1px, transparent 2px),
+    radial-gradient(1px 1px at 70% 65%, rgba(255,255,255,0.10) 1px, transparent 2px),
+    radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.14) 1px, transparent 2px);
+  background-size: 240px 240px, 180px 180px, 300px 300px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.app-page-hero-inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+@media (max-width: 900px) {
+  .app-page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .app-page-hero { padding: 64px 0 48px; }
+}
+.app-page-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hope-sky, #6BC4E8);
+  margin-bottom: 22px;
+}
+.app-page-eyebrow::before {
+  content: ''; width: 28px; height: 1px; background: var(--hope-sky, #6BC4E8); opacity: 0.6;
+}
+.app-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  font-weight: 900;
+  margin: 0 0 24px;
+  text-wrap: balance;
+  color: #fff;
+}
+.app-page-title em {
+  font-style: normal;
+  color: var(--hope-sky, #6BC4E8);
+}
+.app-page-lead {
+  font-size: 19px; line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+  max-width: 520px;
+  margin: 0 0 36px;
+}
+.app-page-hero .app-stores { gap: 14px; flex-wrap: wrap; }
+.app-page-hero .app-store-btn {
+  background: #fff; color: var(--ink-900);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+.app-page-hero .app-store-btn:hover { background: #fff; color: var(--ink-900); transform: translateY(-2px); }
+
+.app-page-phone-wrap {
+  display: flex; justify-content: center;
+  position: relative;
+}
+.app-page-phone-wrap::before {
+  content: '';
+  position: absolute;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,171,248,0.35) 0%, transparent 70%);
+  filter: blur(8px);
+  z-index: 0;
+}
+.app-page-phone-wrap .app-phone {
+  position: relative; z-index: 1;
+  max-width: 300px;
+}
+
+/* Features grid */
+.app-page-features {
+  padding: 96px 0;
+  background: var(--bg-1);
+}
+.app-page-features-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.app-page-features-header .eyebrow {
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hope-blue); margin-bottom: 14px;
+}
+.app-page-features-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.05; letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+.app-page-features-header p {
+  font-size: 17px; color: var(--fg-2);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.app-page-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) { .app-page-features-grid { grid-template-columns: 1fr; } }
+
+.app-feature-card {
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  padding: 28px 26px 26px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.app-feature-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--hope-blue);
+  box-shadow: 0 16px 36px rgba(0,30,60,0.08);
+}
+.app-feature-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--bg-brand-soft);
+  color: var(--hope-blue);
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.app-feature-card h3 {
+  font-size: 17px; font-weight: 800;
+  margin: 0 0 8px;
+}
+.app-feature-card p {
+  font-size: 14px; line-height: 1.55;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+/* How to install */
+.app-page-install {
+  padding: 80px 0 112px;
+  background: var(--ink-050);
+}
+.app-page-install-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+@media (max-width: 760px) { .app-page-install-inner { grid-template-columns: 1fr; gap: 36px; } }
+.app-page-install-text .eyebrow {
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hope-blue); margin-bottom: 14px;
+}
+.app-page-install-text h2 {
+  font-family: var(--font-display);
+  font-size: 36px; line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0 0 14px;
+}
+.app-page-install-text p {
+  font-size: 16px; color: var(--fg-2);
+  margin: 0 0 28px;
+}
+.app-page-install-text .app-stores { gap: 12px; flex-wrap: wrap; }
+
+.app-page-install-steps {
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  counter-reset: install-step;
+}
+.app-page-install-steps li {
+  list-style: none;
+  position: relative;
+  padding: 14px 0 14px 52px;
+  border-bottom: 1px solid var(--border-hairline);
+  counter-increment: install-step;
+  font-size: 15px; line-height: 1.5;
+  color: var(--fg-1);
+}
+.app-page-install-steps li:last-child { border-bottom: 0; padding-bottom: 4px; }
+.app-page-install-steps li:first-child { padding-top: 4px; }
+.app-page-install-steps li::before {
+  content: counter(install-step, decimal-leading-zero);
+  position: absolute;
+  left: 0; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg-brand-soft);
+  color: var(--hope-blue);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  letter-spacing: -0.01em;
+}
+.app-page-install-steps li:first-child::before { top: 22px; transform: translateY(0); }
+.app-page-install-steps li:last-child::before { top: auto; bottom: 8px; transform: translateY(0); }
+
+[data-theme='dark'] .app-feature-card,
+[data-theme='dark'] .app-page-install-steps {
+  background: var(--bg-card, #1a2330);
+}

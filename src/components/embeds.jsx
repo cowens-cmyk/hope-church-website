@@ -1,8 +1,26 @@
+import React from 'react';
 // Hope Church — Subsplash embed components
 // Two flavors: iframe-based (recent media) and script-based (events, media library)
-import React from 'react';
 
 const { useEffect: useEffectSE, useRef: useRefSE } = React;
+
+// Subsplash's embed loader reads `?sapurl=...` from the parent window URL and
+// uses it to override the embed key passed in. That's fine for a single-embed
+// page, but on this SPA, navigating between pages with different embeds leaves
+// the sapurl stamped from the previous one — so the next embed loads the wrong
+// content. Strip it before each embed mounts.
+function clearSapUrlParam() {
+  try {
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('sapurl') || /[?&]sapurl=/.test(url.search)) {
+      // Some URLs have malformed search strings like `?srcmap=1?sapurl=...`
+      // (two `?` separators). Rebuild the search safely.
+      const search = url.search.replace(/[?&]sapurl=[^&]*/g, '');
+      const cleaned = search.replace(/^\?+/, '?').replace(/^\?$/, '');
+      window.history.replaceState(null, '', url.pathname + cleaned + url.hash);
+    }
+  } catch (_) { /* ignore */ }
+}
 
 // ---------- Subsplash: Most Recent Media (simple iframe) ----------
 function SubsplashRecent() {
@@ -28,6 +46,7 @@ function SubsplashScriptEmbed({ embedId, embedKey }) {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     // Reset any prior contents (e.g. on page switch back)
     host.innerHTML = '';
 
@@ -71,6 +90,7 @@ function SubsplashEvents() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     // The target MUST be a <script> with this exact id.
@@ -99,8 +119,39 @@ function SubsplashEvents() {
   return <div className="subsplash-embed-host" ref={hostRef} />;
 }
 
+// ---------- Subsplash: Full Media Library ----------
+// Uses the exact embed snippet provided by Subsplash, verbatim — same pattern as SubsplashEvents.
 function SubsplashMediaLibrary() {
-  return <SubsplashScriptEmbed embedId="subsplash-embed-95z9nk2" embedKey="+4h5t/lb/li/+95z9nk2?embed&1779113816390" />;
+  const hostRef = useRefSE(null);
+  useEffectSE(() => {
+    const host = hostRef.current;
+    if (!host) return;
+    clearSapUrlParam();
+    host.innerHTML = '';
+
+    const target = document.createElement('script');
+    target.id = 'subsplash-embed-ffj2cbm';
+    target.type = 'text/javascript';
+    target.text = [
+      'var target = document.getElementById("subsplash-embed-ffj2cbm");',
+      'var script = document.createElement("script");',
+      'script.type = "text/javascript";',
+      'script.onload = function() {',
+      '  subsplashEmbed(',
+      '    "+4h5t/lb/li/+ffj2cbm?embed&1779372830237",',
+      '    "https://subsplash.com/",',
+      '    "subsplash-embed-ffj2cbm"',
+      '  );',
+      '};',
+      'script.src = "https://dashboard.static.subsplash.com/production/web-client/external/embed-1.1.0.js";',
+      'target.parentElement.insertBefore(script, target);'
+    ].join('\n');
+    host.appendChild(target);
+
+    return () => { if (host) host.innerHTML = ''; };
+  }, []);
+
+  return <div className="subsplash-embed-host" ref={hostRef} />;
 }
 
 // ---------- Subsplash: Linked 56 calendar ----------
@@ -110,6 +161,7 @@ function SubsplashLinked56Calendar() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     const target = document.createElement('script');
@@ -143,6 +195,7 @@ function SubsplashStudentsCalendar() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     const target = document.createElement('script');
@@ -176,6 +229,7 @@ function SubsplashKidsCalendar() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     const target = document.createElement('script');
@@ -209,6 +263,7 @@ function SubsplashCollegeCalendar() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     const target = document.createElement('script');
@@ -242,6 +297,7 @@ function SubsplashWomenCalendar() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     const target = document.createElement('script');
@@ -275,6 +331,7 @@ function SubsplashMenCalendar() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     const target = document.createElement('script');
@@ -308,6 +365,7 @@ function SubsplashFueledByHopeCalendar() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     const target = document.createElement('script');
@@ -342,6 +400,7 @@ function GiveEmbed() {
   useEffectSE(() => {
     const host = hostRef.current;
     if (!host) return;
+    clearSapUrlParam();
     host.innerHTML = '';
 
     const target = document.createElement('script');

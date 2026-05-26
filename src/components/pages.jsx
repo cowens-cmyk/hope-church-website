@@ -1,7 +1,6 @@
-// Hope Church — subpages: Visit, About, Sermons, Events, Give, Ministries, Serve, NextSteps, Contact
 import React from 'react';
-import { Button, Icon, SectionHeader, PageHeader } from './shared.jsx';
-import { SubsplashRecent, SubsplashMediaLibrary, SubsplashEvents, GiveEmbed } from './embeds.jsx';
+import { Icon, Button, SectionHeader } from './shared.jsx';
+import { SubsplashRecent, SubsplashEvents, SubsplashMediaLibrary, GiveEmbed } from './embeds.jsx';
 import { KidsMinistryPage } from './ministry-kids.jsx';
 import { Linked56MinistryPage } from './ministry-linked56.jsx';
 import { StudentsMinistryPage } from './ministry-students.jsx';
@@ -10,8 +9,22 @@ import { WomenMinistryPage } from './ministry-women.jsx';
 import { MenMinistryPage } from './ministry-men.jsx';
 import { WorshipMinistryPage } from './ministry-worship.jsx';
 import { FueledByHopeMinistryPage } from './ministry-fueledbyhope.jsx';
+// Hope Church — subpages: Visit, About, Sermons, Events, Give, Ministries, Serve, NextSteps, Contact
 
 const { useState: useStateP } = React;
+
+// ---------- PageHeader (reused) ----------
+function PageHeader({ eyebrow, title, lead }) {
+  return (
+    <section className="page-header">
+      <div className="container">
+        <span className="eyebrow">{eyebrow}</span>
+        <h1>{title}</h1>
+        {lead && <p className="lead">{lead}</p>}
+      </div>
+    </section>
+  );
+}
 
 // ---------- Visit Page ----------
 function VisitPage() {
@@ -429,7 +442,7 @@ function SermonsPage() {
 function EventsPage() {
   return (
     <>
-      <PageHeader eyebrow="Events" title="What's happening at Hope." lead="Classes, gatherings, serve days, and milestones — find your next step and sign up below." />
+      <PageHeader eyebrow="Events" title="What's happening at Hope." />
       <section className="events-section">
         <div className="container">
           <div className="embed-frame">
@@ -596,7 +609,7 @@ function MinistriesPage({ onNav }) {
   return (
     <>
       <PageHeader eyebrow="Ministries" title="A place for every age." lead="From nursery to retirement, Hope has a community for every stage of life. Find the one that fits you and your family." />
-      <section className="ministries-section" style={{background:'#fff'}}>
+      <section className="ministries-section">
         <div className="container">
           <div className="ministries-grid">
             {MINISTRIES.map(m => (
@@ -626,29 +639,40 @@ function MinistriesPage({ onNav }) {
   );
 }
 
-// Each ministry slug maps to its dedicated detail page.
-const MINISTRY_PAGES = {
-  'ministry-kids': KidsMinistryPage,
-  'ministry-linked56': Linked56MinistryPage,
-  'ministry-students': StudentsMinistryPage,
-  'ministry-college': CollegeMinistryPage,
-  'ministry-women': WomenMinistryPage,
-  'ministry-men': MenMinistryPage,
-  'ministry-worship': WorshipMinistryPage,
-  'ministry-fueledbyhope': FueledByHopeMinistryPage,
-};
-
-// Renders the dedicated ministry page, or a placeholder for an unknown slug.
+// Generic placeholder page for each individual ministry — to be designed out
 function MinistryDetailPage({ slug, onNav }) {
-  const Dedicated = MINISTRY_PAGES[slug];
-  if (Dedicated) return <Dedicated onNav={onNav}/>;
+  // Dedicated pages override the placeholder
+  if (slug === 'ministry-kids') {
+    return <KidsMinistryPage onNav={onNav}/>;
+  }
+  if (slug === 'ministry-linked56') {
+    return <Linked56MinistryPage onNav={onNav}/>;
+  }
+  if (slug === 'ministry-students') {
+    return <StudentsMinistryPage onNav={onNav}/>;
+  }
+  if (slug === 'ministry-college') {
+    return <CollegeMinistryPage onNav={onNav}/>;
+  }
+  if (slug === 'ministry-women') {
+    return <WomenMinistryPage onNav={onNav}/>;
+  }
+  if (slug === 'ministry-men') {
+    return <MenMinistryPage onNav={onNav}/>;
+  }
+  if (slug === 'ministry-worship') {
+    return <WorshipMinistryPage onNav={onNav}/>;
+  }
+  if (slug === 'ministry-fueledbyhope') {
+    return <FueledByHopeMinistryPage onNav={onNav}/>;
+  }
 
   const m = MINISTRIES.find(x => x.slug === slug);
   if (!m) return null;
   return (
     <>
       <PageHeader eyebrow={m.age} title={m.title} lead={m.desc} />
-      <section className="ministries-section" style={{background:'#fff'}}>
+      <section className="ministries-section">
         <div className="container" style={{textAlign:'center', maxWidth: 720}}>
           <p style={{fontSize: 18, color:'var(--fg-2)', marginBottom: 28}}>
             We&rsquo;re building out a dedicated page for {m.title} — events, leaders, and how to get involved are coming soon.
@@ -840,4 +864,4 @@ function ContactPage() {
   );
 }
 
-export { VisitPage, AboutPage, TeamPage, SermonsPage, EventsPage, GivePage, MinistriesPage, MinistryDetailPage, MINISTRIES, ServePage, NextStepsPage, ContactPage };
+export { PageHeader, VisitPage, AboutPage, TeamPage, SermonsPage, EventsPage, GivePage, MinistriesPage, MinistryDetailPage, MINISTRIES, ServePage, NextStepsPage, ContactPage };

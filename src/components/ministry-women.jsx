@@ -1,8 +1,7 @@
-// Hope Church — Woven (Women's Ministry) detail page (slug: ministry-women)
 import React from 'react';
-import { Button, Icon, PageHeader } from './shared.jsx';
+import { Button } from './shared.jsx';
 import { SubsplashWomenCalendar } from './embeds.jsx';
-//
+// Hope Church — Woven (Women's Ministry) detail page (slug: ministry-women)
 // "But speaking the truth in love, we must grow up in every way into him who is
 //  the head, into Christ, from whom the whole body, joined and knit together..."
 //  — Ephesians 4:15-16

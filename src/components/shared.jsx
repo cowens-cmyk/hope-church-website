@@ -1,5 +1,5 @@
-// Hope Church — shared components: Header, Footer, Sunday strip, Announcement bar
 import React from 'react';
+// Hope Church — shared components: Header, Footer, Sunday strip, Announcement bar
 
 const { useState, useEffect } = React;
 
@@ -21,6 +21,7 @@ function Icon({ name, size = 18, color = 'currentColor', strokeWidth = 1.75 }) {
     gift: <><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></>,
     hands: <><path d="M4 11V8a2 2 0 0 1 4 0v3"/><path d="M8 11V6a2 2 0 0 1 4 0v5"/><path d="M12 11V7a2 2 0 0 1 4 0v7"/><path d="M16 11v-1a2 2 0 0 1 4 0v6a5 5 0 0 1-5 5h-2a6 6 0 0 1-6-6v-3"/></>,
     mail: <><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></>,
+    phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>,
     instagram: <><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></>,
     facebook: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>,
     youtube: <><path d="M22 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.4 5 12 5 12 5s-4.4 0-7.2.1c-.4.1-1.2.1-2 .9C2.2 6.6 2 8 2 8S1.8 9.6 1.8 11.2v1.6C1.8 14.4 2 16 2 16s.2 1.4.8 2c.8.8 1.8.8 2.2.9C6.6 19 12 19 12 19s4.4 0 7.2-.1c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6C22.2 9.6 22 8 22 8z"/><polygon points="10 15 15 12 10 9 10 15" fill="currentColor"/></>,
@@ -63,8 +64,20 @@ function AnnouncementBar({ text, link, onDismiss, visible }) {
 
 // ---------- Theme Toggle ----------
 // Cycles Auto -> Light -> Dark -> Auto.
-// In Auto, theme is resolved from the local clock (dark 7pm-7am).
+// In Auto, theme is resolved from: OS preference (prefers-color-scheme),
+// falling back to local clock (dark 7pm–7am) when no preference is exposed.
+function systemAutoTheme() {
+  try {
+    if (window.matchMedia) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches)  return 'dark';
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+    }
+  } catch (e) {}
+  return null;
+}
 function resolveAutoTheme() {
+  const sys = systemAutoTheme();
+  if (sys) return sys;
   const h = new Date().getHours();
   return (h >= 19 || h < 7) ? 'dark' : 'light';
 }
@@ -72,21 +85,62 @@ function applyTheme(mode) {
   const resolved = mode === 'auto' ? resolveAutoTheme() : mode;
   document.documentElement.dataset.theme = resolved;
 }
+
+// Hook: read the current resolved theme from <html data-theme>, and re-read it
+// whenever it changes (theme toggle, OS toggle, or anything else mutating the attr).
+function useResolvedTheme() {
+  const [theme, setTheme] = useState(() => {
+    return (typeof document !== 'undefined' && document.documentElement.dataset.theme) || 'light';
+  });
+  useEffect(() => {
+    const root = document.documentElement;
+    const read = () => setTheme(root.dataset.theme || 'light');
+    read();
+    const obs = new MutationObserver(read);
+    obs.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => obs.disconnect();
+  }, []);
+  return theme;
+}
+
 function ThemeToggle() {
   // 'auto' | 'light' | 'dark'
+  // Initial mode comes from localStorage; the inline head script already set <html data-theme>
+  // by checking URL param > saved > system > clock, so we DON'T re-apply on first mount.
   const [mode, setMode] = useState(() => {
     try {
       const v = localStorage.getItem('hope_theme');
       return (v === 'light' || v === 'dark') ? v : 'auto';
     } catch { return 'auto'; }
   });
+  const isFirstRun = React.useRef(true);
 
-  // Re-resolve auto every minute so a tab left open through dusk catches up.
+  // Re-resolve auto whenever the system preference flips, and once a minute
+  // so a tab left open through dusk catches up if the OS gives no preference.
   useEffect(() => {
-    applyTheme(mode);
+    // Skip applying on the very first render — the inline head script
+    // already resolved the right theme (and may have honored ?theme= URL override).
+    if (!isFirstRun.current) {
+      applyTheme(mode);
+    }
+    isFirstRun.current = false;
+
     if (mode !== 'auto') return;
+    let mq = null, onChange = null;
+    try {
+      mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      onChange = () => applyTheme('auto');
+      if (mq && mq.addEventListener) mq.addEventListener('change', onChange);
+      else if (mq && mq.addListener) mq.addListener(onChange);
+    } catch (e) {}
     const id = setInterval(() => applyTheme('auto'), 60_000);
-    return () => clearInterval(id);
+    return () => {
+      clearInterval(id);
+      if (mq && onChange) {
+        if (mq.removeEventListener) mq.removeEventListener('change', onChange);
+        else if (mq.removeListener) mq.removeListener(onChange);
+      }
+    };
   }, [mode]);
 
   const cycle = () => {
@@ -185,7 +239,11 @@ function SiteHeader({ onNav, current, dark = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropOpen, setDropOpen] = useState(false);
   const [mobileInvolvedOpen, setMobileInvolvedOpen] = useState(true);
-  const logo = dark ? window.__resources.logoHorizWhite : window.__resources.logoHorizBlue;
+  // Logo: in dark mode use the reversed lockup (colored icon + white wordmark).
+  // The 'dark' prop (passed by hero-C bookend) forces the white treatment regardless of theme.
+  const theme = useResolvedTheme();
+  const isDark = dark || theme === 'dark';
+  const logo = isDark ? window.__resources.logoHorizReversed : window.__resources.logoHorizBlue;
 
   // Lock body scroll when menu open + scroll to top so menu aligns with header
   useEffect(() => {
@@ -453,7 +511,7 @@ function Footer({ onNav }) {
       <div className="container footer-inner">
         <div className="footer-brand">
           <img src={window.__resources.logoStackedReversed} alt="Hope Church" />
-          <p className="footer-tagline">Love God. Love people.<br/>Make disciples.</p>
+          <p className="footer-tagline">Love God.<br/>Love people.<br/>Make disciples.</p>
           <div className="footer-address">
             <strong>Hope Church</strong>
             <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener" style={{color:'inherit'}}>
@@ -475,7 +533,6 @@ function Footer({ onNav }) {
               <li>8:00am</li>
               <li>9:45am</li>
               <li>11:30am</li>
-              <li><a href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">Watch Live</a></li>
             </ul>
           </div>
           <div>
@@ -493,8 +550,9 @@ function Footer({ onNav }) {
             <h5>Listen</h5>
             <ul>
               <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('sermons');}}>Sermons</a></li>
-              <li><a href="#">Podcast</a></li>
-              <li><a href="#">App</a></li>
+              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('podcast');}}>Hope Church Podcast</a></li>
+              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('podcast-finding-hope');}}>Finding Hope Podcast</a></li>
+              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('app');}}>App</a></li>
             </ul>
           </div>
           <div>
@@ -503,17 +561,23 @@ function Footer({ onNav }) {
               <li><a href="https://hopejc.churchcenter.com/login?return=https://hopejc.churchcenter.com/calendar/forms/12134" target="_blank" rel="noopener">Event Request Form</a></li>
               <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('give');}}>Give</a></li>
               <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('contact');}}>Contact</a></li>
-              <li><a href="#">Prayer Requests</a></li>
+              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('prayer');}}>Prayer Requests</a></li>
             </ul>
           </div>
+        </div>
+        <div className="footer-live-row">
+          <a className="footer-live-btn" href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">
+            <span className="live-dot" aria-hidden="true"/>
+            Watch live at 9:45am
+          </a>
         </div>
       </div>
       <div className="footer-bar">
         <div className="container footer-bar-inner">
           <span>© 2026 Hope Church</span>
           <div className="footer-bar-links">
-            <a href="#">Privacy</a>
-            <a href="#">Accessibility</a>
+            <a href="#" onClick={(e)=>{e.preventDefault();onNav('privacy');}}>Privacy</a>
+            <a href="#" onClick={(e)=>{e.preventDefault();onNav('accessibility');}}>Accessibility</a>
           </div>
         </div>
       </div>
@@ -521,20 +585,7 @@ function Footer({ onNav }) {
   );
 }
 
-// ---------- Page Header (reused across subpages & ministry pages) ----------
-function PageHeader({ eyebrow, title, lead }) {
-  return (
-    <section className="page-header">
-      <div className="container">
-        <span className="eyebrow">{eyebrow}</span>
-        <h1>{title}</h1>
-        {lead && <p className="lead">{lead}</p>}
-      </div>
-    </section>
-  );
-}
-
 export {
   Icon, Button, AnnouncementBar, SundayStrip, SiteHeader, SectionHeader,
-  MissionBar, ServiceTimes, NewHereBlock, Footer, ThemeToggle, PageHeader,
+  MissionBar, ServiceTimes, NewHereBlock, Footer, ThemeToggle, useResolvedTheme,
 };

@@ -17,22 +17,58 @@
   <link rel="stylesheet" href="/assets/worship-ministry.css"/>
   <link rel="stylesheet" href="/assets/fueledbyhope-ministry.css"/>
   <link rel="stylesheet" href="/assets/give-page.css"/>
+  <link rel="stylesheet" href="/assets/podcast-prayer.css"/>
   <link rel="stylesheet" href="/assets/dark-mode.css"/>
 
   <!-- Theme detection — runs BEFORE React so there's no flash of light mode.
-       Respect the user's saved preference if any, otherwise auto by clock:
-       dark from 7:00pm through 6:59am local time, light otherwise. -->
+       Resolution order:
+         1. ?theme= URL param (light|dark)
+         2. Explicit saved preference (light|dark)
+         3. OS system preference (prefers-color-scheme)
+         4. Local clock fallback — dark from 7:00pm through 6:59am
+       Also keeps the theme in sync if the OS preference changes while open. -->
   <script>
     (function () {
-      function resolveTheme() {
-        try {
-          var saved = localStorage.getItem('hope_theme'); // 'auto' | 'light' | 'dark'
-          if (saved === 'light' || saved === 'dark') return saved;
-        } catch (e) {}
+      function clockTheme() {
         var h = new Date().getHours();
         return (h >= 19 || h < 7) ? 'dark' : 'light';
       }
-      document.documentElement.dataset.theme = resolveTheme();
+      function systemTheme() {
+        try {
+          if (window.matchMedia) {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+            if (window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+          }
+        } catch (e) {}
+        return null;
+      }
+      function urlTheme() {
+        try {
+          var p = new URLSearchParams(window.location.search).get('theme');
+          if (p === 'light' || p === 'dark') return p;
+        } catch (e) {}
+        return null;
+      }
+      function resolveTheme() {
+        var u = urlTheme();
+        if (u) return u;
+        try {
+          var saved = localStorage.getItem('hope_theme'); // 'light' | 'dark' (auto removes key)
+          if (saved === 'light' || saved === 'dark') return saved;
+        } catch (e) {}
+        return systemTheme() || clockTheme();
+      }
+      function applyResolved() {
+        document.documentElement.dataset.theme = resolveTheme();
+      }
+      applyResolved();
+      // Live-follow the OS toggle while the tab is open (matters only in Auto
+      // mode — a saved value still wins inside resolveTheme).
+      try {
+        var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+        if (mq && mq.addEventListener) mq.addEventListener('change', applyResolved);
+        else if (mq && mq.addListener) mq.addListener(applyResolved);
+      } catch (e) {}
     })();
   </script>
 
@@ -41,6 +77,7 @@
     window.__resources = {
       logoHorizBlue: '/assets/logo-horizontal-blue.png',
       logoHorizWhite: '/assets/logo-horizontal-white.png',
+      logoHorizReversed: '/assets/logo-horizontal-reversed.png',
       logoStackedReversed: '/assets/logo-stacked-reversed.png',
       iconWhite: '/assets/icon-white.png',
       appScreenshot: '/assets/app-screenshot.png',

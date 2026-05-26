@@ -1,8 +1,8 @@
-// Hope Church — Hope Students ministry detail page (slug: ministry-students)
 import React from 'react';
-import { Button, Icon, PageHeader } from './shared.jsx';
+import { Button } from './shared.jsx';
+import { PageHeader } from './pages.jsx';
 import { SubsplashStudentsCalendar } from './embeds.jsx';
-//
+// Hope Church — Hope Students ministry detail page (slug: ministry-students)
 // 7th–12th grade. Wednesday-night driven + Sunday morning rhythm.
 
 function StudentsMinistryPage({ onNav }) {

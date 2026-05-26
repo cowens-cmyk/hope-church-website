@@ -1,8 +1,7 @@
-// Hope Church — Fueled by Hope (Senior Adult Ministry) detail page
 import React from 'react';
-import { Button, Icon, PageHeader } from './shared.jsx';
+import { Button } from './shared.jsx';
 import { SubsplashFueledByHopeCalendar } from './embeds.jsx';
-//
+// Hope Church — Fueled by Hope (Senior Adult Ministry) detail page
 // slug: ministry-fueledbyhope
 //
 // "Even youths grow tired and weary, and young men stumble and fall;
@@ -53,7 +52,7 @@ function FueledByHopeMinistryPage({ onNav }) {
 
           <div className="fh-anchor-media">
             <div className="fh-anchor-photo">
-              <img src="assets/fueled-cross-hike.jpg" alt="The Fueled by Hope group gathered together on a hike beneath a wooden cross in the autumn mountains of East Tennessee"/>
+              <img src="assets/fueled-restaurant-booth.jpg" alt="Six members of the Fueled by Hope group gathered around a restaurant table, including one member wearing a Hope Church cap and t-shirt"/>
             </div>
           </div>
         </div>
@@ -71,6 +70,48 @@ function FueledByHopeMinistryPage({ onNav }) {
             <p>
               We&rsquo;d love to have you join us and get involved with this fun, dynamic group.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Section 3: Gallery — recent gatherings ===== */}
+      <section className="fh-gallery">
+        <div className="container">
+          <header className="fh-gallery-head">
+            <span className="fh-eyebrow">Life Together</span>
+            <h2>Scenes from <em>recent gatherings</em>.</h2>
+            <p>A look at what we&rsquo;ve been up to &mdash; bingo nights, meals out, day trips around East Tennessee, picnics on the creek, and serving our neighbors together.</p>
+          </header>
+
+          <div className="fh-gallery-grid">
+            <figure className="fh-gphoto fh-gphoto-porch">
+              <img src="assets/fueled-group-porch.jpg" alt="Large group of Fueled by Hope members posed together on a decorated front porch during a Christmas outing in Jonesborough"/>
+              <figcaption>Christmas in Jonesborough</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-bingo">
+              <img src="assets/fueled-bingo-friends.jpg" alt="Six smiling friends gathered around a table covered in green bingo cards at a community bingo night"/>
+              <figcaption>Community bingo night</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-perkins">
+              <img src="assets/fueled-perkins-table.jpg" alt="A long restaurant table filled with Fueled by Hope members sharing a meal together at Perkins"/>
+              <figcaption>Lunch out together</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-jonesborough">
+              <img src="assets/fueled-jonesborough.jpg" alt="Five Fueled by Hope friends posing together outside the Mary B. Martin Storytelling Hall in downtown Jonesborough"/>
+              <figcaption>Storytelling Hall, Jonesborough</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-creek">
+              <img src="assets/fueled-creek-friends.jpg" alt="Two women smiling arm in arm beside a creek in the woods on a sunny afternoon"/>
+              <figcaption>An afternoon on the creek</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-outreach">
+              <img src="assets/fueled-outreach-meals.jpg" alt="Four women holding wrapped meals and dishes, getting ready to deliver them to neighbors as part of a Fueled by Hope outreach"/>
+              <figcaption>Meals for our neighbors</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-picnic">
+              <img src="assets/fueled-picnic-couple.jpg" alt="A couple smiling at a creekside picnic, holding a covered container of potato salad to share with the group"/>
+              <figcaption>Potluck by the creek</figcaption>
+            </figure>
           </div>
         </div>
       </section>

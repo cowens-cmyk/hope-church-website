@@ -1,7 +1,7 @@
-// Hope Church — 3 homepage hero variations + supporting blocks
 import React from 'react';
-import { Button, Icon, SectionHeader } from './shared.jsx';
+import { Icon, Button, SectionHeader } from './shared.jsx';
 import { SubsplashRecent, SubsplashEvents } from './embeds.jsx';
+// Hope Church — 3 homepage hero variations + supporting blocks
 
 // ======================================================
 // HERO A — Full-bleed photo, dark scrim, mission-forward
@@ -273,7 +273,6 @@ function GiveCTA({ onGive }) {
         <p>Every gift, big or small, makes Sunday mornings, kids’ ministry, and care for our city possible.</p>
         <div className="cta-band-actions">
           <Button variant="primary" size="xl" onClick={onGive} iconRight="arrow">Give Online</Button>
-          <Button variant="outline-on-dark" size="xl" onClick={onGive}>Other ways to give</Button>
         </div>
       </div>
     </section>

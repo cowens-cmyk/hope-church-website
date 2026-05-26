@@ -867,7 +867,7 @@
 .footer-tagline { margin-top: 22px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--hope-sky); line-height: 1.6; }
 .footer-address { margin-top: 24px; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); }
 .footer-address strong { color: #fff; font-weight: 700; display: block; margin-bottom: 2px; }
-.footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.footer-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
 .footer-cols h5 { color: #fff; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 16px; font-weight: 800; }
 .footer-cols ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .footer-cols a { color: rgba(255,255,255,0.7); }
@@ -898,6 +898,40 @@
 .page-header .eyebrow { color: var(--hope-sky); }
 .page-header h1 { color: #fff; font-size: 72px; line-height: 1.0; letter-spacing: -0.025em; margin: 16px 0 20px; font-weight: 900; font-family: var(--font-display); }
 .page-header .lead { color: rgba(255,255,255,0.82); font-size: 19px; max-width: 640px; margin: 0 auto; }
+
+/* =========================================================
+   LEGAL / INFO PAGES (Privacy, Accessibility)
+   ========================================================= */
+.legal-page { padding: 80px 0 120px; background: var(--bg-page); }
+.legal-inner { max-width: 760px; margin: 0 auto; }
+.legal-updated {
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; color: var(--fg-3); margin: 0 0 40px;
+}
+.legal-body { color: var(--fg-1); font-size: 17px; line-height: 1.7; }
+.legal-body h2 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 28px; line-height: 1.2; letter-spacing: -0.01em;
+  color: var(--fg-1); margin: 48px 0 14px;
+}
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body p { margin: 0 0 16px; color: var(--fg-1); }
+.legal-body ul { margin: 0 0 20px; padding-left: 22px; }
+.legal-body ul li { margin-bottom: 8px; color: var(--fg-1); }
+.legal-body a { color: var(--hope-blue); text-decoration: underline; text-underline-offset: 3px; }
+.legal-body a:hover { color: var(--hope-navy); }
+.legal-contact {
+  margin-top: 24px; padding: 22px 26px;
+  background: var(--bg-tint); border-left: 3px solid var(--hope-blue);
+  border-radius: 6px; font-size: 15px; line-height: 1.7;
+}
+.legal-contact strong { color: var(--fg-1); }
+
+@media (max-width: 720px) {
+  .legal-page { padding: 48px 0 80px; }
+  .legal-body { font-size: 16px; }
+  .legal-body h2 { font-size: 22px; margin-top: 36px; }
+}
 
 /* Visit form */
 .visit-section { padding: 80px 0 120px; background: var(--ink-050); }
@@ -1730,6 +1764,16 @@
   .site-cta { display: none; }
   .site-burger { display: inline-flex; }
   .mobile-menu { display: block; }
+}
+
+/* Tablet portrait — between burger threshold (880px) and full desktop (1024px),
+   the 8-item nav + CTA pill no longer fits inside the 1200-wide container.
+   Hide the "Plan a Visit" CTA in this range; the nav still has "I'm New",
+   which goes to the same page, so users aren't blocked. */
+@media (min-width: 881px) and (max-width: 1023px) {
+  .site-cta { display: none; }
+  .site-header-inner { gap: 20px; }
+  .site-nav { gap: 22px; }
 }
 
 /* Phone & small tablet — 720px and below */

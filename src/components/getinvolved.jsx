@@ -1,6 +1,7 @@
-// Hope Church — "Get Involved" subpages: Life Groups, Missions, Connect Card, Discover Hope
 import React from 'react';
-import { Button, Icon, SectionHeader, PageHeader } from './shared.jsx';
+import { Icon, Button, SectionHeader } from './shared.jsx';
+import { PageHeader } from './pages.jsx';
+// Hope Church — "Get Involved" subpages: Life Groups, Missions, Connect Card, Discover Hope
 
 const { useState: useStateGI } = React;
 

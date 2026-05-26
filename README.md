@@ -24,10 +24,12 @@ index.html              App shell — stylesheet links, theme script, #root moun
 src/
   main.jsx              Entry point: routing state + page composition
   components/
-    shared.jsx          Header, footer, Sunday strip, announcement bar, PageHeader
+    shared.jsx          Header, footer, Sunday strip, announcement bar, theme toggle
     homepage.jsx        Hero variants + homepage sections
     embeds.jsx          Subsplash media / calendar / giving embeds
-    pages.jsx           Visit, About, Team, Sermons, Events, Give, Serve, etc.
+    pages.jsx           Visit, About, Team, Sermons, Events, Give, Ministries, Serve…
+    pages-extra.jsx     Prayer Requests, Podcasts, App
+    pages-legal.jsx     Privacy, Accessibility
     getinvolved.jsx     Life Groups, Missions, Connect Card, Discover Hope
     ministry-*.jsx      The 8 ministry detail pages
 public/
@@ -43,9 +45,10 @@ CSS was kept byte-for-byte from the design system.
 - **Routing** is client-side React state (`src/main.jsx`). The original
   prototype kept the URL at `/`; that behavior is preserved. Real per-page
   URLs (`/about`, `/give`, …) would be a natural follow-up.
-- **Theme** — light/dark is auto-resolved by the local clock (dark 7pm–7am)
-  unless the visitor picks a preference; an inline script in `index.html`
-  applies it before first paint to avoid a flash.
+- **Theme** — light/dark resolves in priority order: `?theme=` URL param →
+  saved preference → OS `prefers-color-scheme` → local clock (dark 7pm–7am).
+  An inline script in `index.html` applies it before first paint to avoid a
+  flash, and follows the OS setting live while the tab is open.
 - **Embeds** — sermons, calendars, and giving are live Subsplash embeds;
   Connect Card and Discover Hope are Planning Center / Google Form iframes.
 - **Forms** — the Visit and Contact forms open the visitor's email client

@@ -1,6 +1,6 @@
 /* Hope Church — application entry point.
-   Mounts the public site into #root. Page navigation is client-side state
-   (the prototype kept the URL at "/" — preserved here as-is). */
+   Mounts the public site into #root. Page navigation is client-side state,
+   exactly as the design prototype handled it. */
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -20,9 +20,11 @@ import {
 import {
   LifeGroupsPage, MissionsPage, ConnectCardPage, DiscoverHopePage,
 } from './components/getinvolved.jsx';
+import { PrayerRequestPage, PodcastPage, AppPage } from './components/pages-extra.jsx';
+import { PrivacyPage, AccessibilityPage } from './components/pages-legal.jsx';
 
 // Site-wide toggles. Hero variant A (photo hero) is the final design choice;
-// the announcement bar is off until there's something to announce.
+// the announcement bar stays off until there's something to announce.
 const TWEAKS = {
   heroVariant: 'A',
   announcementVisible: false,
@@ -51,10 +53,18 @@ function HomePage({ variant, onNav }) {
 }
 
 function PublicSite({ tweaks }) {
-  const [page, setPage] = useState(() => lsGet('hope_page', 'home'));
+  const [page, setPage] = useState(() => {
+    // A ?page= URL param wins on first load (handy for deep links); otherwise
+    // resume wherever the visitor last was.
+    try {
+      const p = new URLSearchParams(window.location.search).get('page');
+      if (p) return p;
+    } catch {}
+    return lsGet('hope_page', 'home');
+  });
   useEffect(() => lsSet('hope_page', page), [page]);
 
-  // Scroll to top on nav change
+  // Scroll to top on every navigation.
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'auto' }); }, [page]);
 
   const [announceVisible, setAnnounceVisible] = useState(true);
@@ -85,6 +95,12 @@ function PublicSite({ tweaks }) {
     missions: <MissionsPage onNav={navHandler}/>,
     connect: <ConnectCardPage/>,
     discover: <DiscoverHopePage onNav={navHandler}/>,
+    prayer: <PrayerRequestPage/>,
+    podcast: <PodcastPage initialChannel="sunday"/>,
+    'podcast-finding-hope': <PodcastPage initialChannel="finding-hope"/>,
+    app: <AppPage/>,
+    privacy: <PrivacyPage/>,
+    accessibility: <AccessibilityPage/>,
   };
 
   const isHome = page === 'home';

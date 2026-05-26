@@ -238,6 +238,92 @@
 }
 
 /* =========================================================
+   Section 3 — Gallery: recent gatherings
+   Asymmetric scrapbook grid that lets each photo breathe.
+   Warm ember accent on hover; cream-wash field so the
+   photos feel like they're set on heavyweight paper.
+   ========================================================= */
+.fh-gallery {
+  background: #fff;
+  padding: 112px 0 120px;
+  border-top: 1px solid var(--border-hairline);
+}
+.fh-gallery-head {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.fh-gallery-head h2 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.05; letter-spacing: -0.022em;
+  margin: 0 0 16px; color: var(--fh-navy);
+}
+.fh-gallery-head h2 em { font-style: normal; color: var(--fh-ember-deep); }
+.fh-gallery-head p {
+  font-size: 17px; line-height: 1.65;
+  color: var(--fg-2); max-width: 60ch;
+  margin: 0 auto;
+}
+
+.fh-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: row dense;
+  gap: 18px;
+}
+.fh-gphoto {
+  position: relative;
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--fh-wash);
+  box-shadow:
+    0 14px 32px -20px rgba(10,26,44,0.30),
+    0 1px 0 rgba(10,26,44,0.04);
+  outline: 1px solid rgba(10,26,44,0.06);
+}
+.fh-gphoto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+}
+.fh-gphoto:hover img { transform: scale(1.04); }
+
+.fh-gphoto figcaption {
+  position: absolute;
+  left: 14px; right: 14px; bottom: 12px;
+  z-index: 1;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+}
+.fh-gphoto::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,26,44,0) 55%, rgba(10,26,44,0.55) 100%);
+  pointer-events: none;
+}
+
+/* Layout positions — asymmetric scrapbook
+   Row 1: wide porch group (8) + bingo selfie (4)
+   Row 2: Perkins (4) + Jonesborough (4) + creek (4)
+   Row 3: outreach (6) + picnic (6)
+*/
+.fh-gphoto-porch        { grid-column: span 8; aspect-ratio: 16 / 9; }
+.fh-gphoto-bingo        { grid-column: span 4; aspect-ratio: 4 / 5; }
+.fh-gphoto-perkins      { grid-column: span 4; aspect-ratio: 4 / 5; }
+.fh-gphoto-perkins img  { object-position: center 28%; }
+.fh-gphoto-jonesborough { grid-column: span 4; aspect-ratio: 4 / 5; }
+.fh-gphoto-creek        { grid-column: span 4; aspect-ratio: 4 / 5; }
+.fh-gphoto-outreach     { grid-column: span 6; aspect-ratio: 3 / 2; }
+.fh-gphoto-picnic       { grid-column: span 6; aspect-ratio: 3 / 2; }
+
+/* =========================================================
    Section 4 — Calendar (Subsplash)
    ========================================================= */
 .fh-calendar {
@@ -321,11 +407,33 @@
   .fh-anchor-copy { max-width: none; }
   .fh-anchor h1 { font-size: clamp(48px, 9vw, 80px); }
   .fh-anchor-photo img { aspect-ratio: 16 / 10; }
+
+  /* Gallery: collapse to a friendlier 2-col layout */
+  .fh-gallery-grid { grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .fh-gphoto-porch        { grid-column: span 6; aspect-ratio: 16 / 9; }
+  .fh-gphoto-bingo        { grid-column: span 3; aspect-ratio: 4 / 5; }
+  .fh-gphoto-perkins      { grid-column: span 3; aspect-ratio: 4 / 5; }
+  .fh-gphoto-jonesborough { grid-column: span 3; aspect-ratio: 4 / 5; }
+  .fh-gphoto-creek        { grid-column: span 3; aspect-ratio: 4 / 5; }
+  .fh-gphoto-outreach     { grid-column: span 6; aspect-ratio: 3 / 2; }
+  .fh-gphoto-picnic       { grid-column: span 6; aspect-ratio: 3 / 2; }
 }
 @media (max-width: 720px) {
   .fh-anchor { padding: 72px 0 84px; }
   .fh-secondhalf,
+  .fh-gallery,
   .fh-calendar,
   .fh-cta-band { padding: 80px 0; }
   .fh-anchor-actions { gap: 10px; }
+
+  /* Gallery: single column on small screens */
+  .fh-gallery-grid { grid-template-columns: 1fr; gap: 12px; }
+  .fh-gphoto-porch,
+  .fh-gphoto-bingo,
+  .fh-gphoto-perkins,
+  .fh-gphoto-jonesborough,
+  .fh-gphoto-creek,
+  .fh-gphoto-outreach,
+  .fh-gphoto-picnic { grid-column: span 1; aspect-ratio: 4 / 3; }
+  .fh-gphoto-porch { aspect-ratio: 16 / 10; }
 }

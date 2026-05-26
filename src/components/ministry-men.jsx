@@ -1,8 +1,7 @@
-// Hope Church — H.I.T. Men (Men's Ministry) detail page (slug: ministry-men)
 import React from 'react';
-import { Button, Icon, PageHeader } from './shared.jsx';
+import { Button } from './shared.jsx';
 import { SubsplashMenCalendar } from './embeds.jsx';
-//
+// Hope Church — H.I.T. Men (Men's Ministry) detail page (slug: ministry-men)
 // "Do not be conformed to this world, but be transformed by the renewal of
 //  your mind, that by testing you may discern what is the will of God, what is
 //  good and acceptable and perfect."  — Romans 12:2

@@ -1,7 +1,9 @@
-// Hope Church — Kids Ministry detail page (slug: ministry-kids)
 import React from 'react';
-import { Button, Icon, PageHeader } from './shared.jsx';
+import { Icon, Button } from './shared.jsx';
+import { PageHeader } from './pages.jsx';
 import { SubsplashKidsCalendar } from './embeds.jsx';
+// Hope Church — Kids Ministry detail page (slug: ministry-kids)
+// Uses PageHeader, Button, Icon from shared.jsx.
 
 function KidsMinistryPage({ onNav }) {
   const SERVE_URL = 'https://hopejc.churchcenter.com/people/forms/343180';

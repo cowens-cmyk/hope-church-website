@@ -1,8 +1,8 @@
-// Hope Church — College & Career ministry detail page (slug: ministry-college)
 import React from 'react';
-import { Button, Icon, PageHeader } from './shared.jsx';
+import { Button } from './shared.jsx';
+import { PageHeader } from './pages.jsx';
 import { SubsplashCollegeCalendar } from './embeds.jsx';
-//
+// Hope Church — College & Career ministry detail page (slug: ministry-college)
 // Ages 18–30. Young adults navigating college, work, and the in-between years.
 // Anchored in Jeremiah 29:11 — "plans to give you hope and a future."
 

@@ -1,8 +1,8 @@
-// Hope Church — Linked 56 ministry detail page (slug: ministry-linked56)
 import React from 'react';
-import { Button, Icon, PageHeader } from './shared.jsx';
+import { Icon, Button } from './shared.jsx';
+import { PageHeader } from './pages.jsx';
 import { SubsplashLinked56Calendar } from './embeds.jsx';
-//
+// Hope Church — Linked 56 ministry detail page (slug: ministry-linked56)
 // 5th–6th grade tweens. Brand: teal/cyan fingerprint mark · 1 Peter 2:9.
 // Motto: "Discovering True Identity In Christ."
 

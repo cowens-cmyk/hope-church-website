@@ -1,7 +1,6 @@
-// Hope Church — Worship & Tech detail page (slug: ministry-worship)
 import React from 'react';
-import { Button, Icon, PageHeader } from './shared.jsx';
-//
+import { Icon, Button } from './shared.jsx';
+// Hope Church — Worship & Tech detail page (slug: ministry-worship)
 // "Worship the LORD with gladness; come into his presence with singing!"
 //   — Psalm 100:2
 //

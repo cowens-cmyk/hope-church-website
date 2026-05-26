@@ -20,6 +20,14 @@
   --bg-muted:       #1A222E;
   --bg-brand-soft:  #0E2238;
 
+  /* Remap the underlying gray scale that ministry CSS files reach
+     into directly (background: var(--ink-050)). Without this, those
+     sections render light-on-dark. Keep close to our dark surfaces. */
+  --ink-050: #141B25;  /* was #F8F9FB — now matches bg-tint */
+  --ink-100: #1A222E;  /* was #F1F3F5 — now matches bg-muted */
+  --ink-200: #1F2937;  /* was #E4E7EB — slightly lighter for hover */
+  --ink-300: #2A3441;  /* was form input borders — still readable */
+
   /* ---- Foreground ---- */
   --fg-1: #F1F4F8;
   --fg-2: #B7BFCB;
@@ -142,13 +150,7 @@
 [data-theme="dark"] .site-burger           { color: rgba(255,255,255,0.85); }
 [data-theme="dark"] .site-burger:hover     { background: rgba(255,255,255,0.06); }
 
-/* Brand: swap to the white logo automatically in dark mode unless
-   the header is already in its own .dark variant */
-[data-theme="dark"] .site-header:not(.dark) .brand img {
-  /* a soft luminance flip — keeps any color but lifts dark logo on dark bg */
-  filter: brightness(0) invert(1);
-  opacity: 0.95;
-}
+/* Brand logo: SiteHeader now picks the right PNG (reversed in dark mode); no filter needed. */
 
 /* Nav dropdown */
 [data-theme="dark"] .nav-dropdown-trigger        { color: rgba(255,255,255,0.78); }
@@ -353,4 +355,282 @@
 @media (max-width: 720px) {
   .theme-toggle-label { display: none; }
   .theme-toggle { padding: 5px 8px; }
+}
+
+/* =========================================================
+   MINISTRY PAGES — full dark-mode sweep
+   Every ministry CSS file hardcodes `background: #fff` and
+   `background: var(--ink-050)` on its own sections and cards.
+   The base dark-mode rules only cover site.css; without this
+   block, all the /ministry-* pages render light-on-dark.
+   Sections (formerly #fff)            → var(--bg-page)   [deepest]
+   Sections (formerly --ink-050)       → var(--bg-tint)   [subtle shift]
+   Cards / panels (formerly #fff)      → var(--bg-muted)  [elevated]
+   Card-like (formerly --ink-050)      → var(--bg-muted)  [elevated]
+   ========================================================= */
+
+/* ---------- Kids ---------- */
+[data-theme="dark"] .kids-intro,
+[data-theme="dark"] .kids-gallery-section,
+[data-theme="dark"] .kids-calendar {
+  background: var(--bg-page);
+  border-top-color: var(--border-hairline);
+}
+[data-theme="dark"] .kids-pillar,
+[data-theme="dark"] .kids-safety-list li,
+[data-theme="dark"] .kids-callout-box,
+[data-theme="dark"] .kids-calendar-frame {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+[data-theme="dark"] .kids-foundation { /* foundation block already dark; just neutralize */
+  border-top-color: var(--border-hairline);
+}
+
+/* ---------- Linked 5/6 ---------- */
+[data-theme="dark"] .l56-intro,
+[data-theme="dark"] .l56-pillars,
+[data-theme="dark"] .l56-calendar {
+  background: var(--bg-page);
+}
+[data-theme="dark"] .l56-rhythm {
+  background: var(--bg-tint);
+}
+[data-theme="dark"] .l56-pillar,
+[data-theme="dark"] .l56-rhythm-card,
+[data-theme="dark"] .l56-callout,
+[data-theme="dark"] .l56-photo-frame,
+[data-theme="dark"] .l56-calendar-frame {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* ---------- Students ---------- */
+[data-theme="dark"] .hs-wednesday,
+[data-theme="dark"] .hs-gallery {
+  background: var(--bg-page);
+}
+[data-theme="dark"] .hs-sunday,
+[data-theme="dark"] .hs-calendar {
+  background: var(--bg-tint);
+  border-top-color: var(--border-hairline);
+}
+[data-theme="dark"] .hs-callout,
+[data-theme="dark"] .hs-sunday-time,
+[data-theme="dark"] .hs-calendar-frame,
+[data-theme="dark"] .hs-beat,
+[data-theme="dark"] .hs-wed-times {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* ---------- College ---------- */
+[data-theme="dark"] .cc-anchor,
+[data-theme="dark"] .cc-rhythm,
+[data-theme="dark"] .cc-life {
+  background: var(--bg-page);
+}
+[data-theme="dark"] .cc-pillar,
+[data-theme="dark"] .cc-rhythm-card,
+[data-theme="dark"] .cc-calendar-frame {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* ---------- Women ---------- */
+[data-theme="dark"] .wv-anchor,
+[data-theme="dark"] .wv-calendar {
+  background: var(--bg-page);
+}
+[data-theme="dark"] .wv-rhythm {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* ---------- Men ---------- */
+[data-theme="dark"] .mn-meets {
+  background: var(--bg-page);
+}
+[data-theme="dark"] .mn-pillar,
+[data-theme="dark"] .mn-calendar-frame {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* ---------- Fueled by Hope ---------- */
+[data-theme="dark"] .fh-secondhalf,
+[data-theme="dark"] .fh-gallery {
+  background: var(--bg-page);
+  border-top-color: var(--border-hairline);
+}
+[data-theme="dark"] .fh-calendar-frame {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* ---------- Worship ---------- */
+[data-theme="dark"] .wt-teams {
+  background: var(--bg-page);
+}
+[data-theme="dark"] .wt-crew {
+  background: var(--bg-tint);
+  border-top-color: var(--border-hairline);
+}
+[data-theme="dark"] .wt-role {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* =========================================================
+   SITE.CSS — straggler white surfaces missed by the
+   original dark-mode pass
+   ========================================================= */
+
+/* Newer hover states that flash to white */
+[data-theme="dark"] .events-toggle:hover {
+  background: #20283555;
+  border-color: var(--hope-sky);
+  box-shadow: var(--shadow-sm);
+}
+[data-theme="dark"] .missions-trip {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+[data-theme="dark"] .missions-trip:hover {
+  background: var(--bg-tint);
+  border-color: var(--hope-sky);
+}
+
+/* Connect chips / cards that weren't fully covered */
+[data-theme="dark"] .connect-embed-wrap,
+[data-theme="dark"] .connect-embed,
+[data-theme="dark"] .discover-embed-wrap,
+[data-theme="dark"] .discover-embed {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* =========================================================
+   GIVE PAGE — small leftover white squares (icons + addresses)
+   ========================================================= */
+[data-theme="dark"] .give-way-icon,
+[data-theme="dark"] .give-way-address,
+[data-theme="dark"] .give-way-mailto {
+  background: var(--bg-page);
+  border-color: var(--border-hairline);
+  color: var(--fg-1);
+}
+[data-theme="dark"] .give-ways-rule { background: rgba(255,255,255,0.10); }
+[data-theme="dark"] .give-why-rule  { background: rgba(255,255,255,0.10); }
+
+/* =========================================================
+   APP PAGE — the App Store buttons in the hero use
+   bare `#fff` because the hero is hard-coded dark in
+   light mode. In dark mode the app store pill should stay
+   readable but not pure white on dark.
+   ========================================================= */
+[data-theme="dark"] .app-page-hero .app-store-btn {
+  background: var(--bg-muted);
+  color: var(--fg-1);
+}
+[data-theme="dark"] .app-page-hero .app-store-btn:hover {
+  background: var(--bg-tint);
+  color: var(--fg-1);
+}
+
+/* =========================================================
+   MISSIONS PARTNER TAGS — keep their semantic color but
+   tone the warm pills so they don't glow on dark pages.
+   ========================================================= */
+[data-theme="dark"] .missions-partner-tag.tag-national {
+  background: rgba(232,160,41,0.18); color: #F0B660;
+}
+[data-theme="dark"] .missions-partner-tag.tag-global {
+  background: rgba(43,165,100,0.18); color: #6FD49A;
+}
+[data-theme="dark"] .missions-partner-tag.tag-local {
+  background: rgba(0,130,202,0.18); color: var(--hope-sky);
+}
+
+/* =========================================================
+   PODCAST EPISODES — `.podcast-episode:hover` already wired
+   in podcast-prayer.css; the rest of the surfaces use
+   var(--bg-card) which we make track --bg-muted here so
+   one var change cascades everywhere.
+   ========================================================= */
+/* =========================================================
+   PODCAST EPISODES — `.podcast-episode:hover` already wired
+   in podcast-prayer.css; the rest of the surfaces use
+   var(--bg-card) which we make track --bg-muted here so
+   one var change cascades everywhere.
+   ========================================================= */
+[data-theme="dark"] {
+  --bg-card: var(--bg-muted);
+  --bg-0: var(--bg-page);
+  --bg-1: var(--bg-tint);
+  --bg-2: var(--bg-muted);
+}
+
+/* =========================================================
+   MINISTRY HEADINGS — every ministry CSS uses
+   `color: var(--ink-900)` for its big section headings.
+   `--ink-900` is intentionally NOT remapped (the original
+   dark-themed feature panels still need that dramatic dark).
+   Instead, retarget the specific heading selectors to use
+   var(--fg-1) when [data-theme="dark"].
+   ========================================================= */
+[data-theme="dark"] .kids-pillar h3,
+[data-theme="dark"] .l56-pillar h3,
+[data-theme="dark"] .l56-callout p,
+[data-theme="dark"] .l56-rhythm-day,
+[data-theme="dark"] .hs-wed-copy h2,
+[data-theme="dark"] .hs-wed-time-label,
+[data-theme="dark"] .hs-beat h4,
+[data-theme="dark"] .hs-sunday-time strong,
+[data-theme="dark"] .cc-pillar h3,
+[data-theme="dark"] .cc-anchor-verse,
+[data-theme="dark"] .cc-anchor-verse .quoted,
+[data-theme="dark"] .cc-rhythm-day,
+[data-theme="dark"] .wv-anchor h1,
+[data-theme="dark"] .wv-anchor-mission strong,
+[data-theme="dark"] .wv-rhythms-head h2,
+[data-theme="dark"] .wv-rhythm h3,
+[data-theme="dark"] .wv-calendar-head h2,
+[data-theme="dark"] .mn-pillars-head h2,
+[data-theme="dark"] .mn-pillar h3,
+[data-theme="dark"] .mn-meets-head h2,
+[data-theme="dark"] .mn-calendar-head h2,
+[data-theme="dark"] .fh-secondhalf-copy p strong,
+[data-theme="dark"] .wt-teams-head h2,
+[data-theme="dark"] .wt-crew-head h2,
+[data-theme="dark"] .wt-role h3 {
+  color: var(--fg-1);
+}
+
+/* Give page section titles + meta */
+[data-theme="dark"] .give-banner-amount-label,
+[data-theme="dark"] .give-ways-list-head h2,
+[data-theme="dark"] .give-way-body h3,
+[data-theme="dark"] .give-way-address,
+[data-theme="dark"] .give-why-title,
+[data-theme="dark"] .give-thanks-message {
+  color: var(--fg-1);
+}
+
+/* App-page hero store buttons — color comes through automatically
+   thanks to the .app-page-hero .app-store-btn rule above; nothing else here. */
+
+/* =========================================================
+   MINISTRY BODY TEXT — paragraphs that hardcode
+   var(--fg-2)/(--fg-3) are fine; but a few use #1A1F26 via
+   inheritance from a parent that we just turned dark.
+   ========================================================= */
+[data-theme="dark"] .kids-callout-box,
+[data-theme="dark"] .hs-callout,
+[data-theme="dark"] .l56-callout,
+[data-theme="dark"] .wv-rhythm,
+[data-theme="dark"] .cc-rhythm-card:not(.primary),
+[data-theme="dark"] .mn-pillar,
+[data-theme="dark"] .l56-rhythm-card {
+  color: var(--fg-1);
 }
