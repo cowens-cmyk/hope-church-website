@@ -313,6 +313,8 @@
    Row 1: wide porch group (8) + bingo selfie (4)
    Row 2: Perkins (4) + Jonesborough (4) + creek (4)
    Row 3: outreach (6) + picnic (6)
+   Row 4: Bays Mountain hike (8) + Operation Christmas Child (4)
+   Row 5: potluck-by-the-creek banner (12)
 */
 .fh-gphoto-porch        { grid-column: span 8; aspect-ratio: 16 / 9; }
 .fh-gphoto-bingo        { grid-column: span 4; aspect-ratio: 4 / 5; }
@@ -322,6 +324,9 @@
 .fh-gphoto-creek        { grid-column: span 4; aspect-ratio: 4 / 5; }
 .fh-gphoto-outreach     { grid-column: span 6; aspect-ratio: 3 / 2; }
 .fh-gphoto-picnic       { grid-column: span 6; aspect-ratio: 3 / 2; }
+.fh-gphoto-bays         { grid-column: span 8; aspect-ratio: 16 / 9; }
+.fh-gphoto-occ          { grid-column: span 4; aspect-ratio: 4 / 5; }
+.fh-gphoto-potluck2     { grid-column: span 12; aspect-ratio: 3 / 1.4; }
 
 /* =========================================================
    Section 4 — Calendar (Subsplash)
@@ -417,6 +422,9 @@
   .fh-gphoto-creek        { grid-column: span 3; aspect-ratio: 4 / 5; }
   .fh-gphoto-outreach     { grid-column: span 6; aspect-ratio: 3 / 2; }
   .fh-gphoto-picnic       { grid-column: span 6; aspect-ratio: 3 / 2; }
+  .fh-gphoto-bays         { grid-column: span 6; aspect-ratio: 16 / 9; }
+  .fh-gphoto-occ          { grid-column: span 3; aspect-ratio: 4 / 5; }
+  .fh-gphoto-potluck2     { grid-column: span 6; aspect-ratio: 3 / 1.6; }
 }
 @media (max-width: 720px) {
   .fh-anchor { padding: 72px 0 84px; }
@@ -434,6 +442,10 @@
   .fh-gphoto-jonesborough,
   .fh-gphoto-creek,
   .fh-gphoto-outreach,
-  .fh-gphoto-picnic { grid-column: span 1; aspect-ratio: 4 / 3; }
-  .fh-gphoto-porch { aspect-ratio: 16 / 10; }
+  .fh-gphoto-picnic,
+  .fh-gphoto-bays,
+  .fh-gphoto-occ,
+  .fh-gphoto-potluck2 { grid-column: span 1; aspect-ratio: 4 / 3; }
+  .fh-gphoto-porch,
+  .fh-gphoto-bays { aspect-ratio: 16 / 10; }
 }

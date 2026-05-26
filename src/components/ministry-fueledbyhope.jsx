@@ -52,7 +52,7 @@ function FueledByHopeMinistryPage({ onNav }) {
 
           <div className="fh-anchor-media">
             <div className="fh-anchor-photo">
-              <img src="assets/fueled-restaurant-booth.jpg" alt="Six members of the Fueled by Hope group gathered around a restaurant table, including one member wearing a Hope Church cap and t-shirt"/>
+              <img src="assets/fbh-potluck-1.jpg" alt="The Fueled by Hope group gathered around a long table for a potluck by the creek, sharing a meal together on a sunny afternoon"/>
             </div>
           </div>
         </div>
@@ -111,6 +111,18 @@ function FueledByHopeMinistryPage({ onNav }) {
             <figure className="fh-gphoto fh-gphoto-picnic">
               <img src="assets/fueled-picnic-couple.jpg" alt="A couple smiling at a creekside picnic, holding a covered container of potato salad to share with the group"/>
               <figcaption>Potluck by the creek</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-bays">
+              <img src="assets/fbh-bays-mountain.jpg" alt="The Fueled by Hope group hiking together at Bays Mountain on a clear summer day"/>
+              <figcaption>Hiking Bays Mountain</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-occ">
+              <img src="assets/fbh-occ-nc.jpg" alt="Fueled by Hope volunteers serving at the Operation Christmas Child processing center in North Carolina"/>
+              <figcaption>Operation Christmas Child &middot; NC</figcaption>
+            </figure>
+            <figure className="fh-gphoto fh-gphoto-potluck2">
+              <img src="assets/fbh-potluck-2.jpg" alt="Fueled by Hope members sharing a meal together at the potluck by the creek"/>
+              <figcaption>Around the table</figcaption>
             </figure>
           </div>
         </div>
