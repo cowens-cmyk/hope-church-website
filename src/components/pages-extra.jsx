@@ -28,10 +28,6 @@ function PrayerRequestPage() {
               loading="lazy"
               allow="clipboard-write"
             />
-            <div className="connect-embed-fallback">
-              Having trouble seeing the form?{' '}
-              <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
-            </div>
           </div>
 
           <aside className="prayer-aside">

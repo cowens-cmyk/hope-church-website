@@ -318,10 +318,6 @@ function ConnectCardPage() {
               loading="lazy"
               allow="clipboard-write"
             />
-            <div className="connect-embed-fallback">
-              Having trouble seeing the form?{' '}
-              <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
-            </div>
           </div>
         </div>
       </section>
@@ -420,10 +416,6 @@ function DiscoverHopePage({ onNav }) {
                   loading="lazy"
                   allow="clipboard-write"
                 >Loading…</iframe>
-                <div className="connect-embed-fallback">
-                  Having trouble seeing the form?{' '}
-                  <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
-                </div>
               </div>
             </div>
           </div>

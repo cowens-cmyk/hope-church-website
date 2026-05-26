@@ -43,10 +43,6 @@ function VisitPage() {
               loading="lazy"
               allow="clipboard-write"
             />
-            <div className="connect-embed-fallback">
-              Having trouble seeing the form?{' '}
-              <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
-            </div>
           </div>
           <aside className="visit-aside">
             <h3>What to expect</h3>
@@ -780,10 +776,6 @@ function ContactPage() {
               loading="lazy"
               allow="clipboard-write"
             />
-            <div className="connect-embed-fallback">
-              Having trouble seeing the form?{' '}
-              <a href={formUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
-            </div>
           </div>
           <aside className="visit-aside">
             <h3>Hope Church</h3>
