@@ -1758,6 +1758,11 @@
    (covers iPad portrait at 768px and similar) */
 @media (max-width: 880px) {
   :root { --header-h: 64px; }
+  /* IMPORTANT — disable backdrop-filter on mobile. backdrop-filter creates a
+     new containing block for position:fixed descendants, which clamps the
+     fixed-position .mobile-menu (top: 64px; bottom: 0) to the 64px-tall
+     header instead of the viewport, collapsing it to zero usable height. */
+  .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; }
   .site-header-inner { height: 64px; gap: 12px; }
   .brand img { height: 40px; }
   .site-nav { display: none; }
