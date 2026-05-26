@@ -597,9 +597,14 @@
 [data-theme="dark"] .l56-pillar h3,
 [data-theme="dark"] .l56-callout p,
 [data-theme="dark"] .l56-rhythm-day,
+[data-theme="dark"] .l56-rhythm-card h3,
+[data-theme="dark"] .l56-rhythm-times,
 [data-theme="dark"] .hs-wed-copy h2,
-[data-theme="dark"] .hs-wed-time-label,
+[data-theme="dark"] .hs-wed-day,
+[data-theme="dark"] .hs-wed-times-label,
+[data-theme="dark"] .hs-wed-times-val,
 [data-theme="dark"] .hs-beat h4,
+[data-theme="dark"] .hs-sunday-time,
 [data-theme="dark"] .hs-sunday-time strong,
 [data-theme="dark"] .cc-pillar h3,
 [data-theme="dark"] .cc-anchor-verse,
@@ -675,5 +680,55 @@
 
 [data-theme="dark"] .hs-wed-times-label,
 [data-theme="dark"] .l56-calendar-badge {
+  color: #fff;
+}
+
+/* =========================================================
+   STRAGGLER WHITE BOXES + DARK-ACCENT-ON-DARK FIXES
+   ========================================================= */
+
+/* Linked 5/6 safety callout: hardcoded background:#fff in light-mode
+   CSS with no prior dark override. Body/strong text resolves to fg-1
+   (now white), so it was rendering white-on-white. Tint the box to
+   the standard elevated card surface. */
+[data-theme="dark"] .l56-safety-note {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+
+/* Wednesday-night "EVERY WED 6:30–8:00 PM" chip: card background
+   becomes dark via the existing .hs-wed-times override, but the
+   "WED" / "6:30–8:00 PM" pieces inherit the chip's text color which
+   was undefined. Set the chip's own color so the values read clean. */
+[data-theme="dark"] .hs-wed-times {
+  color: #fff;
+}
+
+/* Men's H.I.T. lockup letter uses var(--mn-navy) — almost-black blue
+   on a card that we tint to var(--bg-muted) in dark mode. Swap to
+   sky for visibility while keeping the brand accent feel. */
+[data-theme="dark"] .mn-pillar-letter {
+  color: var(--mn-sky);
+}
+
+/* Fueled by Hope: two big headings ("Built around this season of life",
+   "Scenes from recent gatherings") use var(--fh-navy) which is darker
+   than the dark-mode page background. Retarget to white, and shift the
+   ember-deep accent to the lighter ember tone so the colored ems read.
+   --fh-navy is also used as a SECTION BACKGROUND elsewhere on the page,
+   so we cannot remap the variable globally — use specific selectors. */
+[data-theme="dark"] .fh-secondhalf-copy h2,
+[data-theme="dark"] .fh-gallery-head h2,
+[data-theme="dark"] .fh-calendar-head h2 {
+  color: #fff;
+}
+[data-theme="dark"] .fh-secondhalf-copy h2 em,
+[data-theme="dark"] .fh-gallery-head h2 em,
+[data-theme="dark"] .fh-calendar-head h2 em,
+[data-theme="dark"] .fh-eyebrow,
+[data-theme="dark"] .fh-secondhalf-coda {
+  color: var(--fh-ember, #E08A2C);
+}
+[data-theme="dark"] .fh-secondhalf-copy p strong {
   color: #fff;
 }
