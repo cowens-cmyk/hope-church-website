@@ -159,6 +159,22 @@
    HERO — VARIATION A: classic photo-led full-bleed
    ========================================================= */
 .hero-a { position: relative; min-height: 680px; overflow: hidden; color: #fff; isolation: isolate; }
+/* Soft vignette at the bottom edge — deepens the blue into a near-
+   navy so the hero feels "finished" instead of cropped, and gives
+   whatever section follows a graceful handoff. Sits above the photo
+   (z:-2) and below content (z:auto). The "GRAY, TENNESSEE" bottom
+   strip stays readable because it lands on the darker end of the fade. */
+.hero-a::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 240px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0, 18, 40, 0.55) 55%,
+    rgba(0, 18, 40, 0.92) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
 .hero-a-media { position: absolute; inset: 0; z-index: -2; }
 .hero-a-photo {
   position: absolute; inset: 0;

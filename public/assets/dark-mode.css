@@ -593,6 +593,20 @@
 }
 
 /* =========================================================
+   HERO A — bottom transition into the dark page background.
+   The mode-agnostic ::after vignette in site.css already
+   deepens the blue, but in dark mode we want it to fade all
+   the way to var(--bg-page) so the seam to the next section
+   (which is also bg-page) disappears entirely.
+   ========================================================= */
+[data-theme="dark"] .hero-a::after {
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0, 12, 22, 0.55) 45%,
+    var(--bg-page) 100%);
+}
+
+/* =========================================================
    PODCAST EPISODES — `.podcast-episode:hover` already wired
    in podcast-prayer.css; the rest of the surfaces use
    var(--bg-card) which we make track --bg-muted here so
