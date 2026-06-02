@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client';
 
 import {
   AnnouncementBar, SundayStrip, SiteHeader, Footer,
-  MissionBar, ServiceTimes, NewHereBlock,
+  MissionBar, ServiceTimes, NewHereBlock, useRevealOnScroll,
 } from './components/shared.jsx';
 import {
   HeroA, HeroB, HeroC, ThisWeekSermon, UpcomingEvents,
@@ -67,6 +67,9 @@ function PublicSite({ tweaks }) {
   // Scroll to top on every navigation.
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'auto' }); }, [page]);
 
+  // Re-observe reveal elements after every page swap (DOM is fresh).
+  useRevealOnScroll([page]);
+
   const [announceVisible, setAnnounceVisible] = useState(true);
   const showAnnounce = tweaks.announcementVisible && announceVisible;
 
@@ -116,7 +119,7 @@ function PublicSite({ tweaks }) {
       />
       <SundayStrip/>
       <SiteHeader onNav={navHandler} current={page} dark={useDarkHeader}/>
-      <main>{pages[page] || pages.home}</main>
+      <main key={page} className="page-fade">{pages[page] || pages.home}</main>
       <Footer onNav={navHandler}/>
     </div>
   );

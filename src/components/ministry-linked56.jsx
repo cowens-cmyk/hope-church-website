@@ -39,13 +39,13 @@ function Linked56MinistryPage({ onNav }) {
       {/* ===== Section 1: Identity intro + 1 Peter 2:9 verse ===== */}
       <section className="l56-intro">
         <div className="container l56-intro-inner">
-          <div className="l56-intro-copy">
-            <span className="eyebrow">Our Heart</span>
-            <h2>Discovering true <em>identity in Christ</em>.</h2>
-            <p className="lead">Linked 56 is built around one simple motto. Every lesson, game, and conversation circles back to it &mdash; helping each 5th and 6th grader know who they are, where they belong, and that they are never alone.</p>
-            <p>We want to build personal connections by showing them the love of Jesus while they learn what it means to love and serve others. With His guidance, we help them understand who they are, where they belong, and that they are not alone in this world.</p>
+          <div className="l56-intro-copy reveal-stagger">
+            <span className="eyebrow reveal">Our Heart</span>
+            <h2 className="reveal">Discovering true <em>identity in Christ</em>.</h2>
+            <p className="lead reveal">Linked 56 is built around one simple motto. Every lesson, game, and conversation circles back to it &mdash; helping each 5th and 6th grader know who they are, where they belong, and that they are never alone.</p>
+            <p className="reveal">We want to build personal connections by showing them the love of Jesus while they learn what it means to love and serve others. With His guidance, we help them understand who they are, where they belong, and that they are not alone in this world.</p>
           </div>
-          <div className="l56-intro-photo">
+          <div className="l56-intro-photo reveal-fade">
             <div className="l56-photo-frame">
               <img src="assets/linked56-lesson.jpg" alt="Linked 56 tweens gathered with their Bibles during a Wednesday night lesson"/>
             </div>
@@ -60,13 +60,13 @@ function Linked56MinistryPage({ onNav }) {
       {/* ===== Section 2: Three identity pillars ===== */}
       <section className="l56-pillars">
         <div className="container">
-          <header className="l56-pillars-head">
-            <span className="eyebrow">What We Stand On</span>
-            <h2>Three truths we want every tween to carry <em>with them</em>.</h2>
+          <header className="l56-pillars-head reveal-stagger">
+            <span className="eyebrow reveal">What We Stand On</span>
+            <h2 className="reveal">Three truths we want every tween to carry <em>with them</em>.</h2>
           </header>
-          <div className="l56-pillars-grid">
+          <div className="l56-pillars-grid reveal-stagger">
             {pillars.map((p, i) => (
-              <article className="l56-pillar" key={p.n}>
+              <article className="l56-pillar reveal" key={p.n}>
                 <div className="l56-pillar-num">{String(i + 1).padStart(2, '0')} &middot; {p.n}</div>
                 <h3>{p.t}</h3>
                 <p>{p.body}</p>
@@ -79,15 +79,15 @@ function Linked56MinistryPage({ onNav }) {
       {/* ===== Section 3: Foundation (dark) — fingerprint logo + curriculum ===== */}
       <section className="l56-foundation">
         <div className="container l56-foundation-inner">
-          <div className="l56-foundation-logo">
+          <div className="l56-foundation-logo reveal-fade">
             <img src="assets/linked56-logo.png" alt="Linked &mdash; Hope Youth, 1 Peter 2:9"/>
           </div>
-          <div className="l56-foundation-copy">
-            <span className="eyebrow">Building a Strong Foundation</span>
-            <h2>Preparing tweens to step into student ministry &mdash; and beyond.</h2>
-            <p>Nothing is more important to us than giving our next generation the opportunity to develop in their faith so they can stand on a solid Biblical foundation. The <strong>Ministry to Preteens curriculum</strong> is one of the learning tools we use to help them succeed.</p>
-            <p>Investing in the lives of our tweens will strengthen and spiritually prepare them to transition into our Student Ministry &mdash; and into adulthood with confidence in their faith.</p>
-            <p className="l56-foundation-coda">When it comes to our next generation, we journey alongside each parent and guardian to help equip them in shepherding their families.</p>
+          <div className="l56-foundation-copy reveal-stagger">
+            <span className="eyebrow reveal">Building a Strong Foundation</span>
+            <h2 className="reveal">Preparing tweens to step into student ministry &mdash; and beyond.</h2>
+            <p className="reveal">Nothing is more important to us than giving our next generation the opportunity to develop in their faith so they can stand on a solid Biblical foundation. The <strong>Ministry to Preteens curriculum</strong> is one of the learning tools we use to help them succeed.</p>
+            <p className="reveal">Investing in the lives of our tweens will strengthen and spiritually prepare them to transition into our Student Ministry &mdash; and into adulthood with confidence in their faith.</p>
+            <p className="l56-foundation-coda reveal">When it comes to our next generation, we journey alongside each parent and guardian to help equip them in shepherding their families.</p>
           </div>
         </div>
       </section>
@@ -95,12 +95,12 @@ function Linked56MinistryPage({ onNav }) {
       {/* ===== Section 4: Weekly rhythm — Sunday + Wednesday ===== */}
       <section className="l56-rhythm">
         <div className="container">
-          <header className="l56-rhythm-head">
-            <span className="eyebrow">When We Meet</span>
-            <h2>Two times a week to gather, grow, and have fun.</h2>
+          <header className="l56-rhythm-head reveal-stagger">
+            <span className="eyebrow reveal">When We Meet</span>
+            <h2 className="reveal">Two times a week to gather, grow, and have fun.</h2>
           </header>
-          <div className="l56-rhythm-grid">
-            <article className="l56-rhythm-card">
+          <div className="l56-rhythm-grid reveal-stagger">
+            <article className="l56-rhythm-card reveal">
               <span className="l56-rhythm-day">Sunday Morning</span>
               <h3>Worship & Word.</h3>
               <div className="l56-rhythm-times">
@@ -114,7 +114,7 @@ function Linked56MinistryPage({ onNav }) {
               <p>Age-specific lessons, engaging Bible discussions, and activities follow &mdash; built for exactly where 5th and 6th graders are.</p>
             </article>
 
-            <article className="l56-rhythm-card">
+            <article className="l56-rhythm-card reveal">
               <span className="l56-rhythm-day">Wednesday Night</span>
               <h3>Refresh & Reconnect.</h3>
               <div className="l56-rhythm-times">
@@ -137,12 +137,12 @@ function Linked56MinistryPage({ onNav }) {
       {/* ===== Section 5: Linked 56 Calendar (Subsplash) ===== */}
       <section className="l56-calendar">
         <div className="container">
-          <header className="l56-calendar-head">
-            <span className="eyebrow">What’s Coming Up</span>
-            <h2>The Linked 56 calendar.</h2>
-            <p>Events, retreats, service days, and milestones &mdash; everything happening in Linked 56, pulled live so you never miss a thing.</p>
+          <header className="l56-calendar-head reveal-stagger">
+            <span className="eyebrow reveal">What’s Coming Up</span>
+            <h2 className="reveal">The Linked 56 calendar.</h2>
+            <p className="reveal">Events, retreats, service days, and milestones &mdash; everything happening in Linked 56, pulled live so you never miss a thing.</p>
           </header>
-          <div className="l56-calendar-frame">
+          <div className="l56-calendar-frame reveal">
             <SubsplashLinked56Calendar/>
           </div>
         </div>
@@ -150,15 +150,15 @@ function Linked56MinistryPage({ onNav }) {
 
       {/* ===== Section 6: CTA band — Serve + Facebook ===== */}
       <section className="l56-cta-band">
-        <div className="container">
-          <span className="eyebrow">Get Involved</span>
-          <h2>Walk with our tweens.</h2>
-          <p>Linked 56 needs Bible teachers, game leaders, and general helpers on Sunday mornings and Wednesday nights. Sign up to serve, or join the parent group to stay in the loop.</p>
-          <div className="cta-band-actions">
+        <div className="container reveal-stagger">
+          <span className="eyebrow reveal">Get Involved</span>
+          <h2 className="reveal">Walk with our tweens.</h2>
+          <p className="reveal">Linked 56 needs Bible teachers, game leaders, and general helpers on Sunday mornings and Wednesday nights. Sign up to serve, or join the parent group to stay in the loop.</p>
+          <div className="cta-band-actions reveal">
             <Button variant="primary" size="xl" iconRight="arrow" onClick={() => window.open(SERVE_URL, '_blank', 'noopener')}>Serve in Linked 56</Button>
             <Button variant="outline-on-dark" size="xl" icon="facebook" onClick={() => window.open(FB_URL, '_blank', 'noopener')}>Linked Facebook Group</Button>
           </div>
-          <div className="l56-cta-back">
+          <div className="l56-cta-back reveal-soft">
             <a href="#" onClick={(e)=>{e.preventDefault(); onNav && onNav('ministries');}}>&larr; Back to all ministries</a>
           </div>
         </div>

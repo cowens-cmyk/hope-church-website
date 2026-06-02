@@ -3,6 +3,42 @@ import React from 'react';
 
 const { useState, useEffect } = React;
 
+// ---------- Scroll reveal ----------
+// One observer per page. Call from PublicSite, keyed on the current page so
+// new DOM gets observed after every client-side navigation. Elements with
+// the class `reveal`, `reveal-soft`, or `reveal-fade` will fade + lift into
+// place as they cross the viewport threshold. Honors prefers-reduced-motion
+// (the animations.css media query collapses the transitions to nothing).
+function useRevealOnScroll(deps = []) {
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (typeof IntersectionObserver === 'undefined') {
+      // Old browser: just show everything.
+      document
+        .querySelectorAll('.reveal, .reveal-soft, .reveal-fade')
+        .forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+    );
+    const nodes = document.querySelectorAll(
+      '.reveal:not(.is-visible), .reveal-soft:not(.is-visible), .reveal-fade:not(.is-visible)',
+    );
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
+}
+
 // ---------- Icon helper ----------
 function Icon({ name, size = 18, color = 'currentColor', strokeWidth = 1.75 }) {
   const paths = {
@@ -425,10 +461,10 @@ function SiteHeader({ onNav, current, dark = false }) {
 // ---------- Section Header ----------
 function SectionHeader({ eyebrow, title, lead, align = 'left' }) {
   return (
-    <header className={`section-header align-${align}`}>
-      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-      <h2>{title}</h2>
-      {lead && <p className="lead">{lead}</p>}
+    <header className={`section-header align-${align} reveal-stagger`}>
+      {eyebrow && <span className="eyebrow reveal">{eyebrow}</span>}
+      <h2 className="reveal">{title}</h2>
+      {lead && <p className="lead reveal">{lead}</p>}
     </header>
   );
 }
@@ -436,9 +472,9 @@ function SectionHeader({ eyebrow, title, lead, align = 'left' }) {
 // ---------- Mission Bar ----------
 function MissionBar() {
   return (
-    <section className="mission-bar">
-      <span className="eyebrow mission-bar-eyebrow">Why We Gather</span>
-      <div className="mission-bar-words">
+    <section className="mission-bar reveal-stagger">
+      <span className="eyebrow mission-bar-eyebrow reveal">Why We Gather</span>
+      <div className="mission-bar-words reveal">
         <span>Love God.</span> <span>Love people.</span> <span>Make disciples.</span>
       </div>
     </section>
@@ -455,13 +491,13 @@ function ServiceTimes() {
   return (
     <section className="service-times" data-screen-label="ServiceTimes">
       <div className="container">
-        <div className="service-times-header">
-          <span className="eyebrow">Sunday Mornings</span>
-          <h2 className="service-times-title">Three services. Same welcome.</h2>
+        <div className="service-times-header reveal-stagger">
+          <span className="eyebrow reveal">Sunday Mornings</span>
+          <h2 className="service-times-title reveal">Three services. Same welcome.</h2>
         </div>
-        <div className="service-times-grid">
+        <div className="service-times-grid reveal-stagger">
           {times.map((x, i) => (
-            <div key={x.t} className="service-time">
+            <div key={x.t} className="service-time reveal">
               <div className="service-time-num">{x.n}</div>
               <div className="st-time">{x.t}<s>{x.s}</s></div>
               <div className="st-name">{x.name}</div>
@@ -481,22 +517,22 @@ function NewHereBlock({ onVisit }) {
   return (
     <section className="new-here">
       <div className="container new-here-inner">
-        <div className="new-here-copy">
-          <span className="eyebrow">New Here?</span>
-          <h2>We saved you a seat.</h2>
-          <p className="lead">No dress code. No pressure. You don’t need to know anyone to belong here. Let us know you’re coming and we’ll meet you at the door.</p>
-          <ul className="new-here-checklist">
+        <div className="new-here-copy reveal-stagger">
+          <span className="eyebrow reveal">New Here?</span>
+          <h2 className="reveal">We saved you a seat.</h2>
+          <p className="lead reveal">No dress code. No pressure. You don’t need to know anyone to belong here. Let us know you’re coming and we’ll meet you at the door.</p>
+          <ul className="new-here-checklist reveal">
             <li>A friendly welcome at the front door</li>
             <li>Kids ministry classes are offered for infants through 5th grade</li>
             <li>Free coffee and an easy way in</li>
             <li>Someone to sit with, if you’d like</li>
           </ul>
-          <div className="new-here-actions">
+          <div className="new-here-actions reveal">
             <Button variant="primary" size="lg" onClick={onVisit} iconRight="arrow">Plan Your Visit</Button>
             <Button variant="secondary" size="lg" onClick={onVisit}>What to Expect</Button>
           </div>
         </div>
-        <div className="new-here-photo">
+        <div className="new-here-photo reveal-fade">
           <img src={window.__resources.lobbyWelcome} alt="Hope Church family connecting in the lobby after a Sunday service" />
         </div>
       </div>
@@ -588,4 +624,5 @@ function Footer({ onNav }) {
 export {
   Icon, Button, AnnouncementBar, SundayStrip, SiteHeader, SectionHeader,
   MissionBar, ServiceTimes, NewHereBlock, Footer, ThemeToggle, useResolvedTheme,
+  useRevealOnScroll,
 };

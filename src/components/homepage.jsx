@@ -10,17 +10,17 @@ function HeroA({ onVisit, onWatch }) {
   return (
     <section className="hero-a" data-screen-label="Hero A">
       <div className="hero-a-media">
-        <div className="hero-a-photo fallback" />
+        <div className="hero-a-photo fallback hero-photo-anim" />
       </div>
       <div className="hero-a-inner">
-        <span className="eyebrow hero-a-eyebrow">Welcome to Hope Church</span>
-        <h1 className="hero-a-title">Love God.<br/>Love <em>people.</em><br/>Make disciples.</h1>
-        <div className="hero-a-actions">
+        <span className="eyebrow hero-a-eyebrow reveal-now">Welcome to Hope Church</span>
+        <h1 className="hero-a-title reveal-now reveal-delay-1">Love God.<br/>Love <em>people.</em><br/>Make disciples.</h1>
+        <div className="hero-a-actions reveal-now reveal-delay-3">
           <Button variant="primary" size="xl" onClick={onVisit} iconRight="arrow">Plan Your Visit</Button>
           <Button variant="outline-on-dark" size="xl" onClick={onWatch} icon="play">Watch This Week</Button>
         </div>
       </div>
-      <div className="hero-a-bottom">
+      <div className="hero-a-bottom reveal-now reveal-delay-5">
         <span>Gray, Tennessee</span>
         <div className="hero-a-bottom-right">
           <span>Sundays · 8:00 · 9:45 · 11:30am</span>
@@ -38,14 +38,14 @@ function HeroB({ onVisit, onWatch }) {
     <section className="hero-b" data-screen-label="Hero B">
       <div className="container hero-b-inner">
         <div className="hero-b-copy">
-          <span className="eyebrow hero-b-eyebrow">Hope Church · Johnson City</span>
-          <h1 className="hero-b-title">A place to belong.<span>A reason to hope.</span></h1>
-          <p className="hero-b-lead">We gather around three commitments: love God, love people, make disciples. Simple words for a church that’s trying to live them out, one Sunday at a time.</p>
-          <div className="hero-b-actions">
+          <span className="eyebrow hero-b-eyebrow reveal-now">Hope Church · Johnson City</span>
+          <h1 className="hero-b-title reveal-now reveal-delay-1">A place to belong.<span>A reason to hope.</span></h1>
+          <p className="hero-b-lead reveal-now reveal-delay-2">We gather around three commitments: love God, love people, make disciples. Simple words for a church that’s trying to live them out, one Sunday at a time.</p>
+          <div className="hero-b-actions reveal-now reveal-delay-3">
             <Button variant="primary" size="lg" onClick={onVisit} iconRight="arrow">Plan Your Visit</Button>
             <Button variant="secondary" size="lg" onClick={onWatch} icon="play">Watch This Week</Button>
           </div>
-          <div className="hero-b-meta">
+          <div className="hero-b-meta reveal-now reveal-delay-5">
             <div className="hero-b-meta-item">
               <div className="hero-b-meta-label">Sundays</div>
               <div className="hero-b-meta-value">8:00 · 9:45 · 11:30am</div>
@@ -56,7 +56,7 @@ function HeroB({ onVisit, onWatch }) {
             </div>
           </div>
         </div>
-        <div className="hero-b-photo fallback" aria-hidden="true">
+        <div className="hero-b-photo fallback reveal-now reveal-delay-2" aria-hidden="true">
           <div className="hero-b-photo-badge">
             <span className="tag">This Sunday</span>
             <span className="tag">April 26</span>
@@ -76,19 +76,19 @@ function HeroC({ onVisit, onWatch }) {
       <span className="hero-c-bg">HOPE</span>
       <div className="container hero-c-grid">
         <div className="hero-c-left">
-          <span className="eyebrow hero-c-eyebrow">This Sunday at Hope</span>
+          <span className="eyebrow hero-c-eyebrow reveal-now">This Sunday at Hope</span>
           <h1 className="hero-c-title">
-            <span className="line">Love</span>
-            <span className="line">God.</span>
-            <span className="line">Love people.</span>
+            <span className="line reveal-now reveal-delay-1">Love</span>
+            <span className="line reveal-now reveal-delay-2">God.</span>
+            <span className="line reveal-now reveal-delay-3">Love people.</span>
           </h1>
-          <p className="hero-c-sub">A Sunday morning church in Johnson City built on three commitments — and a seat saved for you.</p>
-          <div className="hero-c-actions">
+          <p className="hero-c-sub reveal-now reveal-delay-4">A Sunday morning church in Johnson City built on three commitments — and a seat saved for you.</p>
+          <div className="hero-c-actions reveal-now reveal-delay-5">
             <Button variant="primary" size="xl" onClick={onVisit} iconRight="arrow">Plan Your Visit</Button>
             <Button variant="ghost-on-dark" size="xl" onClick={onWatch} icon="play">Watch Latest</Button>
           </div>
         </div>
-        <div className="hero-c-right fallback" aria-hidden="true" />
+        <div className="hero-c-right fallback reveal-now reveal-delay-2" aria-hidden="true" />
       </div>
       <div className="hero-c-bar">
         <div className="hero-c-bar-inner">
@@ -117,10 +117,10 @@ function ThisWeekSermon({ onSermons }) {
           title="The latest message"
           lead="Catch up on Sunday’s message or revisit any past sermon below."
         />
-          <div style={{maxWidth: 980, margin: '0 auto'}}>
+          <div className="reveal" style={{maxWidth: 980, margin: '0 auto'}}>
             <SubsplashRecent/>
           </div>
-        <div style={{textAlign:'center', marginTop:40}}>
+        <div className="reveal" style={{textAlign:'center', marginTop:40}}>
           <Button variant="secondary" size="lg" onClick={onSermons} iconRight="arrow">Browse the full library</Button>
         </div>
       </div>
@@ -138,7 +138,7 @@ function UpcomingEvents({ onEvents }) {
       <div className="container">
         <button
           type="button"
-          className={`events-toggle ${open ? 'is-open' : ''}`}
+          className={`events-toggle reveal ${open ? 'is-open' : ''}`}
           aria-expanded={open}
           aria-controls="upcoming-events-panel"
           onClick={() => setOpen(o => !o)}
@@ -183,9 +183,9 @@ function MinistriesBlock({ onMinistries }) {
     <section className="ministries-section">
       <div className="container">
         <SectionHeader eyebrow="Ministries" title="A place for everyone." lead="From our youngest kids to our most seasoned members, we have a place for you to grow and belong." align="center" />
-        <div className="ministries-grid ministries-grid-4">
+        <div className="ministries-grid ministries-grid-4 reveal-stagger">
           {m.map(x => (
-            <div className="ministry-card" key={x.title} onClick={onMinistries}>
+            <div className="ministry-card reveal" key={x.title} onClick={onMinistries}>
               <div className="ministry-card-age">{x.age}</div>
               <h3>{x.title}</h3>
               <p>{x.desc}</p>
@@ -223,17 +223,17 @@ function AppBand() {
   return (
     <section className="app-band">
       <div className="container app-band-inner">
-        <div className="app-band-copy">
-          <span className="eyebrow">The Hope App</span>
-          <h2>Take Sunday with you.</h2>
-          <p>Listen to sermons, follow along with notes, give, and find your next step — all from your pocket.</p>
-          <ul className="app-band-features">
+        <div className="app-band-copy reveal-stagger">
+          <span className="eyebrow reveal">The Hope App</span>
+          <h2 className="reveal">Take Sunday with you.</h2>
+          <p className="reveal">Listen to sermons, follow along with notes, give, and find your next step — all from your pocket.</p>
+          <ul className="app-band-features reveal">
             <li>Full sermon library</li>
             <li>Service notes &amp; Bible</li>
             <li>Give in two taps</li>
             <li>Event reminders</li>
           </ul>
-          <div className="app-stores">
+          <div className="app-stores reveal">
             <a className="app-store-btn" href="https://apps.apple.com/us/app/hope-church-jc/id1427669078" target="_blank" rel="noopener" aria-label="Download on the App Store">
               <AppleBadge/>
               <div>
@@ -250,7 +250,7 @@ function AppBand() {
             </a>
           </div>
         </div>
-        <div className="app-phone" aria-hidden="true">
+        <div className="app-phone reveal-fade" aria-hidden="true">
           <div className="app-phone-notch"></div>
           <div className="app-phone-screen app-phone-screen--image">
             <img src={window.__resources.appScreenshot} alt="Hope Church app screenshot"/>
@@ -267,11 +267,11 @@ function AppBand() {
 function GiveCTA({ onGive }) {
   return (
     <section className="cta-band">
-      <div className="container">
-        <span className="eyebrow">Generosity</span>
-        <h2>Give so someone can find what you found.</h2>
-        <p>Every gift, big or small, makes Sunday mornings, kids’ ministry, and care for our city possible.</p>
-        <div className="cta-band-actions">
+      <div className="container reveal-stagger">
+        <span className="eyebrow reveal">Generosity</span>
+        <h2 className="reveal">Give so someone can find what you found.</h2>
+        <p className="reveal">Every gift, big or small, makes Sunday mornings, kids’ ministry, and care for our city possible.</p>
+        <div className="cta-band-actions reveal">
           <Button variant="primary" size="xl" onClick={onGive} iconRight="arrow">Give Online</Button>
         </div>
       </div>

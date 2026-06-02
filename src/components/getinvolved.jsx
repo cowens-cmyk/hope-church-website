@@ -23,24 +23,24 @@ function LifeGroupsPage({ onNav }) {
       <section className="visit-section" style={{paddingBottom: 60}}>
         <div className="container">
           <div className="lifegroups-why">
-            <div className="lifegroups-why-copy">
-              <span className="eyebrow">Why a group?</span>
-              <h2>Faith was never meant to be lived alone.</h2>
-              <p>The early church didn&rsquo;t just gather on Sundays — they shared meals, prayed for each other, and walked through real life side by side. Life Groups are how we keep that pattern at Hope.</p>
-              <p>Most groups meet weekly in someone&rsquo;s home for about 90 minutes — a meal or snack, time in Scripture, and time to pray for each other.</p>
+            <div className="lifegroups-why-copy reveal-stagger">
+              <span className="eyebrow reveal">Why a group?</span>
+              <h2 className="reveal">Faith was never meant to be lived alone.</h2>
+              <p className="reveal">The early church didn&rsquo;t just gather on Sundays — they shared meals, prayed for each other, and walked through real life side by side. Life Groups are how we keep that pattern at Hope.</p>
+              <p className="reveal">Most groups meet weekly in someone&rsquo;s home for about 90 minutes — a meal or snack, time in Scripture, and time to pray for each other.</p>
             </div>
-            <div className="lifegroups-why-cards">
-              <div className="lifegroups-why-card">
+            <div className="lifegroups-why-cards reveal-stagger">
+              <div className="lifegroups-why-card reveal">
                 <div className="lifegroups-why-num">01</div>
                 <h4>Meet weekly</h4>
                 <p>Same place, same time, every week. Consistency is where trust grows.</p>
               </div>
-              <div className="lifegroups-why-card">
+              <div className="lifegroups-why-card reveal">
                 <div className="lifegroups-why-num">02</div>
                 <h4>Open the Bible</h4>
                 <p>Groups follow along with the Sunday teaching or work through a book together.</p>
               </div>
-              <div className="lifegroups-why-card">
+              <div className="lifegroups-why-card reveal">
                 <div className="lifegroups-why-num">03</div>
                 <h4>Pray for each other</h4>
                 <p>Real prayer for real stuff — kids, jobs, marriages, health, faith.</p>
@@ -54,9 +54,9 @@ function LifeGroupsPage({ onNav }) {
       <section className="ministries-section" style={{paddingTop: 60}}>
         <div className="container">
           <SectionHeader eyebrow="Open Groups" title="Currently meeting." lead="Browse our active groups and reach out to a host. Don’t see one that fits? Let us know and we’ll help you start one." align="center"/>
-          <div className="lifegroups-grid">
+          <div className="lifegroups-grid reveal-stagger">
             {groups.map(g => (
-              <article className="lifegroup-card" key={g.name}>
+              <article className="lifegroup-card reveal" key={g.name}>
                 <div className="lifegroup-when">
                   <span className="lifegroup-day">{g.day}</span>
                   <span className="lifegroup-time">{g.time}</span>
@@ -77,12 +77,12 @@ function LifeGroupsPage({ onNav }) {
       {/* Start one */}
       <section className="lifegroups-start">
         <div className="container lifegroups-start-inner">
-          <div>
-            <span className="eyebrow on-dark">Lead a group</span>
-            <h2>Could you host?</h2>
-            <p>You don&rsquo;t need a seminary degree or a perfect living room. If you can open your home and care for a few people, we&rsquo;ll train you, support you, and walk with you.</p>
+          <div className="reveal-stagger">
+            <span className="eyebrow on-dark reveal">Lead a group</span>
+            <h2 className="reveal">Could you host?</h2>
+            <p className="reveal">You don&rsquo;t need a seminary degree or a perfect living room. If you can open your home and care for a few people, we&rsquo;ll train you, support you, and walk with you.</p>
           </div>
-          <div className="lifegroups-start-cta">
+          <div className="lifegroups-start-cta reveal">
             <Button variant="primary" size="lg" iconRight="arrow" onClick={()=>onNav && onNav('connect')}>Talk to our Groups Director</Button>
           </div>
         </div>
@@ -201,7 +201,7 @@ function MissionsPage({ onNav }) {
   ];
 
   const PartnerCard = ({ p }) => (
-    <article className="missions-partner-v2">
+    <article className="missions-partner-v2 reveal">
       <div className={`missions-partner-img missions-partner-img-${p.imgFit || 'cover'}`}>
         {p.img
           ? <img src={p.img} alt={p.name} loading="lazy"/>
@@ -232,13 +232,13 @@ function MissionsPage({ onNav }) {
       {/* Heart */}
       <section className="visit-section missions-intro">
         <div className="container missions-intro-inner">
-          <p className="missions-intro-copy">
+          <p className="missions-intro-copy reveal">
             We believe that missions is a vital part of the church. God has positioned Hope Church to be extremely generous — we are active locally, nationally, and throughout all parts of the world.
           </p>
-          <div className="missions-tiers">
-            <div className="missions-tier"><div className="missions-tier-num">01</div><h4>Local</h4><p>Johnson City &amp; the Tri-Cities</p></div>
-            <div className="missions-tier"><div className="missions-tier-num">02</div><h4>National</h4><p>Church planting across the U.S.</p></div>
-            <div className="missions-tier"><div className="missions-tier-num">03</div><h4>International</h4><p>Long-term partners on three continents</p></div>
+          <div className="missions-tiers reveal-stagger">
+            <div className="missions-tier reveal"><div className="missions-tier-num">01</div><h4>Local</h4><p>Johnson City &amp; the Tri-Cities</p></div>
+            <div className="missions-tier reveal"><div className="missions-tier-num">02</div><h4>National</h4><p>Church planting across the U.S.</p></div>
+            <div className="missions-tier reveal"><div className="missions-tier-num">03</div><h4>International</h4><p>Long-term partners on three continents</p></div>
           </div>
         </div>
       </section>
@@ -246,10 +246,10 @@ function MissionsPage({ onNav }) {
       {/* Active Missionary Partners */}
       <section className="missions-partners-section">
         <div className="container">
-          <div className="missions-section-head">
-            <span className="eyebrow">Who we walk with</span>
-            <h2>Active Missionary Partners</h2>
-            <p>A short list, on purpose. We&rsquo;d rather go deep with a few partners than spread thin across many.</p>
+          <div className="missions-section-head reveal-stagger">
+            <span className="eyebrow reveal">Who we walk with</span>
+            <h2 className="reveal">Active Missionary Partners</h2>
+            <p className="reveal">A short list, on purpose. We&rsquo;d rather go deep with a few partners than spread thin across many.</p>
           </div>
 
           <div className="missions-tier-block">
@@ -257,7 +257,7 @@ function MissionsPage({ onNav }) {
               <h3>International Partners</h3>
               <span className="missions-tier-count">{international.length} partners</span>
             </header>
-            <div className="missions-partners-v2">
+            <div className="missions-partners-v2 reveal-stagger">
               {international.map(p => <PartnerCard p={p} key={p.name}/>)}
             </div>
           </div>
@@ -267,7 +267,7 @@ function MissionsPage({ onNav }) {
               <h3>National Partners</h3>
               <span className="missions-tier-count">{national.length} partners</span>
             </header>
-            <div className="missions-partners-v2">
+            <div className="missions-partners-v2 reveal-stagger">
               {national.map(p => <PartnerCard p={p} key={p.name}/>)}
             </div>
           </div>
@@ -277,7 +277,7 @@ function MissionsPage({ onNav }) {
               <h3>Local Partners</h3>
               <span className="missions-tier-count">{local.length} partners</span>
             </header>
-            <div className="missions-partners-v2">
+            <div className="missions-partners-v2 reveal-stagger">
               {local.map(p => <PartnerCard p={p} key={p.name}/>)}
             </div>
           </div>
@@ -287,12 +287,12 @@ function MissionsPage({ onNav }) {
       {/* Give to missions */}
       <section className="lifegroups-start">
         <div className="container lifegroups-start-inner">
-          <div>
-            <span className="eyebrow on-dark">Three ways in</span>
-            <h2>Pray. Give. Go.</h2>
-            <p>Not everyone is called to board a plane — but everyone can pray. Everyone can give. Some are called to go. Talk to us about where you fit.</p>
+          <div className="reveal-stagger">
+            <span className="eyebrow on-dark reveal">Three ways in</span>
+            <h2 className="reveal">Pray. Give. Go.</h2>
+            <p className="reveal">Not everyone is called to board a plane — but everyone can pray. Everyone can give. Some are called to go. Talk to us about where you fit.</p>
           </div>
-          <div className="lifegroups-start-cta" style={{display:'flex', gap:12, flexWrap:'wrap'}}>
+          <div className="lifegroups-start-cta reveal" style={{display:'flex', gap:12, flexWrap:'wrap'}}>
             <Button variant="primary" size="lg" iconRight="arrow" onClick={()=>onNav && onNav('give')}>Give to Missions</Button>
             <Button variant="outline-on-dark" size="lg" onClick={()=>onNav && onNav('connect')}>Get in touch</Button>
           </div>
@@ -310,7 +310,7 @@ function ConnectCardPage() {
       <PageHeader eyebrow="Get Involved" title="Let us know you’re here." lead="Fill out a quick Connect Card so we can get to know you and keep you in the loop on what’s happening at Hope." />
       <section className="visit-section">
         <div className="container connect-embed-single">
-          <div className="connect-embed-wrap">
+          <div className="connect-embed-wrap reveal-fade">
             <iframe
               src={`${formUrl}?open_in_church_center_modal=false`}
               title="Hope Church Connect Card"
@@ -336,14 +336,14 @@ function DiscoverHopePage({ onNav }) {
       {/* Partnership manifesto */}
       <section className="discover-intro">
         <div className="container discover-intro-inner">
-          <div className="discover-intro-copy">
-            <span className="eyebrow">Partnership at Hope</span>
-            <h2>More than membership.</h2>
-            <p className="lead">Partnership is the term we use for our church &ldquo;membership.&rdquo; We don&rsquo;t want people to simply become members — we want people to partner with us in the mission and vision to which God has called His church.</p>
-            <p>Membership often refers to the benefits you receive from being part of a group or organization. Although partnering with a committed body of Christ is certainly beneficial, it&rsquo;s about so much more than your personal benefit.</p>
-            <p><strong>Partnership is a commitment to actively participate in that body of believers.</strong> We believe God has not called us to sit back and be served, but to take an active role in serving and ministering in order to build up and strengthen the body of Christ.</p>
+          <div className="discover-intro-copy reveal-stagger">
+            <span className="eyebrow reveal">Partnership at Hope</span>
+            <h2 className="reveal">More than membership.</h2>
+            <p className="lead reveal">Partnership is the term we use for our church &ldquo;membership.&rdquo; We don&rsquo;t want people to simply become members — we want people to partner with us in the mission and vision to which God has called His church.</p>
+            <p className="reveal">Membership often refers to the benefits you receive from being part of a group or organization. Although partnering with a committed body of Christ is certainly beneficial, it&rsquo;s about so much more than your personal benefit.</p>
+            <p className="reveal"><strong>Partnership is a commitment to actively participate in that body of believers.</strong> We believe God has not called us to sit back and be served, but to take an active role in serving and ministering in order to build up and strengthen the body of Christ.</p>
           </div>
-          <aside className="discover-callout">
+          <aside className="discover-callout reveal-fade">
             <div className="discover-callout-eyebrow">Every first Wednesday</div>
             <div className="discover-callout-date">
               <span className="discover-callout-day">Wed</span>
@@ -366,33 +366,33 @@ function DiscoverHopePage({ onNav }) {
       <section className="discover-cover">
         <div className="container">
           <SectionHeader eyebrow="What we cover" title="An hour and a half. The whole picture." lead="Discover Hope provides the opportunity to learn more about the mission and vision of our church and to ask any questions you may have regarding partnership." align="center"/>
-          <div className="discover-grid">
-            <div className="discover-card">
+          <div className="discover-grid reveal-stagger">
+            <div className="discover-card reveal">
               <div className="discover-num">01</div>
               <h3>Our story</h3>
               <p>How Hope started in 2022, where we&rsquo;ve been, and where we believe God is leading us next.</p>
             </div>
-            <div className="discover-card">
+            <div className="discover-card reveal">
               <div className="discover-num">02</div>
               <h3>What we believe</h3>
               <p>A walk through our Statement of Faith — the doctrines that anchor everything we teach.</p>
             </div>
-            <div className="discover-card">
+            <div className="discover-card reveal">
               <div className="discover-num">03</div>
               <h3>How we&rsquo;re structured</h3>
               <p>Elders, pastors, staff, and the role partners play in shepherding the church together.</p>
             </div>
-            <div className="discover-card">
+            <div className="discover-card reveal">
               <div className="discover-num">04</div>
               <h3>What partnership means</h3>
               <p>The commitments we make to each other — and the joy of being part of a committed body.</p>
             </div>
-            <div className="discover-card">
+            <div className="discover-card reveal">
               <div className="discover-num">05</div>
               <h3>Your next step</h3>
               <p>How to take the step into partnership at Hope — and what to expect if you do.</p>
             </div>
-            <div className="discover-card discover-card-q">
+            <div className="discover-card discover-card-q reveal">
               <div className="discover-num">06</div>
               <h3>Your questions</h3>
               <p>The last block of the night is yours. Bring anything — theological, practical, or personal.</p>
@@ -404,7 +404,7 @@ function DiscoverHopePage({ onNav }) {
       {/* Sign up */}
       <section className="visit-section" id="signup">
         <div className="container visit-grid">
-          <div>
+          <div className="reveal-fade">
             <div className="visit-card discover-form-card">
               <h2>Save my spot</h2>
               <div className="sub">Sign up for the next Discover Hope session. We&rsquo;ll send a reminder a couple days out.</div>
@@ -419,22 +419,22 @@ function DiscoverHopePage({ onNav }) {
               </div>
             </div>
           </div>
-          <aside className="visit-aside">
-            <h3>Common questions</h3>
-            <div className="discover-faq">
-              <details>
+          <aside className="visit-aside reveal-stagger">
+            <h3 className="reveal">Common questions</h3>
+            <div className="discover-faq reveal-stagger">
+              <details className="reveal">
                 <summary>Do I have to become a partner?</summary>
                 <p>Not at all. Plenty of people come to Discover Hope to learn more and decide later — or to ask questions they&rsquo;ve been holding for a while. No pressure either way.</p>
               </details>
-              <details>
+              <details className="reveal">
                 <summary>What if I&rsquo;ve never been to Hope?</summary>
                 <p>Welcome! It&rsquo;s actually a great way to learn who we are without waiting through a few Sundays to piece it together.</p>
               </details>
-              <details>
+              <details className="reveal">
                 <summary>What about my kids?</summary>
                 <p>We provide childcare during the class for infants through 5th grade. Let us know on the form so we can plan staffing.</p>
               </details>
-              <details>
+              <details className="reveal">
                 <summary>How long is the class?</summary>
                 <p>About 90 minutes. We start at 6:30pm and aim to have you out the door by 8:00pm.</p>
               </details>

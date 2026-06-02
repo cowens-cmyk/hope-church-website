@@ -20,7 +20,7 @@ function PrayerRequestPage() {
       />
       <section className="prayer-section">
         <div className="container prayer-grid">
-          <div className="connect-embed-wrap">
+          <div className="connect-embed-wrap reveal-fade">
             <iframe
               src={`${formUrl}?open_in_church_center_modal=false`}
               title="Prayer Request — Hope Church"
@@ -30,8 +30,8 @@ function PrayerRequestPage() {
             />
           </div>
 
-          <aside className="prayer-aside">
-            <div className="prayer-verse-card">
+          <aside className="prayer-aside reveal-stagger">
+            <div className="prayer-verse-card reveal">
               <div className="v-eyebrow">A Promise</div>
               <blockquote>
                 Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.
@@ -39,7 +39,7 @@ function PrayerRequestPage() {
               <cite>Philippians 4:6</cite>
             </div>
 
-            <div className="prayer-team-card">
+            <div className="prayer-team-card reveal">
               <h3>Need pastoral care?</h3>
               <p>For urgent care, a hospital visit, or a longer conversation with a pastor, please reach out directly &mdash; we&rsquo;d love to walk with you.</p>
               <div className="meta">
@@ -357,14 +357,14 @@ function PodcastChannelView({ channel }) {
       <section className="podcast-section">
         <div className="container">
           <header className="podcast-channel-header">
-            <div className="podcast-cover">
+            <div className="podcast-cover reveal-fade">
               {cover ? <img src={cover} alt={`${channel.name} cover art`}/> : null}
             </div>
-            <div className="podcast-channel-text">
-              <div className="eyebrow">{channel.tagline}</div>
-              <h1>{channel.name}</h1>
-              <p>{channel.description}</p>
-              <div className="podcast-channel-links">
+            <div className="podcast-channel-text reveal-stagger">
+              <div className="eyebrow reveal">{channel.tagline}</div>
+              <h1 className="reveal">{channel.name}</h1>
+              <p className="reveal">{channel.description}</p>
+              <div className="podcast-channel-links reveal">
                 <a className="podcast-link-pill" href={channel.rss} target="_blank" rel="noopener">
                   <RssIcon/> RSS Feed
                 </a>
@@ -378,7 +378,7 @@ function PodcastChannelView({ channel }) {
             </div>
           </header>
 
-          <div className="podcast-episodes-header">
+          <div className="podcast-episodes-header reveal">
             <h2>Episodes</h2>
             {feed.data && (
               <span className="count">{feed.data.items.length} episode{feed.data.items.length === 1 ? '' : 's'}{feed.data.isFallback ? ' \u00b7 recent' : ''}</span>
@@ -555,14 +555,14 @@ function AppPage() {
       <section className="app-page-hero">
         <div className="container app-page-hero-inner">
           <div>
-            <div className="app-page-eyebrow">The Hope App</div>
-            <h1 className="app-page-title">Take Sunday <em>with you.</em></h1>
-            <p className="app-page-lead">
+            <div className="app-page-eyebrow reveal-now">The Hope App</div>
+            <h1 className="app-page-title reveal-now reveal-delay-1">Take Sunday <em>with you.</em></h1>
+            <p className="app-page-lead reveal-now reveal-delay-2">
               Listen to sermons, follow along with notes, give, send prayer requests, and stay connected to everything happening at Hope &mdash; right from your pocket.
             </p>
-            <AppStoreButtons/>
+            <div className="reveal-now reveal-delay-3"><AppStoreButtons/></div>
           </div>
-          <div className="app-page-phone-wrap" aria-hidden="true">
+          <div className="app-page-phone-wrap reveal-now reveal-delay-2" aria-hidden="true">
             <div className="app-phone">
               <div className="app-phone-notch"></div>
               <div className="app-phone-screen app-phone-screen--image">
@@ -575,14 +575,16 @@ function AppPage() {
 
       <section className="app-page-features">
         <div className="container">
-          <header className="app-page-features-header">
-            <div className="eyebrow">Everything in one place</div>
-            <h2>Built for the rhythms of our church.</h2>
-            <p>The Hope App is how a lot of our church family stays plugged in during the week. Here&rsquo;s what you&rsquo;ll find inside.</p>
+          <header className="app-page-features-header reveal-stagger">
+            <div className="eyebrow reveal">Everything in one place</div>
+            <h2 className="reveal">Built for the rhythms of our church.</h2>
+            <p className="reveal">The Hope App is how a lot of our church family stays plugged in during the week. Here&rsquo;s what you&rsquo;ll find inside.</p>
           </header>
-          <div className="app-page-features-grid">
+          <div className="app-page-features-grid reveal-stagger">
             {features.map(f => (
-              <AppFeature key={f.title} icon={f.icon} title={f.title}>{f.body}</AppFeature>
+              <div className="reveal" key={f.title}>
+                <AppFeature icon={f.icon} title={f.title}>{f.body}</AppFeature>
+              </div>
             ))}
           </div>
         </div>
@@ -591,16 +593,16 @@ function AppPage() {
       <section className="app-page-install">
         <div className="container">
           <div className="app-page-install-inner">
-            <div className="app-page-install-text">
-              <div className="eyebrow">Get it on your phone</div>
-              <h2>Two taps and you&rsquo;re in.</h2>
-              <p>Free in the App Store and on Google Play. Sign in with your Hope account if you have one &mdash; or just browse as a guest.</p>
-              <AppStoreButtons/>
+            <div className="app-page-install-text reveal-stagger">
+              <div className="eyebrow reveal">Get it on your phone</div>
+              <h2 className="reveal">Two taps and you&rsquo;re in.</h2>
+              <p className="reveal">Free in the App Store and on Google Play. Sign in with your Hope account if you have one &mdash; or just browse as a guest.</p>
+              <div className="reveal"><AppStoreButtons/></div>
             </div>
-            <ol className="app-page-install-steps">
-              <li>Tap the badge for your phone &mdash; App Store or Google Play.</li>
-              <li>Install the app (it&rsquo;s free) and open it once installed.</li>
-              <li>Optional: sign in to give, save notes, and sync across devices.</li>
+            <ol className="app-page-install-steps reveal-stagger">
+              <li className="reveal">Tap the badge for your phone &mdash; App Store or Google Play.</li>
+              <li className="reveal">Install the app (it&rsquo;s free) and open it once installed.</li>
+              <li className="reveal">Optional: sign in to give, save notes, and sync across devices.</li>
             </ol>
           </div>
         </div>

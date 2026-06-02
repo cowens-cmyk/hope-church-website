@@ -39,16 +39,16 @@ function CollegeMinistryPage({ onNav }) {
       {/* ===== Section 1: Anchor verse + intro ===== */}
       <section className="cc-anchor">
         <div className="container cc-anchor-inner">
-          <div className="cc-anchor-copy">
-            <span className="cc-verse-ref">Jeremiah 29:11</span>
-            <p className="cc-anchor-verse">
+          <div className="cc-anchor-copy reveal-stagger">
+            <span className="cc-verse-ref reveal">Jeremiah 29:11</span>
+            <p className="cc-anchor-verse reveal">
               <span className="quoted">&ldquo;Plans to prosper you and not to harm you,</span> <em>plans to give you hope and a future.&rdquo;</em>
             </p>
-            <p className="cc-anchor-attr">Declares the Lord</p>
-            <p className="cc-anchor-lead">Our College &amp; Career ministry was developed to bring together young adults and provide an environment for spiritual support &mdash; whether you&rsquo;re in college, already in the workforce, or establishing a career after school.</p>
-            <p className="cc-anchor-body">Hope Church has a heart for this ministry, and is dedicated to shepherding and discipling young people through the complexities of career choices, important life decisions, and changing relationships. Opportunities for devotion and fellowship are available weekly.</p>
+            <p className="cc-anchor-attr reveal">Declares the Lord</p>
+            <p className="cc-anchor-lead reveal">Our College &amp; Career ministry was developed to bring together young adults and provide an environment for spiritual support &mdash; whether you&rsquo;re in college, already in the workforce, or establishing a career after school.</p>
+            <p className="cc-anchor-body reveal">Hope Church has a heart for this ministry, and is dedicated to shepherding and discipling young people through the complexities of career choices, important life decisions, and changing relationships. Opportunities for devotion and fellowship are available weekly.</p>
           </div>
-          <div className="cc-anchor-media">
+          <div className="cc-anchor-media reveal-fade">
             <div className="cc-anchor-photo">
               <img src="assets/college-auditorium-group.jpg" alt="The Hope College and Career group gathered together on the steps in front of the Hope Church auditorium"/>
             </div>
@@ -64,14 +64,14 @@ function CollegeMinistryPage({ onNav }) {
       {/* ===== Section 2: Three pillars — career, decisions, relationships ===== */}
       <section className="cc-pillars">
         <div className="container">
-          <header className="cc-pillars-head">
-            <span className="eyebrow">What We Walk Through</span>
-            <h2>The decisions of this decade <em>matter</em>.</h2>
-            <p>Most of the choices that shape the next forty years get made in the next ten. We&rsquo;re here for all of them &mdash; together, on our knees, and with the Word open.</p>
+          <header className="cc-pillars-head reveal-stagger">
+            <span className="eyebrow reveal">What We Walk Through</span>
+            <h2 className="reveal">The decisions of this decade <em>matter</em>.</h2>
+            <p className="reveal">Most of the choices that shape the next forty years get made in the next ten. We&rsquo;re here for all of them &mdash; together, on our knees, and with the Word open.</p>
           </header>
-          <div className="cc-pillars-grid">
+          <div className="cc-pillars-grid reveal-stagger">
             {pillars.map((p, i) => (
-              <article className="cc-pillar" key={p.n}>
+              <article className="cc-pillar reveal" key={p.n}>
                 <div className="cc-pillar-num">{String(i + 1).padStart(2, '0')} · {p.n}</div>
                 <h3>{p.t}</h3>
                 <p>{p.body}</p>
@@ -84,12 +84,12 @@ function CollegeMinistryPage({ onNav }) {
       {/* ===== Section 3: Weekly rhythm — Life Group + Sunday mornings ===== */}
       <section className="cc-rhythm">
         <div className="container">
-          <header className="cc-rhythm-head">
-            <span className="eyebrow">Where We Gather</span>
-            <h2>Two rhythms that <em>anchor the week</em>.</h2>
+          <header className="cc-rhythm-head reveal-stagger">
+            <span className="eyebrow reveal">Where We Gather</span>
+            <h2 className="reveal">Two rhythms that <em>anchor the week</em>.</h2>
           </header>
-          <div className="cc-rhythm-grid">
-            <article className="cc-rhythm-card primary">
+          <div className="cc-rhythm-grid reveal-stagger">
+            <article className="cc-rhythm-card primary reveal">
               <span className="cc-rhythm-day">The Main Thing</span>
               <h3>College &amp; Career <em>Life Group.</em></h3>
               <div className="cc-rhythm-times">
@@ -103,7 +103,7 @@ function CollegeMinistryPage({ onNav }) {
               <p>We dig into Scripture, pray for each other by name, and walk through whatever this season is throwing at you &mdash; a job change, a hard relationship, a question about calling. <strong>Strengthen your faith and friendships</strong> here.</p>
             </article>
 
-            <article className="cc-rhythm-card">
+            <article className="cc-rhythm-card reveal">
               <span className="cc-rhythm-day">Sunday Mornings</span>
               <h3>Worship together.</h3>
               <div className="cc-rhythm-times">
@@ -123,37 +123,37 @@ function CollegeMinistryPage({ onNav }) {
       {/* ===== Section 4: Passion 2025 — full-bleed dark feature ===== */}
       <section className="cc-passion">
         <div className="container cc-passion-inner">
-          <header className="cc-passion-head">
-            <span className="cc-passion-eyebrow">January 2025 · Atlanta</span>
-            <h2>We went to <em>Passion 2025</em> together.</h2>
-            <p>Tens of thousands of 18&ndash;25 year olds. Three nights of worship in State Farm Arena. A group of young adults from Hope, shoulder to shoulder, lifting their hands to Jesus. Trips like this are a glimpse of what we&rsquo;re building all year.</p>
+          <header className="cc-passion-head reveal-stagger">
+            <span className="cc-passion-eyebrow reveal">January 2025 · Atlanta</span>
+            <h2 className="reveal">We went to <em>Passion 2025</em> together.</h2>
+            <p className="reveal">Tens of thousands of 18&ndash;25 year olds. Three nights of worship in State Farm Arena. A group of young adults from Hope, shoulder to shoulder, lifting their hands to Jesus. Trips like this are a glimpse of what we&rsquo;re building all year.</p>
           </header>
 
-          <div className="cc-passion-mosaic">
-            <figure className="cc-passion-tile hero">
+          <div className="cc-passion-mosaic reveal-stagger">
+            <figure className="cc-passion-tile hero reveal-fade">
               <img src="assets/college-passion-stage.jpg" alt="The Passion 2025 stage at State Farm Arena lit up in red with thousands of college-age students in the crowd"/>
               <figcaption className="caption">State Farm Arena</figcaption>
             </figure>
-            <figure className="cc-passion-tile side1">
+            <figure className="cc-passion-tile side1 reveal-fade">
               <img src="assets/college-passion-girls.jpg" alt="Four young women from Hope Church smiling for a photo in front of the Passion stage"/>
               <figcaption className="caption">Our Group</figcaption>
             </figure>
-            <figure className="cc-passion-tile side2">
+            <figure className="cc-passion-tile side2 reveal-fade">
               <img src="assets/college-passion-crowd.jpg" alt="The Passion 2025 crowd with hands raised in worship under bright pink stage lights"/>
               <figcaption className="caption">Worship Night</figcaption>
             </figure>
           </div>
 
-          <div className="cc-passion-stats">
-            <div className="cc-passion-stat">
+          <div className="cc-passion-stats reveal-stagger">
+            <div className="cc-passion-stat reveal">
               <div className="cc-passion-stat-num">55K<em>+</em></div>
               <div className="cc-passion-stat-label">Students Gathered</div>
             </div>
-            <div className="cc-passion-stat">
+            <div className="cc-passion-stat reveal">
               <div className="cc-passion-stat-num">3</div>
               <div className="cc-passion-stat-label">Nights of Worship</div>
             </div>
-            <div className="cc-passion-stat">
+            <div className="cc-passion-stat reveal">
               <div className="cc-passion-stat-num">1</div>
               <div className="cc-passion-stat-label">Hope Family</div>
             </div>
@@ -164,14 +164,14 @@ function CollegeMinistryPage({ onNav }) {
       {/* ===== Section 5: Life in this season ===== */}
       <section className="cc-life">
         <div className="container cc-life-inner">
-          <div className="cc-life-photo">
+          <div className="cc-life-photo reveal-fade">
             <img src="assets/college-housegroup.jpg" alt="The College and Career group gathered around a kitchen island filled with food at a host home"/>
           </div>
-          <div className="cc-life-copy">
-            <span className="eyebrow">Life In This Season</span>
-            <h2>Around the table, <em>almost weekly.</em></h2>
-            <p>Most of what we do isn&rsquo;t flashy. It&rsquo;s a potluck spread on a host&rsquo;s kitchen counter, Bibles cracked open on the coffee table, prayer requests on a sticky note, and someone always staying late to help with dishes.</p>
-            <p>If you&rsquo;re new to the area, just out of school, or just figuring out what&rsquo;s next &mdash; <strong>there&rsquo;s a seat at the table for you.</strong> Show up once and you&rsquo;ll know within an hour whether this is your group. We think it will be.</p>
+          <div className="cc-life-copy reveal-stagger">
+            <span className="eyebrow reveal">Life In This Season</span>
+            <h2 className="reveal">Around the table, <em>almost weekly.</em></h2>
+            <p className="reveal">Most of what we do isn&rsquo;t flashy. It&rsquo;s a potluck spread on a host&rsquo;s kitchen counter, Bibles cracked open on the coffee table, prayer requests on a sticky note, and someone always staying late to help with dishes.</p>
+            <p className="reveal">If you&rsquo;re new to the area, just out of school, or just figuring out what&rsquo;s next &mdash; <strong>there&rsquo;s a seat at the table for you.</strong> Show up once and you&rsquo;ll know within an hour whether this is your group. We think it will be.</p>
           </div>
         </div>
       </section>
@@ -179,12 +179,12 @@ function CollegeMinistryPage({ onNav }) {
       {/* ===== Section 6: Calendar (Subsplash) ===== */}
       <section className="cc-calendar">
         <div className="container">
-          <header className="cc-calendar-head">
-            <span className="eyebrow">What’s Coming Up</span>
-            <h2>The College &amp; Career calendar.</h2>
-            <p>Life Group nights, hangouts, service days, and the next big trip &mdash; everything happening in this ministry, pulled live so you never miss a thing.</p>
+          <header className="cc-calendar-head reveal-stagger">
+            <span className="eyebrow reveal">What’s Coming Up</span>
+            <h2 className="reveal">The College &amp; Career calendar.</h2>
+            <p className="reveal">Life Group nights, hangouts, service days, and the next big trip &mdash; everything happening in this ministry, pulled live so you never miss a thing.</p>
           </header>
-          <div className="cc-calendar-frame">
+          <div className="cc-calendar-frame reveal">
             <SubsplashCollegeCalendar/>
           </div>
         </div>
@@ -192,15 +192,15 @@ function CollegeMinistryPage({ onNav }) {
 
       {/* ===== Section 7: CTA band ===== */}
       <section className="cc-cta-band">
-        <div className="container">
-          <span className="eyebrow">Get Connected</span>
-          <h2>Come once. <em>You&rsquo;ll know.</em></h2>
-          <p>Join the private Facebook group for week-of details on Life Group, hangouts, and trips. Or reach out and we&rsquo;ll point you to the next gathering.</p>
-          <div className="cta-band-actions">
+        <div className="container reveal-stagger">
+          <span className="eyebrow reveal">Get Connected</span>
+          <h2 className="reveal">Come once. <em>You&rsquo;ll know.</em></h2>
+          <p className="reveal">Join the private Facebook group for week-of details on Life Group, hangouts, and trips. Or reach out and we&rsquo;ll point you to the next gathering.</p>
+          <div className="cta-band-actions reveal">
             <Button variant="primary" size="xl" icon="facebook" onClick={() => window.open(FACEBOOK_URL, '_blank', 'noopener')}>College &amp; Career Facebook</Button>
             <Button variant="outline-on-dark" size="xl" iconRight="arrow" onClick={() => window.location.href = CONTACT_EMAIL}>Ask about Life Group</Button>
           </div>
-          <div className="cc-cta-back">
+          <div className="cc-cta-back reveal-soft">
             <a href="#" onClick={(e)=>{e.preventDefault(); onNav && onNav('ministries');}}>&larr; Back to all ministries</a>
           </div>
         </div>
