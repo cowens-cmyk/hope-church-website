@@ -19,11 +19,11 @@
 :root {
   --motion-ease:     cubic-bezier(0.22, 1, 0.36, 1);
   --motion-ease-in:  cubic-bezier(0.4, 0, 0.2, 1);
-  --motion-rise:     12px;
-  --motion-rise-sm:  8px;
-  --motion-dur:      560ms;
-  --motion-dur-fast: 320ms;
-  --motion-stagger:  70ms;
+  --motion-rise:     8px;
+  --motion-rise-sm:  6px;
+  --motion-dur:      380ms;
+  --motion-dur-fast: 240ms;
+  --motion-stagger:  45ms;
 }
 
 /* =========================================================
@@ -37,15 +37,13 @@
   transition:
     opacity var(--motion-dur) var(--motion-ease),
     transform var(--motion-dur) var(--motion-ease);
-  will-change: opacity, transform;
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
 
-/* A gentler variant for fine print, captions, eyebrows: less travel,
-   shorter duration so it doesn't feel like the page is "doing things". */
+/* A gentler variant for fine print, captions, eyebrows. */
 .reveal-soft {
   opacity: 0;
   transform: translate3d(0, var(--motion-rise-sm), 0);
@@ -58,8 +56,7 @@
   transform: none;
 }
 
-/* Plain opacity reveal — for photographs or large image frames where
-   sliding feels off. */
+/* Plain opacity reveal — for photographs or large image frames. */
 .reveal-fade {
   opacity: 0;
   transition: opacity var(--motion-dur) var(--motion-ease);
@@ -120,11 +117,11 @@
    React `key={page}` so it remounts and the animation plays.
    ========================================================= */
 @keyframes hopePageEnter {
-  from { opacity: 0; transform: translate3d(0, 6px, 0); }
+  from { opacity: 0; transform: translate3d(0, 4px, 0); }
   to   { opacity: 1; transform: none; }
 }
 .page-fade {
-  animation: hopePageEnter 360ms var(--motion-ease) both;
+  animation: hopePageEnter 260ms var(--motion-ease) both;
 }
 
 /* =========================================================
@@ -139,7 +136,6 @@
 }
 .hero-photo-anim {
   animation: hopeKenBurns 22s var(--motion-ease-in) infinite;
-  will-change: transform;
 }
 
 /* =========================================================

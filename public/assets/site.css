@@ -2227,15 +2227,20 @@
 .missions-tier {
   background: #fff; border: 1px solid var(--border-hairline);
   border-radius: 14px; padding: 22px 26px;
-  display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: center;
+  display: flex; flex-direction: column; gap: 6px;
+  width: 100%; box-sizing: border-box;
 }
 .missions-tier-num {
   font-family: var(--font-display); font-weight: 900;
-  font-size: 36px; color: var(--hope-blue); line-height: 1;
+  font-size: 32px; color: var(--hope-blue); line-height: 1;
   letter-spacing: -0.02em;
+  margin-bottom: 8px;
 }
-.missions-tier h4 { margin: 0 0 4px; font-size: 18px; font-weight: 800; color: var(--fg-1); }
-.missions-tier p { margin: 0; font-size: 14px; color: var(--fg-2); }
+.missions-tier h4 {
+  margin: 0; font-size: 18px; font-weight: 800;
+  color: var(--fg-1); letter-spacing: -0.005em;
+}
+.missions-tier p { margin: 0; font-size: 14px; color: var(--fg-2); line-height: 1.5; }
 
 .missions-partners {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;

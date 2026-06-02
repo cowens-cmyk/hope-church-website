@@ -28,7 +28,10 @@ function useRevealOnScroll(deps = []) {
           }
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+      // Trigger as soon as any pixel enters, with a small bottom inset so the
+      // animation starts a hair before the element actually crosses the fold.
+      // Lower threshold + tiny inset means less "wait, then pop" feel on scroll.
+      { threshold: 0.01, rootMargin: '0px 0px -8% 0px' },
     );
     const nodes = document.querySelectorAll(
       '.reveal:not(.is-visible), .reveal-soft:not(.is-visible), .reveal-fade:not(.is-visible)',
