@@ -568,6 +568,31 @@
 }
 
 /* =========================================================
+   MISSIONS PAGE — explicit dark surface for every card on
+   this page. The shared `.missions-tier` / `.missions-partner-v2`
+   rules above already cover this, but call them out again here
+   isolated so a cascade ordering or selector-list parsing issue
+   can never leave them rendering white-on-dark.
+   ========================================================= */
+[data-theme="dark"] .missions-tier {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+[data-theme="dark"] .missions-partner-v2 {
+  background: var(--bg-muted);
+  border-color: var(--border-hairline);
+}
+[data-theme="dark"] .missions-partner-img {
+  background: var(--bg-page);
+}
+[data-theme="dark"] .missions-tier-head {
+  border-bottom-color: var(--border-hairline);
+}
+[data-theme="dark"] .missions-tier-count {
+  color: var(--fg-3);
+}
+
+/* =========================================================
    PODCAST EPISODES — `.podcast-episode:hover` already wired
    in podcast-prayer.css; the rest of the surfaces use
    var(--bg-card) which we make track --bg-muted here so
