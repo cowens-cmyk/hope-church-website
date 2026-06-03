@@ -406,7 +406,7 @@ function SermonsPage() {
                     <h3 className="sermons-podcast-name">{p.name}</h3>
                     <p className="sermons-podcast-desc">{p.description}</p>
                     <div className="sermons-podcast-links podcast-channel-links">
-                      <a className="podcast-link-pill" href={`https://podcasts.apple.com/search?term=${encodeURIComponent(p.name)}`} target="_blank" rel="noopener">
+                      <a className="podcast-link-pill" href={p.apple || `https://podcasts.apple.com/search?term=${encodeURIComponent(p.name)}`} target="_blank" rel="noopener">
                         <ApplePodcastsIcon/> Apple Podcasts
                       </a>
                       <a className="podcast-link-pill" href={p.spotify || `https://open.spotify.com/search/${encodeURIComponent(p.name)}/podcastAndEpisodes`} target="_blank" rel="noopener">
