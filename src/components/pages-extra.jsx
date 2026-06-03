@@ -473,7 +473,7 @@ function PodcastPage({ initialChannel }) {
   );
 }
 
-export { PrayerRequestPage, PodcastPage, PODCASTS, AppPage };
+export { PrayerRequestPage, PodcastPage, PODCASTS, AppPage, ApplePodcastsIcon, SpotifyIcon, RssIcon };
 
 // ============================================================
 // App Page

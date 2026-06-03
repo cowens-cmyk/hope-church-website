@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { SubsplashRecent, SubsplashEvents, SubsplashMediaLibrary, GiveEmbed } from './embeds.jsx';
+import { PODCASTS, ApplePodcastsIcon, SpotifyIcon, RssIcon } from './pages-extra.jsx';
 import { KidsMinistryPage } from './ministry-kids.jsx';
 import { Linked56MinistryPage } from './ministry-linked56.jsx';
 import { StudentsMinistryPage } from './ministry-students.jsx';
@@ -386,6 +387,41 @@ function SermonsPage() {
             <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:12}}>Latest message</div>
             <SubsplashRecent/>
           </div>
+
+          {/* Subscribe / RSS — two podcast cards with subscribe pills */}
+          <div className="sermons-subscribe reveal" style={{maxWidth: 980, margin: '0 auto 56px'}}>
+            <header className="sermons-subscribe-head reveal-stagger">
+              <span className="eyebrow reveal">Subscribe &amp; Listen</span>
+              <h2 className="reveal">Have the latest episode ready every week.</h2>
+              <p className="reveal">Subscribe in your favorite podcast app and every new episode lands automatically — ready for your commute, your walk, or whenever fits your week.</p>
+            </header>
+            <div className="sermons-podcasts reveal-stagger">
+              {PODCASTS.map(p => (
+                <article className="sermons-podcast-card reveal" key={p.id}>
+                  <div className="sermons-podcast-cover">
+                    {p.cover ? <img src={p.cover} alt={`${p.name} cover art`} loading="lazy"/> : null}
+                  </div>
+                  <div className="sermons-podcast-body">
+                    <div className="sermons-podcast-tagline">{p.tagline}</div>
+                    <h3 className="sermons-podcast-name">{p.name}</h3>
+                    <p className="sermons-podcast-desc">{p.description}</p>
+                    <div className="sermons-podcast-links podcast-channel-links">
+                      <a className="podcast-link-pill" href={`https://podcasts.apple.com/search?term=${encodeURIComponent(p.name)}`} target="_blank" rel="noopener">
+                        <ApplePodcastsIcon/> Apple Podcasts
+                      </a>
+                      <a className="podcast-link-pill" href={`https://open.spotify.com/search/${encodeURIComponent(p.name)}/podcastAndEpisodes`} target="_blank" rel="noopener">
+                        <SpotifyIcon/> Spotify
+                      </a>
+                      <a className="podcast-link-pill" href={p.rss} target="_blank" rel="noopener">
+                        <RssIcon/> RSS Feed
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
           <div className="reveal" style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48}}>
             <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Full library</div>
             <div className="embed-frame">
