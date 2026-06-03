@@ -70,6 +70,7 @@ const PODCASTS = [
     tagline: 'Sunday Sermons',
     rss: 'https://podcasts.subsplash.com/4sgn2fc/podcast.rss',
     apple: 'https://podcasts.apple.com/us/podcast/hope-church-johnson-city/id1234567890',
+    spotify: 'https://open.spotify.com/show/6TI7L3PvGpmTrxl43BHzSD',
     description: "Sunday-morning messages from Hope Church Johnson City \u2014 verse-by-verse teaching for everyday life. Listen anywhere you get podcasts, or right here.",
     cover: 'https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD1lYWY3MzFmMy0wYjIxLTRlM2QtYmY1OS0zY2FlMTUwMDE0OGImdz0zMDAwJmg9MzAwMCZhbGxvd191cHNjYWxlPXRydWU.jpg',
   },
@@ -79,6 +80,7 @@ const PODCASTS = [
     short: 'Finding Hope',
     tagline: 'A weekly conversation',
     rss: 'https://podcasts.subsplash.com/bn2x4jj/podcast.rss',
+    spotify: 'https://open.spotify.com/show/5EdKn2XuQZmByAoIw1XCTH',
     description: "Life is hard, but there's always hope. Pastors and friends walk through faith, family, theology, and the hard questions of the Bible.",
     cover: 'https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD1lYWYzMWFiMi1iNWUxLTQ4NzctOTVmMy0xYTAxYjU2NDA0OWQmdz0zMDAwJmg9MzAwMCZhbGxvd191cHNjYWxlPXRydWU.jpg',
   },
@@ -371,7 +373,7 @@ function PodcastChannelView({ channel }) {
                 <a className="podcast-link-pill" href={`https://podcasts.apple.com/search?term=${encodeURIComponent(channel.name)}`} target="_blank" rel="noopener">
                   <ApplePodcastsIcon/> Apple Podcasts
                 </a>
-                <a className="podcast-link-pill" href={`https://open.spotify.com/search/${encodeURIComponent(channel.name)}/podcastAndEpisodes`} target="_blank" rel="noopener">
+                <a className="podcast-link-pill" href={channel.spotify || `https://open.spotify.com/search/${encodeURIComponent(channel.name)}/podcastAndEpisodes`} target="_blank" rel="noopener">
                   <SpotifyIcon/> Spotify
                 </a>
               </div>

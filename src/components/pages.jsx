@@ -409,7 +409,7 @@ function SermonsPage() {
                       <a className="podcast-link-pill" href={`https://podcasts.apple.com/search?term=${encodeURIComponent(p.name)}`} target="_blank" rel="noopener">
                         <ApplePodcastsIcon/> Apple Podcasts
                       </a>
-                      <a className="podcast-link-pill" href={`https://open.spotify.com/search/${encodeURIComponent(p.name)}/podcastAndEpisodes`} target="_blank" rel="noopener">
+                      <a className="podcast-link-pill" href={p.spotify || `https://open.spotify.com/search/${encodeURIComponent(p.name)}/podcastAndEpisodes`} target="_blank" rel="noopener">
                         <SpotifyIcon/> Spotify
                       </a>
                       <a className="podcast-link-pill" href={p.rss} target="_blank" rel="noopener">
