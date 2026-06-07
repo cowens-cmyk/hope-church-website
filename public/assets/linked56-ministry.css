@@ -157,15 +157,13 @@
 }
 .l56-brand-card {
   position: relative;
-  width: min(680px, 100%);
-  aspect-ratio: 16 / 10;
+  width: min(720px, 100%);
+  aspect-ratio: 16 / 9;
   border-radius: 6px;
-  background:
-    radial-gradient(ellipse at 22% 28%, #6dafff 0%, transparent 55%),
-    linear-gradient(135deg, #2f8aff 0%, #1f7bff 45%, #0b4ec1 100%);
+  background: linear-gradient(110deg, #4cc8f5 0%, #1d9ce5 50%, #1879c8 100%);
   box-shadow:
-    0 28px 72px -22px rgba(13, 75, 192, 0.55),
-    0 8px 24px -8px rgba(13, 75, 192, 0.35);
+    0 28px 72px -22px rgba(24, 121, 200, 0.55),
+    0 8px 24px -8px rgba(24, 121, 200, 0.35);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 40px 30px 36px;
   overflow: hidden;
@@ -173,8 +171,7 @@
 .l56-brand-card::after {
   content: '';
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 85% 90%, rgba(11, 78, 193, 0.6), transparent 55%);
+  background: linear-gradient(110deg, rgba(76, 200, 245, 0.0) 30%, rgba(11, 78, 193, 0.25) 100%);
   pointer-events: none;
 }
 .l56-brand-card img {
@@ -204,12 +201,55 @@
   color: rgba(14, 17, 22, 0.7);
   margin-top: 8px;
 }
-.l56-brand-body {
+.l56-brand-copy {
   max-width: 780px;
+  text-align: center;
+}
+.l56-brand-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(32px, 4.4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--linked-ink);
+  margin: 0 0 22px;
+}
+.l56-brand-body {
   font-size: 15.5px;
   line-height: 1.85;
   color: var(--fg-2);
-  text-align: center;
+  margin: 0;
+}
+
+/* When / Who / What to Expect — definition list */
+.l56-meta {
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+.l56-meta-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(14, 17, 22, 0.08);
+}
+.l56-meta-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.l56-meta-row dt {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--linked-ink);
+  margin: 0;
+}
+.l56-meta-row dd {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--fg-2);
   margin: 0;
 }
 
@@ -352,6 +392,8 @@
   .l56-brand-card { aspect-ratio: 4 / 3; padding: 32px 22px; }
   .l56-brand-card img { width: 65%; }
   .l56-brand-body { font-size: 15px; line-height: 1.75; }
+  .l56-meta-row { grid-template-columns: 1fr; gap: 4px; }
+  .l56-meta-row dt { font-size: 12.5px; }
   .l56-photo-section { padding: 24px 0 40px; }
   .l56-calendar-frame { padding: 8px; }
 }

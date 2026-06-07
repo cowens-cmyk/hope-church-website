@@ -409,8 +409,16 @@
   background: var(--bg-page);
 }
 [data-theme="dark"] .l56-block-title,
-[data-theme="dark"] .l56-block-times {
+[data-theme="dark"] .l56-block-times,
+[data-theme="dark"] .l56-brand-title,
+[data-theme="dark"] .l56-meta-row dt {
   color: var(--fg-1);
+}
+[data-theme="dark"] .l56-meta-row {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+[data-theme="dark"] .l56-meta-row dd {
+  color: #fff;
 }
 [data-theme="dark"] .l56-calendar-frame {
   background: var(--bg-muted);

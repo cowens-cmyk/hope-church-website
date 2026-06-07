@@ -2,8 +2,8 @@ import React from 'react';
 import { Button } from './shared.jsx';
 import { SubsplashLinked56Calendar } from './embeds.jsx';
 // Hope Church — Linked 56 ministry detail page (slug: ministry-linked56)
-// 5th–6th grade tweens. Hope Tweens sub-brand. Identity in Christ (1 Peter 2:9).
-// Design language: dark artistic hero · bright blue logo card · light minimal sections.
+// 5th–6th grade tweens. Hope Tweens sub-brand. Identity in Christ.
+// Copy sourced from Linked 56 print/social materials.
 
 function Linked56MinistryPage({ onNav }) {
   const SERVE_URL = 'https://hopejc.churchcenter.com/people/forms/589479';
@@ -23,8 +23,8 @@ function Linked56MinistryPage({ onNav }) {
         </div>
         <div className="container l56-hero-inner">
           <h1 className="l56-hero-title">Linked 56</h1>
-          <p className="l56-hero-eyebrow">5th – 6th Grade</p>
-          <p className="l56-hero-lead">Linked 56 is an exclusive group of 5th and 6th graders that are part of a ministry specifically designed for them. Led by Stacie Taylor, our goal at Hope Church is to encourage them to deepen their relationships with Jesus at such a significant time in their lives. Our motto is <em>“Discovering True Identity In Christ.”</em> We want to build personal connections by showing them the love of Jesus while they learn what it means to love and serve others. With His guidance, we will help them understand who they are, where they belong and that they are not alone in this world.</p>
+          <p className="l56-hero-eyebrow">A Special Ministry for Fifth and Sixth Graders</p>
+          <p className="l56-hero-lead">Linked 56 is a distinct group specifically crafted for 5th and 6th graders, focusing on their unique needs. At Hope Church, our mission is to guide these young individuals in discovering and embracing their identity in Christ, helping them to deepen their relationship with Jesus during this crucial phase of their lives.</p>
           <div className="l56-hero-actions">
             <button className="l56-hero-btn" onClick={() => window.open(SERVE_URL, '_blank', 'noopener')}>Serve</button>
             <button className="l56-hero-btn" onClick={() => window.open(FB_URL, '_blank', 'noopener')}>Linked Facebook Group</button>
@@ -32,36 +32,42 @@ function Linked56MinistryPage({ onNav }) {
         </div>
       </section>
 
-      {/* ===== Hope Tweens logo card + intro copy ===== */}
+      {/* ===== Hope Tweens brand card + Investing in Our Tweens' Futures ===== */}
       <section className="l56-brand">
         <div className="container l56-brand-inner">
           <div className="l56-brand-card">
-            <img src="assets/linked56-logo.png" alt="Linked &mdash; Hope Tweens · 1 Peter 2:9"/>
+            <img src="assets/linked56-logo.png" alt="Linked 56 &mdash; fingerprint mark"/>
             <div className="l56-brand-card-mark">
               <span className="l56-brand-card-hope">HOPE</span>
               <span className="l56-brand-card-tweens">TWEENS</span>
             </div>
           </div>
-          <p className="l56-brand-body">Nothing is more important to us than giving our Next Generation the opportunity to develop in their faith so that they can have a solid Biblical foundation to stand on. Ministry to Preteens curriculum is one of the learning tools we use to help them succeed. Investing in the lives of our tweens will strengthen and spiritually prepare them to transition into our Student Ministry and beyond. When it comes to our Next Generation, we want to journey alongside each parent/guardian to help equip them in shepherding their families.</p>
+          <div className="l56-brand-copy">
+            <h2 className="l56-brand-title">Investing in Our Tweens&rsquo; Futures</h2>
+            <p className="l56-brand-body">By investing in the lives of our tweens, we will empower and spiritually prepare them for a smooth transition into our Student Ministry and beyond. Regarding our Next Generation, we aim to walk alongside each parent or guardian, assisting them in nurturing and guiding their families.</p>
+          </div>
         </div>
       </section>
 
-      {/* ===== Sunday Morning ===== */}
+      {/* ===== Wednesday Nights ===== */}
       <section className="l56-block">
         <div className="container l56-block-inner">
-          <h2 className="l56-block-title">Sunday Morning</h2>
-          <p className="l56-block-times">8:00am, 9:45am, and 11:30am</p>
-          <p className="l56-block-body">During each Sunday morning service, Linked 56 will worship with their families in the main auditorium. Once worship has ended, they are dismissed and escorted to their class for large group time, age specific lessons, engaging Bible discussions and activities.</p>
-          <p className="l56-block-body">Keeping our Next Generation safe is very important to us. Every volunteer receives a background check and is carefully considered for their roles in our ministry. We require each child to be checked-in and given a name tag with a code that is unique to your family. After each service, parents use their tags to ensure safe pick up of their children.</p>
-        </div>
-      </section>
-
-      {/* ===== Wednesday Night ===== */}
-      <section className="l56-block">
-        <div className="container l56-block-inner">
-          <h2 className="l56-block-title">Wednesday Night</h2>
-          <p className="l56-block-times">6:30pm</p>
-          <p className="l56-block-body">On Wednesday nights, we gather for a time of fellowship starting at 6:30pm-8:30pm. Linked 56 will meet for fun, games, and a Bible lesson review. Our Wednesday service is a great way for your kids to come together, refresh and reconnect with one another during the week.</p>
+          <h2 className="l56-block-title">Wednesday Nights</h2>
+          <p className="l56-block-body">Linked56 is our Wednesday night ministry designed just for 5th and 6th graders! Each week, students connect with friends through fun games, enjoy pizza, and grow in their faith through engaging Bible study. This semester, we&rsquo;re learning practical skills for studying the Bible on our own&mdash;discovering how to understand God&rsquo;s Word, apply it to everyday life, and build a lasting relationship with Jesus. Linked56 is a place where preteens can belong, have fun, ask questions, and grow together in their walk with Christ.</p>
+          <dl className="l56-meta">
+            <div className="l56-meta-row">
+              <dt>When</dt>
+              <dd>Wednesday Nights</dd>
+            </div>
+            <div className="l56-meta-row">
+              <dt>Who</dt>
+              <dd>5th &amp; 6th Graders</dd>
+            </div>
+            <div className="l56-meta-row">
+              <dt>What to Expect</dt>
+              <dd>Pizza, games, friendships, and biblical teaching that helps students connect with God and His Word.</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
@@ -90,7 +96,7 @@ function Linked56MinistryPage({ onNav }) {
       <section className="l56-cta">
         <div className="container l56-cta-inner">
           <h2 className="l56-cta-title">Walk with our tweens.</h2>
-          <p className="l56-cta-body">Linked 56 needs Bible teachers, game leaders, and general helpers on Sunday mornings and Wednesday nights. Sign up to serve, or join the parent group to stay in the loop.</p>
+          <p className="l56-cta-body">Linked 56 needs Bible teachers, game leaders, and general helpers each week. Sign up to serve, or join the parent group to stay in the loop.</p>
           <div className="l56-cta-actions">
             <Button variant="primary" size="xl" iconRight="arrow" onClick={() => window.open(SERVE_URL, '_blank', 'noopener')}>Serve in Linked 56</Button>
             <Button variant="outline-on-dark" size="xl" icon="facebook" onClick={() => window.open(FB_URL, '_blank', 'noopener')}>Linked Facebook Group</Button>
