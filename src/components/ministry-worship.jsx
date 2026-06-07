@@ -88,24 +88,24 @@ function WorshipMinistryPage({ onNav }) {
       <section className="wt-anchor">
         <div className="wt-anchor-bg" aria-hidden="true"></div>
         <div className="container wt-anchor-inner">
-          <div className="wt-anchor-copy reveal-stagger">
-            <span className="wt-anchor-eyebrow reveal">A Ministry of Hope Church</span>
+          <div className="wt-anchor-copy">
+            <span className="wt-anchor-eyebrow">A Ministry of Hope Church</span>
 
-            <h1 className="reveal">
+            <h1>
               <span className="line">Worship</span>
               <span className="line tech"><span className="amp">&amp;</span> Tech.</span>
             </h1>
 
-            <p className="wt-anchor-lead reveal">
+            <p className="wt-anchor-lead">
               The team that leads us in song and runs the room every weekend &mdash; voices, instruments, sound, slides, cameras, and lights. <strong>Skilled musicians and trained tech volunteers serving side by side</strong>, plus a real on-ramp for anyone new.
             </p>
 
-            <div className="wt-anchor-actions reveal">
+            <div className="wt-anchor-actions">
               <Button variant="primary" size="xl" iconRight="arrow" onClick={() => window.open(SIGNUP_URL, '_blank', 'noopener')}>Sign Up to Serve</Button>
               <Button variant="outline-on-dark" size="xl" onClick={() => window.location.href = CONTACT_EMAIL}>Ask a question</Button>
             </div>
 
-            <dl className="wt-anchor-facts reveal">
+            <dl className="wt-anchor-facts">
               <div>
                 <dt>Rehearsal</dt>
                 <dd>Thu <s>6:30 PM</s></dd>
@@ -126,14 +126,14 @@ function WorshipMinistryPage({ onNav }) {
       {/* ===== Section 2: Two teams ===== */}
       <section className="wt-teams">
         <div className="container">
-          <header className="wt-teams-head reveal-stagger">
-            <span className="wt-eyebrow reveal">Two Teams, One Sunday</span>
-            <h2 className="reveal">Lead the room <em>together</em>.</h2>
-            <p className="reveal">Worship and Tech are one ministry at Hope &mdash; the musicians on stage and the crew in the booth show up for the same call and the same Sunday.</p>
+          <header className="wt-teams-head">
+            <span className="wt-eyebrow">Two Teams, One Sunday</span>
+            <h2>Lead the room <em>together</em>.</h2>
+            <p>Worship and Tech are one ministry at Hope &mdash; the musicians on stage and the crew in the booth show up for the same call and the same Sunday.</p>
           </header>
 
-          <div className="wt-teams-grid reveal-stagger">
-            <article className="wt-team worship reveal">
+          <div className="wt-teams-grid">
+            <article className="wt-team worship">
               <div className="wt-team-photo" role="img" aria-label="Worship leaders singing on stage"></div>
               <div className="wt-team-body">
                 <span className="wt-team-tag">Worship Team</span>
@@ -150,7 +150,7 @@ function WorshipMinistryPage({ onNav }) {
               </div>
             </article>
 
-            <article className="wt-team tech reveal">
+            <article className="wt-team tech">
               <div className="wt-team-photo" role="img" aria-label="Sound engineer mixing front of house"></div>
               <div className="wt-team-body">
                 <span className="wt-team-tag">Tech Team</span>
@@ -172,16 +172,16 @@ function WorshipMinistryPage({ onNav }) {
       {/* ===== Section 3: The crew (roles grid) ===== */}
       <section className="wt-crew">
         <div className="container">
-          <header className="wt-crew-head reveal-stagger">
-            <div className="reveal">
+          <header className="wt-crew-head">
+            <div>
               <span className="wt-eyebrow">The Whole Crew</span>
               <h2>Every seat that makes <em>Sunday work</em>.</h2>
             </div>
-            <p className="reveal">Pick the one that fits your wiring. We&rsquo;ll meet you wherever you&rsquo;re starting from &mdash; experienced players welcome, and we love training brand-new tech volunteers.</p>
+            <p>Pick the one that fits your wiring. We&rsquo;ll meet you wherever you&rsquo;re starting from &mdash; experienced players welcome, and we love training brand-new tech volunteers.</p>
           </header>
-          <div className="wt-crew-grid reveal-stagger">
+          <div className="wt-crew-grid">
             {roles.map((r, i) => (
-              <article className="wt-role reveal" key={r.name}>
+              <article className="wt-role" key={r.name}>
                 <div className="wt-role-head">
                   <span className="wt-role-icon"><RoleIcon name={r.icon}/></span>
                   <span className="wt-role-num">{String(i + 1).padStart(2, '0')}</span>
@@ -200,31 +200,31 @@ function WorshipMinistryPage({ onNav }) {
       {/* ===== Section 4: The week (schedule) ===== */}
       <section className="wt-week">
         <div className="wt-week-grid">
-          <div className="wt-week-photo reveal-fade">
+          <div className="wt-week-photo">
             <img src="assets/tech-propresenter.jpg" alt="ProPresenter operator running slides for a Sunday service"/>
             <span className="wt-week-photo-label">Sunday Morning</span>
           </div>
-          <div className="wt-week-body reveal-stagger">
-            <span className="wt-eyebrow reveal">The Week</span>
-            <h2 className="reveal">How we <em>prepare</em>.</h2>
-            <p className="reveal">Two times a week is all it takes. We rehearse together on Thursday and run the full set on Sunday morning before the doors open.</p>
+          <div className="wt-week-body">
+            <span className="wt-eyebrow">The Week</span>
+            <h2>How we <em>prepare</em>.</h2>
+            <p>Two times a week is all it takes. We rehearse together on Thursday and run the full set on Sunday morning before the doors open.</p>
 
-            <ol className="wt-schedule reveal-stagger">
-              <li className="wt-sched-row reveal">
+            <ol className="wt-schedule">
+              <li className="wt-sched-row">
                 <div className="wt-sched-time">6:30<s>Thursday PM</s></div>
                 <div className="wt-sched-detail">
                   <h4>Worship Rehearsal <span className="who">Worship team</span></h4>
                   <p>Our worship team meets on Thursday evenings to rehearse for the upcoming Sunday. We meet at 6:30pm and rehearsal usually lasts until 8:00pm.</p>
                 </div>
               </li>
-              <li className="wt-sched-row reveal">
+              <li className="wt-sched-row">
                 <div className="wt-sched-time">7:00<s>Sunday AM</s></div>
                 <div className="wt-sched-detail">
                   <h4>Sunday Run-Through <span className="who">Worship + Tech</span></h4>
                   <p>Our worship and tech teams meet on Sunday mornings at 7:00am to do one last run through before services begin. We run through the entire service&rsquo;s worship and are usually finished up by 7:30am.</p>
                 </div>
               </li>
-              <li className="wt-sched-row reveal">
+              <li className="wt-sched-row">
                 <div className="wt-sched-time">8:00<s>Sunday Services</s></div>
                 <div className="wt-sched-detail">
                   <h4>Three Services <span className="who">Tech all services</span></h4>
@@ -238,15 +238,15 @@ function WorshipMinistryPage({ onNav }) {
 
       {/* ===== Section 5: CTA band ===== */}
       <section className="wt-cta-band">
-        <div className="container reveal-stagger">
-          <span className="wt-eyebrow reveal">Get Involved</span>
-          <h2 className="reveal">Come <em>serve</em> on Sunday.</h2>
-          <p className="reveal">Experienced or brand new &mdash; if you&rsquo;re ready to show up on Thursday and Sunday and serve this church, we&rsquo;ll find the seat that fits.</p>
-          <div className="cta-band-actions reveal">
+        <div className="container">
+          <span className="wt-eyebrow">Get Involved</span>
+          <h2>Come <em>serve</em> on Sunday.</h2>
+          <p>Experienced or brand new &mdash; if you&rsquo;re ready to show up on Thursday and Sunday and serve this church, we&rsquo;ll find the seat that fits.</p>
+          <div className="cta-band-actions">
             <Button variant="primary" size="xl" iconRight="arrow" onClick={() => window.open(SIGNUP_URL, '_blank', 'noopener')}>Sign Up Here</Button>
             <Button variant="outline-on-dark" size="xl" onClick={() => window.location.href = CONTACT_EMAIL}>Ask about Worship &amp; Tech</Button>
           </div>
-          <div className="wt-cta-back reveal-soft">
+          <div className="wt-cta-back">
             <a href="#" onClick={(e)=>{e.preventDefault(); onNav && onNav('ministries');}}>&larr; Back to all ministries</a>
           </div>
         </div>

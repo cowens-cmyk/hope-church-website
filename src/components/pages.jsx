@@ -19,9 +19,9 @@ function PageHeader({ eyebrow, title, lead }) {
   return (
     <section className="page-header">
       <div className="container">
-        <span className="eyebrow reveal-now">{eyebrow}</span>
-        <h1 className="reveal-now reveal-delay-1">{title}</h1>
-        {lead && <p className="lead reveal-now reveal-delay-2">{lead}</p>}
+        <span className="eyebrow">{eyebrow}</span>
+        <h1>{title}</h1>
+        {lead && <p className="lead">{lead}</p>}
       </div>
     </section>
   );
@@ -36,7 +36,7 @@ function VisitPage() {
       <PageHeader eyebrow="I'm New" title="We'll save you a seat." lead="Let us know you're coming and we'll meet you at the door, show you around, and help you find your way in." />
       <section className="visit-section">
         <div className="container visit-grid">
-          <div className="connect-embed-wrap reveal-fade">
+          <div className="connect-embed-wrap">
             <iframe
               src={`${formUrl}?open_in_church_center_modal=false`}
               title="Plan a Visit — Hope Church"
@@ -45,16 +45,16 @@ function VisitPage() {
               allow="clipboard-write"
             />
           </div>
-          <aside className="visit-aside reveal-stagger">
-            <h3 className="reveal">What to expect</h3>
-            <div className="visit-expect reveal-stagger">
+          <aside className="visit-aside">
+            <h3>What to expect</h3>
+            <div className="visit-expect">
               {[
                 { icon: 'clock', t: 'About 75 minutes', p: 'Worship, a message, and time to pray. Come as you are — jeans or a tie, both work.' },
                 { icon: 'kids', t: 'Kids are a joy', p: 'Safe, fun classrooms at every service for infants through 5th grade.' },
                 { icon: 'pin', t: 'We\u2019ll find you', p: 'Look for the blue lanyards at the front doors — they\u2019ll walk you in.' },
                 { icon: 'heart', t: 'No pressure', p: 'No offering pressure, no awkward stand-up moment. Just a seat.' },
               ].map(x => (
-                <div className="visit-expect-item reveal" key={x.t}>
+                <div className="visit-expect-item" key={x.t}>
                   <div className="visit-expect-icon"><Icon name={x.icon} size={18} color="var(--hope-blue)"/></div>
                   <div className="visit-expect-text"><strong>{x.t}</strong><p>{x.p}</p></div>
                 </div>
@@ -161,14 +161,14 @@ function AboutPage({ onNav }) {
       {/* How it all started */}
       <section className="about-origin">
         <div className="container about-origin-inner">
-          <div className="about-origin-copy reveal-stagger">
-            <span className="eyebrow reveal">Our Story</span>
-            <h2 className="reveal">How it all started.</h2>
-            <p className="lead reveal">Hope Church was planted in 2022 by a group of believers who wanted to create a contemporary church experience — one not encumbered by traditional constraints, but still deeply founded in the Word of God.</p>
-            <p className="reveal">We began meeting at Daniel Boone High School in March of 2022. Soon after, we renovated part of a building in the heart of Gray at <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener" className="origin-address-link">5034 Bobby Hicks Highway</a>, and that&rsquo;s where you&rsquo;ll find us today.</p>
-            <p className="reveal">We believe this is a place where God can move in and through the Tri-Cities, and we pray He continues to guide us as we walk in faith along the path He has set before us.</p>
+          <div className="about-origin-copy">
+            <span className="eyebrow">Our Story</span>
+            <h2>How it all started.</h2>
+            <p className="lead">Hope Church was planted in 2022 by a group of believers who wanted to create a contemporary church experience — one not encumbered by traditional constraints, but still deeply founded in the Word of God.</p>
+            <p>We began meeting at Daniel Boone High School in March of 2022. Soon after, we renovated part of a building in the heart of Gray at <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener" className="origin-address-link">5034 Bobby Hicks Highway</a>, and that&rsquo;s where you&rsquo;ll find us today.</p>
+            <p>We believe this is a place where God can move in and through the Tri-Cities, and we pray He continues to guide us as we walk in faith along the path He has set before us.</p>
           </div>
-          <div className="about-origin-photo reveal-fade">
+          <div className="about-origin-photo">
             <div className="photo-placeholder">
               <img src={window.__resources.aboutOriginWorship} alt="The Hope Church congregation worshiping together in the Daniel Boone High School auditorium" />
             </div>
@@ -179,21 +179,21 @@ function AboutPage({ onNav }) {
       {/* Expanding the vision */}
       <section className="about-vision">
         <div className="container about-vision-inner">
-          <div className="about-vision-photo reveal-fade">
+          <div className="about-vision-photo">
             <div className="photo-placeholder">
               <img src={window.__resources.aboutVisionWelcome} alt="Hope Church families walking into the Main Entrance on a Sunday morning" />
             </div>
           </div>
-          <div className="about-vision-copy reveal-stagger">
-            <span className="eyebrow on-dark reveal">The Vision</span>
-            <h2 className="reveal">Expanding the kingdom.</h2>
-            <blockquote className="scripture-quote reveal">
+          <div className="about-vision-copy">
+            <span className="eyebrow on-dark">The Vision</span>
+            <h2>Expanding the kingdom.</h2>
+            <blockquote className="scripture-quote">
               <span className="open-quote" aria-hidden="true">&ldquo;</span>
               And they devoted themselves to the apostles&rsquo; teaching and to fellowship, to the breaking of bread and to prayers.
               <cite>Acts 2:42</cite>
             </blockquote>
-            <p className="reveal">We strive for everything we do at Hope Church to fall under that vision — Scripture-based teaching, fellowship, breaking of bread, and prayer.</p>
-            <p className="reveal">Our goal is for the church to grow in depth and knowledge of the Word. And our prayer is to keep expanding the kingdom by planting more churches with the same calling: loving God, loving people, and making disciples <em>(2 Timothy 2:2)</em>.</p>
+            <p>We strive for everything we do at Hope Church to fall under that vision — Scripture-based teaching, fellowship, breaking of bread, and prayer.</p>
+            <p>Our goal is for the church to grow in depth and knowledge of the Word. And our prayer is to keep expanding the kingdom by planting more churches with the same calling: loving God, loving people, and making disciples <em>(2 Timothy 2:2)</em>.</p>
           </div>
         </div>
       </section>
@@ -202,17 +202,17 @@ function AboutPage({ onNav }) {
       <section className="about-faith">
         <div className="container about-faith-inner">
           <SectionHeader eyebrow="Statement of Faith" title="What we believe." align="center" />
-          <p className="about-faith-intro reveal">
+          <p className="about-faith-intro">
             Hope Church is committed to and believes in the local church. We believe the local church is the conduit God uses to equip and care for His people. We believe God&rsquo;s Word is a cohesive story of the Gospel that points to Jesus Christ — the only Hope for this world — and that it is important for the church to establish doctrinal truths according to what the Scriptures teach.
           </p>
-          <blockquote className="about-faith-epigraph reveal">
+          <blockquote className="about-faith-epigraph">
             &ldquo;What comes into our minds when we think about God is the most important thing about us.&rdquo;
             <cite>A.W. Tozer</cite>
           </blockquote>
 
-          <div className="doctrines-list reveal-stagger">
+          <div className="doctrines-list">
             {doctrines.map((d, i) => (
-              <details className="doctrine doctrine-accordion reveal" key={d.t}>
+              <details className="doctrine doctrine-accordion" key={d.t}>
                 <summary>
                   <span className="doctrine-num">{String(i + 1).padStart(2, '0')}</span>
                   <span className="doctrine-title">{d.t}</span>
@@ -243,19 +243,19 @@ function AboutPage({ onNav }) {
       {/* Mission & Vision */}
       <section className="about-mission">
         <div className="container">
-          <header className="about-mission-header reveal-stagger">
-            <span className="eyebrow reveal">Mission &amp; Vision</span>
-            <h2 className="about-mission-title reveal">
+          <header className="about-mission-header">
+            <span className="eyebrow">Mission &amp; Vision</span>
+            <h2 className="about-mission-title">
               Love God. <br/>Love people. <br/><em>Make disciples.</em>
             </h2>
-            <p className="about-mission-intro reveal">
+            <p className="about-mission-intro">
               Our desire is a simple mission statement our congregation can grab a hold of — summed up in three parts. How we envision that playing out in the life of our church breaks down into six core values that flow out of our mission.
             </p>
           </header>
 
-          <div className="mission-grid reveal-stagger">
+          <div className="mission-grid">
             {mission.map((m, i) => (
-              <article className="mission-pillar reveal" key={m.title}>
+              <article className="mission-pillar" key={m.title}>
                 <div className="mission-pillar-mark">{String(i + 1).padStart(2, '0')}</div>
                 <h3>{m.title}.</h3>
                 <div className="mission-pillar-refs">{m.refs}</div>
@@ -273,20 +273,20 @@ function AboutPage({ onNav }) {
             ))}
           </div>
 
-          <p className="about-mission-coda reveal">We hope our story will become your story — and that God will use you to impact His Kingdom.</p>
+          <p className="about-mission-coda">We hope our story will become your story — and that God will use you to impact His Kingdom.</p>
         </div>
       </section>
 
       {/* Team CTA */}
       <section className="about-team-cta">
         <div className="container about-team-cta-inner">
-          <div className="about-team-cta-copy reveal-stagger">
-            <span className="eyebrow reveal">Leadership &amp; Staff</span>
-            <h2 className="reveal">Meet the team.</h2>
-            <p className="reveal">Our elders, pastors, directors, and the rest of the leadership and staff who serve the church each Sunday — and through the week.</p>
-            <div className="reveal"><Button variant="primary" size="lg" iconRight="arrow" onClick={() => onNav && onNav('team')}>Meet the team</Button></div>
+          <div className="about-team-cta-copy">
+            <span className="eyebrow">Leadership &amp; Staff</span>
+            <h2>Meet the team.</h2>
+            <p>Our elders, pastors, directors, and the rest of the leadership and staff who serve the church each Sunday — and through the week.</p>
+            <div><Button variant="primary" size="lg" iconRight="arrow" onClick={() => onNav && onNav('team')}>Meet the team</Button></div>
           </div>
-          <div className="about-team-cta-photo reveal-fade">
+          <div className="about-team-cta-photo">
             <div className="photo-placeholder">
               <img src={window.__resources.aboutTeamGroup} alt="The Hope Church leadership team standing together on stage in front of the Hope Church logo" />
             </div>
@@ -329,9 +329,9 @@ function TeamPage() {
       <section className="staff-section team-elders-section">
         <div className="container">
           <SectionHeader eyebrow="Elders" title="Our elder board." lead="Hope Church is led by a plurality of elders who shepherd, teach, and pray for the church alongside the pastors." align="center" />
-          <div className="staff-grid staff-grid-elders reveal-stagger">
+          <div className="staff-grid staff-grid-elders">
             {elders.map(e => (
-              <div className="staff-card elder-card reveal" key={e.name}>
+              <div className="staff-card elder-card" key={e.name}>
                 <div className="staff-photo elder" style={{backgroundImage: `url('${e.img}')`}} />
                 <h4>{e.name}</h4>
                 <div className="role">{e.role}</div>
@@ -345,9 +345,9 @@ function TeamPage() {
       <section className="staff-section team-staff-section">
         <div className="container">
           <SectionHeader eyebrow="Staff" title="Our staff team." lead="Pastors and directors leading Hope&rsquo;s ministries day to day." align="center" />
-          <div className="staff-grid staff-grid-elders reveal-stagger">
+          <div className="staff-grid staff-grid-elders">
             {staff.map(s => (
-              <div className="staff-card elder-card reveal" key={s.name}>
+              <div className="staff-card elder-card" key={s.name}>
                 <div className="staff-photo elder" style={{backgroundImage: `url('${s.img}')`}} />
                 <h4>{s.name}</h4>
                 <div className="role">{s.role}</div>
@@ -361,9 +361,9 @@ function TeamPage() {
       <section className="staff-section team-support-section">
         <div className="container">
           <SectionHeader eyebrow="Support Staff" title="Behind the scenes." lead="The team keeping the office running and our ministries supported." align="center" />
-          <div className="staff-grid staff-grid-elders staff-grid-support reveal-stagger">
+          <div className="staff-grid staff-grid-elders staff-grid-support">
             {support.map(s => (
-              <div className="staff-card elder-card reveal" key={s.name}>
+              <div className="staff-card elder-card" key={s.name}>
                 <div className="staff-photo elder" style={{backgroundImage: `url('${s.img}')`}} />
                 <h4>{s.name}</h4>
                 <div className="role">{s.role}</div>
@@ -383,21 +383,21 @@ function SermonsPage() {
       <PageHeader eyebrow="Sermons" title="Catch up, go deeper." lead="Every Sunday message, searchable and free. Listen on the app, on Apple Podcasts, or right here." />
       <section className="messages-section">
         <div className="container">
-          <div className="reveal" style={{maxWidth: 980, margin: '0 auto 56px'}}>
+          <div style={{maxWidth: 980, margin: '0 auto 56px'}}>
             <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:12}}>Latest message</div>
             <SubsplashRecent/>
           </div>
 
           {/* Subscribe / RSS — two podcast cards with subscribe pills */}
-          <div className="sermons-subscribe reveal" style={{maxWidth: 980, margin: '0 auto 56px'}}>
-            <header className="sermons-subscribe-head reveal-stagger">
-              <span className="eyebrow reveal">Subscribe &amp; Listen</span>
-              <h2 className="reveal">Have the latest episode ready every week.</h2>
-              <p className="reveal">Subscribe in your favorite podcast app and every new episode lands automatically — ready for your commute, your walk, or whenever fits your week.</p>
+          <div className="sermons-subscribe" style={{maxWidth: 980, margin: '0 auto 56px'}}>
+            <header className="sermons-subscribe-head">
+              <span className="eyebrow">Subscribe &amp; Listen</span>
+              <h2>Have the latest episode ready every week.</h2>
+              <p>Subscribe in your favorite podcast app and every new episode lands automatically — ready for your commute, your walk, or whenever fits your week.</p>
             </header>
-            <div className="sermons-podcasts reveal-stagger">
+            <div className="sermons-podcasts">
               {PODCASTS.map(p => (
-                <article className="sermons-podcast-card reveal" key={p.id}>
+                <article className="sermons-podcast-card" key={p.id}>
                   <div className="sermons-podcast-cover">
                     {p.cover ? <img src={p.cover} alt={`${p.name} cover art`} loading="lazy"/> : null}
                   </div>
@@ -422,7 +422,7 @@ function SermonsPage() {
             </div>
           </div>
 
-          <div className="reveal" style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48}}>
+          <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48}}>
             <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Full library</div>
             <div className="embed-frame">
               <SubsplashMediaLibrary/>
@@ -442,7 +442,7 @@ function EventsPage() {
       <PageHeader eyebrow="Events" title="What's happening at Hope." />
       <section className="events-section">
         <div className="container">
-          <div className="embed-frame reveal">
+          <div className="embed-frame">
             <SubsplashEvents/>
           </div>
         </div>
@@ -499,9 +499,9 @@ function GivePage() {
       {/* Compact hero banner — verse only, embed appears immediately below */}
       <section className="give-banner" aria-labelledby="give-banner-title">
         <div className="container give-banner-inner">
-          <div className="eyebrow give-banner-eyebrow reveal-now">Generosity</div>
-          <h1 id="give-banner-title" className="give-banner-title reveal-now reveal-delay-1">Giving</h1>
-          <p className="give-banner-verse reveal-now reveal-delay-2">
+          <div className="eyebrow give-banner-eyebrow">Generosity</div>
+          <h1 id="give-banner-title" className="give-banner-title">Giving</h1>
+          <p className="give-banner-verse">
             <em>“For where your treasure is, there your heart will be also.”</em>
             <span className="give-banner-cite">— Matthew 6:21</span>
           </p>
@@ -512,7 +512,7 @@ function GivePage() {
       <section className="give-ways">
         <div className="container">
           <div className="give-ways-grid">
-            <aside className="give-embed-wrap reveal-fade" aria-label="Online giving form">
+            <aside className="give-embed-wrap" aria-label="Online giving form">
               <div className="give-embed-card">
                 <div className="give-embed-card-head">
                   <div>
@@ -524,13 +524,13 @@ function GivePage() {
               </div>
             </aside>
 
-            <div className="give-ways-list reveal-stagger">
-              <header className="give-ways-list-head reveal">
+            <div className="give-ways-list">
+              <header className="give-ways-list-head">
                 <h2>Ways to give</h2>
                 <div className="give-ways-rule" aria-hidden="true"></div>
               </header>
 
-              <article className="give-way reveal">
+              <article className="give-way">
                 <div className="give-way-icon"><Icon name="check" size={18} color="var(--hope-blue)"/></div>
                 <div className="give-way-body">
                   <h3>Give online</h3>
@@ -538,7 +538,7 @@ function GivePage() {
                 </div>
               </article>
 
-              <article className="give-way reveal">
+              <article className="give-way">
                 <div className="give-way-icon"><Icon name="hands" size={18} color="var(--hope-blue)"/></div>
                 <div className="give-way-body">
                   <h3>Give in person</h3>
@@ -546,7 +546,7 @@ function GivePage() {
                 </div>
               </article>
 
-              <article className="give-way reveal">
+              <article className="give-way">
                 <div className="give-way-icon"><Icon name="mail" size={18} color="var(--hope-blue)"/></div>
                 <div className="give-way-body">
                   <h3>Mail a check</h3>
@@ -559,7 +559,7 @@ function GivePage() {
                 </div>
               </article>
 
-              <div className="give-secure reveal-soft">
+              <div className="give-secure">
                 <Icon name="check" size={14} color="var(--success)"/>
                 <span>Encrypted, secure giving. Your information is private.</span>
               </div>
@@ -570,10 +570,10 @@ function GivePage() {
 
       {/* Why We Give */}
       <section className="give-why">
-        <div className="container give-why-inner reveal-stagger">
-          <h2 className="give-why-title reveal">Why we give.</h2>
+        <div className="container give-why-inner">
+          <h2 className="give-why-title">Why we give.</h2>
           <div className="give-why-rule" aria-hidden="true"></div>
-          <p className="give-why-body reveal">
+          <p className="give-why-body">
             God is generous and so he calls us to be as well. What we do with what God has given us shows the world where our hearts are at and helps proclaim the gospel. We want to glorify God with every area of our lives, and that includes what we do with our finances.
           </p>
         </div>
@@ -581,9 +581,9 @@ function GivePage() {
 
       {/* Closing thanks band */}
       <section className="give-thanks">
-        <div className="container reveal-stagger">
-          <p className="give-thanks-eyebrow reveal">Thank you</p>
-          <p className="give-thanks-body reveal">Your generosity makes Sunday mornings, kids&apos; ministry, students, missions, and care for our neighbors possible. We&apos;re grateful for every gift.</p>
+        <div className="container">
+          <p className="give-thanks-eyebrow">Thank you</p>
+          <p className="give-thanks-body">Your generosity makes Sunday mornings, kids&apos; ministry, students, missions, and care for our neighbors possible. We&apos;re grateful for every gift.</p>
         </div>
       </section>
     </div>
@@ -608,9 +608,9 @@ function MinistriesPage({ onNav }) {
       <PageHeader eyebrow="Ministries" title="A place for every age." lead="From nursery to retirement, Hope has a community for every stage of life. Find the one that fits you and your family." />
       <section className="ministries-section">
         <div className="container">
-          <div className="ministries-grid reveal-stagger">
+          <div className="ministries-grid">
             {MINISTRIES.map(m => (
-              <div className="ministry-card reveal" key={m.slug} onClick={() => onNav && onNav(m.slug)} style={{cursor:'pointer'}}>
+              <div className="ministry-card" key={m.slug} onClick={() => onNav && onNav(m.slug)} style={{cursor:'pointer'}}>
                 <div className="ministry-card-age">{m.age}</div>
                 <h3>{m.title}</h3>
                 <p>{m.desc}</p>
@@ -623,11 +623,11 @@ function MinistriesPage({ onNav }) {
 
       {/* Event Request Form — separate CTA since it's a form, not a ministry */}
       <section className="cta-band">
-        <div className="container reveal-stagger">
-          <span className="eyebrow reveal">For our Hope family</span>
-          <h2 className="reveal">Hosting an event at Hope?</h2>
-          <p className="reveal">Submit an event request form to reserve space, request childcare, or get your ministry event on the church calendar.</p>
-          <div className="cta-band-actions reveal">
+        <div className="container">
+          <span className="eyebrow">For our Hope family</span>
+          <h2>Hosting an event at Hope?</h2>
+          <p>Submit an event request form to reserve space, request childcare, or get your ministry event on the church calendar.</p>
+          <div className="cta-band-actions">
             <Button variant="primary" size="xl" onClick={() => window.open('https://hopejc.churchcenter.com/login?return=https://hopejc.churchcenter.com/calendar/forms/12134', '_blank', 'noopener')} iconRight="arrow">Event Request Form</Button>
           </div>
         </div>
@@ -735,14 +735,14 @@ function ServePage() {
         <div className="container">
           {groups.map((g, gi) => (
             <div className="serve-group" key={g.name}>
-              <header className="serve-group-head reveal-stagger">
-                <span className="serve-group-num reveal">{g.eyebrow}</span>
-                <h2 className="reveal">{g.name}</h2>
-                <p className="reveal" dangerouslySetInnerHTML={{__html: g.intro}}/>
+              <header className="serve-group-head">
+                <span className="serve-group-num">{g.eyebrow}</span>
+                <h2>{g.name}</h2>
+                <p dangerouslySetInnerHTML={{__html: g.intro}}/>
               </header>
-              <div className="ministries-grid reveal-stagger">
+              <div className="ministries-grid">
                 {g.teams.map(t => (
-                  <div className={`ministry-card reveal${t.wide ? ' ministry-card-wide' : ''}`} key={t.t}>
+                  <div className={`ministry-card ${t.wide ? ' ministry-card-wide' : ''}`} key={t.t}>
                     <h3>{t.t}</h3>
                     <p>{t.p}</p>
                     {t.roles && (
@@ -779,9 +779,9 @@ function NextStepsPage() {
     <>
       <PageHeader eyebrow="Next Steps" title="Five steps in." lead="Not a ladder to climb — just a path most people find helpful." />
       <section className="steps-rails">
-        <div className="container-narrow reveal-stagger">
+        <div className="container-narrow">
           {steps.map(s => (
-            <div className="step-rail reveal" key={s.n}>
+            <div className="step-rail" key={s.n}>
               <div className="step-num">{s.n}</div>
               <div className="step-rail-body">
                 <h3>{s.t}</h3>
@@ -804,7 +804,7 @@ function ContactPage() {
       <PageHeader eyebrow="Contact" title="We'd love to hear from you." lead="Whether you have a question, need prayer, or simply want to introduce yourself — every message lands with a real person on our team." />
       <section className="visit-section">
         <div className="container visit-grid">
-          <div className="connect-embed-wrap reveal-fade">
+          <div className="connect-embed-wrap">
             <iframe
               src={`${formUrl}?open_in_church_center_modal=false`}
               title="Contact Hope Church"
@@ -813,18 +813,18 @@ function ContactPage() {
               allow="clipboard-write"
             />
           </div>
-          <aside className="visit-aside reveal-stagger">
-            <h3 className="reveal">Hope Church</h3>
-            <div className="visit-expect reveal-stagger">
-              <div className="visit-expect-item reveal">
+          <aside className="visit-aside">
+            <h3>Hope Church</h3>
+            <div className="visit-expect">
+              <div className="visit-expect-item">
                 <div className="visit-expect-icon"><Icon name="pin" size={18} color="var(--hope-blue)"/></div>
                 <div className="visit-expect-text"><strong>Address</strong><p>5034 Bobby Hicks Hwy<br/>Johnson City, TN 37615</p></div>
               </div>
-              <div className="visit-expect-item reveal">
+              <div className="visit-expect-item">
                 <div className="visit-expect-icon"><Icon name="clock" size={18} color="var(--hope-blue)"/></div>
                 <div className="visit-expect-text"><strong>Office hours</strong><p>Monday &ndash; Thursday, 9am &ndash; 4pm</p></div>
               </div>
-              <div className="visit-expect-item reveal">
+              <div className="visit-expect-item">
                 <div className="visit-expect-icon"><Icon name="mail" size={18} color="var(--hope-blue)"/></div>
                 <div className="visit-expect-text"><strong>Email &amp; phone</strong><p><a href="mailto:info@hopejc.org">info@hopejc.org</a><br/>(423) 207-3341</p></div>
               </div>

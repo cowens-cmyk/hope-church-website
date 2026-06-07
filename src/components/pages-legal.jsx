@@ -9,8 +9,8 @@ function LegalPage({ eyebrow, title, lead, updated, children }) {
       <PageHeader eyebrow={eyebrow} title={title} lead={lead} />
       <section className="legal-page">
         <div className="container legal-inner">
-          {updated && <p className="legal-updated reveal-soft">Last updated: {updated}</p>}
-          <div className="legal-body reveal">{children}</div>
+          {updated && <p className="legal-updated">Last updated: {updated}</p>}
+          <div className="legal-body">{children}</div>
         </div>
       </section>
     </>
