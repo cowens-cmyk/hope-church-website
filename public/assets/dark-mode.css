@@ -402,23 +402,24 @@
   border-top-color: var(--border-hairline);
 }
 
-/* ---------- Linked 5/6 ---------- */
-[data-theme="dark"] .l56-intro,
-[data-theme="dark"] .l56-pillars,
-[data-theme="dark"] .l56-calendar {
+/* ---------- Linked 5/6 (redesign — Hope Tweens) ---------- */
+[data-theme="dark"] .l56-brand,
+[data-theme="dark"] .l56-block,
+[data-theme="dark"] .l56-photo-section {
   background: var(--bg-page);
 }
-[data-theme="dark"] .l56-rhythm {
-  background: var(--bg-tint);
+[data-theme="dark"] .l56-block-title,
+[data-theme="dark"] .l56-block-times {
+  color: var(--fg-1);
 }
-[data-theme="dark"] .l56-pillar,
-[data-theme="dark"] .l56-rhythm-card,
-[data-theme="dark"] .l56-callout,
-[data-theme="dark"] .l56-photo-frame,
 [data-theme="dark"] .l56-calendar-frame {
   background: var(--bg-muted);
   border-color: var(--border-hairline);
 }
+[data-theme="dark"] .l56-photo-frame {
+  background: var(--bg-muted);
+}
+/* The Hope Tweens blue card stays vivid in dark mode — it's the focal point. */
 
 /* ---------- Students ---------- */
 [data-theme="dark"] .hs-wednesday,
@@ -707,19 +708,15 @@
 [data-theme="dark"] .hs-sunday-copy p,
 [data-theme="dark"] .hs-gallery-head p,
 [data-theme="dark"] .hs-calendar-head p,
-[data-theme="dark"] .l56-intro-copy p,
-[data-theme="dark"] .l56-pillar p,
-[data-theme="dark"] .l56-rhythm-card p,
-[data-theme="dark"] .l56-safety-note p,
-[data-theme="dark"] .l56-calendar-head p,
+[data-theme="dark"] .l56-block-body,
+[data-theme="dark"] .l56-brand-body,
 [data-theme="dark"] .fh-secondhalf-copy p,
 [data-theme="dark"] .fh-gallery-head p,
 [data-theme="dark"] .fh-calendar-head p {
   color: #fff;
 }
 
-[data-theme="dark"] .hs-wed-times-label,
-[data-theme="dark"] .l56-calendar-badge {
+[data-theme="dark"] .hs-wed-times-label {
   color: #fff;
 }
 
