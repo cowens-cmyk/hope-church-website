@@ -448,9 +448,9 @@ function MissionBar() {
 // ---------- Service Times block ----------
 function ServiceTimes() {
   const times = [
-    { t: '8:00', s: 'am', name: 'First Service', n: '01' },
-    { t: '9:45', s: 'am', name: 'Second Service', n: '02' },
-    { t: '11:30', s: 'am', name: 'Third Service', n: '03' },
+    { t: '8:00', s: 'am', name: 'First Service' },
+    { t: '9:45', s: 'am', name: 'Second Service' },
+    { t: '11:30', s: 'am', name: 'Third Service' },
   ];
   return (
     <section className="service-times" data-screen-label="ServiceTimes">
@@ -460,9 +460,8 @@ function ServiceTimes() {
           <h2 className="service-times-title">Three services. Same welcome.</h2>
         </div>
         <div className="service-times-grid">
-          {times.map((x, i) => (
+          {times.map((x) => (
             <div key={x.t} className="service-time">
-              <div className="service-time-num">{x.n}</div>
               <div className="st-time">{x.t}<s>{x.s}</s></div>
               <div className="st-name">{x.name}</div>
             </div>
