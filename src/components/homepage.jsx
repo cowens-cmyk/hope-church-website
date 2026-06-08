@@ -17,7 +17,10 @@ function HeroA({ onVisit, onWatch }) {
         <h1 className="hero-a-title">Love God.<br/>Love <em>people.</em><br/>Make disciples.</h1>
         <div className="hero-a-actions">
           <Button variant="primary" size="xl" onClick={onVisit} iconRight="arrow">Plan Your Visit</Button>
-          <Button variant="outline-on-dark" size="xl" onClick={onWatch} icon="play">Watch This Week</Button>
+          <a className="footer-live-btn hero-live-btn" href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">
+            <span className="live-dot" aria-hidden="true"/>
+            Watch live at 9:45am
+          </a>
         </div>
       </div>
       <div className="hero-a-bottom">
