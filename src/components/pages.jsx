@@ -300,13 +300,13 @@ function AboutPage({ onNav }) {
 // ---------- Team Page ----------
 function TeamPage() {
   const elders = [
-    { name: 'Rick Keller',    role: 'Lead Pastor / Elder', img: 'assets/elder-rick.png'   },
-    { name: 'Will Easler',    role: 'Lead Pastor / Elder', img: 'assets/elder-will.jpg'   },
-    { name: 'David Wallace',  role: 'Elder',               img: 'assets/elder-david.jpg'  },
-    { name: 'Tommy Snapp',    role: 'Elder',               img: 'assets/elder-tommy.jpg'  },
-    { name: 'Jason Gaede',    role: 'Elder',               img: 'assets/elder-jason.jpg' },
-    { name: 'Jeff Mann',      role: 'Elder',               img: 'assets/elder-jeff.jpg'   },
-    { name: 'Steve Tallent',  role: 'Elder',               img: 'assets/elder-steve.jpg'  },
+    { name: 'Rick Keller',    role: 'Lead Pastor / Elder', img: 'assets/elder-rick.png',   email: 'rkeller@hopejc.org' },
+    { name: 'Will Easler',    role: 'Lead Pastor / Elder', img: 'assets/elder-will.jpg',   email: 'weasler@hopejc.org' },
+    { name: 'David Wallace',  role: 'Elder',               img: 'assets/elder-david.jpg',  email: 'elders@hopejc.org'  },
+    { name: 'Tommy Snapp',    role: 'Elder',               img: 'assets/elder-tommy.jpg',  email: 'elders@hopejc.org'  },
+    { name: 'Jason Gaede',    role: 'Elder',               img: 'assets/elder-jason.jpg',  email: 'elders@hopejc.org'  },
+    { name: 'Jeff Mann',      role: 'Elder',               img: 'assets/elder-jeff.jpg',   email: 'elders@hopejc.org'  },
+    { name: 'Steve Tallent',  role: 'Elder',               img: 'assets/elder-steve.jpg',  email: 'elders@hopejc.org'  },
   ];
   const staff = [
     { name: 'Rick Keller',     role: 'Lead Pastor',       img: 'assets/elder-rick.png'      },
@@ -335,6 +335,7 @@ function TeamPage() {
                 <div className="staff-photo elder" style={{backgroundImage: `url('${e.img}')`}} />
                 <h4>{e.name}</h4>
                 <div className="role">{e.role}</div>
+                {e.email && <a className="elder-email" href={`mailto:${e.email}`}>{e.email}</a>}
               </div>
             ))}
           </div>

@@ -95,13 +95,12 @@ function LifeGroupsPage({ onNav }) {
 function MissionsPage({ onNav }) {
   const international = [
     {
-      name: 'International Mission Network',
-      loc: 'Flower Mound, TX + Nicaragua',
-      desc: 'Ralph and Donna Holland have 30+ missionaries around the world that they have helped raise up and raise support for. They also work heavily with a school in Nicaragua named after Donna.',
-      link: 'myinternationalnetwork.org',
-      href: 'https://myinternationalnetwork.org',
-      img: 'assets/missions/imn.png',
-      imgFit: 'contain',
+      name: 'Nicaragua School Diriamba',
+      loc: 'Diriamba, Nicaragua',
+      desc: 'DHS in Nicaragua sponsors over 300 children yearly. Mama Nubia started this school many years ago in a very humble setting, and God has provided growth, development, and recognition for this project.',
+      link: null,
+      href: null,
+      img: null,
     },
     {
       name: 'Ethnos Movement International',
@@ -120,14 +119,6 @@ function MissionsPage({ onNav }) {
       href: 'https://ethnosmi.org',
       img: 'assets/missions/bradley-family.jpg',
       imgFit: 'cover',
-    },
-    {
-      name: 'Neels & Esma',
-      loc: 'George, South Africa',
-      desc: 'Neels and Esma work to bring women off the street by providing them with a job and a skill.',
-      link: 'ethnosmi.org',
-      href: 'https://ethnosmi.org',
-      img: null,
     },
   ];
 
@@ -211,12 +202,16 @@ function MissionsPage({ onNav }) {
             </div>}
       </div>
       <div className="missions-partner-body">
-        <a className="missions-partner-name" href={p.href} target="_blank" rel="noopener noreferrer">{p.name}</a>
+        {p.href
+          ? <a className="missions-partner-name" href={p.href} target="_blank" rel="noopener noreferrer">{p.name}</a>
+          : <span className="missions-partner-name">{p.name}</span>}
         <div className="missions-partner-loc">{p.loc}</div>
         <p>{p.desc}</p>
-        <a className="missions-partner-link" href={p.href} target="_blank" rel="noopener noreferrer">
-          {p.link} <Icon name="arrow" size={13}/>
-        </a>
+        {p.href && (
+          <a className="missions-partner-link" href={p.href} target="_blank" rel="noopener noreferrer">
+            {p.link} <Icon name="arrow" size={13}/>
+          </a>
+        )}
       </div>
     </article>
   );

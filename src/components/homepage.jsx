@@ -101,7 +101,7 @@ function HeroC({ onVisit, onWatch }) {
             <div><b>9:45</b><s>am</s></div>
             <div><b>11:30</b><s>am</s></div>
           </div>
-          <a href="#" className="btn btn-outline-on-dark btn-sm">Directions</a>
+          <a href="https://maps.google.com/?q=5034+Bobby+Hicks+Hwy+Suite+10+Gray+TN+37615" target="_blank" rel="noopener" className="btn btn-outline-on-dark btn-sm">Directions</a>
         </div>
       </div>
     </section>
