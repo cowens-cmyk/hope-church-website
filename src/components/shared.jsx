@@ -487,7 +487,7 @@ function NewHereBlock({ onVisit }) {
           <p className="lead">No dress code. No pressure. You don’t need to know anyone to belong here. Let us know you’re coming and we’ll meet you at the door.</p>
           <ul className="new-here-checklist">
             <li>A friendly welcome at the front door</li>
-            <li>Kids ministry classes are offered for infants through 5th grade</li>
+            <li>Kids and Tweens classes are offered for infants through 6th grade</li>
             <li>Free coffee and an easy way in</li>
             <li>Someone to sit with, if you’d like</li>
           </ul>

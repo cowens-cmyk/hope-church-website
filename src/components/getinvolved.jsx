@@ -432,7 +432,7 @@ function DiscoverHopePage({ onNav }) {
               </details>
               <details>
                 <summary>What about my kids?</summary>
-                <p>We provide childcare during the class for infants through 5th grade. Let us know on the form so we can plan staffing.</p>
+                <p>We provide childcare during the class for infants through 6th grade. Let us know on the form so we can plan staffing.</p>
               </details>
               <details>
                 <summary>How long is the class?</summary>
