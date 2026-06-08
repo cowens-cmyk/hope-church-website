@@ -100,7 +100,8 @@ function MissionsPage({ onNav }) {
       desc: 'DHS in Nicaragua sponsors over 300 children yearly. Mama Nubia started this school many years ago in a very humble setting, and God has provided growth, development, and recognition for this project.',
       link: null,
       href: null,
-      img: null,
+      img: 'assets/missions/nicaragua-school.jpg',
+      imgFit: 'cover',
     },
     {
       name: 'Ethnos Movement International',

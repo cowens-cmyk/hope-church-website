@@ -486,7 +486,8 @@
 
 /* ---------- Fueled by Hope ---------- */
 [data-theme="dark"] .fh-secondhalf,
-[data-theme="dark"] .fh-gallery {
+[data-theme="dark"] .fh-gallery,
+[data-theme="dark"] .fh-calendar {
   background: var(--bg-page);
   border-top-color: var(--border-hairline);
 }
@@ -662,6 +663,9 @@
 [data-theme="dark"] .cc-anchor-verse,
 [data-theme="dark"] .cc-anchor-verse .quoted,
 [data-theme="dark"] .cc-rhythm-day,
+[data-theme="dark"] .cc-rhythm-card h3,
+[data-theme="dark"] .cc-rhythm-card .cc-rhythm-times,
+[data-theme="dark"] .cc-rhythm-card .cc-rhythm-times .cc-dot,
 [data-theme="dark"] .wv-anchor h1,
 [data-theme="dark"] .wv-anchor-mission strong,
 [data-theme="dark"] .wv-rhythms-head h2,
