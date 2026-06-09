@@ -310,17 +310,17 @@ function TeamPage() {
     { name: 'Steve Tallent',  role: 'Elder',               img: 'assets/elder-steve.jpg',  email: 'elders@hopejc.org'  },
   ];
   const staff = [
-    { name: 'Rick Keller',     role: 'Lead Pastor',       img: 'assets/elder-rick.png'      },
-    { name: 'Will Easler',     role: 'Lead Pastor',       img: 'assets/elder-will.jpg'      },
-    { name: 'Cameron Owens',   role: 'Worship Pastor',    img: 'assets/staff-cameron.jpg'   },
-    { name: 'Jesse Broughton', role: 'Next-Gen Pastor',   img: 'assets/staff-jesse.jpg'     },
-    { name: 'Ashley Tipton',   role: 'Kids Director',     img: 'assets/staff-ashley.jpg'    },
-    { name: 'Stacie Taylor',   role: 'Linked56 Director', img: 'assets/staff-stacie.jpg'    },
+    { name: 'Rick Keller',     role: 'Lead Pastor',       img: 'assets/elder-rick.png',     email: 'rkeller@hopejc.org'    },
+    { name: 'Will Easler',     role: 'Lead Pastor',       img: 'assets/elder-will.jpg',     email: 'weasler@hopejc.org'    },
+    { name: 'Jesse Broughton', role: 'Next-Gen Pastor',   img: 'assets/staff-jesse.jpg',    email: 'jbroughton@hopejc.org' },
+    { name: 'Cameron Owens',   role: 'Worship Pastor',    img: 'assets/staff-cameron.jpg',  email: 'cowens@hopejc.org'     },
+    { name: 'Ashley Tipton',   role: 'Kids Director',     img: 'assets/staff-ashley.jpg',   email: 'atipton@hopejc.org'    },
+    { name: 'Stacie Taylor',   role: 'Linked56 Director', img: 'assets/staff-stacie.jpg',   email: 'linked@hopejc.org'     },
   ];
   const support = [
-    { name: 'Gemma Johnson',      role: 'Office Administrator',     img: 'assets/staff-gemma.jpeg'     },
-    { name: 'Sarah Cate Carver',  role: 'Administrative Assistant', img: 'assets/staff-sarahcate.jpeg' },
-    { name: 'Gabrielle Day',      role: 'Financial Assistant',      img: 'assets/staff-gabrielle.jpg'  },
+    { name: 'Gemma Johnson',      role: 'Office Administrator',     img: 'assets/staff-gemma.jpeg',     email: 'gjohnson@hopejc.org' },
+    { name: 'Sarah Cate Carver',  role: 'Administrative Assistant', img: 'assets/staff-sarahcate.jpeg', email: 'scarver@hopejc.org'  },
+    { name: 'Gabrielle Day',      role: 'Financial Assistant',      img: 'assets/staff-gabrielle.jpg',  email: 'gday@hopejc.org'     },
   ];
   return (
     <>
@@ -353,6 +353,7 @@ function TeamPage() {
                 <div className="staff-photo elder" style={{backgroundImage: `url('${s.img}')`}} />
                 <h4>{s.name}</h4>
                 <div className="role">{s.role}</div>
+                {s.email && <a className="elder-email" href={`mailto:${s.email}`}>{s.email}</a>}
               </div>
             ))}
           </div>
@@ -369,6 +370,7 @@ function TeamPage() {
                 <div className="staff-photo elder" style={{backgroundImage: `url('${s.img}')`}} />
                 <h4>{s.name}</h4>
                 <div className="role">{s.role}</div>
+                {s.email && <a className="elder-email" href={`mailto:${s.email}`}>{s.email}</a>}
               </div>
             ))}
           </div>

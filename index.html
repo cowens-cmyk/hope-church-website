@@ -9,6 +9,50 @@
        duplicate head tags. -->
   <link rel="icon" href="/assets/icon-blue.png"/>
 
+  <!-- Structured data (schema.org Church). Helps Google show Hope Church's
+       address, phone, service times, and social profiles in local results
+       and the knowledge panel. Keep the facts here in sync with the Google
+       Business Profile. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "@id": "https://www.hopejc.org/#church",
+    "name": "Hope Church",
+    "alternateName": "Hope Church Johnson City",
+    "url": "https://www.hopejc.org",
+    "logo": "https://www.hopejc.org/assets/logo-horizontal-blue.png",
+    "image": "https://www.hopejc.org/assets/og-image.jpg",
+    "description": "Hope Church is a contemporary, family-oriented church in Gray / Johnson City, Tennessee. Love God. Love people. Make disciples.",
+    "telephone": "+1-423-207-3341",
+    "email": "info@hopejc.org",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5034 Bobby Hicks Hwy, Suite 10",
+      "addressLocality": "Gray",
+      "addressRegion": "TN",
+      "postalCode": "37615",
+      "addressCountry": "US"
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN",
+    "sameAs": [
+      "https://www.youtube.com/@hopechurchjohnsoncity",
+      "https://www.instagram.com/hopechurch_jc/",
+      "https://www.facebook.com/hopechurchjohnsoncity"
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "Johnson City" },
+      { "@type": "City", "name": "Gray" }
+    ],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "08:00", "closes": "09:15" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:45", "closes": "11:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:30", "closes": "12:45" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:00", "closes": "16:00" }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="/assets/site.css"/>
   <link rel="stylesheet" href="/assets/kids-ministry.css"/>
   <link rel="stylesheet" href="/assets/linked56-ministry.css"/>
