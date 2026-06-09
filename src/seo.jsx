@@ -12,7 +12,7 @@ import { SITE_ORIGIN, pathFor } from './nav.js';
 const BRAND = 'Hope Church · Johnson City, TN';
 const DEFAULT_DESC =
   'Hope Church — a contemporary church in Gray / Johnson City, Tennessee. Love God. Love people. Make disciples. Sundays at 8:00, 9:45 & 11:30am.';
-const OG_IMAGE = '/assets/logo-horizontal-blue.png';
+const OG_IMAGE = '/assets/og-image.jpg';
 
 // pageKey -> { title, description }. Titles are kept under ~60 characters and
 // descriptions under ~155 so they don't get truncated in search results.
@@ -181,7 +181,10 @@ export default function Seo({ pageKey = 'home' }) {
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={ogImage} />
-      <meta name="twitter:card" content="summary" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Hope Church — Love God. Love people. Make disciples. Sundays in Gray / Johnson City, TN." />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
