@@ -1,4 +1,5 @@
 import React from 'react';
+import { resources } from '../resources.js';
 import { Icon, Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
 // Hope Church — Prayer Request page + Podcast page (RSS-driven)
@@ -569,7 +570,7 @@ function AppPage() {
             <div className="app-phone">
               <div className="app-phone-notch"></div>
               <div className="app-phone-screen app-phone-screen--image">
-                <img src={window.__resources.appScreenshot} alt="Hope Church app screenshot"/>
+                <img src={resources.appScreenshot} alt="Hope Church app screenshot"/>
               </div>
             </div>
           </div>

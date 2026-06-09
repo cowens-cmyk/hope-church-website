@@ -1,4 +1,5 @@
 import React from 'react';
+import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { SubsplashRecent, SubsplashEvents } from './embeds.jsx';
 // Hope Church — 3 homepage hero variations + supporting blocks
@@ -256,7 +257,7 @@ function AppBand() {
         <div className="app-phone" aria-hidden="true">
           <div className="app-phone-notch"></div>
           <div className="app-phone-screen app-phone-screen--image">
-            <img src={window.__resources.appScreenshot} alt="Hope Church app screenshot"/>
+            <img src={resources.appScreenshot} alt="Hope Church app screenshot"/>
           </div>
         </div>
       </div>

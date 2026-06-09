@@ -1,4 +1,5 @@
 import React from 'react';
+import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { SubsplashRecent, SubsplashEvents, SubsplashMediaLibrary, GiveEmbed } from './embeds.jsx';
 import { PODCASTS, ApplePodcastsIcon, SpotifyIcon, RssIcon } from './pages-extra.jsx';
@@ -170,7 +171,7 @@ function AboutPage({ onNav }) {
           </div>
           <div className="about-origin-photo">
             <div className="photo-placeholder">
-              <img src={window.__resources.aboutOriginWorship} alt="The Hope Church congregation worshiping together in the Daniel Boone High School auditorium" />
+              <img src={resources.aboutOriginWorship} alt="The Hope Church congregation worshiping together in the Daniel Boone High School auditorium" />
             </div>
           </div>
         </div>
@@ -181,7 +182,7 @@ function AboutPage({ onNav }) {
         <div className="container about-vision-inner">
           <div className="about-vision-photo">
             <div className="photo-placeholder">
-              <img src={window.__resources.aboutVisionWelcome} alt="Hope Church families walking into the Main Entrance on a Sunday morning" />
+              <img src={resources.aboutVisionWelcome} alt="Hope Church families walking into the Main Entrance on a Sunday morning" />
             </div>
           </div>
           <div className="about-vision-copy">
@@ -288,7 +289,7 @@ function AboutPage({ onNav }) {
           </div>
           <div className="about-team-cta-photo">
             <div className="photo-placeholder">
-              <img src={window.__resources.aboutTeamGroup} alt="The Hope Church leadership team standing together on stage in front of the Hope Church logo" />
+              <img src={resources.aboutTeamGroup} alt="The Hope Church leadership team standing together on stage in front of the Hope Church logo" />
             </div>
           </div>
         </div>

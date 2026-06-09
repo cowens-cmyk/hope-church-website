@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Hope Church · Johnson City, TN</title>
-  <meta name="description" content="Hope Church — a contemporary church planted in Gray / Johnson City, Tennessee. Love God. Love people. Make disciples. Sundays at 8:00, 9:45 &amp; 11:30am."/>
+  <!-- Page title, description, canonical and social tags are injected per-route
+       by src/seo.jsx (build time for pre-rendered HTML, and on the client during
+       navigation). Intentionally none hard-coded here, so no page ends up with
+       duplicate head tags. -->
   <link rel="icon" href="/assets/icon-blue.png"/>
 
   <link rel="stylesheet" href="/assets/site.css"/>
@@ -72,21 +74,8 @@
     })();
   </script>
 
-  <!-- Brand image paths referenced from JSX (logos, app screenshot, photos). -->
-  <script>
-    window.__resources = {
-      logoHorizBlue: '/assets/logo-horizontal-blue.png',
-      logoHorizWhite: '/assets/logo-horizontal-white.png',
-      logoHorizReversed: '/assets/logo-horizontal-reversed.png',
-      logoStackedReversed: '/assets/logo-stacked-reversed.png',
-      iconWhite: '/assets/icon-white.png',
-      appScreenshot: '/assets/app-screenshot.png',
-      lobbyWelcome: '/assets/lobby-welcome.jpg',
-      aboutOriginWorship: '/assets/about-origin-worship.jpg',
-      aboutVisionWelcome: '/assets/about-vision-welcome.jpg',
-      aboutTeamGroup: '/assets/about-team-group.jpg'
-    };
-  </script>
+  <!-- Brand image paths now live in src/resources.js (imported by components)
+       so they are available during static pre-rendering, not just in-browser. -->
 </head>
 <body>
   <div id="root"></div>

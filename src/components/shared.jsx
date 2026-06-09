@@ -1,4 +1,6 @@
 import React from 'react';
+import { resources } from '../resources.js';
+import { pathFor } from '../nav.js';
 // Hope Church — shared components: Header, Footer, Sunday strip, Announcement bar
 
 const { useState, useEffect } = React;
@@ -243,7 +245,7 @@ function SiteHeader({ onNav, current, dark = false }) {
   // The 'dark' prop (passed by hero-C bookend) forces the white treatment regardless of theme.
   const theme = useResolvedTheme();
   const isDark = dark || theme === 'dark';
-  const logo = isDark ? window.__resources.logoHorizReversed : window.__resources.logoHorizBlue;
+  const logo = isDark ? resources.logoHorizReversed : resources.logoHorizBlue;
 
   // Lock body scroll when menu open + scroll to top so menu aligns with header
   useEffect(() => {
@@ -284,7 +286,7 @@ function SiteHeader({ onNav, current, dark = false }) {
   return (
     <header className={`site-header ${dark ? 'dark' : ''} ${menuOpen ? 'menu-open' : ''}`}>
       <div className="container site-header-inner">
-        <a className="brand" href="#" onClick={(e)=>{e.preventDefault();go('home');}}>
+        <a className="brand" href="/" onClick={(e)=>{e.preventDefault();go('home');}}>
           <img src={logo} alt="Hope Church" />
         </a>
         <nav className="site-nav">
@@ -313,7 +315,7 @@ function SiteHeader({ onNav, current, dark = false }) {
                       {l.dropdown.map(d => (
                         <a
                           key={d.id}
-                          href={d.href || '#'}
+                          href={d.href || pathFor(d.id)}
                           target={d.href ? '_blank' : undefined}
                           rel={d.href ? 'noopener noreferrer' : undefined}
                           role="menuitem"
@@ -338,7 +340,7 @@ function SiteHeader({ onNav, current, dark = false }) {
               );
             }
             return (
-              <a key={l.id} href="#" onClick={(e)=>{e.preventDefault();onNav(l.id);}} className={current === l.id ? 'active' : ''}>{l.label}</a>
+              <a key={l.id} href={pathFor(l.id)} onClick={(e)=>{e.preventDefault();onNav(l.id);}} className={current === l.id ? 'active' : ''}>{l.label}</a>
             );
           })}
         </nav>
@@ -376,7 +378,7 @@ function SiteHeader({ onNav, current, dark = false }) {
                       {l.dropdown.map(d => (
                         <a
                           key={d.id}
-                          href={d.href || '#'}
+                          href={d.href || pathFor(d.id)}
                           target={d.href ? '_blank' : undefined}
                           rel={d.href ? 'noopener noreferrer' : undefined}
                           onClick={(e)=>{
@@ -397,7 +399,7 @@ function SiteHeader({ onNav, current, dark = false }) {
             return (
               <a
                 key={l.id}
-                href="#"
+                href={pathFor(l.id)}
                 onClick={(e)=>{e.preventDefault();go(l.id);}}
                 className={current === l.id ? 'active' : ''}
               >
@@ -496,7 +498,7 @@ function NewHereBlock({ onVisit }) {
           </div>
         </div>
         <div className="new-here-photo">
-          <img src={window.__resources.lobbyWelcome} alt="Hope Church family connecting in the lobby after a Sunday service" />
+          <img src={resources.lobbyWelcome} alt="Hope Church family connecting in the lobby after a Sunday service" />
         </div>
       </div>
     </section>
@@ -509,7 +511,7 @@ function Footer({ onNav }) {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src={window.__resources.logoStackedReversed} alt="Hope Church" />
+          <img src={resources.logoStackedReversed} alt="Hope Church" />
           <p className="footer-tagline">Love God.<br/>Love people.<br/>Make disciples.</p>
           <div className="footer-address">
             <strong>Hope Church</strong>
@@ -537,30 +539,30 @@ function Footer({ onNav }) {
           <div>
             <h5>Connect</h5>
             <ul>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('visit');}}>Plan a Visit</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('about');}}>About</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('team');}}>Team</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('nextsteps');}}>Next Steps</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('serve');}}>Serve</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('ministries');}}>Ministries</a></li>
+              <li><a href={pathFor('visit')} onClick={(e)=>{e.preventDefault();onNav('visit');}}>Plan a Visit</a></li>
+              <li><a href={pathFor('about')} onClick={(e)=>{e.preventDefault();onNav('about');}}>About</a></li>
+              <li><a href={pathFor('team')} onClick={(e)=>{e.preventDefault();onNav('team');}}>Team</a></li>
+              <li><a href={pathFor('nextsteps')} onClick={(e)=>{e.preventDefault();onNav('nextsteps');}}>Next Steps</a></li>
+              <li><a href={pathFor('serve')} onClick={(e)=>{e.preventDefault();onNav('serve');}}>Serve</a></li>
+              <li><a href={pathFor('ministries')} onClick={(e)=>{e.preventDefault();onNav('ministries');}}>Ministries</a></li>
             </ul>
           </div>
           <div>
             <h5>Listen</h5>
             <ul>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('sermons');}}>Sermons</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('podcast');}}>Hope Church Podcast</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('podcast-finding-hope');}}>Finding Hope Podcast</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('app');}}>App</a></li>
+              <li><a href={pathFor('sermons')} onClick={(e)=>{e.preventDefault();onNav('sermons');}}>Sermons</a></li>
+              <li><a href={pathFor('podcast')} onClick={(e)=>{e.preventDefault();onNav('podcast');}}>Hope Church Podcast</a></li>
+              <li><a href={pathFor('podcast-finding-hope')} onClick={(e)=>{e.preventDefault();onNav('podcast-finding-hope');}}>Finding Hope Podcast</a></li>
+              <li><a href={pathFor('app')} onClick={(e)=>{e.preventDefault();onNav('app');}}>App</a></li>
             </ul>
           </div>
           <div>
             <h5>Support</h5>
             <ul>
               <li><a href="https://hopejc.churchcenter.com/login?return=https://hopejc.churchcenter.com/calendar/forms/12134" target="_blank" rel="noopener">Event Request Form</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('give');}}>Give</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('contact');}}>Contact</a></li>
-              <li><a href="#" onClick={(e)=>{e.preventDefault();onNav('prayer');}}>Prayer Requests</a></li>
+              <li><a href={pathFor('give')} onClick={(e)=>{e.preventDefault();onNav('give');}}>Give</a></li>
+              <li><a href={pathFor('contact')} onClick={(e)=>{e.preventDefault();onNav('contact');}}>Contact</a></li>
+              <li><a href={pathFor('prayer')} onClick={(e)=>{e.preventDefault();onNav('prayer');}}>Prayer Requests</a></li>
             </ul>
           </div>
         </div>
@@ -575,8 +577,8 @@ function Footer({ onNav }) {
         <div className="container footer-bar-inner">
           <span>© 2026 Hope Church</span>
           <div className="footer-bar-links">
-            <a href="#" onClick={(e)=>{e.preventDefault();onNav('privacy');}}>Privacy</a>
-            <a href="#" onClick={(e)=>{e.preventDefault();onNav('accessibility');}}>Accessibility</a>
+            <a href={pathFor('privacy')} onClick={(e)=>{e.preventDefault();onNav('privacy');}}>Privacy</a>
+            <a href={pathFor('accessibility')} onClick={(e)=>{e.preventDefault();onNav('accessibility');}}>Accessibility</a>
           </div>
         </div>
       </div>
