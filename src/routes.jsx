@@ -10,6 +10,7 @@
    so search engines and first-paint both get real, complete HTML. */
 import React, { useCallback, useEffect } from 'react';
 import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 
 import { KEY_TO_PATH, pathFor, keyForPath } from './nav.js';
 import Seo from './seo.jsx';
@@ -149,6 +150,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer onNav={onNav} />
+      <Analytics />
     </div>
   );
 }
