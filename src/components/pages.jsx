@@ -771,11 +771,11 @@ function ServePage() {
   );
 }
 
-function NextStepsPage() {
+function NextStepsPage({ onNav }) {
   const steps = [
     { n: '01', t: 'Plan a Visit', p: 'Come experience a Sunday — we\u2019ll save you a seat.' },
-    { n: '02', t: 'Starting Point Class', p: 'A one-Sunday class that explains who we are and how to get connected.' },
-    { n: '03', t: 'Join a Group', p: 'Small groups are where the real friendships happen.' },
+    { n: '02', t: 'Discover Hope', p: 'A class that explains who we are and how to get connected.' },
+    { n: '03', t: 'Join a Life Group', p: 'Life groups are where the real friendships happen.' },
     { n: '04', t: 'Serve on a Team', p: 'Use your gifts to make Sundays happen — training provided.' },
     { n: '05', t: 'Get Baptized', p: 'Ready to go public with your faith? We\u2019d love to celebrate with you.' },
   ];
@@ -791,7 +791,19 @@ function NextStepsPage() {
                 <h3>{s.t}</h3>
                 <p>{s.p}</p>
               </div>
-              <Button variant="secondary" size="sm" iconRight="arrow">Start</Button>
+              <Button
+                variant="secondary"
+                size="sm"
+                iconRight="arrow"
+                onClick={() => {
+                  if (s.t === 'Join a Life Group') {
+                    window.open('https://hopejc.churchcenter.com/groups/life-groups?enrollment=open_signup%2Crequest_to_join&filter=enrollment', '_blank', 'noopener');
+                    return;
+                  }
+                  const map = { 'Plan a Visit': 'visit', 'Discover Hope': 'discover', 'Serve on a Team': 'serve', 'Get Baptized': 'events' };
+                  onNav(map[s.t]);
+                }}
+              >Start</Button>
             </div>
           ))}
         </div>
