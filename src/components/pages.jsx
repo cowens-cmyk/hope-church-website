@@ -632,7 +632,7 @@ function MinistriesPage({ onNav }) {
           <h2>Hosting an event at Hope?</h2>
           <p>Submit an event request form to reserve space, request childcare, or get your ministry event on the church calendar.</p>
           <div className="cta-band-actions">
-            <Button variant="primary" size="xl" onClick={() => window.open('https://hopejc.churchcenter.com/login?return=https://hopejc.churchcenter.com/calendar/forms/12134', '_blank', 'noopener')} iconRight="arrow">Event Request Form</Button>
+            <Button variant="primary" size="xl" onClick={() => window.open('https://hopejc.churchcenter.com/calendar/forms/12134', '_blank', 'noopener')} iconRight="arrow">Event Request Form</Button>
           </div>
         </div>
       </section>

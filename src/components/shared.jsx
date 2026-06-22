@@ -560,7 +560,7 @@ function Footer({ onNav }) {
           <div>
             <h5>Support</h5>
             <ul>
-              <li><a href="https://hopejc.churchcenter.com/login?return=https://hopejc.churchcenter.com/calendar/forms/12134" target="_blank" rel="noopener">Event Request Form</a></li>
+              <li><a href="https://hopejc.churchcenter.com/calendar/forms/12134" target="_blank" rel="noopener">Event Request Form</a></li>
               <li><a href={pathFor('give')} onClick={(e)=>{e.preventDefault();onNav('give');}}>Give</a></li>
               <li><a href={pathFor('contact')} onClick={(e)=>{e.preventDefault();onNav('contact');}}>Contact</a></li>
               <li><a href={pathFor('prayer')} onClick={(e)=>{e.preventDefault();onNav('prayer');}}>Prayer Requests</a></li>
