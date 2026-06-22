@@ -563,6 +563,7 @@ function Footer({ onNav }) {
               <li><a href={pathFor('give')} onClick={(e)=>{e.preventDefault();onNav('give');}}>Give</a></li>
               <li><a href={pathFor('contact')} onClick={(e)=>{e.preventDefault();onNav('contact');}}>Contact</a></li>
               <li><a href={pathFor('prayer')} onClick={(e)=>{e.preventDefault();onNav('prayer');}}>Prayer Requests</a></li>
+              <li><a href={pathFor('gethelp')} onClick={(e)=>{e.preventDefault();onNav('gethelp');}}>Get Help</a></li>
             </ul>
           </div>
         </div>

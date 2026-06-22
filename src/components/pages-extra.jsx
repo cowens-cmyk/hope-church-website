@@ -60,6 +60,34 @@ function PrayerRequestPage() {
 }
 
 // ============================================================
+// Get Help Page (benevolence)
+// ============================================================
+function GetHelpPage() {
+  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf7WmsBaX2FkTEmpZBe2YgNcHjiWSmI8Q9Fm-m45mPjgLQ4Lg/viewform';
+  return (
+    <div data-screen-label="Page · Get Help">
+      <PageHeader
+        eyebrow="Support"
+        title="Get Help"
+        lead="How can we help and serve you or someone that you know? If you need help or someone you know is in need, please fill out the benevolence form below and someone will reach out to you."
+      />
+      <section className="prayer-section">
+        <div className="container" style={{ textAlign: 'center', paddingBottom: '24px' }}>
+          <a
+            className="btn btn-primary btn-lg"
+            href={formUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Benevolent Help
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// ============================================================
 // Podcast Page (RSS-driven)
 // ============================================================
 
@@ -477,7 +505,7 @@ function PodcastPage({ initialChannel }) {
   );
 }
 
-export { PrayerRequestPage, PodcastPage, PODCASTS, AppPage, ApplePodcastsIcon, SpotifyIcon, RssIcon };
+export { PrayerRequestPage, GetHelpPage, PodcastPage, PODCASTS, AppPage, ApplePodcastsIcon, SpotifyIcon, RssIcon };
 
 // ============================================================
 // App Page

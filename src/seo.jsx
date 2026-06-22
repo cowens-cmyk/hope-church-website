@@ -136,6 +136,11 @@ export const META = {
     description:
       'Share a prayer request with the Hope Church team. We would be honored to pray with you and for you.',
   },
+  gethelp: {
+    title: `Get Help | ${BRAND}`,
+    description:
+      'Need help, or know someone who does? Fill out the Hope Church benevolence form and someone will reach out to you.',
+  },
   podcast: {
     title: `Hope Church Podcast | ${BRAND}`,
     description:

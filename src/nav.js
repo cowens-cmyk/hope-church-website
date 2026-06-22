@@ -34,6 +34,7 @@ export const KEY_TO_PATH = {
   connect: '/connect',
   discover: '/discover-hope',
   prayer: '/prayer',
+  gethelp: '/get-help',
   podcast: '/podcast',
   'podcast-finding-hope': '/podcast/finding-hope',
   app: '/app',

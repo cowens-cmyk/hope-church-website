@@ -29,7 +29,7 @@ import {
 import {
   LifeGroupsPage, MissionsPage, ConnectCardPage, DiscoverHopePage,
 } from './components/getinvolved.jsx';
-import { PrayerRequestPage, PodcastPage, AppPage } from './components/pages-extra.jsx';
+import { PrayerRequestPage, GetHelpPage, PodcastPage, AppPage } from './components/pages-extra.jsx';
 import { PrivacyPage, AccessibilityPage } from './components/pages-legal.jsx';
 
 // ServiceTimes lives in shared in some builds; import defensively from homepage.
@@ -199,6 +199,7 @@ export const routes = [
       { path: 'connect', element: <View pageKey="connect" Comp={ConnectCardPage} /> },
       { path: 'discover-hope', element: <View pageKey="discover" Comp={DiscoverHopePage} /> },
       { path: 'prayer', element: <View pageKey="prayer" Comp={PrayerRequestPage} /> },
+      { path: 'get-help', element: <View pageKey="gethelp" Comp={GetHelpPage} /> },
       {
         path: 'podcast',
         element: <View pageKey="podcast" Comp={PodcastPage} extraProps={{ initialChannel: 'sunday' }} />,
