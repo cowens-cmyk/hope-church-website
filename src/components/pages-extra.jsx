@@ -68,34 +68,34 @@ function PrayerRequestPage() {
 // `phone` renders as a tel: link; `desc`/`address` are plain text.
 const HELP_RESOURCES = [
   { name: 'Alcoholics Anonymous', url: 'https://www.aatricitiestn.org', phone: '(423) 928-0871' },
-  { name: 'Ballad Health Behavioral Health Outpatient Clinics', phone: '(423) 302-3480' },
+  { name: 'Ballad Health Behavioral Health Outpatient Clinics', url: 'https://www.balladhealth.org/locations/behavioral-health/johnson-city', phone: '(423) 302-3480' },
   { name: 'Ballad Health Respond 24/7 Intervention Hotline', badge: '24/7 Hotline', phone: '1 (800) 366-1132' },
-  { name: 'Bristol Regional Medical Center', phone: '(423) 844-1121' },
+  { name: 'Bristol Regional Medical Center', url: 'https://www.balladhealth.org/locations/hospitals/bristol-regional', phone: '(423) 844-1121' },
   { name: 'Comprehensive Community Services', url: 'https://www.ccstreatment.com', phone: '(423) 349-4070' },
   { name: 'Covenant Counseling', url: 'https://www.covenantkpt.com', phone: '(423) 247-4536' },
   { name: 'Creekside Behavioral Health', badge: '24/7', url: 'https://www.creeksidebh.com', phone: '(423) 830-8110' },
   { name: 'Crisis Response Service', badge: '24/7 Crisis', url: 'https://www.frontierhealth.org/crisis-response/', phone: '(877) 928-9062' },
-  { name: 'Franklin Woods Community Hospital', desc: 'Johnson City, TN | Ballad Health' },
+  { name: 'Franklin Woods Community Hospital', desc: 'Johnson City, TN | Ballad Health', url: 'https://www.balladhealth.org/locations/hospitals/franklin-woods' },
   { name: 'Gracepointe Counseling', url: 'https://www.gracepcc.com', phone: '(423) 283-4958' },
   { name: 'Health Connect America', url: 'https://www.healthconnectamerica.com' },
-  { name: 'Holston Valley Medical Center', desc: 'Kingsport, TN', phone: '(423) 223-4000' },
-  { name: 'Johnson City Medical Center', desc: 'Ballad Health', phone: '(423) 431-6111' },
+  { name: 'Holston Valley Medical Center', desc: 'Kingsport, TN', url: 'https://www.balladhealth.org/locations/hospitals/holston-valley', phone: '(423) 223-4000' },
+  { name: 'Johnson City Medical Center', desc: 'Ballad Health', url: 'https://www.balladhealth.org/locations/hospitals/johnson-city-medical-center', phone: '(423) 431-6111' },
   { name: 'Narcotics Anonymous', url: 'https://www.mana-e-tn.org', phone: '(423) 302-0494' },
-  { name: 'New Leaf', desc: 'Sycamore Shoals Hospital — Inpatient Senior Behavioral Health, Elizabethton', phone: '(423) 542-1358' },
-  { name: 'Overmountain Recovery', desc: 'Medication-Assisted Opioid Treatment Program', phone: '(833) 371-0509' },
+  { name: 'New Leaf Senior Care', desc: 'Sycamore Shoals Hospital — Inpatient Senior Behavioral Health, Elizabethton', url: 'https://www.balladhealth.org/locations/behavioral-health/senior-inpatient-elizabethton', phone: '(423) 542-1358' },
+  { name: 'Overmountain Recovery', desc: 'Medication-Assisted Opioid Treatment Program', url: 'https://www.overmountainrecovery.org/opioid-treatment-program/', phone: '(833) 371-0509' },
   { name: 'Papillon Behavioral Health', phone: '(423) 529-0385' },
-  { name: 'Ridgeview Pavilion', desc: 'Inpatient Psychiatric Care, Bristol | Ballad Health', phone: '(423) 844-6000' },
+  { name: 'Ridgeview Pavilion', desc: 'Inpatient Psychiatric Care, Bristol | Ballad Health', url: 'https://www.balladhealth.org/locations/behavioral-health/ridgeview', phone: '(423) 844-6000' },
   { name: 'SMART Recovery Johnson City', url: 'https://www.smartrecovery.org', url2: 'https://www.facebook.com/SMARTrecoveryJohnsonCity' },
-  { name: 'Strong Futures', desc: 'Outpatient Behavioral Health Clinic | Ballad Health', phone: '(423) 278-1696' },
+  { name: 'Strong Futures', desc: 'Outpatient Behavioral Health Clinic | Ballad Health', url: 'https://www.balladhealth.org/locations/behavioral-health/strong-futures-greeneville', phone: '(423) 278-1696' },
   { name: 'Summit Counseling Center', url: 'https://www.summitcounselingtn.com', phone: '(423) 930-8898' },
   { name: 'Tri-Cities Eating Disorder Therapy', phone: '(423) 708-6982' },
   { name: 'Turning Point', address: '208 E Unaka Ave, Johnson City, TN 37601', phone: '(423) 928-9062' },
   { name: 'Watauga Behavioral Health Services', url: 'https://www.frontierhealth.org/mentalhealth/', phone: '(423) 232-2600' },
   { name: 'Willow Ridge', phone: '(423) 461-7750' },
-  { name: 'Woodridge Hospital', desc: 'Inpatient Behavioral Health, Johnson City | Ballad Health', phone: '(423) 431-7111' },
+  { name: 'Woodridge Hospital', desc: 'Inpatient Behavioral Health, Johnson City | Ballad Health', url: 'https://www.balladhealth.org/locations/hospitals/woodridge-psychiatric', phone: '(423) 431-7111' },
 ];
 
-const cleanUrl = (u) => u.replace(/^https?:\/\//, '').replace(/\/$/, '');
+const cleanUrl = (u) => u.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
 const telHref = (p) => `tel:${p.replace(/[^0-9]/g, '')}`;
 
 function GetHelpPage() {
