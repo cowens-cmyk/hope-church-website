@@ -181,7 +181,7 @@ function MinistriesBlock({ onMinistries }) {
     { age: 'Birth · 4th Grade', title: 'Hope Kids', desc: 'A safe, joyful space where kids learn who Jesus is through stories, songs, and a whole lot of play.', icon: 'kids' },
     { age: '5th · 6th Grade',   title: 'Linked 56',  desc: 'A space made just for 5th and 6th graders — the bridge between kids and students.', icon: 'kids' },
     { age: '7th · 12th Grade',  title: 'Hope Students', desc: 'Wednesday nights and Sunday mornings — real friendships and honest conversations about faith.', icon: 'book' },
-    { age: 'Life groups',        title: 'Hope Groups', desc: 'Small groups that meet around the city in homes, coffee shops, and parks. The easiest way in.', icon: 'hands' },
+    { age: 'Families',           title: 'Life Groups', desc: 'Small groups that meet around the city in homes, coffee shops, and parks. The easiest way in.', icon: 'hands' },
   ];
   return (
     <section className="ministries-section">
