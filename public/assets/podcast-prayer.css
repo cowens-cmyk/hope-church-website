@@ -712,3 +712,82 @@ a.footer-live-btn.hero-live-btn .live-dot {
 [data-theme='dark'] .app-page-install-steps {
   background: var(--bg-card, #1a2330);
 }
+
+/* ============================================================
+   Get Help — Community Resource List
+   ============================================================ */
+.resource-section { padding: 8px 0 88px; }
+
+.resource-head { text-align: center; max-width: 660px; margin: 0 auto 40px; }
+.resource-head h2 {
+  font-family: var(--font-display);
+  font-size: 40px; line-height: 1.05; letter-spacing: -0.02em;
+  margin: 0 0 10px; color: var(--fg-1);
+}
+.resource-head p { font-size: 17px; line-height: 1.5; color: var(--ink-500); margin: 0; }
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  padding: 22px 22px 20px;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.resource-card:hover {
+  border-color: var(--hope-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.resource-badge {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  color: #b42318; background: #fef3f2; border: 1px solid #fecdca;
+  padding: 3px 9px; border-radius: 999px; margin-bottom: 12px;
+}
+
+.resource-card h3 {
+  font-family: var(--font-display);
+  font-size: 17.5px; line-height: 1.25; margin: 0; color: var(--fg-1);
+}
+.resource-desc { font-size: 13px; line-height: 1.45; color: var(--ink-500); margin: 7px 0 0; }
+
+.resource-contact {
+  display: flex; flex-direction: column; gap: 9px;
+  margin-top: 16px; padding-top: 16px;
+  border-top: 1px solid var(--ink-100);
+}
+.resource-line { display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--fg-1); }
+.resource-line svg { flex: none; color: var(--hope-blue); }
+.resource-line a { color: inherit; text-decoration: none; word-break: break-word; }
+.resource-line a:hover { color: var(--hope-blue); text-decoration: underline; text-underline-offset: 2px; }
+.resource-line.resource-phone a { font-weight: 700; }
+.resource-line.resource-address { color: var(--ink-600); }
+
+/* Dark mode */
+[data-theme='dark'] .resource-card {
+  background: var(--bg-muted);
+  border-color: var(--ink-300);
+}
+[data-theme='dark'] .resource-card:hover { border-color: var(--hope-sky); }
+[data-theme='dark'] .resource-desc { color: rgba(255,255,255,0.6); }
+[data-theme='dark'] .resource-contact { border-top-color: rgba(255,255,255,0.1); }
+[data-theme='dark'] .resource-line svg { color: var(--hope-sky); }
+[data-theme='dark'] .resource-line a:hover { color: var(--hope-sky); }
+[data-theme='dark'] .resource-badge {
+  color: #fda29b; background: rgba(217,45,32,0.14); border-color: rgba(253,162,155,0.35);
+}
+
+@media (max-width: 600px) {
+  .resource-grid { grid-template-columns: 1fr; }
+  .resource-head h2 { font-size: 30px; }
+}

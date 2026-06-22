@@ -69,12 +69,12 @@ function PrayerRequestPage() {
 const HELP_RESOURCES = [
   { name: 'Alcoholics Anonymous', url: 'https://www.aatricitiestn.org', phone: '(423) 928-0871' },
   { name: 'Ballad Health Behavioral Health Outpatient Clinics', phone: '(423) 302-3480' },
-  { name: 'Ballad Health Respond 24/7 Intervention Hotline', phone: '1 (800) 366-1132' },
+  { name: 'Ballad Health Respond 24/7 Intervention Hotline', badge: '24/7 Hotline', phone: '1 (800) 366-1132' },
   { name: 'Bristol Regional Medical Center', phone: '(423) 844-1121' },
   { name: 'Comprehensive Community Services', url: 'https://www.ccstreatment.com', phone: '(423) 349-4070' },
   { name: 'Covenant Counseling', url: 'https://www.covenantkpt.com', phone: '(423) 247-4536' },
-  { name: 'Creekside Behavioral Health (24/7)', url: 'https://www.creeksidebh.com', phone: '(423) 830-8110' },
-  { name: 'Crisis Response Service (24/7)', url: 'https://www.frontierhealth.org/crisis-response/', phone: '(877) 928-9062' },
+  { name: 'Creekside Behavioral Health', badge: '24/7', url: 'https://www.creeksidebh.com', phone: '(423) 830-8110' },
+  { name: 'Crisis Response Service', badge: '24/7 Crisis', url: 'https://www.frontierhealth.org/crisis-response/', phone: '(877) 928-9062' },
   { name: 'Franklin Woods Community Hospital', desc: 'Johnson City, TN | Ballad Health' },
   { name: 'Gracepointe Counseling', url: 'https://www.gracepcc.com', phone: '(423) 283-4958' },
   { name: 'Health Connect America', url: 'https://www.healthconnectamerica.com' },
@@ -122,38 +122,47 @@ function GetHelpPage() {
         </div>
       </section>
 
-      <section className="resource-section" style={{ padding: '8px 0 80px' }}>
+      <section className="resource-section">
         <div className="container">
-          <h2 style={{ textAlign: 'center', margin: '0 0 8px' }}>Community Resource List</h2>
-          <p className="lead" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 36px' }}>
-            Local resources for recovery, counseling, crisis support, and behavioral health across the Tri-Cities.
-          </p>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: '32px 24px',
-            }}
-          >
+          <div className="resource-head">
+            <h2>Community Resource List</h2>
+            <p>Local help for recovery, counseling, crisis support, and behavioral health across the Tri-Cities. Tap any number to call.</p>
+          </div>
+          <div className="resource-grid">
             {HELP_RESOURCES.map((r) => (
-              <div key={r.name} style={{ textAlign: 'center' }}>
-                <h4 style={{ margin: '0 0 6px' }}>{r.name}</h4>
-                {r.desc && <div style={{ fontSize: 14, opacity: 0.75, marginBottom: 6 }}>{r.desc}</div>}
-                {r.address && <div style={{ fontSize: 15, marginBottom: 4 }}>{r.address}</div>}
-                {r.url && (
-                  <div>
-                    <a href={r.url} target="_blank" rel="noopener noreferrer">{cleanUrl(r.url)}</a>
-                  </div>
+              <div key={r.name} className="resource-card">
+                {r.badge && (
+                  <span className="resource-badge"><Icon name="clock" size={12} /> {r.badge}</span>
                 )}
-                {r.url2 && (
-                  <div>
-                    <a href={r.url2} target="_blank" rel="noopener noreferrer">{cleanUrl(r.url2)}</a>
-                  </div>
-                )}
-                {r.phone && (
-                  <div style={{ marginTop: 4 }}>
-                    <a href={telHref(r.phone)}>{r.phone}</a>
-                  </div>
+                <h3>{r.name}</h3>
+                {r.desc && <p className="resource-desc">{r.desc}</p>}
+                {(r.phone || r.url || r.url2 || r.address) && (
+                <div className="resource-contact">
+                  {r.phone && (
+                    <div className="resource-line resource-phone">
+                      <Icon name="phone" size={16} />
+                      <a href={telHref(r.phone)}>{r.phone}</a>
+                    </div>
+                  )}
+                  {r.url && (
+                    <div className="resource-line">
+                      <Icon name="globe" size={16} />
+                      <a href={r.url} target="_blank" rel="noopener noreferrer">{cleanUrl(r.url)}</a>
+                    </div>
+                  )}
+                  {r.url2 && (
+                    <div className="resource-line">
+                      <Icon name="facebook" size={16} />
+                      <a href={r.url2} target="_blank" rel="noopener noreferrer">Facebook group</a>
+                    </div>
+                  )}
+                  {r.address && (
+                    <div className="resource-line resource-address">
+                      <Icon name="pin" size={16} />
+                      <span>{r.address}</span>
+                    </div>
+                  )}
+                </div>
                 )}
               </div>
             ))}
