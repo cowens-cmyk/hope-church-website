@@ -60,19 +60,57 @@ function PrayerRequestPage() {
 }
 
 // ============================================================
-// Get Help Page (benevolence)
+// Get Help Page (benevolence + community resources)
 // ============================================================
+
+// Community Resource List — local addiction recovery, mental/behavioral
+// health, crisis, and hospital resources. `url`/`url2` are real links;
+// `phone` renders as a tel: link; `desc`/`address` are plain text.
+const HELP_RESOURCES = [
+  { name: 'Alcoholics Anonymous', url: 'https://www.aatricitiestn.org', phone: '(423) 928-0871' },
+  { name: 'Ballad Health Behavioral Health Outpatient Clinics', phone: '(423) 302-3480' },
+  { name: 'Ballad Health Respond 24/7 Intervention Hotline', phone: '1 (800) 366-1132' },
+  { name: 'Bristol Regional Medical Center', phone: '(423) 844-1121' },
+  { name: 'Comprehensive Community Services', url: 'https://www.ccstreatment.com', phone: '(423) 349-4070' },
+  { name: 'Covenant Counseling', url: 'https://www.covenantkpt.com', phone: '(423) 247-4536' },
+  { name: 'Creekside Behavioral Health (24/7)', url: 'https://www.creeksidebh.com', phone: '(423) 830-8110' },
+  { name: 'Crisis Response Service (24/7)', url: 'https://www.frontierhealth.org/crisis-response/', phone: '(877) 928-9062' },
+  { name: 'Franklin Woods Community Hospital', desc: 'Johnson City, TN | Ballad Health' },
+  { name: 'Gracepointe Counseling', url: 'https://www.gracepcc.com', phone: '(423) 283-4958' },
+  { name: 'Health Connect America', url: 'https://www.healthconnectamerica.com' },
+  { name: 'Holston Valley Medical Center', desc: 'Kingsport, TN', phone: '(423) 223-4000' },
+  { name: 'Johnson City Medical Center', desc: 'Ballad Health', phone: '(423) 431-6111' },
+  { name: 'Narcotics Anonymous', url: 'https://www.mana-e-tn.org', phone: '(423) 302-0494' },
+  { name: 'New Leaf', desc: 'Sycamore Shoals Hospital — Inpatient Senior Behavioral Health, Elizabethton', phone: '(423) 542-1358' },
+  { name: 'Overmountain Recovery', desc: 'Medication-Assisted Opioid Treatment Program', phone: '(833) 371-0509' },
+  { name: 'Papillon Behavioral Health', phone: '(423) 529-0385' },
+  { name: 'Ridgeview Pavilion', desc: 'Inpatient Psychiatric Care, Bristol | Ballad Health', phone: '(423) 844-6000' },
+  { name: 'SMART Recovery Johnson City', url: 'https://www.smartrecovery.org', url2: 'https://www.facebook.com/SMARTrecoveryJohnsonCity' },
+  { name: 'Strong Futures', desc: 'Outpatient Behavioral Health Clinic | Ballad Health', phone: '(423) 278-1696' },
+  { name: 'Summit Counseling Center', url: 'https://www.summitcounselingtn.com', phone: '(423) 930-8898' },
+  { name: 'Tri-Cities Eating Disorder Therapy', phone: '(423) 708-6982' },
+  { name: 'Turning Point', address: '208 E Unaka Ave, Johnson City, TN 37601', phone: '(423) 928-9062' },
+  { name: 'Watauga Behavioral Health Services', url: 'https://www.frontierhealth.org/mentalhealth/', phone: '(423) 232-2600' },
+  { name: 'Willow Ridge', phone: '(423) 461-7750' },
+  { name: 'Woodridge Hospital', desc: 'Inpatient Behavioral Health, Johnson City | Ballad Health', phone: '(423) 431-7111' },
+];
+
+const cleanUrl = (u) => u.replace(/^https?:\/\//, '').replace(/\/$/, '');
+const telHref = (p) => `tel:${p.replace(/[^0-9]/g, '')}`;
+
 function GetHelpPage() {
   const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf7WmsBaX2FkTEmpZBe2YgNcHjiWSmI8Q9Fm-m45mPjgLQ4Lg/viewform';
   return (
     <div data-screen-label="Page · Get Help">
-      <PageHeader
-        eyebrow="Support"
-        title="Get Help"
-        lead="How can we help and serve you or someone that you know? If you need help or someone you know is in need, please fill out the benevolence form below and someone will reach out to you."
-      />
+      <section className="page-header">
+        <div className="container">
+          <h1>Get Help</h1>
+          <p className="lead">How can we help and serve you or someone that you know? If you need help or someone you know is in need, please fill out the benevolence form below and someone will reach out to you.</p>
+        </div>
+      </section>
+
       <section className="prayer-section">
-        <div className="container" style={{ textAlign: 'center', paddingBottom: '24px' }}>
+        <div className="container" style={{ textAlign: 'center', paddingBottom: '8px' }}>
           <a
             className="btn btn-primary btn-lg"
             href={formUrl}
@@ -81,6 +119,45 @@ function GetHelpPage() {
           >
             Benevolent Help
           </a>
+        </div>
+      </section>
+
+      <section className="resource-section" style={{ padding: '8px 0 80px' }}>
+        <div className="container">
+          <h2 style={{ textAlign: 'center', margin: '0 0 8px' }}>Community Resource List</h2>
+          <p className="lead" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 36px' }}>
+            Local resources for recovery, counseling, crisis support, and behavioral health across the Tri-Cities.
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '32px 24px',
+            }}
+          >
+            {HELP_RESOURCES.map((r) => (
+              <div key={r.name} style={{ textAlign: 'center' }}>
+                <h4 style={{ margin: '0 0 6px' }}>{r.name}</h4>
+                {r.desc && <div style={{ fontSize: 14, opacity: 0.75, marginBottom: 6 }}>{r.desc}</div>}
+                {r.address && <div style={{ fontSize: 15, marginBottom: 4 }}>{r.address}</div>}
+                {r.url && (
+                  <div>
+                    <a href={r.url} target="_blank" rel="noopener noreferrer">{cleanUrl(r.url)}</a>
+                  </div>
+                )}
+                {r.url2 && (
+                  <div>
+                    <a href={r.url2} target="_blank" rel="noopener noreferrer">{cleanUrl(r.url2)}</a>
+                  </div>
+                )}
+                {r.phone && (
+                  <div style={{ marginTop: 4 }}>
+                    <a href={telHref(r.phone)}>{r.phone}</a>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
