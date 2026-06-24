@@ -45,10 +45,10 @@ function KidsMinistryPage({ onNav }) {
   ];
 
   const gallery = [
-    { src: 'assets/kids-lesson.jpg',   caption: 'Sunday morning lesson · large group',     span: 'wide' },
-    { src: 'assets/kids-crafts.jpg',   caption: 'Crafts & creative time',                  span: 'tall' },
-    { src: 'assets/kids-nativity.jpg', caption: 'The annual Christmas program',            span: 'wide' },
-    { src: 'assets/kids-amped.jpg',    caption: 'Hope Kids on the road · Amped trip',      span: 'tall' },
+    { src: '/assets/kids-lesson.jpg',   caption: 'Sunday morning lesson · large group',     span: 'wide' },
+    { src: '/assets/kids-crafts.jpg',   caption: 'Crafts & creative time',                  span: 'tall' },
+    { src: '/assets/kids-nativity.jpg', caption: 'The annual Christmas program',            span: 'wide' },
+    { src: '/assets/kids-amped.jpg',    caption: 'Hope Kids on the road · Amped trip',      span: 'tall' },
   ];
 
   return (
@@ -70,7 +70,7 @@ function KidsMinistryPage({ onNav }) {
           </div>
           <div className="kids-intro-photo">
             <div className="photo-placeholder kids-photo-frame">
-              <img src="assets/kids-lesson.jpg" alt="A Hope Kids teacher leads kids through a Bible lesson on a Sunday morning"/>
+              <img src="/assets/kids-lesson.jpg" alt="A Hope Kids teacher leads kids through a Bible lesson on a Sunday morning"/>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@ function KidsMinistryPage({ onNav }) {
       <section className="kids-foundation">
         <div className="container kids-foundation-inner">
           <div className="kids-foundation-logo">
-            <img src="assets/hopekids-logo.png" alt="Hope Kids — Love. Grow. Serve. Go."/>
+            <img src="/assets/hopekids-logo.png" alt="Hope Kids — Love. Grow. Serve. Go."/>
           </div>
           <div className="kids-foundation-copy">
             <span className="eyebrow">Building a Strong Foundation</span>

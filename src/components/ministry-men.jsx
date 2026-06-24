@@ -84,7 +84,7 @@ function MenMinistryPage({ onNav }) {
 
           <div className="mn-anchor-media" aria-hidden="false">
             <div className="mn-logo">
-              <img src="assets/hit-men-logo.png" alt="H.I.T. Men &mdash; Honor, Integrity, Transformation"/>
+              <img src="/assets/hit-men-logo.png" alt="H.I.T. Men &mdash; Honor, Integrity, Transformation"/>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@ function MenMinistryPage({ onNav }) {
               <article className="mn-meet" key={m.title}>
                 <div
                   className="mn-meet-bg"
-                  style={{ backgroundImage: `url(assets/mens-groups-hero.jpg)` }}
+                  style={{ backgroundImage: `url(/assets/mens-groups-hero.jpg)` }}
                 ></div>
                 <div className="mn-meet-inner">
                   <span className="mn-meet-tag">{m.tag}</span>

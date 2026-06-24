@@ -39,7 +39,7 @@ function WomenMinistryPage({ onNav }) {
         <div className="container wv-anchor-inner">
           <div className="wv-anchor-copy">
             <div className="wv-anchor-mark">
-              <img src="assets/woven-logo-blue.png" alt="Woven — Women of Hope"/>
+              <img src="/assets/woven-logo-blue.png" alt="Woven — Women of Hope"/>
             </div>
             <span className="wv-anchor-eyebrow">A Ministry of Hope Church</span>
             <h1>Joined and <em>knit together</em>.</h1>
@@ -60,10 +60,10 @@ function WomenMinistryPage({ onNav }) {
 
           <div className="wv-anchor-media">
             <div className="wv-photo-back">
-              <img src="assets/woven-retreat-porch.jpg" alt="The Woven women's retreat group gathered together on a cabin porch at night"/>
+              <img src="/assets/woven-retreat-porch.jpg" alt="The Woven women's retreat group gathered together on a cabin porch at night"/>
             </div>
             <div className="wv-photo-front">
-              <img src="assets/woven-leaders-christmas.jpg" alt="Woven leaders gathered together at the Christmas gathering at Hope Church"/>
+              <img src="/assets/woven-leaders-christmas.jpg" alt="Woven leaders gathered together at the Christmas gathering at Hope Church"/>
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ function WomenMinistryPage({ onNav }) {
       <section className="wv-knit">
         <div className="wv-knit-grid">
           <div className="wv-knit-photo">
-            <img src="assets/woven-retreat-porch.jpg" alt="The Woven women's retreat group gathered together on a cabin porch at night"/>
+            <img src="/assets/woven-retreat-porch.jpg" alt="The Woven women's retreat group gathered together on a cabin porch at night"/>
           </div>
           <div className="wv-knit-copy">
             <span className="wv-eyebrow">Every Season</span>

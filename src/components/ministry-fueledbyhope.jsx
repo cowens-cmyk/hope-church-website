@@ -52,7 +52,7 @@ function FueledByHopeMinistryPage({ onNav }) {
 
           <div className="fh-anchor-media">
             <div className="fh-anchor-photo">
-              <img src="assets/fbh-potluck-1.jpg" alt="The Fueled by Hope group gathered around a long table for a potluck by the creek, sharing a meal together on a sunny afternoon"/>
+              <img src="/assets/fbh-potluck-1.jpg" alt="The Fueled by Hope group gathered around a long table for a potluck by the creek, sharing a meal together on a sunny afternoon"/>
             </div>
           </div>
         </div>
@@ -85,43 +85,43 @@ function FueledByHopeMinistryPage({ onNav }) {
 
           <div className="fh-gallery-grid">
             <figure className="fh-gphoto fh-gphoto-porch">
-              <img src="assets/fueled-group-porch.jpg" alt="Large group of Fueled by Hope members posed together on a decorated front porch during a Christmas outing in Jonesborough"/>
+              <img src="/assets/fueled-group-porch.jpg" alt="Large group of Fueled by Hope members posed together on a decorated front porch during a Christmas outing in Jonesborough"/>
               <figcaption>Christmas in Jonesborough</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-bingo">
-              <img src="assets/fueled-bingo-friends.jpg" alt="Six smiling friends gathered around a table covered in green bingo cards at a community bingo night"/>
+              <img src="/assets/fueled-bingo-friends.jpg" alt="Six smiling friends gathered around a table covered in green bingo cards at a community bingo night"/>
               <figcaption>Community bingo night</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-perkins">
-              <img src="assets/fueled-perkins-table.jpg" alt="A long restaurant table filled with Fueled by Hope members sharing a meal together at Perkins"/>
+              <img src="/assets/fueled-perkins-table.jpg" alt="A long restaurant table filled with Fueled by Hope members sharing a meal together at Perkins"/>
               <figcaption>Lunch out together</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-jonesborough">
-              <img src="assets/fueled-jonesborough.jpg" alt="Five Fueled by Hope friends posing together outside the Mary B. Martin Storytelling Hall in downtown Jonesborough"/>
+              <img src="/assets/fueled-jonesborough.jpg" alt="Five Fueled by Hope friends posing together outside the Mary B. Martin Storytelling Hall in downtown Jonesborough"/>
               <figcaption>Storytelling Hall, Jonesborough</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-creek">
-              <img src="assets/fueled-creek-friends.jpg" alt="Two women smiling arm in arm beside a creek in the woods on a sunny afternoon"/>
+              <img src="/assets/fueled-creek-friends.jpg" alt="Two women smiling arm in arm beside a creek in the woods on a sunny afternoon"/>
               <figcaption>An afternoon on the creek</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-outreach">
-              <img src="assets/fueled-outreach-meals.jpg" alt="Four women holding wrapped meals and dishes, getting ready to deliver them to neighbors as part of a Fueled by Hope outreach"/>
+              <img src="/assets/fueled-outreach-meals.jpg" alt="Four women holding wrapped meals and dishes, getting ready to deliver them to neighbors as part of a Fueled by Hope outreach"/>
               <figcaption>Meals for our neighbors</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-picnic">
-              <img src="assets/fueled-picnic-couple.jpg" alt="A couple smiling at a creekside picnic, holding a covered container of potato salad to share with the group"/>
+              <img src="/assets/fueled-picnic-couple.jpg" alt="A couple smiling at a creekside picnic, holding a covered container of potato salad to share with the group"/>
               <figcaption>Potluck by the creek</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-bays">
-              <img src="assets/fbh-bays-mountain.jpg" alt="The Fueled by Hope group hiking together at Bays Mountain on a clear summer day"/>
+              <img src="/assets/fbh-bays-mountain.jpg" alt="The Fueled by Hope group hiking together at Bays Mountain on a clear summer day"/>
               <figcaption>Hiking Bays Mountain</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-occ">
-              <img src="assets/fbh-occ-nc.jpg" alt="Fueled by Hope volunteers serving at the Operation Christmas Child processing center in North Carolina"/>
+              <img src="/assets/fbh-occ-nc.jpg" alt="Fueled by Hope volunteers serving at the Operation Christmas Child processing center in North Carolina"/>
               <figcaption>Operation Christmas Child &middot; NC</figcaption>
             </figure>
             <figure className="fh-gphoto fh-gphoto-potluck2">
-              <img src="assets/fbh-potluck-2.jpg" alt="Fueled by Hope members sharing a meal together at the potluck by the creek"/>
+              <img src="/assets/fbh-potluck-2.jpg" alt="Fueled by Hope members sharing a meal together at the potluck by the creek"/>
               <figcaption>Around the table</figcaption>
             </figure>
           </div>

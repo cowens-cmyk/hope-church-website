@@ -100,7 +100,7 @@ function MissionsPage({ onNav }) {
       desc: 'DHS in Nicaragua sponsors over 300 children yearly. Mama Nubia started this school many years ago in a very humble setting, and God has provided growth, development, and recognition for this project.',
       link: null,
       href: null,
-      img: 'assets/missions/nicaragua-school.jpg',
+      img: '/assets/missions/nicaragua-school.jpg',
       imgFit: 'cover',
     },
     {
@@ -109,7 +109,7 @@ function MissionsPage({ onNav }) {
       desc: 'Ethnos\u2019 mission is to train and send small, specialized mission teams to the least reached people groups, areas, and vulnerable communities. These teams function as catalysts to develop and activate grassroots and organic discipleship movements.',
       link: 'ethnosmi.org',
       href: 'https://ethnosmi.org',
-      img: 'assets/missions/emi.png',
+      img: '/assets/missions/emi.png',
       imgFit: 'contain',
     },
     {
@@ -118,7 +118,7 @@ function MissionsPage({ onNav }) {
       desc: 'Steve and Kimberly have been serving in the mission community for over 25 years. They are currently serving in South Africa.',
       link: 'ethnosmi.org',
       href: 'https://ethnosmi.org',
-      img: 'assets/missions/bradley-family.jpg',
+      img: '/assets/missions/bradley-family.jpg',
       imgFit: 'cover',
     },
   ];
@@ -130,7 +130,7 @@ function MissionsPage({ onNav }) {
       desc: 'Favor City started as a church plant through the SEND network and is located near Las Vegas. Hope Church partners with the SEND network to help plant churches nationally.',
       link: 'favorcitylv.com',
       href: 'https://favorcitylv.com',
-      img: 'assets/missions/favor-city.jpg',
+      img: '/assets/missions/favor-city.jpg',
       imgFit: 'cover',
     },
     {
@@ -139,7 +139,7 @@ function MissionsPage({ onNav }) {
       desc: 'Shadow Hills North is another church plant through the SEND network and is located near Las Vegas. Hope Church partners with the SEND network to help plant churches nationally.',
       link: 'liberatechurch.com',
       href: 'https://liberatechurch.com',
-      img: 'assets/missions/the-hills.jpg',
+      img: '/assets/missions/the-hills.jpg',
       imgFit: 'contain',
     },
   ];
@@ -151,7 +151,7 @@ function MissionsPage({ onNav }) {
       desc: 'RSM provides men and women with a faith-based recovery program that promotes spiritual development through practical biblical teaching, and comprehensive life skills that release them from the bondage of addiction.',
       link: 'recoverysoldiersministries.org',
       href: 'https://recoverysoldiersministries.org',
-      img: 'assets/missions/rsm.png',
+      img: '/assets/missions/rsm.png',
       imgFit: 'cover',
     },
     {
@@ -160,7 +160,7 @@ function MissionsPage({ onNav }) {
       desc: 'For over 20+ years, C4K has provided children a nurturing, faith-based environment. From humble beginnings in Johnson City, they\u2019ve expanded to multiple locations, serving hundreds of children daily.',
       link: 'coalitionforkids.org',
       href: 'https://coalitionforkids.org',
-      img: 'assets/missions/c4k.png',
+      img: '/assets/missions/c4k.png',
       imgFit: 'cover',
     },
     {
@@ -169,7 +169,7 @@ function MissionsPage({ onNav }) {
       desc: 'Vessel of Honor Ministry\u2019s (VOHM) heart is reaching the unreached with the Gospel and committing ourselves to the care and nourishment of orphaned children.',
       link: 'www.vohmintl.org',
       href: 'https://www.vohmintl.org',
-      img: 'assets/missions/vohm.jpg',
+      img: '/assets/missions/vohm.jpg',
       imgFit: 'cover',
     },
     {
@@ -178,7 +178,7 @@ function MissionsPage({ onNav }) {
       desc: 'The Well is a non-denominational campus ministry seeking to make Jesus Christ known among the college students of Northeast Tennessee.',
       link: 'thewelljc.com',
       href: 'https://thewelljc.com',
-      img: 'assets/missions/the-well.jpg',
+      img: '/assets/missions/the-well.jpg',
       imgFit: 'cover',
     },
     {
@@ -187,7 +187,7 @@ function MissionsPage({ onNav }) {
       desc: 'Located in the heart of Johnson City, Agape Women\u2019s Services is staffed by state-licensed medical professionals that provide accurate information, free services, and practical support with a holistic and compassionate approach.',
       link: 'agapewomensservices.com',
       href: 'https://agapewomensservices.com/',
-      img: 'assets/missions/agape.jpg',
+      img: '/assets/missions/agape.jpg',
       imgFit: 'contain',
     },
   ];

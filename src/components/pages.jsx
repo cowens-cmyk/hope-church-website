@@ -301,26 +301,26 @@ function AboutPage({ onNav }) {
 // ---------- Team Page ----------
 function TeamPage() {
   const elders = [
-    { name: 'Rick Keller',    role: 'Lead Pastor / Elder', img: 'assets/elder-rick.png',   email: 'rkeller@hopejc.org' },
-    { name: 'Will Easler',    role: 'Lead Pastor / Elder', img: 'assets/elder-will.jpg',   email: 'weasler@hopejc.org' },
-    { name: 'David Wallace',  role: 'Elder',               img: 'assets/elder-david.jpg',  email: 'elders@hopejc.org'  },
-    { name: 'Tommy Snapp',    role: 'Elder',               img: 'assets/elder-tommy.jpg',  email: 'elders@hopejc.org'  },
-    { name: 'Jason Gaede',    role: 'Elder',               img: 'assets/elder-jason.jpg',  email: 'elders@hopejc.org'  },
-    { name: 'Jeff Mann',      role: 'Elder',               img: 'assets/elder-jeff.jpg',   email: 'elders@hopejc.org'  },
-    { name: 'Steve Tallent',  role: 'Elder',               img: 'assets/elder-steve.jpg',  email: 'elders@hopejc.org'  },
+    { name: 'Rick Keller',    role: 'Lead Pastor / Elder', img: '/assets/elder-rick.png',   email: 'rkeller@hopejc.org' },
+    { name: 'Will Easler',    role: 'Lead Pastor / Elder', img: '/assets/elder-will.jpg',   email: 'weasler@hopejc.org' },
+    { name: 'David Wallace',  role: 'Elder',               img: '/assets/elder-david.jpg',  email: 'elders@hopejc.org'  },
+    { name: 'Tommy Snapp',    role: 'Elder',               img: '/assets/elder-tommy.jpg',  email: 'elders@hopejc.org'  },
+    { name: 'Jason Gaede',    role: 'Elder',               img: '/assets/elder-jason.jpg',  email: 'elders@hopejc.org'  },
+    { name: 'Jeff Mann',      role: 'Elder',               img: '/assets/elder-jeff.jpg',   email: 'elders@hopejc.org'  },
+    { name: 'Steve Tallent',  role: 'Elder',               img: '/assets/elder-steve.jpg',  email: 'elders@hopejc.org'  },
   ];
   const staff = [
-    { name: 'Rick Keller',     role: 'Lead Pastor',       img: 'assets/elder-rick.png',     email: 'rkeller@hopejc.org'    },
-    { name: 'Will Easler',     role: 'Lead Pastor',       img: 'assets/elder-will.jpg',     email: 'weasler@hopejc.org'    },
-    { name: 'Jesse Broughton', role: 'Next-Gen Pastor',   img: 'assets/staff-jesse.jpg',    email: 'jbroughton@hopejc.org' },
-    { name: 'Cameron Owens',   role: 'Worship Pastor',    img: 'assets/staff-cameron.jpg',  email: 'cowens@hopejc.org'     },
-    { name: 'Ashley Tipton',   role: 'Kids Director',     img: 'assets/staff-ashley.jpg',   email: 'atipton@hopejc.org'    },
-    { name: 'Stacie Taylor',   role: 'Linked56 Director', img: 'assets/staff-stacie.jpg',   email: 'linked@hopejc.org'     },
+    { name: 'Rick Keller',     role: 'Lead Pastor',       img: '/assets/elder-rick.png',     email: 'rkeller@hopejc.org'    },
+    { name: 'Will Easler',     role: 'Lead Pastor',       img: '/assets/elder-will.jpg',     email: 'weasler@hopejc.org'    },
+    { name: 'Jesse Broughton', role: 'Next-Gen Pastor',   img: '/assets/staff-jesse.jpg',    email: 'jbroughton@hopejc.org' },
+    { name: 'Cameron Owens',   role: 'Worship Pastor',    img: '/assets/staff-cameron.jpg',  email: 'cowens@hopejc.org'     },
+    { name: 'Ashley Tipton',   role: 'Kids Director',     img: '/assets/staff-ashley.jpg',   email: 'atipton@hopejc.org'    },
+    { name: 'Stacie Taylor',   role: 'Linked56 Director', img: '/assets/staff-stacie.jpg',   email: 'linked@hopejc.org'     },
   ];
   const support = [
-    { name: 'Gemma Johnson',      role: 'Office Administrator',     img: 'assets/staff-gemma.jpeg',     email: 'gjohnson@hopejc.org' },
-    { name: 'Sarah Cate Carver',  role: 'Administrative Assistant', img: 'assets/staff-sarahcate.jpeg', email: 'scarver@hopejc.org'  },
-    { name: 'Gabrielle Day',      role: 'Financial Assistant',      img: 'assets/staff-gabrielle.jpg',  email: 'gday@hopejc.org'     },
+    { name: 'Gemma Johnson',      role: 'Office Administrator',     img: '/assets/staff-gemma.jpeg',     email: 'gjohnson@hopejc.org' },
+    { name: 'Sarah Cate Carver',  role: 'Administrative Assistant', img: '/assets/staff-sarahcate.jpeg', email: 'scarver@hopejc.org'  },
+    { name: 'Gabrielle Day',      role: 'Financial Assistant',      img: '/assets/staff-gabrielle.jpg',  email: 'gday@hopejc.org'     },
   ];
   return (
     <>

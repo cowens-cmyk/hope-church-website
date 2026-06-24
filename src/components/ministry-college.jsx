@@ -50,7 +50,7 @@ function CollegeMinistryPage({ onNav }) {
           </div>
           <div className="cc-anchor-media">
             <div className="cc-anchor-photo">
-              <img src="assets/college-auditorium-group.jpg" alt="The Hope College and Career group gathered together on the steps in front of the Hope Church auditorium"/>
+              <img src="/assets/college-auditorium-group.jpg" alt="The Hope College and Career group gathered together on the steps in front of the Hope Church auditorium"/>
             </div>
             <div className="cc-anchor-chip">
               <span className="label">Our People</span>
@@ -131,15 +131,15 @@ function CollegeMinistryPage({ onNav }) {
 
           <div className="cc-passion-mosaic">
             <figure className="cc-passion-tile hero">
-              <img src="assets/college-passion-stage.jpg" alt="The Passion 2025 stage at State Farm Arena lit up in red with thousands of college-age students in the crowd"/>
+              <img src="/assets/college-passion-stage.jpg" alt="The Passion 2025 stage at State Farm Arena lit up in red with thousands of college-age students in the crowd"/>
               <figcaption className="caption">State Farm Arena</figcaption>
             </figure>
             <figure className="cc-passion-tile side1">
-              <img src="assets/college-passion-girls.jpg" alt="Four young women from Hope Church smiling for a photo in front of the Passion stage"/>
+              <img src="/assets/college-passion-girls.jpg" alt="Four young women from Hope Church smiling for a photo in front of the Passion stage"/>
               <figcaption className="caption">Our Group</figcaption>
             </figure>
             <figure className="cc-passion-tile side2">
-              <img src="assets/college-passion-crowd.jpg" alt="The Passion 2025 crowd with hands raised in worship under bright pink stage lights"/>
+              <img src="/assets/college-passion-crowd.jpg" alt="The Passion 2025 crowd with hands raised in worship under bright pink stage lights"/>
               <figcaption className="caption">Worship Night</figcaption>
             </figure>
           </div>
@@ -165,7 +165,7 @@ function CollegeMinistryPage({ onNav }) {
       <section className="cc-life">
         <div className="container cc-life-inner">
           <div className="cc-life-photo">
-            <img src="assets/college-housegroup.jpg" alt="The College and Career group gathered around a kitchen island filled with food at a host home"/>
+            <img src="/assets/college-housegroup.jpg" alt="The College and Career group gathered around a kitchen island filled with food at a host home"/>
           </div>
           <div className="cc-life-copy">
             <span className="eyebrow">Life In This Season</span>

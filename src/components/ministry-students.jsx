@@ -49,11 +49,11 @@ function StudentsMinistryPage({ onNav }) {
           </div>
           <div className="hs-intro-media">
             <div className="hs-intro-photo">
-              <img src="assets/students-worship-lead.jpg" alt="A Hope Students worship leader on stage with arm raised"/>
+              <img src="/assets/students-worship-lead.jpg" alt="A Hope Students worship leader on stage with arm raised"/>
             </div>
             <div className="hs-intro-tag">Hope Students</div>
             <div className="hs-intro-logo-chip">
-              <img src="assets/hopestudents-logo-black.png" alt="Hope Students mark"/>
+              <img src="/assets/hopestudents-logo-black.png" alt="Hope Students mark"/>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ function StudentsMinistryPage({ onNav }) {
             </div>
           </div>
           <div className="hs-sunday-photo">
-            <img src="assets/students-worship.jpg" alt="Hope Students worshipping with arms raised"/>
+            <img src="/assets/students-worship.jpg" alt="Hope Students worshipping with arms raised"/>
           </div>
         </div>
       </section>
@@ -113,19 +113,19 @@ function StudentsMinistryPage({ onNav }) {
           </header>
           <div className="hs-mosaic">
             <figure className="hs-mosaic-item tall">
-              <img src="assets/students-prayer-guys.jpg" alt="A group of students praying together in a circle"/>
+              <img src="/assets/students-prayer-guys.jpg" alt="A group of students praying together in a circle"/>
               <figcaption className="caption">Prayer</figcaption>
             </figure>
             <figure className="hs-mosaic-item small1">
-              <img src="assets/students-smallgroup-girls.jpg" alt="A girls' small group in conversation with a leader"/>
+              <img src="/assets/students-smallgroup-girls.jpg" alt="A girls' small group in conversation with a leader"/>
               <figcaption className="caption">Small Groups</figcaption>
             </figure>
             <figure className="hs-mosaic-item small2">
-              <img src="assets/students-worship-lead.jpg" alt="A student leading worship from the stage"/>
+              <img src="/assets/students-worship-lead.jpg" alt="A student leading worship from the stage"/>
               <figcaption className="caption">Worship</figcaption>
             </figure>
             <figure className="hs-mosaic-item wide">
-              <img src="assets/students-group-fun.jpg" alt="Hope Students dressed up for a themed night, posing for a group photo"/>
+              <img src="/assets/students-group-fun.jpg" alt="Hope Students dressed up for a themed night, posing for a group photo"/>
               <figcaption className="caption">Theme Nights</figcaption>
             </figure>
           </div>
@@ -148,7 +148,7 @@ function StudentsMinistryPage({ onNav }) {
 
       {/* ===== Section 6: CTA band ===== */}
       <section className="hs-cta-band">
-        <img className="hs-cta-band-mark" src="assets/hopestudents-logo-white.png" alt="" aria-hidden="true"/>
+        <img className="hs-cta-band-mark" src="/assets/hopestudents-logo-white.png" alt="" aria-hidden="true"/>
         <div className="container" style={{position:'relative', zIndex:1}}>
           <span className="eyebrow">Get Involved</span>
           <h2>Bring a friend. <em>Or come walk with them.</em></h2>

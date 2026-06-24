@@ -36,7 +36,7 @@ function Linked56MinistryPage({ onNav }) {
       <section className="l56-brand">
         <div className="container l56-brand-inner">
           <div className="l56-brand-card">
-            <img src="assets/linked56-logo.png" alt="Linked 56 &mdash; fingerprint mark"/>
+            <img src="/assets/linked56-logo.png" alt="Linked 56 &mdash; fingerprint mark"/>
             <div className="l56-brand-card-mark">
               <span className="l56-brand-card-hope">HOPE</span>
               <span className="l56-brand-card-tweens">TWEENS</span>
@@ -75,7 +75,7 @@ function Linked56MinistryPage({ onNav }) {
       <section className="l56-photo-section">
         <div className="container">
           <div className="l56-photo-frame">
-            <img src="assets/linked56-classroom.png" alt="Linked 56 students gathered for a lesson"/>
+            <img src="/assets/linked56-classroom.png" alt="Linked 56 students gathered for a lesson"/>
           </div>
         </div>
       </section>

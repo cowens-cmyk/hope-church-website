@@ -201,7 +201,7 @@ function WorshipMinistryPage({ onNav }) {
       <section className="wt-week">
         <div className="wt-week-grid">
           <div className="wt-week-photo">
-            <img src="assets/tech-propresenter.jpg" alt="ProPresenter operator running slides for a Sunday service"/>
+            <img src="/assets/tech-propresenter.jpg" alt="ProPresenter operator running slides for a Sunday service"/>
             <span className="wt-week-photo-label">Sunday Morning</span>
           </div>
           <div className="wt-week-body">
