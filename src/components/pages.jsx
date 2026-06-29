@@ -718,7 +718,7 @@ function ServePage() {
       teams: [
         { t: 'Kids', p: 'We love kids at Hope Church! Our kids ministry is committed to the growth of each and every child that walks through our doors. Our kids ministry is from babies to 4th grade. We need Bible teachers, craft & game leaders, as well as general help.', href: 'https://hopejc.churchcenter.com/people/forms/343180' },
         { t: 'Linked 56', p: 'We love our Hope tweens! Linked 56 is committed to helping each and every 5th and 6th grader discover their true identity in Christ. Our group meets on Sunday mornings and Wednesday nights. We welcome Bible teachers, game leaders, and general helpers.', href: 'https://hopejc.churchcenter.com/people/forms/589479' },
-        { t: 'Students', p: "We love our students! Our student ministry is committed to pursuing the growth of each and every student that walks through our doors. The whole student ministry meets on Wednesday nights from 6:30pm\u20138pm at Hope Church. Each gathering includes worship, a message, small group interactions, and fun!", href: 'https://hopejc.churchcenter.com/people/forms/343175' },
+        { t: 'Students', p: "We love our students! Our student ministry is committed to pursuing the growth of each and every student that walks through our doors. The whole student ministry meets on Wednesday nights from 6:30pm\u20138:30pm at Hope Church. Each gathering includes worship, a message, small group interactions, and fun!", href: 'https://hopejc.churchcenter.com/people/forms/343175' },
       ],
     },
     {

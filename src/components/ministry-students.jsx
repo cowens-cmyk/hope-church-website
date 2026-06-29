@@ -38,7 +38,7 @@ function StudentsMinistryPage({ onNav }) {
                 <div className="hs-stat-label">Grade</div>
               </div>
               <div>
-                <div className="hs-stat-num">6:30<em>–</em>8<span style={{fontSize:'0.7em'}}>pm</span></div>
+                <div className="hs-stat-num">6:30<em>–</em>8:30<span style={{fontSize:'0.7em'}}>pm</span></div>
                 <div className="hs-stat-label">Wed Night</div>
               </div>
               <div>
