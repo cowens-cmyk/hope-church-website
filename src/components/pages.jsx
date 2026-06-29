@@ -312,7 +312,7 @@ function TeamPage() {
   const staff = [
     { name: 'Rick Keller',     role: 'Lead Pastor',       img: '/assets/elder-rick.png',     email: 'rkeller@hopejc.org'    },
     { name: 'Will Easler',     role: 'Lead Pastor',       img: '/assets/elder-will.jpg',     email: 'weasler@hopejc.org'    },
-    { name: 'Jesse Broughton', role: 'Next-Gen Pastor',   img: '/assets/staff-jesse.jpg',    email: 'jbroughton@hopejc.org' },
+    { name: 'Jesse Broughton', role: 'Executive Pastor',  img: '/assets/staff-jesse.jpg',    email: 'jbroughton@hopejc.org' },
     { name: 'Cameron Owens',   role: 'Worship Pastor',    img: '/assets/staff-cameron.jpg',  email: 'cowens@hopejc.org'     },
     { name: 'Ashley Tipton',   role: 'Kids Director',     img: '/assets/staff-ashley.jpg',   email: 'atipton@hopejc.org'    },
     { name: 'Stacie Taylor',   role: 'Linked56 Director', img: '/assets/staff-stacie.jpg',   email: 'linked@hopejc.org'     },
