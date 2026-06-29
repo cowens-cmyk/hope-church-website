@@ -67,7 +67,7 @@ function StudentsMinistryPage({ onNav }) {
             <h3 className="hs-wed-day">Wednesday <em>Night.</em></h3>
             <div className="hs-wed-times">
               <span className="hs-wed-times-label">Every Wed</span>
-              <span className="hs-wed-times-val">6:30 – 8:00pm</span>
+              <span className="hs-wed-times-val">6:30 – 8:30pm</span>
             </div>
             <p className="lead">The whole student ministry meets at Hope Church — 7th through 12th, together in one room.</p>
             <p>Every gathering includes worship, a message, small group time, and a whole lot of fun. It&rsquo;s the night of the week most of our students bring a friend.</p>
