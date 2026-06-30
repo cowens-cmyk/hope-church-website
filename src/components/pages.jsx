@@ -314,7 +314,7 @@ function TeamPage() {
     { name: 'Will Easler',     role: 'Lead Pastor',       img: '/assets/elder-will.jpg',     email: 'weasler@hopejc.org'    },
     { name: 'Jesse Broughton', role: 'Executive Pastor',  img: '/assets/staff-jesse.jpg',    email: 'jbroughton@hopejc.org' },
     { name: 'Cameron Owens',   role: 'Worship Pastor',    img: '/assets/staff-cameron.jpg',  email: 'cowens@hopejc.org'     },
-    { name: 'Logan Harris',    role: 'Student Pastor',    img: '/assets/staff-logan.jpg',    email: 'lharris@hopejc.org'    },
+    { name: 'Logan Harris',    role: 'Next-Gen Pastor',   img: '/assets/staff-logan.jpg',    email: 'lharris@hopejc.org'    },
     { name: 'Ashley Tipton',   role: 'Kids Director',     img: '/assets/staff-ashley.jpg',   email: 'atipton@hopejc.org'    },
     { name: 'Stacie Taylor',   role: 'Linked56 Director', img: '/assets/staff-stacie.jpg',   email: 'linked@hopejc.org'     },
   ];
