@@ -1,7 +1,7 @@
 import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
-import { SubsplashRecent, SubsplashEvents, SubsplashMediaLibrary, GiveEmbed } from './embeds.jsx';
+import { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, SubsplashMediaLibrary, GiveEmbed } from './embeds.jsx';
 import { PODCASTS, ApplePodcastsIcon, SpotifyIcon, RssIcon } from './pages-extra.jsx';
 import { KidsMinistryPage } from './ministry-kids.jsx';
 import { Linked56MinistryPage } from './ministry-linked56.jsx';
@@ -427,7 +427,31 @@ function SermonsPage() {
             </div>
           </div>
 
+          {/* Sunday Messages */}
           <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48}}>
+            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Sunday Messages</div>
+            <div className="embed-frame">
+              <SubsplashScriptEmbed embedId="subsplash-embed-sunday" embedKey="+4h5t/lb/li/+3kbqzfp?embed&1783608026493"/>
+            </div>
+          </div>
+
+          {/* Mid-Week Messages */}
+          <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48, marginTop: 48}}>
+            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Mid-Week Messages</div>
+            <div className="embed-frame">
+              <SubsplashScriptEmbed embedId="subsplash-embed-midweek" embedKey="+4h5t/lb/li/+pttrmvm?embed&1783608065401"/>
+            </div>
+          </div>
+
+          {/* Finding Hope Podcast */}
+          <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48, marginTop: 48}}>
+            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Finding Hope Podcast</div>
+            <div className="embed-frame">
+              <SubsplashScriptEmbed embedId="subsplash-embed-finding-hope" embedKey="+4h5t/lb/li/+6qygptc?embed&1783608042644"/>
+            </div>
+          </div>
+
+          <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48, marginTop: 48}}>
             <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Full library</div>
             <div className="embed-frame">
               <SubsplashMediaLibrary/>
