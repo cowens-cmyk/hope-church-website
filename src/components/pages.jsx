@@ -1,7 +1,7 @@
 import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
-import { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, SubsplashMediaLibrary, GiveEmbed } from './embeds.jsx';
+import { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, GiveEmbed } from './embeds.jsx';
 import { PODCASTS, ApplePodcastsIcon, SpotifyIcon, RssIcon } from './pages-extra.jsx';
 import { KidsMinistryPage } from './ministry-kids.jsx';
 import { Linked56MinistryPage } from './ministry-linked56.jsx';
@@ -449,14 +449,6 @@ function SermonsPage() {
             <div className="embed-frame">
               <SubsplashScriptEmbed embedId="subsplash-embed-finding-hope" embedKey="+4h5t/lb/li/+6qygptc?embed&1783608042644"/>
             </div>
-          </div>
-
-          <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48, marginTop: 48}}>
-            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Full library</div>
-            <div className="embed-frame">
-              <SubsplashMediaLibrary/>
-            </div>
-            <div className="embed-badge" style={{marginTop:14}}><span className="dot"/> Searchable sermon archive</div>
           </div>
         </div>
       </section>
