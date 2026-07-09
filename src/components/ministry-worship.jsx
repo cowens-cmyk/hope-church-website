@@ -220,10 +220,10 @@ function WorshipMinistryPage({ onNav }) {
                 </div>
               </li>
               <li className="wt-sched-row">
-                <div className="wt-sched-time">7:00<s>Sunday AM</s></div>
+                <div className="wt-sched-time">{st.runthrough.replace('am','')}<s>Sunday AM</s></div>
                 <div className="wt-sched-detail">
                   <h4>Sunday Run-Through <span className="who">Worship + Tech</span></h4>
-                  <p>Our worship and tech teams meet on Sunday mornings at 7:00am to do one last run through before services begin. We run through the entire service&rsquo;s worship and are usually finished up by 7:30am.</p>
+                  <p>Our worship and tech teams meet on Sunday mornings at {st.runthrough} to do one last run through before services begin. We run through the entire service&rsquo;s worship and are usually finished up by {st.runthroughEnd}.</p>
                 </div>
               </li>
               <li className="wt-sched-row">
