@@ -1,6 +1,7 @@
 import React from 'react';
 import { resources } from '../resources.js';
 import { pathFor } from '../nav.js';
+import { useServiceTimes } from '../serviceTimes.jsx';
 // Hope Church — shared components: Header, Footer, Sunday strip, Announcement bar
 
 const { useState, useEffect } = React;
@@ -198,20 +199,21 @@ function ThemeToggle() {
 
 // ---------- Sunday Strip (sticky service times, top of page) ----------
 function SundayStrip() {
+  const st = useServiceTimes();
   return (
     <div className="sunday-strip">
       <div className="container sunday-strip-inner">
         <div className="sunday-strip-left">
           <span className="sunday-strip-label">Sundays</span>
           <div className="sunday-strip-times">
-            <span>8:00am</span><em/>
-            <span>9:45am</span><em/>
-            <span>11:30am</span>
+            <span>{st.first}</span><em/>
+            <span>{st.second}</span><em/>
+            <span>{st.third}</span>
           </div>
         </div>
         <div className="sunday-strip-right">
           <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener"><Icon name="pin" size={13}/> 5034 Bobby Hicks Hwy</a>
-          <a href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">Watch Live on Sundays at 9:45am</a>
+          <a href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">Watch Live on Sundays at {st.stream}</a>
           <ThemeToggle/>
         </div>
       </div>
@@ -221,6 +223,7 @@ function SundayStrip() {
 
 // ---------- Site Header ----------
 function SiteHeader({ onNav, current, dark = false }) {
+  const st = useServiceTimes();
   const involvedItems = [
     { id: 'lifegroups', label: 'Life Groups', desc: '', href: 'https://hopejc.churchcenter.com/groups/life-groups?enrollment=open_signup%2Crequest_to_join&filter=enrollment' },
     { id: 'serve', label: 'Serve', desc: 'Find a team that fits your gifts and schedule.' },
@@ -415,7 +418,7 @@ function SiteHeader({ onNav, current, dark = false }) {
         </div>
         <div className="mobile-menu-foot">
           <div className="mobile-menu-foot-label">Sundays</div>
-          <div className="mobile-menu-foot-times">8:00 · 9:45 · 11:30am</div>
+          <div className="mobile-menu-foot-times">{st.first.replace('am','')} · {st.second.replace('am','')} · {st.third}</div>
           <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener" className="mobile-menu-foot-addr">
             <Icon name="pin" size={14}/> 5034 Bobby Hicks Hwy, Johnson City, TN
           </a>
@@ -450,10 +453,11 @@ function MissionBar() {
 
 // ---------- Service Times block ----------
 function ServiceTimes() {
+  const st = useServiceTimes();
   const times = [
-    { t: '8:00', s: 'am', name: 'First Service' },
-    { t: '9:45', s: 'am', name: 'Second Service' },
-    { t: '11:30', s: 'am', name: 'Third Service' },
+    { t: st.first.replace('am',''), s: 'am', name: 'First Service' },
+    { t: st.second.replace('am',''), s: 'am', name: 'Second Service' },
+    { t: st.third.replace('am',''), s: 'am', name: 'Third Service' },
   ];
   return (
     <section className="service-times" data-screen-label="ServiceTimes">
@@ -508,6 +512,7 @@ function NewHereBlock({ onVisit }) {
 
 // ---------- Footer ----------
 function Footer({ onNav }) {
+  const st = useServiceTimes();
   return (
     <footer className="site-footer">
       <div className="container footer-inner">
@@ -532,9 +537,9 @@ function Footer({ onNav }) {
           <div>
             <h5>Sundays</h5>
             <ul>
-              <li>8:00am</li>
-              <li>9:45am</li>
-              <li>11:30am</li>
+              <li>{st.first}</li>
+              <li>{st.second}</li>
+              <li>{st.third}</li>
             </ul>
           </div>
           <div>
@@ -571,7 +576,7 @@ function Footer({ onNav }) {
         <div className="footer-live-row">
           <a className="footer-live-btn" href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">
             <span className="live-dot" aria-hidden="true"/>
-            Watch live at 9:45am
+            Watch live at {st.stream}
           </a>
         </div>
       </div>

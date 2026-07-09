@@ -132,10 +132,10 @@ function NotFound() {
 /* ---------- shared layout (header + footer wrap every page) ---------- */
 // Service-times announcement window (absolute instants, timezone-proof):
 //   Reveals   Sunday, July 12 2026 at 8:00am ET  (EDT = UTC-4  -> 12:00 UTC)
-//   Auto-hides Sunday, August 2 2026 at 12:00am ET (new times begin -> 04:00 UTC)
+//   Auto-hides Sunday, August 2 2026 at 8:00am ET (new times in effect -> 12:00 UTC)
 // Add ?previewBanner to any URL to force it visible before the reveal time.
 const SVC_BANNER_REVEAL = Date.parse('2026-07-12T12:00:00Z');
-const SVC_BANNER_HIDE = Date.parse('2026-08-02T04:00:00Z');
+const SVC_BANNER_HIDE = Date.parse('2026-08-02T12:00:00Z');
 
 function Layout() {
   const location = useLocation();

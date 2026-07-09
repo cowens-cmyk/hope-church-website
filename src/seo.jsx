@@ -11,7 +11,7 @@ import { SITE_ORIGIN, pathFor } from './nav.js';
 
 const BRAND = 'Hope Church · Johnson City, TN';
 const DEFAULT_DESC =
-  'Hope Church — a contemporary church in Gray / Johnson City, Tennessee. Love God. Love people. Make disciples. Sundays at 8:00, 9:45 & 11:30am.';
+  'Hope Church — a contemporary church in Gray / Johnson City, Tennessee. Love God. Love people. Make disciples. Join us on Sunday mornings.';
 const OG_IMAGE = '/assets/og-image.jpg';
 
 // pageKey -> { title, description }. Titles are kept under ~60 characters and

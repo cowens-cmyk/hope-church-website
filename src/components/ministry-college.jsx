@@ -2,11 +2,13 @@ import React from 'react';
 import { Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
 import { SubsplashCollegeCalendar } from './embeds.jsx';
+import { useServiceTimes } from '../serviceTimes.jsx';
 // Hope Church — College & Career ministry detail page (slug: ministry-college)
 // Ages 18–30. Young adults navigating college, work, and the in-between years.
 // Anchored in Jeremiah 29:11 — "plans to give you hope and a future."
 
 function CollegeMinistryPage({ onNav }) {
+  const st = useServiceTimes();
   const FACEBOOK_URL = 'https://www.facebook.com/groups/966091859004086/';
   const CONTACT_EMAIL = 'mailto:info@hopejc.org?subject=College%20%26%20Career%20Life%20Group';
 
@@ -107,13 +109,13 @@ function CollegeMinistryPage({ onNav }) {
               <span className="cc-rhythm-day">Sunday Mornings</span>
               <h3>Worship together.</h3>
               <div className="cc-rhythm-times">
-                <span>8:00am</span>
+                <span>{st.first}</span>
                 <span className="cc-dot">·</span>
-                <span>9:45am</span>
+                <span>{st.second}</span>
                 <span className="cc-dot">·</span>
-                <span>11:30am</span>
+                <span>{st.third}</span>
               </div>
-              <p>Find your row in the auditorium and worship with the whole church. Many of our group sit together at the 9:45 &mdash; grab a coffee in the lobby first and we&rsquo;ll save you a seat.</p>
+              <p>Find your row in the auditorium and worship with the whole church. Many of our group sit together at the {st.second.replace('am','')} &mdash; grab a coffee in the lobby first and we&rsquo;ll save you a seat.</p>
               <p>After service, stick around. The lobby is where most of our friendships actually start.</p>
             </article>
           </div>

@@ -2,10 +2,12 @@ import React from 'react';
 import { Icon, Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
 import { SubsplashKidsCalendar } from './embeds.jsx';
+import { useServiceTimes } from '../serviceTimes.jsx';
 // Hope Church — Kids Ministry detail page (slug: ministry-kids)
 // Uses PageHeader, Button, Icon from shared.jsx.
 
 function KidsMinistryPage({ onNav }) {
+  const st = useServiceTimes();
   const SERVE_URL = 'https://hopejc.churchcenter.com/people/forms/343180';
   const FB_URL = 'https://www.facebook.com/groups/422411476309472';
 
@@ -111,9 +113,9 @@ function KidsMinistryPage({ onNav }) {
             <span className="eyebrow">Sunday Mornings</span>
             <h2>A fun, safe, Christ-centered space for every age.</h2>
             <div className="kids-service-times">
-              <span>8:00am</span><span className="kids-dot">&middot;</span>
-              <span>9:45am</span><span className="kids-dot">&middot;</span>
-              <span>11:30am</span>
+              <span>{st.first}</span><span className="kids-dot">&middot;</span>
+              <span>{st.second}</span><span className="kids-dot">&middot;</span>
+              <span>{st.third}</span>
             </div>
           </header>
 

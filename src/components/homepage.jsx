@@ -2,12 +2,14 @@ import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { SubsplashRecent, SubsplashEvents } from './embeds.jsx';
+import { useServiceTimes } from '../serviceTimes.jsx';
 // Hope Church — 3 homepage hero variations + supporting blocks
 
 // ======================================================
 // HERO A — Full-bleed photo, dark scrim, mission-forward
 // ======================================================
 function HeroA({ onVisit, onWatch }) {
+  const st = useServiceTimes();
   return (
     <section className="hero-a" data-screen-label="Hero A">
       <div className="hero-a-media">
@@ -20,14 +22,14 @@ function HeroA({ onVisit, onWatch }) {
           <Button variant="primary" size="xl" onClick={onVisit} iconRight="arrow">Plan Your Visit</Button>
           <a className="footer-live-btn hero-live-btn" href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">
             <span className="live-dot" aria-hidden="true"/>
-            Watch live at 9:45am
+            Watch live at {st.stream}
           </a>
         </div>
       </div>
       <div className="hero-a-bottom">
         <span>Gray, Tennessee</span>
         <div className="hero-a-bottom-right">
-          <span>Sundays · 8:00 · 9:45 · 11:30am</span>
+          <span>Sundays · {st.first.replace('am','')} · {st.second.replace('am','')} · {st.third}</span>
         </div>
       </div>
     </section>
@@ -38,6 +40,7 @@ function HeroA({ onVisit, onWatch }) {
 // HERO B — Editorial split, photo right, meta row
 // ======================================================
 function HeroB({ onVisit, onWatch }) {
+  const st = useServiceTimes();
   return (
     <section className="hero-b" data-screen-label="Hero B">
       <div className="container hero-b-inner">
@@ -52,7 +55,7 @@ function HeroB({ onVisit, onWatch }) {
           <div className="hero-b-meta">
             <div className="hero-b-meta-item">
               <div className="hero-b-meta-label">Sundays</div>
-              <div className="hero-b-meta-value">8:00 · 9:45 · 11:30am</div>
+              <div className="hero-b-meta-value">{st.first.replace('am','')} · {st.second.replace('am','')} · {st.third}</div>
             </div>
             <div className="hero-b-meta-item">
               <div className="hero-b-meta-label">Location</div>
@@ -75,6 +78,7 @@ function HeroB({ onVisit, onWatch }) {
 // HERO C — Bold faceted / giant type + color bar
 // ======================================================
 function HeroC({ onVisit, onWatch }) {
+  const st = useServiceTimes();
   return (
     <section className="hero-c" data-screen-label="Hero C">
       <span className="hero-c-bg">HOPE</span>
@@ -98,9 +102,9 @@ function HeroC({ onVisit, onWatch }) {
         <div className="hero-c-bar-inner">
           <span className="hero-c-bar-label">Sundays · Three services</span>
           <div className="hero-c-bar-times">
-            <div><b>8:00</b><s>am</s></div>
-            <div><b>9:45</b><s>am</s></div>
-            <div><b>11:30</b><s>am</s></div>
+            <div><b>{st.first.replace('am','')}</b><s>am</s></div>
+            <div><b>{st.second.replace('am','')}</b><s>am</s></div>
+            <div><b>{st.third.replace('am','')}</b><s>am</s></div>
           </div>
           <a href="https://maps.google.com/?q=5034+Bobby+Hicks+Hwy+Suite+10+Gray+TN+37615" target="_blank" rel="noopener" className="btn btn-outline-on-dark btn-sm">Directions</a>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon, Button } from './shared.jsx';
+import { useServiceTimes } from '../serviceTimes.jsx';
 // Hope Church — Worship & Tech detail page (slug: ministry-worship)
 // "Worship the LORD with gladness; come into his presence with singing!"
 //   — Psalm 100:2
@@ -10,6 +11,7 @@ import { Icon, Button } from './shared.jsx';
 // equal weight because every Sunday needs both.
 
 function WorshipMinistryPage({ onNav }) {
+  const st = useServiceTimes();
   const SIGNUP_URL = 'https://hopejc.churchcenter.com/people/forms/343190';
   const CONTACT_EMAIL = 'mailto:info@hopejc.org?subject=Worship%20%26%20Tech%20Team';
 
@@ -225,7 +227,7 @@ function WorshipMinistryPage({ onNav }) {
                 </div>
               </li>
               <li className="wt-sched-row">
-                <div className="wt-sched-time">8:00<s>Sunday Services</s></div>
+                <div className="wt-sched-time">{st.first.replace('am','')}<s>Sunday Services</s></div>
                 <div className="wt-sched-detail">
                   <h4>Three Services <span className="who">Tech all services</span></h4>
                   <p>Doors open and we&rsquo;re live. Worship rotates by service; tech serves through all three. Coffee, prayer, and a real seat at the table for every volunteer on schedule.</p>
