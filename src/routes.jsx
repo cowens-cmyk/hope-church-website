@@ -166,7 +166,7 @@ function Layout() {
       <LegacyPageRedirect />
       <AnnouncementBar
         visible={bannerVisible}
-        text={<>New service times begin <strong>Sunday, August&nbsp;2</strong> — 7:30am, 9:15am, and 11:00am</>}
+        text={<>Our Sunday service times are changing! Starting <strong>August&nbsp;2</strong>: <strong>7:30am · 9:15am · 11:00am</strong></>}
         onDismiss={dismissBanner}
       />
       <SundayStrip />
