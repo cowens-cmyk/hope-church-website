@@ -152,7 +152,8 @@ function Layout() {
     } catch { /* ignore */ }
     const now = Date.now();
     const inWindow = now >= SVC_BANNER_REVEAL && now < SVC_BANNER_HIDE;
-    setBannerVisible((preview || inWindow) && !dismissed);
+    // Preview always wins, so ?previewBanner reliably shows it even if previously dismissed.
+    setBannerVisible(preview || (inWindow && !dismissed));
   }, [location.pathname]);
 
   const dismissBanner = () => {
