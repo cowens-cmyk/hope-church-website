@@ -23,15 +23,15 @@ function clearSapUrlParam() {
 }
 
 // ---------- Subsplash: Most Recent Media (simple iframe) ----------
-function SubsplashRecent() {
+function SubsplashRecent({ context = 'list:0aaf37f6-7651-48a1-b3b6-6a7f410ec35a', title = 'Most recent sermon' }) {
   return (
     <div className="sap-embed-player">
       <iframe
-        src="https://subsplash.com/u/hopechurchjc/media/embed/d/*recent?context=list:0aaf37f6-7651-48a1-b3b6-6a7f410ec35a"
+        src={`https://subsplash.com/u/hopechurchjc/media/embed/d/*recent?context=${context}`}
         frameBorder="0"
         allow="clipboard-read; clipboard-write"
         allowFullScreen
-        title="Most recent sermon"
+        title={title}
       />
     </div>
   );
