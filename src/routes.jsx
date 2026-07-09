@@ -8,7 +8,7 @@
    vite-react-ssg walks this `routes` array at build time and writes one static
    HTML file per concrete path (dist/events/index.html, dist/about/index.html …)
    so search engines and first-paint both get real, complete HTML. */
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -130,19 +130,44 @@ function NotFound() {
 }
 
 /* ---------- shared layout (header + footer wrap every page) ---------- */
+// Service-times announcement window (absolute instants, timezone-proof):
+//   Reveals   Sunday, July 12 2026 at 8:00am ET  (EDT = UTC-4  -> 12:00 UTC)
+//   Auto-hides Sunday, August 2 2026 at 12:00am ET (new times begin -> 04:00 UTC)
+// Add ?previewBanner to any URL to force it visible before the reveal time.
+const SVC_BANNER_REVEAL = Date.parse('2026-07-12T12:00:00Z');
+const SVC_BANNER_HIDE = Date.parse('2026-08-02T04:00:00Z');
+
 function Layout() {
   const location = useLocation();
   const current = keyForPath(location.pathname);
   const onNav = useNav();
+
+  const [bannerVisible, setBannerVisible] = useState(false);
+  useEffect(() => {
+    let preview = false;
+    let dismissed = false;
+    try {
+      preview = new URLSearchParams(window.location.search).has('previewBanner');
+      dismissed = window.localStorage.getItem('svc-times-banner-dismissed') === '1';
+    } catch { /* ignore */ }
+    const now = Date.now();
+    const inWindow = now >= SVC_BANNER_REVEAL && now < SVC_BANNER_HIDE;
+    setBannerVisible((preview || inWindow) && !dismissed);
+  }, [location.pathname]);
+
+  const dismissBanner = () => {
+    setBannerVisible(false);
+    try { window.localStorage.setItem('svc-times-banner-dismissed', '1'); } catch { /* ignore */ }
+  };
+
   return (
     <div data-screen-label={`Site · ${current}`}>
       <ScrollToTop />
       <LegacyPageRedirect />
       <AnnouncementBar
-        visible={false}
-        text=""
-        link=""
-        onDismiss={() => {}}
+        visible={bannerVisible}
+        text={<>New service times begin <strong>Sunday, August&nbsp;2</strong> — 7:30am, 9:15am, and 11:00am</>}
+        onDismiss={dismissBanner}
       />
       <SundayStrip />
       <SiteHeader onNav={onNav} current={current} dark={false} />
