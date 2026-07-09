@@ -28,9 +28,14 @@ export function useServiceTimes() {
   useEffect(() => {
     let force = null;
     try {
+      // Persist the preview choice in sessionStorage so it survives in-app
+      // navigation (the ?previewTimes param is dropped on client-side nav).
       const p = new URLSearchParams(window.location.search).get('previewTimes');
-      if (p === 'new') force = NEW;
-      else if (p === 'old') force = OLD;
+      if (p === 'new' || p === 'old') window.sessionStorage.setItem('previewTimes', p);
+      else if (p === 'off') window.sessionStorage.removeItem('previewTimes');
+      const stored = window.sessionStorage.getItem('previewTimes');
+      if (stored === 'new') force = NEW;
+      else if (stored === 'old') force = OLD;
     } catch { /* ignore */ }
     setTimes(force || (Date.now() >= SERVICE_TIMES_SWITCH ? NEW : OLD));
   }, []);

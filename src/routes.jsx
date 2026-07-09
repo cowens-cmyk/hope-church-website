@@ -147,7 +147,11 @@ function Layout() {
     let preview = false;
     let dismissed = false;
     try {
-      preview = new URLSearchParams(window.location.search).has('previewBanner');
+      // Persist preview across in-app navigation (param is dropped on client nav).
+      if (new URLSearchParams(window.location.search).has('previewBanner')) {
+        window.sessionStorage.setItem('previewBanner', '1');
+      }
+      preview = window.sessionStorage.getItem('previewBanner') === '1';
       dismissed = window.localStorage.getItem('svc-times-banner-dismissed') === '1';
     } catch { /* ignore */ }
     const now = Date.now();
