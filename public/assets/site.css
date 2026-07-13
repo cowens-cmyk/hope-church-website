@@ -383,6 +383,14 @@
 }
 .st-time s { text-decoration: none; font-size: 24px; color: rgba(107,196,232,0.6); margin-left: 4px; letter-spacing: 0; }
 .st-name { font-size: 18px; font-weight: 700; margin-top: 18px; }
+.st-note {
+  display: inline-block; margin-top: 12px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.02em;
+  color: var(--hope-sky);
+  background: rgba(107,196,232,0.12);
+  border: 1px solid rgba(107,196,232,0.3);
+  border-radius: 999px; padding: 4px 11px;
+}
 .st-desc { font-size: 14px; color: #fff; margin-top: 8px; line-height: 1.55; }
 
 .service-times-foot {

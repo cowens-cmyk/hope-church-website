@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon, Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
 import { SubsplashKidsCalendar } from './embeds.jsx';
-import { useServiceTimes } from '../serviceTimes.jsx';
+import { useServiceTimes, KidsServiceNote } from '../serviceTimes.jsx';
 // Hope Church — Kids Ministry detail page (slug: ministry-kids)
 // Uses PageHeader, Button, Icon from shared.jsx.
 
@@ -117,12 +117,7 @@ function KidsMinistryPage({ onNav }) {
               <span>{st.second}</span><span className="kids-dot">&middot;</span>
               <span>{st.third}</span>
             </div>
-            {st.isNew && (
-              <p className="kids-service-note">
-                <strong>Heads up for the {st.first} service:</strong> we offer nursery &amp; preschool only.
-                Kindergarten&ndash;4th grade classes meet at the {st.second} and {st.third} services.
-              </p>
-            )}
+            <KidsServiceNote className="kids-service-note" />
           </header>
 
           <div className="kids-ages">

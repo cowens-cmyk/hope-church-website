@@ -23,6 +23,19 @@ export const NEW_SERVICE_TIMES = NEW;
 // Client-side date gate. The static/SSR render uses the current (OLD) times
 // so hydration matches; after mount it swaps to NEW once past the switch.
 // Add ?previewTimes=new (or =old) to any URL to force a set for QA.
+// Shared note: under the new schedule the 7:30 service is nursery & preschool
+// only (no K–4th grade, no Linked 5–6th). Renders nothing until the switch.
+export function KidsServiceNote({ className }) {
+  const st = useServiceTimes();
+  if (!st.isNew) return null;
+  return (
+    <p className={className}>
+      <strong>Heads up for the {st.first} service:</strong> we offer nursery &amp; preschool only.
+      Kindergarten&ndash;4th grade and Linked 5&ndash;6th grade classes meet at the {st.second} and {st.third} services.
+    </p>
+  );
+}
+
 export function useServiceTimes() {
   const [times, setTimes] = useState(OLD);
   useEffect(() => {

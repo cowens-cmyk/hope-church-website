@@ -455,9 +455,9 @@ function MissionBar() {
 function ServiceTimes() {
   const st = useServiceTimes();
   const times = [
-    { t: st.first.replace('am',''), s: 'am', name: 'First Service' },
-    { t: st.second.replace('am',''), s: 'am', name: 'Second Service' },
-    { t: st.third.replace('am',''), s: 'am', name: 'Third Service' },
+    { t: st.first.replace('am',''), s: 'am', name: 'First Service', note: st.isNew ? 'Nursery & preschool only' : null },
+    { t: st.second.replace('am',''), s: 'am', name: 'Second Service', note: st.isNew ? 'All classes (nursery–Linked 56)' : null },
+    { t: st.third.replace('am',''), s: 'am', name: 'Third Service', note: st.isNew ? 'All classes (nursery–Linked 56)' : null },
   ];
   return (
     <section className="service-times" data-screen-label="ServiceTimes">
@@ -471,6 +471,7 @@ function ServiceTimes() {
             <div key={x.t} className="service-time">
               <div className="st-time">{x.t}<s>{x.s}</s></div>
               <div className="st-name">{x.name}</div>
+              {x.note && <div className="st-note">{x.note}</div>}
             </div>
           ))}
         </div>
