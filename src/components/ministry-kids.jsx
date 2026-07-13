@@ -117,6 +117,12 @@ function KidsMinistryPage({ onNav }) {
               <span>{st.second}</span><span className="kids-dot">&middot;</span>
               <span>{st.third}</span>
             </div>
+            {st.isNew && (
+              <p className="kids-service-note">
+                <strong>Heads up for the {st.first} service:</strong> we offer nursery &amp; preschool only.
+                Kindergarten&ndash;4th grade classes meet at the {st.second} and {st.third} services.
+              </p>
+            )}
           </header>
 
           <div className="kids-ages">

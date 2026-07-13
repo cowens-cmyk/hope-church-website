@@ -14,8 +14,8 @@ const { useState, useEffect } = React;
 
 export const SERVICE_TIMES_SWITCH = Date.parse('2026-07-26T17:00:00Z');
 
-const OLD = { first: '8:00am', second: '9:45am', third: '11:30am', stream: '9:45am', runthrough: '7:00am', runthroughEnd: '7:30am' };
-const NEW = { first: '7:30am', second: '9:15am', third: '11:00am', stream: '9:15am', runthrough: '6:30am', runthroughEnd: '7:00am' };
+const OLD = { first: '8:00am', second: '9:45am', third: '11:30am', stream: '9:45am', runthrough: '7:00am', runthroughEnd: '7:30am', isNew: false };
+const NEW = { first: '7:30am', second: '9:15am', third: '11:00am', stream: '9:15am', runthrough: '6:30am', runthroughEnd: '7:00am', isNew: true };
 
 export const OLD_SERVICE_TIMES = OLD;
 export const NEW_SERVICE_TIMES = NEW;
