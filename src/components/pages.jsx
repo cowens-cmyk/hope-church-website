@@ -745,8 +745,8 @@ function ServePage() {
       name: 'Worship & Tech',
       intro: 'The team that makes Sundays sound and look right — for the band on stage and the people in the seats.',
       teams: [
-        { t: 'Worship', p: 'We love to worship as believers in Christ! Worship is such an important part of each and every service at Hope Church. Our worship team is made of skilled musicians and singers. We rehearse on Thursday nights at 6:30pm for about an hour and have a run through at 7:00am on Sundays. Experienced volunteers welcome — and we offer training for those new to serving!', href: 'https://hopejc.churchcenter.com/people/forms/343190' },
-        { t: 'Sound and Tech', p: "We are always in need of people to help run slides and sound! Our tech and sound teams arrive on Sunday mornings at 7:00am to do a run through with the worship team, then serve in all three services. We have plenty of training and resources to help you know what to do on a Sunday morning or Wednesday night.", href: 'https://hopejc.churchcenter.com/people/forms/343190' },
+        { t: 'Worship', p: 'We love to worship as believers in Christ! Worship is such an important part of each and every service at Hope Church. Our worship team is made of skilled musicians and singers. We rehearse on Thursday nights at 6:30pm for about an hour and have a run through at 6:30am on Sundays. Experienced volunteers welcome — and we offer training for those new to serving!', href: 'https://hopejc.churchcenter.com/people/forms/343190' },
+        { t: 'Sound and Tech', p: "We are always in need of people to help run slides and sound! Our tech and sound teams arrive on Sunday mornings at 6:30am to do a run through with the worship team, then serve in all three services. We have plenty of training and resources to help you know what to do on a Sunday morning or Wednesday night.", href: 'https://hopejc.churchcenter.com/people/forms/343190' },
       ],
     },
   ];

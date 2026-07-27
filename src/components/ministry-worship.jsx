@@ -114,7 +114,7 @@ function WorshipMinistryPage({ onNav }) {
               </div>
               <div>
                 <dt>Run-through</dt>
-                <dd>Sun <s>7:00 AM</s></dd>
+                <dd>Sun <s>6:30 AM</s></dd>
               </div>
               <div>
                 <dt>Training</dt>
