@@ -1,0 +1,11 @@
+fragment ServiceTimesParts on ServiceTimes {
+  __typename
+  first
+  second
+  third
+  stream
+  runthrough
+  runthroughEnd
+  firstServiceClasses
+  otherServiceClasses
+}
