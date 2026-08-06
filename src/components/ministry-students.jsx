@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
-import { SubsplashStudentsCalendar, SubsplashRecent, SubsplashScriptEmbed } from './embeds.jsx';
+import { SubsplashStudentsCalendar, HopeCmsEmbed } from './embeds.jsx';
 import { useServiceTimes } from '../serviceTimes.jsx';
 // Hope Church — Hope Students ministry detail page (slug: ministry-students)
 // 7th–12th grade. Wednesday-night driven + Sunday morning rhythm.
@@ -113,15 +113,8 @@ function StudentsMinistryPage({ onNav }) {
             <h2>Catch the <em>latest message</em>.</h2>
             <p>Missed a Wednesday night? Watch the most recent Hope Students message, or dig into the full archive any time.</p>
           </header>
-          <div style={{maxWidth: 900, margin: '0 auto 48px'}}>
-            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:16}}>Most Recent Message</div>
-            <SubsplashRecent context="list:88350968-e518-401d-a8d3-a50e637c7530" title="Most recent Hope Students message"/>
-          </div>
           <div style={{maxWidth: 900, margin: '0 auto'}}>
-            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:16}}>All Messages</div>
-            <div className="embed-frame">
-              <SubsplashScriptEmbed embedId="subsplash-embed-j3q7nry" embedKey="+4h5t/lb/li/+3pns7c7?embed&1783608520468"/>
-            </div>
+            <HopeCmsEmbed slug="hope-students" title="Hope Students messages"/>
           </div>
         </div>
       </section>

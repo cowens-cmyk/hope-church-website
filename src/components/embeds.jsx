@@ -393,6 +393,25 @@ function SubsplashFueledByHopeCalendar() {
   return <div className="subsplash-embed-host" ref={hostRef} />;
 }
 
+// ---------- Hope CMS embed (cms.hopejc.org) ----------
+// Simple iframe embed for Hope's own CMS at cms.hopejc.org, e.g. the Hope
+// Students messages feed at /embed/hope-students. The iframe scrolls its own
+// content, so a generous min height keeps the list visible without clipping.
+function HopeCmsEmbed({ slug, title = 'Hope Church embed', height = 760 }) {
+  return (
+    <div className="cms-embed-frame" style={{ borderRadius: 16, overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+      <iframe
+        src={`https://cms.hopejc.org/embed/${slug}`}
+        title={title}
+        loading="lazy"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+        allowFullScreen
+        style={{ width: '100%', height, border: 0, display: 'block' }}
+      />
+    </div>
+  );
+}
+
 // ---------- Online Giving embed ----------
 // Uses Hope's hosted giving form, verbatim per the official embed snippet.
 function GiveEmbed() {
@@ -428,4 +447,4 @@ function GiveEmbed() {
   return <div className="subsplash-embed-host give-embed-host" ref={hostRef} />;
 }
 
-export { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, SubsplashMediaLibrary, SubsplashLinked56Calendar, SubsplashStudentsCalendar, SubsplashKidsCalendar, SubsplashCollegeCalendar, SubsplashWomenCalendar, SubsplashMenCalendar, SubsplashFueledByHopeCalendar, GiveEmbed };
+export { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, SubsplashMediaLibrary, SubsplashLinked56Calendar, SubsplashStudentsCalendar, SubsplashKidsCalendar, SubsplashCollegeCalendar, SubsplashWomenCalendar, SubsplashMenCalendar, SubsplashFueledByHopeCalendar, HopeCmsEmbed, GiveEmbed };
