@@ -36,7 +36,7 @@ function VisitPage() {
   const formUrl = 'https://hopejc.churchcenter.com/people/forms/1235473';
   return (
     <>
-      <PageHeader eyebrow="I'm New" title="We'll save you a seat." lead="Let us know you're coming and we'll meet you at the door, show you around, and help you find your way in." />
+      <PageHeader eyebrow="I'm New" title="We'll meet you at the Next Steps table." lead="Let us know you're coming and we'll look for you in the lobby, show you around, and help you find your way in." />
       <section className="visit-section">
         <div className="container visit-grid">
           <div className="connect-embed-wrap">
@@ -792,7 +792,7 @@ function ServePage() {
 
 function NextStepsPage({ onNav }) {
   const steps = [
-    { n: '01', t: 'Plan a Visit', p: 'Come experience a Sunday — we\u2019ll save you a seat.' },
+    { n: '01', t: 'Plan a Visit', p: 'Come experience a Sunday — meet us at the Next Steps table in the lobby.' },
     { n: '02', t: 'Discover Hope', p: 'A class that explains who we are and how to get connected.' },
     { n: '03', t: 'Join a Life Group', p: 'Life groups are where the real friendships happen.' },
     { n: '04', t: 'Serve on a Team', p: 'Use your gifts to make Sundays happen — training provided.' },
