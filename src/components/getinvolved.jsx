@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
+import { DISCOVER_HOPE, useDiscoverHopeSignupOpen } from '../discoverHope.js';
 // Hope Church — "Get Involved" subpages: Life Groups, Missions, Connect Card, Discover Hope
 
 const { useState: useStateGI } = React;
@@ -323,7 +324,9 @@ function ConnectCardPage() {
 
 // ---------- Discover Hope (new members class) ----------
 function DiscoverHopePage({ onNav }) {
-  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSetE20H41KdCHo_MfQHhptJ_JZYfLnCAJZ21Ifjt3Ohtny6Ag/viewform';
+  // Sign-up link + cutoff date live in src/discoverHope.js — update it there
+  // each month. Past the cutoff this flips to "Sign up coming soon" on its own.
+  const signupOpen = useDiscoverHopeSignupOpen();
 
   return (
     <>
@@ -401,19 +404,43 @@ function DiscoverHopePage({ onNav }) {
       <section className="visit-section" id="signup">
         <div className="container visit-grid">
           <div>
-            <div className="visit-card discover-form-card">
-              <h2>Save my spot</h2>
-              <div className="sub">Sign up for the next Discover Hope session. We&rsquo;ll send a reminder a couple days out.</div>
-              <div className="connect-embed-wrap discover-embed-wrap">
-                <iframe
-                  src={`${formUrl}?embedded=true`}
-                  title="Discover Hope sign-up"
-                  className="connect-embed discover-embed"
-                  loading="lazy"
-                  allow="clipboard-write"
-                >Loading…</iframe>
+            {signupOpen ? (
+              <div className="visit-card discover-form-card">
+                <h2>Save my spot</h2>
+                <div className="sub">Sign up for the next Discover Hope session. We&rsquo;ll send a reminder a couple days out.</div>
+                <div className="discover-signup">
+                  <div className="discover-signup-next">
+                    <span className="discover-signup-label">Next class</span>
+                    <strong>{DISCOVER_HOPE.classLabel}</strong>
+                    <span className="discover-signup-time">6:30pm &middot; Hope Church</span>
+                  </div>
+                  {/* Church Center blocks framing on /registrations/* — this has
+                      to open in a new tab. See src/discoverHope.js for details. */}
+                  <a
+                    className="btn btn-primary btn-lg discover-signup-btn"
+                    href={DISCOVER_HOPE.signupUrl}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Sign up for Discover Hope
+                    <Icon name="arrow" size={16}/>
+                  </a>
+                  <p className="discover-signup-note">
+                    Takes you to our Church Center sign-up. Takes about a minute.
+                  </p>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="visit-card discover-form-card discover-form-card-soon">
+                <h2>Sign up coming soon</h2>
+                <div className="sub">Registration for the next Discover Hope isn&rsquo;t open just yet.</div>
+                <div className="discover-signup discover-signup-soon">
+                  <p>Discover Hope meets the <strong>first Wednesday of every month at 6:30pm</strong>. We post the sign-up here as soon as the next class opens &mdash; usually a few weeks ahead.</p>
+                  <p>Don&rsquo;t want to keep checking back? Reach out and we&rsquo;ll let you know the moment it&rsquo;s live.</p>
+                  <Button variant="secondary" size="lg" onClick={()=>onNav('contact')} iconRight="arrow">Contact us</Button>
+                </div>
+              </div>
+            )}
           </div>
           <aside className="visit-aside">
             <h3>Common questions</h3>

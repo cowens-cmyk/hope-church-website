@@ -531,12 +531,13 @@
 
 /* Connect chips / cards that weren't fully covered */
 [data-theme="dark"] .connect-embed-wrap,
-[data-theme="dark"] .connect-embed,
-[data-theme="dark"] .discover-embed-wrap,
-[data-theme="dark"] .discover-embed {
+[data-theme="dark"] .connect-embed {
   background: var(--bg-muted);
   border-color: var(--border-hairline);
 }
+
+/* Discover Hope sign-up block — brand blue accent reads as sky on dark. */
+[data-theme="dark"] .discover-signup-label { color: var(--hope-sky); }
 
 /* =========================================================
    GIVE PAGE — small leftover white squares (icons + addresses)

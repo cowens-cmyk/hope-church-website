@@ -2728,19 +2728,32 @@
 .discover-form-card { padding: 28px 28px 22px; }
 .discover-form-card h2 { margin-bottom: 6px; }
 .discover-form-card .sub { margin-bottom: 18px; }
-.discover-embed-wrap {
-  margin-top: 8px;
-  background: #fff;
+
+/* Sign-up block. Church Center sends X-Frame-Options: SAMEORIGIN on
+   /registrations/*, so the class registration opens in Church Center's modal
+   overlay rather than an iframe — see src/discoverHope.js. */
+.discover-signup { margin-top: 8px; }
+.discover-signup-next {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 16px 18px; margin-bottom: 18px;
+  background: var(--bg-brand-soft);
+  border: 1px solid var(--border-hairline);
   border-radius: 12px;
-  overflow: hidden;
 }
-.discover-embed {
-  min-height: 1700px;
-  height: 1700px;
-  background: #fff;
+.discover-signup-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--hope-blue);
 }
+.discover-signup-next strong { font-size: 19px; color: var(--fg-1); }
+.discover-signup-time { font-size: 14px; color: var(--fg-2); }
+.discover-signup-btn { width: 100%; }
+.discover-signup-note {
+  margin-top: 12px; font-size: 13px; color: var(--fg-2); text-align: center;
+}
+.discover-signup-soon p { margin-bottom: 12px; color: var(--fg-2); }
+.discover-signup-soon p strong { color: var(--fg-1); }
+
 @media (max-width: 720px) {
-  .discover-embed { min-height: 2000px; height: 2000px; }
   .discover-form-card { padding: 22px 18px 18px; }
 }
 
