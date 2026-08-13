@@ -115,7 +115,7 @@ function CollegeMinistryPage({ onNav }) {
                 <span className="cc-dot">·</span>
                 <span>{st.third}</span>
               </div>
-              <p>Find your row in the auditorium and worship with the whole church. Many of our group sit together at the {st.second.replace('am','')} &mdash; grab a coffee in the lobby first and we&rsquo;ll save you a seat.</p>
+              <p>Find your row in the auditorium and worship with the whole church. Many of our group sit together at the {st.second.replace('am','')} &mdash; grab a coffee in the lobby first and come find us.</p>
               <p>After service, stick around. The lobby is where most of our friendships actually start.</p>
             </article>
           </div>

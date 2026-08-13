@@ -552,6 +552,7 @@ function Footer({ onNav }) {
               <li><a href={pathFor('nextsteps')} onClick={(e)=>{e.preventDefault();onNav('nextsteps');}}>Next Steps</a></li>
               <li><a href={pathFor('serve')} onClick={(e)=>{e.preventDefault();onNav('serve');}}>Serve</a></li>
               <li><a href={pathFor('ministries')} onClick={(e)=>{e.preventDefault();onNav('ministries');}}>Ministries</a></li>
+              <li><a href="https://stores.inksoft.com/hopechurch/shop/home" target="_blank" rel="noopener">Online Merch Store</a></li>
             </ul>
           </div>
           <div>
