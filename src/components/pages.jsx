@@ -318,11 +318,11 @@ function TeamPage() {
     { name: 'Cameron Owens',   role: 'Worship Pastor',    img: '/assets/staff-cameron.jpg',  email: 'cowens@hopejc.org'     },
     { name: 'Logan Harris',    role: 'Next-Gen Pastor',   img: '/assets/staff-logan.jpg',    email: 'lharris@hopejc.org'    },
     { name: 'Ashley Tipton',   role: 'Kids Director',     img: '/assets/staff-ashley.jpg',   email: 'atipton@hopejc.org'    },
-    { name: 'Stacie Taylor',   role: 'Linked56 Director', img: '/assets/staff-stacie.jpg',   email: 'linked@hopejc.org'     },
+    { name: 'Stacie Taylor',   role: 'Linked56 Director', img: '/assets/staff-stacie.jpg',   email: 'staylor@hopejc.org'    },
   ];
   const support = [
     { name: 'Gemma Johnson',      role: 'Office Administrator',     img: '/assets/staff-gemma.jpeg',     email: 'gjohnson@hopejc.org' },
-    { name: 'Sarah Cate Carver',  role: 'Administrative Assistant', img: '/assets/staff-sarahcate.jpeg', email: 'scarver@hopejc.org'  },
+    { name: 'Stacie Taylor',      role: 'Administrative Assistant', img: '/assets/staff-stacie.jpg',     email: 'staylor@hopejc.org'  },
     { name: 'Gabrielle Day',      role: 'Financial Assistant',      img: '/assets/staff-gabrielle.jpg',  email: 'gday@hopejc.org'     },
   ];
   return (
