@@ -110,8 +110,17 @@
   margin: 0;
   letter-spacing: -0.01em;
 }
-.give-embed-host { min-height: 720px; }
-.give-embed-host iframe { width: 100%; border: 0; min-height: 720px; display: block; }
+/* Church Center giving iframe. Fixed height: the frame is cross-origin, so the
+   page cannot measure its content to size itself. */
+.give-embed {
+  display: block;
+  width: 100%;
+  border: 0;
+  min-height: 900px;
+  height: 900px;
+  border-radius: 12px;
+  background: #fff;
+}
 
 /* Right column — ways list */
 .give-ways-list {
@@ -274,6 +283,7 @@
   .give-banner-title { font-size: 36px; margin-bottom: 14px; }
   .give-ways { padding: 40px 0 56px; }
   .give-embed-card { padding: 16px 16px 10px; border-radius: 14px; }
+  .give-embed { min-height: 1050px; height: 1050px; }
   .give-why { padding: 56px 0 48px; }
   .give-why-rule { margin-bottom: 24px; }
   .give-why-body { font-size: 16px; line-height: 1.75; }

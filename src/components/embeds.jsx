@@ -413,38 +413,27 @@ function HopeCmsEmbed({ slug, title = 'Hope Church embed', height = 760 }) {
 }
 
 // ---------- Online Giving embed ----------
-// Uses Hope's hosted giving form, verbatim per the official embed snippet.
+// Planning Center giving, embedded from Church Center. Church Center's Giving
+// URLs send no X-Frame-Options (unlike /registrations/*, see src/discoverHope.js),
+// so this can be a plain iframe — no third-party script required.
+// `allow="payment"` lets Apple Pay / Google Pay work inside the frame.
+const GIVING_URL = 'https://hopejc.churchcenter.com/giving';
+
 function GiveEmbed() {
-  const hostRef = useRefSE(null);
-  useEffectSE(() => {
-    const host = hostRef.current;
-    if (!host) return;
-    clearSapUrlParam();
-    host.innerHTML = '';
-
-    const target = document.createElement('script');
-    target.id = 'subsplash-embed-4h5t';
-    target.type = 'text/javascript';
-    target.text = [
-      'var target = document.getElementById("subsplash-embed-4h5t");',
-      'var script = document.createElement("script");',
-      'script.type = "text/javascript";',
-      'script.onload = function() {',
-      '  subsplashEmbed(',
-      '    "u/-3NDNCG/give?&embed=true",',
-      '    "https://subsplash.com/",',
-      '    "subsplash-embed-4h5t"',
-      '  );',
-      '};',
-      'script.src = "https://dashboard.static.subsplash.com/production/web-client/external/embed-1.1.0.js";',
-      'target.parentElement.insertBefore(script, target);'
-    ].join('\n');
-    host.appendChild(target);
-
-    return () => { if (host) host.innerHTML = ''; };
-  }, []);
-
-  return <div className="subsplash-embed-host give-embed-host" ref={hostRef} />;
+  return (
+    <>
+      <iframe
+        src={GIVING_URL}
+        title="Give to Hope Church"
+        className="give-embed"
+        loading="lazy"
+        allow="payment; clipboard-write"
+      />
+      <p className="connect-embed-fallback">
+        Form not loading? <a href={GIVING_URL} target="_blank" rel="noopener">Give at Church Center</a>.
+      </p>
+    </>
+  );
 }
 
 export { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, SubsplashMediaLibrary, SubsplashLinked56Calendar, SubsplashStudentsCalendar, SubsplashKidsCalendar, SubsplashCollegeCalendar, SubsplashWomenCalendar, SubsplashMenCalendar, SubsplashFueledByHopeCalendar, HopeCmsEmbed, GiveEmbed };
