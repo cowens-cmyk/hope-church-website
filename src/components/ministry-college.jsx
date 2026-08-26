@@ -10,7 +10,7 @@ import { useServiceTimes } from '../serviceTimes.jsx';
 function CollegeMinistryPage({ onNav }) {
   const st = useServiceTimes();
   const FACEBOOK_URL = 'https://www.facebook.com/groups/966091859004086/';
-  const CONTACT_EMAIL = 'mailto:info@hopejc.org?subject=College%20%26%20Career%20Life%20Group';
+  const CONTACT_EMAIL = 'mailto:info@hopejc.org?subject=College%20%26%20Career%20Group';
 
   const pillars = [
     {
@@ -83,7 +83,7 @@ function CollegeMinistryPage({ onNav }) {
         </div>
       </section>
 
-      {/* ===== Section 3: Weekly rhythm — Life Group + Sunday mornings ===== */}
+      {/* ===== Section 3: Weekly rhythm — Group + Sunday mornings ===== */}
       <section className="cc-rhythm">
         <div className="container">
           <header className="cc-rhythm-head">
@@ -93,7 +93,7 @@ function CollegeMinistryPage({ onNav }) {
           <div className="cc-rhythm-grid">
             <article className="cc-rhythm-card primary">
               <span className="cc-rhythm-day">The Main Thing</span>
-              <h3>College &amp; Career <em>Life Group.</em></h3>
+              <h3>College &amp; Career <em>Group.</em></h3>
               <div className="cc-rhythm-times">
                 <span>Weekly</span>
                 <span className="cc-dot">·</span>
@@ -184,7 +184,7 @@ function CollegeMinistryPage({ onNav }) {
           <header className="cc-calendar-head">
             <span className="eyebrow">What’s Coming Up</span>
             <h2>The College &amp; Career calendar.</h2>
-            <p>Life Group nights, hangouts, service days, and the next big trip &mdash; everything happening in this ministry, pulled live so you never miss a thing.</p>
+            <p>Group nights, hangouts, service days, and the next big trip &mdash; everything happening in this ministry, pulled live so you never miss a thing.</p>
           </header>
           <div className="cc-calendar-frame">
             <SubsplashCollegeCalendar/>
@@ -197,10 +197,10 @@ function CollegeMinistryPage({ onNav }) {
         <div className="container">
           <span className="eyebrow">Get Connected</span>
           <h2>Come once. <em>You&rsquo;ll know.</em></h2>
-          <p>Join the private Facebook group for week-of details on Life Group, hangouts, and trips. Or reach out and we&rsquo;ll point you to the next gathering.</p>
+          <p>Join the private Facebook group for week-of details on Group nights, hangouts, and trips. Or reach out and we&rsquo;ll point you to the next gathering.</p>
           <div className="cta-band-actions">
             <Button variant="primary" size="xl" icon="facebook" onClick={() => window.open(FACEBOOK_URL, '_blank', 'noopener')}>College &amp; Career Facebook</Button>
-            <Button variant="outline-on-dark" size="xl" iconRight="arrow" onClick={() => window.location.href = CONTACT_EMAIL}>Ask about Life Group</Button>
+            <Button variant="outline-on-dark" size="xl" iconRight="arrow" onClick={() => window.location.href = CONTACT_EMAIL}>Ask about Groups</Button>
           </div>
           <div className="cc-cta-back">
             <a href="#" onClick={(e)=>{e.preventDefault(); onNav && onNav('ministries');}}>&larr; Back to all ministries</a>

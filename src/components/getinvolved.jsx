@@ -2,11 +2,11 @@ import React from 'react';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
 import { DISCOVER_HOPE, useDiscoverHopeSignupOpen } from '../discoverHope.js';
-// Hope Church — "Get Involved" subpages: Life Groups, Missions, Connect Card, Discover Hope
+// Hope Church — "Get Involved" subpages: Groups, Missions, Connect Card, Discover Hope
 
 const { useState: useStateGI } = React;
 
-// ---------- Life Groups ----------
+// ---------- Groups ----------
 function LifeGroupsPage({ onNav }) {
   const groups = [
     { day: 'Mondays', time: '6:30pm', name: 'Young Adults', host: 'The Owens · East Side', desc: 'Twenties and thirties figuring out faith, work, and what comes next — together.', spots: 'A few seats left' },
@@ -18,7 +18,7 @@ function LifeGroupsPage({ onNav }) {
   ];
   return (
     <>
-      <PageHeader eyebrow="Get Involved" title="Find your people." lead="Sunday is where we gather. Life Groups are where the real friendships happen — in homes, around tables, throughout the week." />
+      <PageHeader eyebrow="Get Involved" title="Find your people." lead="Sunday is where we gather. Groups are where the real friendships happen — in homes, around tables, throughout the week." />
 
       {/* Why groups */}
       <section className="visit-section" style={{paddingBottom: 60}}>
@@ -27,7 +27,7 @@ function LifeGroupsPage({ onNav }) {
             <div className="lifegroups-why-copy">
               <span className="eyebrow">Why a group?</span>
               <h2>Faith was never meant to be lived alone.</h2>
-              <p>The early church didn&rsquo;t just gather on Sundays — they shared meals, prayed for each other, and walked through real life side by side. Life Groups are how we keep that pattern at Hope.</p>
+              <p>The early church didn&rsquo;t just gather on Sundays — they shared meals, prayed for each other, and walked through real life side by side. Groups are how we keep that pattern at Hope.</p>
               <p>Most groups meet weekly in someone&rsquo;s home for about 90 minutes — a meal or snack, time in Scripture, and time to pray for each other.</p>
             </div>
             <div className="lifegroups-why-cards">

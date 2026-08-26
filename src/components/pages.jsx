@@ -794,7 +794,7 @@ function NextStepsPage({ onNav }) {
   const steps = [
     { n: '01', t: 'Plan a Visit', p: 'Come experience a Sunday — meet us at the Next Steps table in the lobby.' },
     { n: '02', t: 'Discover Hope', p: 'A class that explains who we are and how to get connected.' },
-    { n: '03', t: 'Join a Life Group', p: 'Life groups are where the real friendships happen.' },
+    { n: '03', t: 'Join a Group', p: 'Groups are where the real friendships happen.' },
     { n: '04', t: 'Serve on a Team', p: 'Use your gifts to make Sundays happen — training provided.' },
     { n: '05', t: 'Get Baptized', p: 'Ready to go public with your faith? We\u2019d love to celebrate with you.' },
   ];
@@ -815,7 +815,7 @@ function NextStepsPage({ onNav }) {
                 size="sm"
                 iconRight="arrow"
                 onClick={() => {
-                  if (s.t === 'Join a Life Group') {
+                  if (s.t === 'Join a Group') {
                     window.open('https://hopejc.churchcenter.com/groups/life-groups?enrollment=open_signup%2Crequest_to_join&filter=enrollment', '_blank', 'noopener');
                     return;
                   }

@@ -69,7 +69,7 @@ export const META = {
   'ministry-college': {
     title: `College Ministry | ${BRAND}`,
     description:
-      'College-age ministry at Hope Church — community, discipleship, and Life Groups for students and young adults in the Johnson City area.',
+      'College-age ministry at Hope Church — community, discipleship, and Groups for students and young adults in the Johnson City area.',
   },
   'ministry-women': {
     title: `Women’s Ministry (Woven) | ${BRAND}`,
@@ -112,9 +112,9 @@ export const META = {
       'Get in touch with Hope Church in Gray / Johnson City, TN. Find our address, service times, phone, and email, or send us a message.',
   },
   lifegroups: {
-    title: `Life Groups | ${BRAND}`,
+    title: `Groups | ${BRAND}`,
     description:
-      'Life Groups are where real community happens at Hope Church. Find a group that meets near you and take your next step toward belonging.',
+      'Groups are where real community happens at Hope Church. Find a group that meets near you and take your next step toward belonging.',
   },
   missions: {
     title: `Missions | ${BRAND}`,

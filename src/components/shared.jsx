@@ -225,7 +225,7 @@ function SundayStrip() {
 function SiteHeader({ onNav, current, dark = false }) {
   const st = useServiceTimes();
   const involvedItems = [
-    { id: 'lifegroups', label: 'Life Groups', desc: '', href: 'https://hopejc.churchcenter.com/groups/life-groups?enrollment=open_signup%2Crequest_to_join&filter=enrollment' },
+    { id: 'lifegroups', label: 'Groups', desc: '', href: 'https://hopejc.churchcenter.com/groups/life-groups?enrollment=open_signup%2Crequest_to_join&filter=enrollment' },
     { id: 'serve', label: 'Serve', desc: 'Find a team that fits your gifts and schedule.' },
     { id: 'missions', label: 'Missions', desc: 'Our partners — local, national, and global.' },
     { id: 'connect', label: 'Connect Card', desc: 'Say hi, share a prayer request, take a step.' },
