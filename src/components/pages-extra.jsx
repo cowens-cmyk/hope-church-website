@@ -99,7 +99,7 @@ const cleanUrl = (u) => u.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
 const telHref = (p) => `tel:${p.replace(/[^0-9]/g, '')}`;
 
 function GetHelpPage() {
-  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf7WmsBaX2FkTEmpZBe2YgNcHjiWSmI8Q9Fm-m45mPjgLQ4Lg/viewform';
+  const formUrl = 'https://hopejc.churchcenter.com/people/forms/1305460';
   return (
     <div data-screen-label="Page · Get Help">
       <section className="page-header">
