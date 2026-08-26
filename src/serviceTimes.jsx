@@ -15,7 +15,7 @@ const { useState, useEffect } = React;
 export const SERVICE_TIMES_SWITCH = Date.parse('2026-07-26T17:00:00Z');
 
 const OLD = { first: '8:00am', second: '9:45am', third: '11:30am', stream: '9:45am', runthrough: '7:00am', runthroughEnd: '7:30am', isNew: false };
-const NEW = { first: '7:30am', second: '9:00am', third: '11:00am', stream: '9:00am', runthrough: '6:30am', runthroughEnd: '7:00am', isNew: true };
+const NEW = { first: '7:30am', second: '9:00am', third: '11:00am', fourth: '12:45pm', stream: '9:00am', runthrough: '6:30am', runthroughEnd: '7:00am', isNew: true };
 
 export const OLD_SERVICE_TIMES = OLD;
 export const NEW_SERVICE_TIMES = NEW;
@@ -27,13 +27,43 @@ export const NEW_SERVICE_TIMES = NEW;
 // Add ?previewTimes=new (or =old) to any URL to force a set for QA.
 // Shared note: under the new schedule the 7:30 service is nursery & preschool
 // only (no K–4th grade, no Linked 5–6th).
+
+// The fourth service (12:45pm) begins Sunday, September 20 2026 at 12:45pm ET
+// (EDT = UTC-4 -> 16:45 UTC). Until that instant the site shows it as "coming
+// soon"; after it, as a regular service — flipped automatically, no redeploy.
+// Add ?previewFourth=live (or =soon) to any URL to force a state for QA.
+export const FOURTH_SERVICE_START = Date.parse('2026-09-20T16:45:00Z');
+
+// Initial state is deliberately `false` so the pre-rendered HTML and the first
+// client render agree (no hydration mismatch); the effect corrects it. After
+// Sep 20 a redeploy bakes the live state into the static HTML for crawlers.
+export function useFourthServiceLive() {
+  const [live, setLive] = useState(false);
+  useEffect(() => {
+    let force = null;
+    try {
+      const p = new URLSearchParams(window.location.search).get('previewFourth');
+      if (p === 'live' || p === 'soon') window.sessionStorage.setItem('previewFourth', p);
+      else if (p === 'off') window.sessionStorage.removeItem('previewFourth');
+      const stored = window.sessionStorage.getItem('previewFourth');
+      if (stored === 'live') force = true;
+      else if (stored === 'soon') force = false;
+    } catch { /* ignore */ }
+    setLive(force !== null ? force : Date.now() >= FOURTH_SERVICE_START);
+  }, []);
+  return live;
+}
 export function KidsServiceNote({ className }) {
   const st = useServiceTimes();
+  const fourthLive = useFourthServiceLive();
   if (!st.isNew) return null;
+  const withClasses = fourthLive
+    ? <>the {st.second}, {st.third}, and {st.fourth} services</>
+    : <>the {st.second} and {st.third} services</>;
   return (
     <p className={className}>
       <strong>Heads up for the {st.first} service:</strong> we offer nursery &amp; preschool only.
-      Kindergarten&ndash;4th grade and Linked 5&ndash;6th grade classes meet at the {st.second} and {st.third} services.
+      Kindergarten&ndash;4th grade and Linked 5&ndash;6th grade classes meet at {withClasses}.
     </p>
   );
 }

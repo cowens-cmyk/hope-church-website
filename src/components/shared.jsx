@@ -1,7 +1,7 @@
 import React from 'react';
 import { resources } from '../resources.js';
 import { pathFor } from '../nav.js';
-import { useServiceTimes } from '../serviceTimes.jsx';
+import { useServiceTimes, useFourthServiceLive } from '../serviceTimes.jsx';
 // Hope Church — shared components: Header, Footer, Sunday strip, Announcement bar
 
 const { useState, useEffect } = React;
@@ -454,24 +454,34 @@ function MissionBar() {
 // ---------- Service Times block ----------
 function ServiceTimes() {
   const st = useServiceTimes();
+  const fourthLive = useFourthServiceLive();
+  const ALL_CLASSES = 'All classes (nursery–Linked 56)';
   const times = [
     { t: st.first.replace('am',''), s: 'am', name: 'First Service', note: st.isNew ? 'Nursery & preschool only' : null },
-    { t: st.second.replace('am',''), s: 'am', name: 'Second Service', note: st.isNew ? 'All classes (nursery–Linked 56)' : null },
-    { t: st.third.replace('am',''), s: 'am', name: 'Third Service', note: st.isNew ? 'All classes (nursery–Linked 56)' : null },
+    { t: st.second.replace('am',''), s: 'am', name: 'Second Service', note: st.isNew ? ALL_CLASSES : null },
+    { t: st.third.replace('am',''), s: 'am', name: 'Third Service', note: st.isNew ? ALL_CLASSES : null },
   ];
+  // The 12:45 service shows as "coming soon" until it starts on Sep 20, then
+  // becomes an ordinary card alongside the others.
+  if (st.isNew) times.push({
+    t: st.fourth.replace('pm',''), s: 'pm', name: 'Fourth Service',
+    note: ALL_CLASSES, soon: !fourthLive,
+  });
   return (
     <section className="service-times" data-screen-label="ServiceTimes">
       <div className="container">
         <div className="service-times-header">
           <span className="eyebrow">Sunday Mornings</span>
-          <h2 className="service-times-title">Three services. Same welcome.</h2>
+          <h2 className="service-times-title">Every service. Same welcome.</h2>
         </div>
         <div className="service-times-grid">
           {times.map((x) => (
-            <div key={x.t} className="service-time">
+            <div key={x.name} className={x.soon ? 'service-time service-time-soon' : 'service-time'}>
+              {x.soon && <div className="st-soon">Coming Soon</div>}
               <div className="st-time">{x.t}<s>{x.s}</s></div>
               <div className="st-name">{x.name}</div>
               {x.note && <div className="st-note">{x.note}</div>}
+              {x.soon && <div className="st-desc">Starting Sunday, September&nbsp;20</div>}
             </div>
           ))}
         </div>
@@ -514,6 +524,7 @@ function NewHereBlock({ onVisit }) {
 // ---------- Footer ----------
 function Footer({ onNav }) {
   const st = useServiceTimes();
+  const fourthLive = useFourthServiceLive();
   return (
     <footer className="site-footer">
       <div className="container footer-inner">
@@ -541,6 +552,7 @@ function Footer({ onNav }) {
               <li>{st.first}</li>
               <li>{st.second}</li>
               <li>{st.third}</li>
+              {fourthLive && <li>{st.fourth}</li>}
             </ul>
           </div>
           <div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { SubsplashRecent, SubsplashEvents } from './embeds.jsx';
-import { useServiceTimes } from '../serviceTimes.jsx';
+import { useServiceTimes, useFourthServiceLive } from '../serviceTimes.jsx';
 // Hope Church — 3 homepage hero variations + supporting blocks
 
 // ======================================================
@@ -10,6 +10,7 @@ import { useServiceTimes } from '../serviceTimes.jsx';
 // ======================================================
 function HeroA({ onVisit, onWatch }) {
   const st = useServiceTimes();
+  const fourthLive = useFourthServiceLive();
   return (
     <section className="hero-a" data-screen-label="Hero A">
       <div className="hero-a-media">
@@ -29,7 +30,7 @@ function HeroA({ onVisit, onWatch }) {
       <div className="hero-a-bottom">
         <span>Gray, Tennessee</span>
         <div className="hero-a-bottom-right">
-          <span>Sundays · {st.first.replace('am','')} · {st.second.replace('am','')} · {st.third}</span>
+          <span>Sundays · {st.first.replace('am','')} · {st.second.replace('am','')} · {fourthLive ? <>{st.third.replace('am','')} · {st.fourth}</> : st.third}</span>
         </div>
       </div>
     </section>

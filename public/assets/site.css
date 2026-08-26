@@ -362,9 +362,9 @@
 .service-times-header { text-align: center; margin-bottom: 56px; position: relative; }
 .service-times-header .eyebrow { color: var(--hope-sky); }
 .service-times-title { color: #fff; font-size: 52px; margin: 14px 0 0; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; }
-.service-times-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1000px; margin: 0 auto; position: relative; }
+.service-times-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1200px; margin: 0 auto; position: relative; }
 .service-time {
-  padding: 36px 30px;
+  padding: 34px 26px;
   border-radius: 16px;
   background: rgba(255,255,255,0.035);
   border: 1px solid rgba(255,255,255,0.1);
@@ -378,8 +378,9 @@
   color: #fff; letter-spacing: 0.1em;
 }
 .st-time {
-  font-family: var(--font-display); font-size: 56px; font-weight: 900;
+  font-family: var(--font-display); font-size: 50px; font-weight: 900;
   color: var(--hope-sky); letter-spacing: -0.03em; line-height: 1;
+  white-space: nowrap;
 }
 .st-time s { text-decoration: none; font-size: 24px; color: rgba(107,196,232,0.6); margin-left: 4px; letter-spacing: 0; }
 .st-name { font-size: 18px; font-weight: 700; margin-top: 18px; }
@@ -392,6 +393,19 @@
   border-radius: 999px; padding: 4px 11px;
 }
 .st-desc { font-size: 14px; color: #fff; margin-top: 8px; line-height: 1.55; }
+
+/* Fourth service, before it starts */
+.service-time-soon { border-style: dashed; border-color: rgba(107,196,232,0.45); background: rgba(107,196,232,0.06); }
+.service-time-soon .st-time { color: rgba(107,196,232,0.75); }
+.st-soon {
+  display: inline-block; margin-bottom: 14px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-900); background: var(--hope-sky);
+  border-radius: 999px; padding: 5px 10px;
+}
+.service-time-soon .st-desc { font-size: 13px; font-weight: 700; color: var(--hope-sky); }
+.hero-c-bar-soon { opacity: 0.6; }
 
 .service-times-foot {
   text-align: center; margin-top: 48px;
@@ -1959,6 +1973,7 @@
   .service-time { padding: 24px 22px; }
   .service-times-title { font-size: 34px; }
   .st-time { font-size: 44px; }
+  .service-time { padding: 24px 22px; }
   .service-times-foot { margin-top: 32px; font-size: 13px; }
   .service-times-header { margin-bottom: 32px; }
 
