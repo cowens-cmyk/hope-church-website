@@ -472,7 +472,7 @@ function ServiceTimes() {
       <div className="container">
         <div className="service-times-header">
           <span className="eyebrow">Sunday Mornings</span>
-          <h2 className="service-times-title">Every service. Same welcome.</h2>
+          <h2 className="service-times-title">There&rsquo;s a place for you</h2>
         </div>
         <div className="service-times-grid">
           {times.map((x) => (
