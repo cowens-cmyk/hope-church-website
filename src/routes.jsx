@@ -130,12 +130,15 @@ function NotFound() {
 }
 
 /* ---------- shared layout (header + footer wrap every page) ---------- */
-// Service-times announcement window (absolute instants, timezone-proof):
-//   Reveals   Sunday, July 12 2026 at 8:00am ET  (EDT = UTC-4  -> 12:00 UTC)
-//   Auto-hides Sunday, August 2 2026 at 8:00am ET (new times in effect -> 12:00 UTC)
-// Add ?previewBanner to any URL to force it visible before the reveal time.
-const SVC_BANNER_REVEAL = Date.parse('2026-07-12T12:00:00Z');
-const SVC_BANNER_HIDE = Date.parse('2026-08-02T12:00:00Z');
+// Fourth-service announcement window (absolute instants, timezone-proof):
+//   Reveals   Tuesday, August 25 2026 at 8:00am ET (EDT = UTC-4 -> 12:00 UTC)
+//   Auto-hides Sunday, September 20 2026 at 2:00pm ET (the 12:45 service has
+//              started, so it is no longer "coming" -> 18:00 UTC)
+// Add ?previewBanner to any URL to force it visible outside that window.
+const SVC_BANNER_REVEAL = Date.parse('2026-08-25T12:00:00Z');
+const SVC_BANNER_HIDE = Date.parse('2026-09-20T18:00:00Z');
+// Bumping this key re-shows the bar to visitors who dismissed the previous one.
+const SVC_BANNER_DISMISS_KEY = 'fourth-service-banner-dismissed';
 
 function Layout() {
   const location = useLocation();
@@ -152,7 +155,7 @@ function Layout() {
         window.sessionStorage.setItem('previewBanner', '1');
       }
       preview = window.sessionStorage.getItem('previewBanner') === '1';
-      dismissed = window.localStorage.getItem('svc-times-banner-dismissed') === '1';
+      dismissed = window.localStorage.getItem(SVC_BANNER_DISMISS_KEY) === '1';
     } catch { /* ignore */ }
     const now = Date.now();
     const inWindow = now >= SVC_BANNER_REVEAL && now < SVC_BANNER_HIDE;
@@ -162,7 +165,7 @@ function Layout() {
 
   const dismissBanner = () => {
     setBannerVisible(false);
-    try { window.localStorage.setItem('svc-times-banner-dismissed', '1'); } catch { /* ignore */ }
+    try { window.localStorage.setItem(SVC_BANNER_DISMISS_KEY, '1'); } catch { /* ignore */ }
   };
 
   return (
@@ -171,7 +174,7 @@ function Layout() {
       <LegacyPageRedirect />
       <AnnouncementBar
         visible={bannerVisible}
-        text={<>Our Sunday service times have changed! Join us at <strong>7:30am · 9:00am · 11:00am</strong></>}
+        text={<>A 4th service is coming! Starting <strong>Sunday, September 20</strong> we&rsquo;re adding a <strong>12:45pm</strong> service.</>}
         onDismiss={dismissBanner}
       />
       <SundayStrip />
