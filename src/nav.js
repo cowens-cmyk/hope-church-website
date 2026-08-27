@@ -26,6 +26,7 @@ export const KEY_TO_PATH = {
   'ministry-worship': '/ministries/worship',
   'ministry-fueledbyhope': '/ministries/fueled-by-hope',
   give: '/give',
+  generations: '/generations',
   serve: '/serve',
   nextsteps: '/next-steps',
   contact: '/contact',

@@ -13,6 +13,12 @@ export const resources = {
   aboutOriginWorship: '/assets/about-origin-worship.jpg',
   aboutVisionWelcome: '/assets/about-vision-welcome.jpg',
   aboutTeamGroup: '/assets/about-team-group.jpg',
+  generationsLandHero: '/assets/generations-land-hero.jpg',
+  generationsLand2: '/assets/generations-land-2.jpg',
+  generationsLand3: '/assets/generations-land-3.jpg',
+  generationsWorship: '/assets/generations-worship.jpg',
+  generationsKids: '/assets/generations-kids.jpg',
+  generationsLockupReversed: '/assets/generations-lockup-reversed.png',
 };
 
 export default resources;

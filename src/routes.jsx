@@ -30,6 +30,7 @@ import {
   LifeGroupsPage, MissionsPage, ConnectCardPage, DiscoverHopePage,
 } from './components/getinvolved.jsx';
 import { PrayerRequestPage, GetHelpPage, PodcastPage, AppPage } from './components/pages-extra.jsx';
+import { GenerationsPage, GenerationsHomeBlock } from './components/generations.jsx';
 import { PrivacyPage, AccessibilityPage } from './components/pages-legal.jsx';
 
 // ServiceTimes lives in shared in some builds; import defensively from homepage.
@@ -87,6 +88,7 @@ function HomePage({ onNav }) {
         }
       />
       <NewHereBlock onVisit={() => onNav('visit')} />
+      <GenerationsHomeBlock onGenerations={() => onNav('generations')} />
       <ThisWeekSermon onSermons={() => onNav('sermons')} />
       <ServiceTimes />
       <MinistriesBlock onMinistries={() => onNav('ministries')} />
@@ -224,6 +226,7 @@ export const routes = [
       { path: 'ministries/worship', ...ministry('ministry-worship') },
       { path: 'ministries/fueled-by-hope', ...ministry('ministry-fueledbyhope') },
       { path: 'give', element: <View pageKey="give" Comp={GivePage} /> },
+      { path: 'generations', element: <View pageKey="generations" Comp={GenerationsPage} /> },
       { path: 'serve', element: <View pageKey="serve" Comp={ServePage} /> },
       { path: 'next-steps', element: <View pageKey="nextsteps" Comp={NextStepsPage} /> },
       { path: 'contact', element: <View pageKey="contact" Comp={ContactPage} /> },

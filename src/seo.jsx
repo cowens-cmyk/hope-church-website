@@ -96,6 +96,11 @@ export const META = {
     description:
       'Give to Hope Church. Your generosity fuels ministry in Gray / Johnson City and beyond. Give securely online or learn about other ways to give.',
   },
+  generations: {
+    title: `Generations Campaign | ${BRAND}`,
+    description:
+      'Generations is Hope Church\u2019s campaign to purchase twenty acres and build a permanent home in Gray / Johnson City, TN. See the vision and give.',
+  },
   serve: {
     title: `Serve | ${BRAND}`,
     description:

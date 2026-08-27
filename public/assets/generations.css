@@ -1,0 +1,328 @@
+/* =========================================================
+   HOPE CHURCH — GENERATIONS CAMPAIGN (/generations)
+   Ported from the Generations campaign design canvas. The design's
+   inline colors map 1:1 onto the site tokens, so everything below
+   uses tokens instead of hard-coded hex and inherits dark mode for
+   free (see dark-mode.css — --fg-*, --bg-*, --border-* all remap).
+
+   Also styles the Generations teaser that sits on the home page
+   directly under "We saved you a seat." (.gen-home-band)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Shared: the three-bar "Generations" stair-step motif from
+   the logo lockup. Rendered in markup rather than as an image
+   so it scales cleanly and stays crisp at any size.
+   --------------------------------------------------------- */
+.gen-bars { display: flex; flex-direction: column; gap: 8px; }
+.gen-bars span { display: block; height: 14px; }
+.gen-bars span:nth-child(1) { width: min(300px, 62vw); background: #fff; }
+.gen-bars span:nth-child(2) { width: min(260px, 54vw); background: var(--hope-sky); margin-left: 24px; }
+.gen-bars span:nth-child(3) { width: min(216px, 44vw); background: var(--hope-bright); margin-left: 48px; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.gen-hero {
+  position: relative;
+  min-height: min(660px, 86vh);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--hope-navy);
+}
+.gen-hero-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 42%;
+}
+.gen-hero-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,42,84,0.92) 0%,
+    rgba(0,42,84,0.55) 42%,
+    rgba(0,42,84,0.12) 100%
+  );
+}
+.gen-hero-inner {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  padding-top: clamp(72px, 12vw, 96px);
+  padding-bottom: clamp(56px, 8vw, 72px);
+}
+.gen-hero .gen-bars { margin-bottom: 28px; }
+.gen-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  /* The design's 11vw/116px scaling, kept as authored. Only the floor is
+     raised off 44px: "GENERATIONS" renders ~7.3x its font-size and can't
+     wrap, so 44px overflows a 320px-wide phone. 36px is the largest floor
+     that still fits there. */
+  font-size: clamp(36px, 11vw, 116px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 20px;
+}
+.gen-hero-lead {
+  max-width: 620px;
+  margin: 0 0 36px;
+  font-size: 21px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.9);
+  text-wrap: pretty;
+}
+.gen-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.gen-hero-verse {
+  margin: 32px 0 0;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.72);
+  font-style: italic;
+}
+
+/* Hero buttons — white-on-navy pair, only used here. */
+.gen-btn {
+  display: inline-flex; align-items: center;
+  height: 56px; padding: 0 34px;
+  border-radius: 8px;
+  font-size: 17px; font-weight: 700;
+  cursor: pointer; border: 0;
+  text-decoration: none;
+  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+}
+.gen-btn-light { background: #fff; color: var(--hope-navy); }
+.gen-btn-light:hover { background: var(--bg-brand-soft); color: var(--hope-navy); }
+.gen-btn-outline {
+  padding: 0 30px;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  color: #fff;
+  font-weight: 500;
+}
+.gen-btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.12); color: #fff; }
+
+/* =========================================================
+   VISION
+   ========================================================= */
+.gen-vision { padding: clamp(64px, 9vw, 104px) 0; background: var(--bg-page); }
+.gen-vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+.gen-eyebrow {
+  margin: 0 0 18px;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--hope-blue);
+}
+.gen-vision h2,
+.gen-give h2,
+.gen-questions h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+  margin: 0 0 24px;
+}
+.gen-vision h2 { font-size: clamp(34px, 4vw, 46px); }
+.gen-vision p:not(.gen-eyebrow) {
+  margin: 0 0 20px;
+  font-size: 18px; line-height: 1.6;
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.gen-vision p:last-child { margin-bottom: 0; }
+
+.gen-vision-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.gen-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+}
+.gen-photo img { display: block; width: 100%; object-fit: cover; }
+.gen-photo-wide {
+  grid-column: 1 / -1;
+  box-shadow: 0 10px 30px rgba(0,74,152,0.10);
+}
+.gen-photo-wide img { height: 260px; }
+.gen-photo-half img { height: 190px; }
+
+/* =========================================================
+   THE LAND — two captioned aerials
+   ========================================================= */
+.gen-land { padding: 0 0 clamp(64px, 9vw, 96px); background: var(--bg-page); }
+.gen-land-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.gen-land figure { margin: 0; }
+.gen-land figure img { height: clamp(220px, 30vw, 330px); }
+.gen-land figcaption {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--fg-3);
+}
+
+/* =========================================================
+   GIVE — embedded Church Center form
+   ========================================================= */
+.gen-give { padding: clamp(64px, 9vw, 104px) 0; background: var(--bg-page); }
+.gen-give-head { max-width: 880px; margin: 0 auto; text-align: center; }
+.gen-give h2 { font-size: clamp(32px, 3.6vw, 44px); margin-bottom: 18px; }
+.gen-give-head p:not(.gen-eyebrow) {
+  margin: 0 auto 40px;
+  max-width: 580px;
+  font-size: 18px; line-height: 1.6;
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+.gen-give-frame {
+  max-width: 880px; margin: 0 auto;
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0,74,152,0.10);
+  background: var(--bg-tint);
+}
+/* The Church Center form renders its own light UI, so the iframe keeps a
+   white backdrop in both themes rather than showing a dark seam behind it. */
+.gen-give-frame iframe {
+  display: block;
+  width: 100%;
+  height: min(760px, 130vw);
+  border: 0;
+  background: #fff;
+}
+.gen-give-fallback {
+  max-width: 880px;
+  margin: 24px auto 0;
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  gap: 14px;
+}
+.gen-give-fallback p { margin: 0; font-size: 15px; color: var(--fg-3); }
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+.gen-questions {
+  padding: clamp(56px, 8vw, 88px) 0;
+  background: var(--bg-page);
+  text-align: center;
+}
+.gen-questions-inner { max-width: 620px; margin: 0 auto; }
+.gen-questions h2 { font-size: clamp(26px, 2.8vw, 34px); line-height: 1.14; margin-bottom: 14px; }
+.gen-questions p {
+  margin: 0 0 28px;
+  font-size: 17px; line-height: 1.6;
+  color: var(--fg-2);
+}
+
+/* =========================================================
+   HOME PAGE TEASER BAND
+   Sits directly under .new-here ("We saved you a seat.").
+   Navy panel so it reads as a distinct campaign moment
+   between two light sections, in light and dark mode alike.
+   ========================================================= */
+.gen-home-band {
+  position: relative;
+  overflow: hidden;
+  background: var(--hope-navy);
+  padding: clamp(64px, 8vw, 92px) 0;
+}
+.gen-home-band-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 45%;
+  opacity: 0.28;
+}
+.gen-home-band-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(0,42,84,0.94) 0%, rgba(0,42,84,0.72) 55%, rgba(0,42,84,0.5) 100%);
+}
+.gen-home-inner {
+  position: relative;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.gen-home-band .gen-bars { margin-bottom: 22px; }
+.gen-home-band .gen-bars span:nth-child(1) { width: min(220px, 52vw); height: 11px; }
+.gen-home-band .gen-bars span:nth-child(2) { width: min(190px, 45vw); height: 11px; margin-left: 18px; }
+.gen-home-band .gen-bars span:nth-child(3) { width: min(158px, 37vw); height: 11px; margin-left: 36px; }
+.gen-home-eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hope-sky);
+}
+.gen-home-band h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.gen-home-lead {
+  margin: 0 0 28px;
+  font-size: 18px; line-height: 1.6;
+  color: rgba(255,255,255,0.88);
+  text-wrap: pretty;
+}
+.gen-home-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.gen-home-verse {
+  margin: 26px 0 0;
+  font-size: 14.5px;
+  color: rgba(255,255,255,0.68);
+  font-style: italic;
+}
+.gen-home-photo {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 20px 44px rgba(0,20,45,0.42);
+}
+.gen-home-photo img {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 26vw, 330px);
+  object-fit: cover;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .gen-home-inner { grid-template-columns: 1fr; }
+  /* Photo above the copy reads better once stacked. */
+  .gen-home-photo { order: -1; }
+  .gen-home-photo img { height: clamp(200px, 44vw, 280px); }
+}
+
+@media (max-width: 720px) {
+  .gen-hero { min-height: min(560px, 82vh); }
+  .gen-hero-lead { font-size: 18px; }
+  .gen-btn { height: 52px; padding: 0 26px; font-size: 16px; }
+  .gen-btn-outline { padding: 0 24px; }
+  .gen-vision, .gen-give { padding: 64px 0; }
+  .gen-vision p:not(.gen-eyebrow), .gen-give-head p:not(.gen-eyebrow) { font-size: 17px; }
+  .gen-vision-photos { grid-template-columns: 1fr; }
+  .gen-photo-wide img, .gen-photo-half img { height: 200px; }
+  .gen-give-fallback { flex-direction: column; text-align: center; }
+  .gen-home-band { padding: 56px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gen-btn { transition: none; }
+}
