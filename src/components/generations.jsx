@@ -45,10 +45,11 @@ function GenerationsHomeBlock({ onGenerations }) {
           <GenerationsBars />
           <h2>A permanent home for Hope Church.</h2>
           <p className="gen-home-lead">
-            We&rsquo;re raising support to purchase twenty acres and build a
-            church of our own &mdash; room to worship, space for kids and
-            students to grow up in the faith, and a front door that stays open
-            in this community for decades.
+            We&rsquo;re under contract to purchase twenty acres and build a
+            church of our own &mdash; a place to worship together, space for
+            kids and students to grow up in the faith, a space for all ages to
+            fellowship and grow in the grace and knowledge of Jesus Christ, and
+            a front door that stays open in this community for decades.
           </p>
           <div className="gen-home-actions">
             <a
@@ -125,17 +126,24 @@ function GenerationsPage() {
         <div className="container gen-vision-grid">
           <div>
             <p className="gen-eyebrow">The Vision</p>
-            <h2>A permanent home for a growing church.</h2>
+            <h2>God is moving!</h2>
             <p>
-              For years Hope Church has met in borrowed and rented space, and
-              God has grown us anyway. Generations is our next step of faith:
-              twenty acres of land and a building of our own, sized for the
-              people who are already here and the ones we haven&rsquo;t met yet.
+              God is moving in and through Hope Church! For years, Hope has met
+              in borrowed and rented space, and God has continued to move.
+              Generations is our next step of faith: twenty acres of land and a
+              building to call home that God can continue to move for
+              generations to come.
             </p>
             <p>
-              This is more than a building. It&rsquo;s room to worship together,
-              space for kids and students to grow up in the faith, and a front
-              door that stays open in this community for decades.
+              This is more than a building. It&rsquo;s a place to worship
+              together, space for kids and students to grow up in the faith, a
+              space for all ages to fellowship and grow in the grace and
+              knowledge of Jesus Christ, and a front door that stays open to
+              continue to invite people home.
+            </p>
+            <p>
+              We are excited that God is opening doors for us to walk through in
+              faith! Will you partner with us on this journey?
             </p>
           </div>
           <div className="gen-vision-photos">
