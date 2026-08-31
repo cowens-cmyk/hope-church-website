@@ -4,6 +4,16 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "media.hopejc.org"
+        }
+      ],
+      "destination": "https://hope-media.cowens-09f.workers.dev/$1"
+    },
+    {
       "source": "/sermons/:branch/:slug",
       "destination": "https://hope-media.cowens-09f.workers.dev/media/:branch/:slug"
     },
