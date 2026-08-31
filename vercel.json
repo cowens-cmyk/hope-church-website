@@ -4,6 +4,16 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/admin",
+      "has": [
+        {
+          "type": "host",
+          "value": "media.hopejc.org"
+        }
+      ],
+      "destination": "https://hope-media.cowens-09f.workers.dev/"
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
@@ -20,6 +30,19 @@
     {
       "source": "/sermons/:branch/:series/:slug",
       "destination": "https://hope-media.cowens-09f.workers.dev/media/:branch/:series/:slug"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "media.hopejc.org"
+        }
+      ],
+      "destination": "/admin",
+      "permanent": false
     }
   ]
 }
