@@ -31,7 +31,7 @@ import {
 } from './components/getinvolved.jsx';
 import { PrayerRequestPage, GetHelpPage, PodcastPage, AppPage } from './components/pages-extra.jsx';
 import { GenerationsPage, GenerationsHomeBlock } from './components/generations.jsx';
-import { PrivacyPage, AccessibilityPage } from './components/pages-legal.jsx';
+import { PrivacyPage, AccessibilityPage, TermsPage } from './components/pages-legal.jsx';
 
 // ServiceTimes lives in shared in some builds; import defensively from homepage.
 // (Kept here so the homepage assembly below matches the original ordering.)
@@ -246,6 +246,7 @@ export const routes = [
       },
       { path: 'app', element: <View pageKey="app" Comp={AppPage} /> },
       { path: 'privacy', element: <View pageKey="privacy" Comp={PrivacyPage} /> },
+      { path: 'terms', element: <View pageKey="terms" Comp={TermsPage} /> },
       { path: 'accessibility', element: <View pageKey="accessibility" Comp={AccessibilityPage} /> },
       // Concrete 404 route so the build emits a real /404 page; copied to
       // dist/404.html in the postbuild step for Vercel to serve.

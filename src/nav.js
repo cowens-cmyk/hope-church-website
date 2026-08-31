@@ -41,6 +41,7 @@ export const KEY_TO_PATH = {
   app: '/app',
   privacy: '/privacy',
   accessibility: '/accessibility',
+  terms: '/terms',
 };
 
 export const PATH_TO_KEY = Object.fromEntries(

@@ -165,6 +165,11 @@ export const META = {
     title: `Privacy Policy | ${BRAND}`,
     description: 'How Hope Church collects, uses, and protects your information.',
   },
+  terms: {
+    title: `Terms of Service | ${BRAND}`,
+    description:
+      'The terms that cover use of the Hope Church website and the sermon media we publish.',
+  },
   accessibility: {
     title: `Accessibility | ${BRAND}`,
     description:

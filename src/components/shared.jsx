@@ -599,6 +599,7 @@ function Footer({ onNav }) {
           <span>© 2026 Hope Church</span>
           <div className="footer-bar-links">
             <a href={pathFor('privacy')} onClick={(e)=>{e.preventDefault();onNav('privacy');}}>Privacy</a>
+            <a href={pathFor('terms')} onClick={(e)=>{e.preventDefault();onNav('terms');}}>Terms</a>
             <a href={pathFor('accessibility')} onClick={(e)=>{e.preventDefault();onNav('accessibility');}}>Accessibility</a>
           </div>
         </div>

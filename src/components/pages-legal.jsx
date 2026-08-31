@@ -24,7 +24,7 @@ function PrivacyPage() {
       eyebrow="Legal"
       title="Privacy Policy"
       lead="How Hope Church collects, uses, and protects the information you share with us."
-      updated="May 1, 2026"
+      updated="August 31, 2026"
     >
       <h2>Our commitment</h2>
       <p>
@@ -85,6 +85,28 @@ function PrivacyPage() {
         We share information only with the trusted tools that help us run the church &mdash; our
         church management system (Planning Center), giving processor (Subsplash), email
         platform, and similar services. Each is bound by their own privacy commitments.
+      </p>
+
+      <h2>Sermon video and YouTube</h2>
+      <p>
+        We publish our sermons to our own YouTube channel using a media system we run
+        ourselves. That system uses YouTube API Services to upload our videos and to
+        confirm which channel it is connected to. Our use of those features is also
+        covered by the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">
+        YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy"
+        target="_blank" rel="noopener">Google Privacy Policy</a>.
+      </p>
+      <p>
+        Our system stores an authorization token for our own channel, the channel&rsquo;s name,
+        and the video ID of each sermon we upload. It does not read viewer data, watch
+        history, comments, or analytics, and it has no access to any channel other than ours.
+      </p>
+      <p>
+        Our staff can disconnect the channel at any time inside our media system, or revoke
+        access directly at <a href="https://security.google.com/settings/security/permissions"
+        target="_blank" rel="noopener">Google&rsquo;s permissions page</a>. Revoking access
+        deletes the stored token and stops any future uploads; sermons already on YouTube stay
+        there until we remove them.
       </p>
 
       <h2>Your choices</h2>
@@ -170,4 +192,64 @@ function AccessibilityPage() {
   );
 }
 
-export { PrivacyPage, AccessibilityPage };
+// ---------- Terms of Service ----------
+function TermsPage() {
+  return (
+    <LegalPage
+      eyebrow="Legal"
+      title="Terms of Service"
+      lead="The basics of using this site and the sermon media we publish through it."
+      updated="August 31, 2026"
+    >
+      <h2>About this site</h2>
+      <p>
+        This site is operated by Hope Church Johnson City, 5034 Bobby Hicks Hwy, Suite 10,
+        Gray, TN 37615. It exists to share sermon audio, video, and written notes with our
+        congregation and with anyone who wants to listen.
+      </p>
+
+      <h2>Our content</h2>
+      <p>
+        Sermon recordings, notes, artwork, and other media on this site remain the property
+        of Hope Church. You are welcome to listen, watch, share links, and use our content
+        for personal and non-commercial purposes. Please don&rsquo;t re-publish it, sell it,
+        or present it as your own.
+      </p>
+
+      <h2>Embedded video</h2>
+      <p>
+        Some pages embed video hosted on YouTube. Using those players is also governed by the
+        <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener"> YouTube
+        Terms of Service</a> and the <a href="https://policies.google.com/privacy"
+        target="_blank" rel="noopener">Google Privacy Policy</a>.
+      </p>
+
+      <h2>Availability</h2>
+      <p>
+        We offer this site as-is. We work to keep it available and accurate, but we can&rsquo;t
+        promise uninterrupted access, and we may add, change, or remove content at any time.
+      </p>
+
+      <h2>Your information</h2>
+      <p>
+        Anything you share with us through this site is handled according to our{' '}
+        <a href="/privacy">Privacy Policy</a>.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        If anything here is unclear, please ask &mdash; we&rsquo;d rather explain than have you
+        guess.
+      </p>
+      <p className="legal-contact">
+        <strong>Hope Church</strong><br/>
+        5034 Bobby Hicks Hwy, Suite 10<br/>
+        Gray, TN 37615<br/>
+        (423) 207-3341<br/>
+        <a href="mailto:info@hopejc.org">info@hopejc.org</a>
+      </p>
+    </LegalPage>
+  );
+}
+
+export { PrivacyPage, AccessibilityPage, TermsPage };
