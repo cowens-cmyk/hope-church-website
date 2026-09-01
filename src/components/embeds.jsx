@@ -413,6 +413,10 @@ function HopeCmsEmbed({ slug, query = '', title = 'Hope Church embed', height = 
     function onMessage(e) {
       // Only trust our own CMS, and only the one field we expect.
       if (e.origin !== CMS_ORIGIN) return;
+      // ...and only from THIS iframe. The sermons page carries two embeds, and
+      // without this both applied whichever height arrived last, so the short
+      // "latest message" hero stretched to the full library's height.
+      if (!frameRef.current || e.source !== frameRef.current.contentWindow) return;
       const next = e.data && e.data.hopeEmbedHeight;
       if (typeof next === 'number' && next > 200 && next < 6000) setH(next);
     }
