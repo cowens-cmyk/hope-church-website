@@ -183,58 +183,59 @@ const PODCASTS = [
     name: 'Hope Church Johnson City',
     short: 'Sunday Sermons',
     tagline: 'Sunday Sermons',
-    rss: 'https://podcasts.subsplash.com/4sgn2fc/podcast.rss',
+    rss: 'https://media.hopejc.org/feeds/messages.rss',
     apple: 'https://podcasts.apple.com/us/podcast/hope-church-johnson-city/id1608413825',
     spotify: 'https://open.spotify.com/show/6TI7L3PvGpmTrxl43BHzSD',
     description: "Sunday-morning messages from Hope Church Johnson City \u2014 verse-by-verse teaching for everyday life. Listen anywhere you get podcasts, or right here.",
-    cover: 'https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD1lYWY3MzFmMy0wYjIxLTRlM2QtYmY1OS0zY2FlMTUwMDE0OGImdz0zMDAwJmg9MzAwMCZhbGxvd191cHNjYWxlPXRydWU.jpg',
+    cover: 'https://hope-media.cowens-09f.workers.dev/files/artwork/feed/messages.jpg',
   },
   {
     id: 'finding-hope',
     name: 'Finding Hope',
     short: 'Finding Hope',
     tagline: 'A weekly conversation',
-    rss: 'https://podcasts.subsplash.com/bn2x4jj/podcast.rss',
+    rss: 'https://media.hopejc.org/feeds/finding-hope-podcast.rss',
     apple: 'https://podcasts.apple.com/us/podcast/finding-hope/id1702042358',
     spotify: 'https://open.spotify.com/show/5EdKn2XuQZmByAoIw1XCTH',
     description: "Life is hard, but there's always hope. Pastors and friends walk through faith, family, theology, and the hard questions of the Bible.",
-    cover: 'https://images.subsplash.com/base64/L2ltYWdlLmpwZz9pZD1lYWYzMWFiMi1iNWUxLTQ4NzctOTVmMy0xYTAxYjU2NDA0OWQmdz0zMDAwJmg9MzAwMCZhbGxvd191cHNjYWxlPXRydWU.jpg',
+    cover: 'https://hope-media.cowens-09f.workers.dev/files/artwork/feed/finding-hope-podcast-2026.jpg',
   },
 ];
 
 // ------------------------------------------------------------
 // Static fallback data (snapshot from the live feeds).
-// Used when the browser can't reach the RSS endpoint (CORS,
-// offline, etc). Audio URLs are the real Subsplash CDN links
-// so playback works in every environment.
+// Used when the browser can't reach the RSS endpoint (offline,
+// etc). Our feeds send access-control-allow-origin, so the direct
+// fetch normally succeeds and the proxy path is rarely needed --
+// Subsplash sent no CORS headers, which is why that proxy exists.
+// Audio URLs point at our own R2 storage, not Subsplash's CDN,
+// so this snapshot keeps working after Subsplash is cancelled.
 // Admins can refresh this snapshot from the Admin > Podcasts panel.
 // ------------------------------------------------------------
 const FALLBACK_EPISODES = {
   'sunday': [
-    { id: 's1', title: "Everybody's Got an Opinion",     subtitle: 'Romans 14:1-12',  author: 'Rick Keller', pubDate: '2026-05-17', duration: 2720,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHL2EzMzRmM2JkLTQ5ODktNDk0OS1iYTZmLWJkZjEyMTA2ZTlmYS9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=gtc6h86' },
-    { id: 's2', title: 'Love Fulfills the Law',          subtitle: 'Romans 13:8-14',  author: 'Rick Keller', pubDate: '2026-05-10', duration: 2579,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHL2ZlZmI2ZDlkLTdkYmMtNGU1My1hZDJhLWJiOWIyNjE1NjQ3Yy9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=w52tzk9' },
-    { id: 's3', title: 'The Tension of Authority',       subtitle: 'Romans 13:1-7',   author: 'Will Easler', pubDate: '2026-05-03', duration: 2432,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHLzA3MzMzMDNhLWQ2NTAtNGZhMS04MGE5LTE0MzJiMjVmMjg5YS9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=9pgt3tj' },
+    { id: 's1', title: 'From Generation to Generation', author: 'Will Easler', pubDate: '2026-08-30', duration: 2794,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/messages/2026/e6f552f0-f0ee-4c18-a56e-1e371a379ab1-sermon.m4a' },
+    { id: 's2', title: 'Isaac and Rebekah', author: 'Rick Keller', pubDate: '2026-08-23', duration: 2362,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/messages/2026/1e0fc923-dd7c-41d7-beac-f18f7e819f2d-isaacandrebecca-8.23.26-.mp3' },
+    { id: 's3', title: 'Genesis 12-23 Recap - The Lord Will Provide', author: 'Will Easler', pubDate: '2026-08-16', duration: 2826,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/messages/2026/11f8e6d6-c287-4813-8a90-2940b1772af6-sermon.m4a' },
+    { id: 's4', title: 'Genesis 1-11 Recap', author: 'Rick Keller', pubDate: '2026-08-09', duration: 2666,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/messages/2026/37ac83ab-a7bf-41bd-ba11-61b647c138a9-genesis1-11recap-8.9.26-.mp3' },
+    { id: 's5', title: 'The Faithfulness of the Holy Spirit', author: 'Rick Keller', pubDate: '2026-08-02', duration: 2765,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/messages/2026/22bc53a0-baa1-4c65-80e8-fe2a2b983b1a-05aac16b-c977-46ac-bc69-89e10595f971.mp3' },
   ],
   'finding-hope': [
-    { id: 'f041', title: '041 Romans 13:8-14',     pubDate: '2026-05-14', duration: 2880,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHLzE5NDk1MTgyLTA3NDctNDRmYy1iNzRkLTM1YjJmZTIyYTE2ZC9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=t6w2yv8' },
-    { id: 'f040', title: '040 Romans 13:1-7',      pubDate: '2026-05-13', duration: 2291,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHL2Y4MWQxZWVkLTRkOWUtNGIzZC04MDkxLWYwNmM2YzdmZDY3OS9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=pdjx9rk' },
-    { id: 'f039', title: '039 Romans 12:13-21',    pubDate: '2026-04-28', duration: 3066,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHLzY2YzU2OTk4LWIxYWMtNGQzNC1iN2ViLTk5MjgyYTg3MTg0ZC9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=3kjz8k5' },
-    { id: 'f038', title: '038 Romans 12:9-12',     pubDate: '2026-04-21', duration: 2908,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHLzdjMThiNTVlLTU2M2YtNDhhMS05NWUyLTI0NDE1ZDNjZDA2NC9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=tsghfs8' },
-    { id: 'f037', title: '037 Romans 12:3-8',      pubDate: '2026-04-13', duration: 3114,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHLzQ4ZTE1ZDkxLWQ4OTQtNDVmZi1hZGQxLWYxYTYxYzYzNDgzMy9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=mfbvfq2' },
-    { id: 'f036', title: '036 Even If Conference', pubDate: '2026-04-11', duration: 2517,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHL2Q5MDU4Y2IxLTk3NGQtNDFhNy05NjhmLWViYWIyNzdlNDAwZC9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=bwt8c9f' },
-    { id: 'f035', title: '035 Romans 12:1-2',      pubDate: '2026-04-06', duration: 2076,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHL2VkYjQ0YzEwLTc4M2YtNGUzMS1iNTFiLWRkMjM3YzcxNzkxYi9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=8bx8dyc' },
-    { id: 'f034', title: '034 Romans 11:25-36',    pubDate: '2026-04-01', duration: 2310,
-      audio: 'https://t.subsplash.com/r/aHR0cHM6Ly9jZG4uc3Vic3BsYXNoLmNvbS9hdWRpb3MvM05ETkNHL2E0NGRjMGI5LTUzMzYtNDEyOC1hZDNiLTgzMjUwMzQzNTNiMS9hdWRpby5tcDM.mp3?k=3NDNCG&s=3&sapid=cf3wtqt' },
+    { id: 'f1', title: '056 From Generation to Generation | Genesis 25', author: 'Hope Church Johnson City', pubDate: '2026-09-01', duration: 3713,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/finding-hope-podcast/2026/20a6b75b-ca81-46b1-87f5-d27d592ba8c9-hope-podcast_new.mp3' },
+    { id: 'f2', title: '055 Isaac and Rebekah | Genesis 24', author: 'Hope Church', pubDate: '2026-08-26', duration: 2043,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/finding-hope-podcast/2026/c00b01e4-c3e3-4ef7-8211-c0e340db767c-ef33ce01-c673-482f-9aaf-1013fb231744.mp3' },
+    { id: 'f3', title: '054 The Lord Will Provide', author: 'Hope Church', pubDate: '2026-08-19', duration: 2354,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/finding-hope-podcast/2026/2dc48095-177c-4bd0-a94d-a4078e88393a-b6f06f03-eb1f-4cd5-b256-78f0fdc657b7.mp3' },
+    { id: 'f4', title: '053 Genesis 1-11 Recap', author: 'Hope Church', pubDate: '2026-08-13', duration: 2654,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/finding-hope-podcast/2026/dc179000-c196-43ca-9fda-88acb2a56d90-b47a097e-3bf0-4af9-a88a-251d12684f4c.mp3' },
+    { id: 'f5', title: '052 The Faithfulness of the Holy Spirit', author: 'Hope Church', pubDate: '2026-08-05', duration: 2656,
+      audio: 'https://hope-media.cowens-09f.workers.dev/files/audio/finding-hope-podcast/2026/460165a5-3065-4212-a96b-cb75db2cc5ed-cb537cd8-89ec-43a4-9e19-208263a2937c.mp3' },
   ],
 };
 
