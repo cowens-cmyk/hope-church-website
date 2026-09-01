@@ -24,6 +24,10 @@
       "destination": "https://hope-media.cowens-09f.workers.dev/$1"
     },
     {
+      "source": "/sermons/:branch",
+      "destination": "https://hope-media.cowens-09f.workers.dev/media/:branch"
+    },
+    {
       "source": "/sermons/:branch/:slug",
       "destination": "https://hope-media.cowens-09f.workers.dev/media/:branch/:slug"
     },
