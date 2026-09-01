@@ -2,7 +2,7 @@ import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { useServiceTimes } from '../serviceTimes.jsx';
-import { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, GiveEmbed } from './embeds.jsx';
+import { HopeCmsEmbed, SubsplashScriptEmbed, SubsplashEvents, GiveEmbed } from './embeds.jsx';
 import { PODCASTS, ApplePodcastsIcon, SpotifyIcon, RssIcon } from './pages-extra.jsx';
 import { KidsMinistryPage } from './ministry-kids.jsx';
 import { Linked56MinistryPage } from './ministry-linked56.jsx';
@@ -392,7 +392,8 @@ function SermonsPage() {
         <div className="container">
           <div style={{maxWidth: 980, margin: '0 auto 56px'}}>
             <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:12}}>Latest message</div>
-            <SubsplashRecent/>
+            <HopeCmsEmbed slug="messages" query="?only=latest"
+                          title="The latest Sunday message" height={620}/>
           </div>
 
           {/* Subscribe / RSS — two podcast cards with subscribe pills */}
@@ -429,28 +430,12 @@ function SermonsPage() {
             </div>
           </div>
 
-          {/* Sunday Morning Messages */}
+          {/* The whole library: Sunday, Mid-Week, Students and Finding Hope
+              behind one set of tabs, served by our own CMS. This replaced
+              three separate Subsplash embeds. */}
           <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48}}>
-            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Sunday Morning Messages</div>
-            <div className="embed-frame">
-              <SubsplashScriptEmbed embedId="subsplash-embed-sunday" embedKey="+4h5t/lb/li/+3kbqzfp?embed&1783608026493"/>
-            </div>
-          </div>
-
-          {/* Finding Hope Podcast */}
-          <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48, marginTop: 48}}>
-            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Finding Hope Podcast</div>
-            <div className="embed-frame">
-              <SubsplashScriptEmbed embedId="subsplash-embed-finding-hope" embedKey="+4h5t/lb/li/+6qygptc?embed&1783608042644"/>
-            </div>
-          </div>
-
-          {/* Mid-Week Messages */}
-          <div style={{borderTop:'1px solid var(--border-hairline)', paddingTop: 48, marginTop: 48}}>
-            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Mid-Week Messages</div>
-            <div className="embed-frame">
-              <SubsplashScriptEmbed embedId="subsplash-embed-midweek" embedKey="+4h5t/lb/li/+pttrmvm?embed&1783608065401"/>
-            </div>
+            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:20}}>Watch any message</div>
+            <HopeCmsEmbed slug="all" title="Hope Church message library" height={1280}/>
           </div>
         </div>
       </section>

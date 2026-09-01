@@ -1,7 +1,7 @@
 import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
-import { SubsplashRecent, SubsplashEvents } from './embeds.jsx';
+import { SubsplashEvents, HopeCmsEmbed } from './embeds.jsx';
 import { useServiceTimes, useFourthServiceLive } from '../serviceTimes.jsx';
 // Hope Church — 3 homepage hero variations + supporting blocks
 
@@ -115,7 +115,7 @@ function HeroC({ onVisit, onWatch }) {
 }
 
 // ======================================================
-// This Week's Sermon (Subsplash-embed placeholder)
+// This Week's Sermon (our own CMS)
 // ======================================================
 function ThisWeekSermon({ onSermons }) {
   return (
@@ -127,7 +127,10 @@ function ThisWeekSermon({ onSermons }) {
           lead="Catch up on Sunday’s message or revisit any past sermon below."
         />
           <div style={{maxWidth: 980, margin: '0 auto'}}>
-            <SubsplashRecent/>
+            {/* Just the newest Sunday message -- the full library lives one
+                click away, so the back-catalogue does not belong here. */}
+            <HopeCmsEmbed slug="messages" query="?only=latest"
+                          title="The latest message" height={620}/>
           </div>
         <div style={{textAlign:'center', marginTop:40}}>
           <Button variant="secondary" size="lg" onClick={onSermons} iconRight="arrow">Browse the full library</Button>

@@ -405,7 +405,7 @@ function SubsplashFueledByHopeCalendar() {
 //     size, used until the first message arrives.
 const CMS_ORIGIN = 'https://media.hopejc.org';
 
-function HopeCmsEmbed({ slug, title = 'Hope Church embed', height = 760 }) {
+function HopeCmsEmbed({ slug, query = '', title = 'Hope Church embed', height = 760 }) {
   const frameRef = useRefSE(null);
   const [h, setH] = React.useState(height);
 
@@ -424,7 +424,7 @@ function HopeCmsEmbed({ slug, title = 'Hope Church embed', height = 760 }) {
     <div className="cms-embed-frame" style={{ borderRadius: 16, overflow: 'hidden' }}>
       <iframe
         ref={frameRef}
-        src={`${CMS_ORIGIN}/embed/${slug}`}
+        src={`${CMS_ORIGIN}/embed/${slug}${query}`}
         title={title}
         loading="lazy"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
