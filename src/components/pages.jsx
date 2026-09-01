@@ -390,10 +390,23 @@ function SermonsPage() {
       <PageHeader eyebrow="Sermons" title="Catch up, go deeper." lead="Every Sunday message, searchable and free. Listen on the app, on Apple Podcasts, or right here." />
       <section className="messages-section">
         <div className="container">
-          <div style={{maxWidth: 980, margin: '0 auto 56px'}}>
-            <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:12}}>Latest message</div>
-            <HopeCmsEmbed slug="messages" query="?only=latest"
-                          title="The latest Sunday message" height={620}/>
+          {/* The two things most people arrive for, side by side. auto-fit
+              rather than a media query: they sit two-up while there is room
+              for a readable 16:9 player each, and stack the moment there
+              is not. */}
+          <div style={{maxWidth: 980, margin: '0 auto 56px', display:'grid',
+                       gridTemplateColumns:'repeat(auto-fit, minmax(340px, 1fr))',
+                       gap: 28, alignItems:'start'}}>
+            <div>
+              <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:12}}>Latest Sunday message</div>
+              <HopeCmsEmbed slug="messages" query="?only=latest"
+                            title="The latest Sunday message" height={430}/>
+            </div>
+            <div>
+              <div style={{fontSize:11, fontWeight:900, letterSpacing:'0.16em', textTransform:'uppercase', color:'var(--fg-3)', marginBottom:12}}>Latest Finding Hope episode</div>
+              <HopeCmsEmbed slug="finding-hope-podcast" query="?only=latest"
+                            title="The latest Finding Hope episode" height={430}/>
+            </div>
           </div>
 
           {/* Subscribe / RSS — two podcast cards with subscribe pills */}
