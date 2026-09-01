@@ -114,7 +114,7 @@ function StudentsMinistryPage({ onNav }) {
             <p>Missed a Wednesday night? Watch the most recent Hope Students message, or dig into the full archive any time.</p>
           </header>
           <div style={{maxWidth: 900, margin: '0 auto'}}>
-            <HopeCmsEmbed slug="hope-students" title="Hope Students messages"/>
+            <HopeCmsEmbed slug="students-messages" title="Hope Students messages"/>
           </div>
         </div>
       </section>

@@ -393,20 +393,43 @@ function SubsplashFueledByHopeCalendar() {
   return <div className="subsplash-embed-host" ref={hostRef} />;
 }
 
-// ---------- Hope CMS embed (cms.hopejc.org) ----------
-// Simple iframe embed for Hope's own CMS at cms.hopejc.org, e.g. the Hope
-// Students messages feed at /embed/hope-students. The iframe scrolls its own
-// content, so a generous min height keeps the list visible without clipping.
+// ---------- Hope CMS embed (media.hopejc.org) ----------
+// Hope's own CMS replaces the Subsplash embeds. It serves a player page per
+// collection at /embed/<branch-slug> — e.g. students-messages.
+//
+// Two things worth knowing:
+//   * The old address was cms.hopejc.org, which is not the CMS. It resolves to
+//     an unrelated host, so that embed was showing nothing.
+//   * The page measures itself and posts its height, so the frame grows to fit
+//     instead of scrolling inside a fixed box. `height` is only the starting
+//     size, used until the first message arrives.
+const CMS_ORIGIN = 'https://media.hopejc.org';
+
 function HopeCmsEmbed({ slug, title = 'Hope Church embed', height = 760 }) {
+  const frameRef = useRefSE(null);
+  const [h, setH] = React.useState(height);
+
+  useEffectSE(() => {
+    function onMessage(e) {
+      // Only trust our own CMS, and only the one field we expect.
+      if (e.origin !== CMS_ORIGIN) return;
+      const next = e.data && e.data.hopeEmbedHeight;
+      if (typeof next === 'number' && next > 200 && next < 6000) setH(next);
+    }
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, []);
+
   return (
-    <div className="cms-embed-frame" style={{ borderRadius: 16, overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+    <div className="cms-embed-frame" style={{ borderRadius: 16, overflow: 'hidden' }}>
       <iframe
-        src={`https://cms.hopejc.org/embed/${slug}`}
+        ref={frameRef}
+        src={`${CMS_ORIGIN}/embed/${slug}`}
         title={title}
         loading="lazy"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
         allowFullScreen
-        style={{ width: '100%', height, border: 0, display: 'block' }}
+        style={{ width: '100%', height: h, border: 0, display: 'block' }}
       />
     </div>
   );
