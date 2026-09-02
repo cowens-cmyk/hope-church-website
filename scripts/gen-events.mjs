@@ -11,9 +11,13 @@ import { writeFileSync, existsSync, readFileSync } from 'node:fs';
 
 const API = 'https://media.hopejc.org/api/public/calendar';
 const OUT = new URL('../src/generated/events.json', import.meta.url);
+// Unique per run so no proxy can hand us a response from a previous build.
+const BUILD_TAG = `${process.pid}-${Date.now().toString(36)}`;
 
 async function main() {
-  const res = await fetch(`${API}?limit=200`, { headers: { 'user-agent': 'hope-church-build/1.0' } });
+  const res = await fetch(`${API}?limit=200&b=${BUILD_TAG}`, {
+    headers: { 'user-agent': 'hope-church-build/1.0', 'cache-control': 'no-cache' },
+  });
   if (!res.ok) throw new Error(`list responded ${res.status}`);
   const { events = [] } = await res.json();
 
@@ -21,11 +25,20 @@ async function main() {
   const full = [];
   for (const e of events) {
     try {
-      const r = await fetch(`${API}/${encodeURIComponent(e.slug)}`, {
-        headers: { 'user-agent': 'hope-church-build/1.0' },
+      // Cache-bust: media.hopejc.org is proxied through Vercel, which edge-caches
+      // worker responses. A stale entry from before this endpoint existed returns
+      // the whole LIST, and an unvalidated push would write that into the file.
+      const r = await fetch(`${API}/${encodeURIComponent(e.slug)}?b=${BUILD_TAG}`, {
+        headers: { 'user-agent': 'hope-church-build/1.0', 'cache-control': 'no-cache' },
       });
-      if (r.ok) full.push(await r.json());
-      else console.warn(`  skipped ${e.slug}: HTTP ${r.status}`);
+      if (!r.ok) { console.warn(`  skipped ${e.slug}: HTTP ${r.status}`); continue; }
+      const body = await r.json();
+      // Must be one event, and the one we asked for.
+      if (!body || typeof body !== 'object' || Array.isArray(body) || body.events || body.slug !== e.slug) {
+        console.warn(`  skipped ${e.slug}: unexpected response shape (got ${Object.keys(body || {}).slice(0, 4).join(',')})`);
+        continue;
+      }
+      full.push(body);
     } catch (err) {
       console.warn(`  skipped ${e.slug}: ${err.message}`);
     }

@@ -7,8 +7,14 @@
    Data comes from two places on purpose:
      • src/generated/events.json, fetched at build time, so the pre-rendered HTML
        carries the real title, description and Open Graph image for link previews
-     • a live fetch on mount, so an edit in the CMS appears without a redeploy,
-       and an event created since the last build still renders. */
+     • a live fetch on mount, so an edit in the CMS appears without a redeploy
+
+   An event created since the last build has no pre-rendered file. Vercel checks
+   the filesystem first, so those fall through to the CMS-rendered page instead:
+   plainer, but with the right title, description and preview image. The obvious
+   alternative -- falling back to the SPA shell -- was worse, because index.html
+   is the pre-rendered HOME page, so a texted link previewed as the homepage and
+   told Google the event was a duplicate of it. */
 import React, { useEffect, useState } from 'react';
 import { Head } from 'vite-react-ssg';
 import { Link, useParams } from 'react-router-dom';
