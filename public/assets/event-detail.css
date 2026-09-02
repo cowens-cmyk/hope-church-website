@@ -1,0 +1,115 @@
+/* =========================================================
+   HOPE CHURCH — EVENT DETAIL
+   One event, rendered by the site itself so it keeps the header,
+   nav and footer. Uses only existing tokens, so dark mode comes
+   from dark-mode.css with no extra rules here.
+   ========================================================= */
+
+.ev-page { padding: 40px 0 96px; }
+.ev-narrow { max-width: 940px; }
+
+.ev-back {
+  display: inline-block;
+  margin-bottom: 26px;
+  font-size: var(--fs-body-sm);
+  font-weight: 700;
+  color: var(--hope-blue);
+  text-decoration: none;
+}
+.ev-back:hover { text-decoration: underline; }
+
+.ev-head { margin-bottom: 30px; }
+
+.ev-when {
+  margin: 0 0 10px;
+  font-size: var(--fs-eyebrow);
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--hope-blue);
+}
+.ev-dot { margin: 0 8px; opacity: 0.55; }
+
+.ev-title {
+  margin: 0;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: -0.025em;
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+.ev-summary {
+  margin: 14px 0 0;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body-lg);
+  color: var(--fg-2);
+  max-width: 58ch;
+}
+
+.ev-hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 20px;
+  background: var(--bg-muted);
+  margin: 0 0 36px;
+}
+
+/* Copy leads; the practical details sit alongside on a wide screen and
+   move above the copy on a narrow one, where they are what people came for. */
+.ev-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 44px;
+  align-items: start;
+}
+
+.ev-copy { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+.ev-copy p { margin: 0 0 1.05em; }
+.ev-copy p:last-of-type { margin-bottom: 0; }
+
+.ev-cta { margin-top: 30px; padding: 15px 30px; font-size: 15px; }
+
+.ev-side {
+  border: 1px solid var(--border-hairline);
+  border-radius: 16px;
+  padding: 22px 24px;
+  background: var(--bg-tint);
+}
+
+.ev-facts { margin: 0; }
+.ev-fact + .ev-fact {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-hairline);
+}
+.ev-facts dt {
+  margin: 0 0 6px;
+  font-size: var(--fs-caption);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.ev-facts dd {
+  margin: 0;
+  font-size: var(--fs-body-sm);
+  line-height: 1.55;
+  color: var(--fg-2);
+}
+.ev-facts dd a { color: var(--hope-blue); }
+.ev-strong { font-weight: 700; color: var(--fg-1); }
+.ev-note { color: var(--fg-3); }
+
+.ev-loading, .ev-missing { color: var(--fg-3); font-size: var(--fs-body); }
+.ev-missing { margin: 0 0 26px; }
+
+@media (max-width: 880px) {
+  .ev-body { grid-template-columns: 1fr; gap: 30px; }
+  .ev-side { order: -1; }
+  .ev-hero { border-radius: 16px; margin-bottom: 28px; }
+  .ev-page { padding: 28px 0 72px; }
+}

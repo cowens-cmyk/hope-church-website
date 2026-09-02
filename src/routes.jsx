@@ -32,6 +32,7 @@ import {
 import { PrayerRequestPage, GetHelpPage, PodcastPage, AppPage } from './components/pages-extra.jsx';
 import { GenerationsPage, GenerationsHomeBlock } from './components/generations.jsx';
 import { PrivacyPage, AccessibilityPage, TermsPage } from './components/pages-legal.jsx';
+import EventDetailPage from './components/event-detail.jsx';
 
 // ServiceTimes lives in shared in some builds; import defensively from homepage.
 // (Kept here so the homepage assembly below matches the original ordering.)
@@ -216,6 +217,11 @@ export const routes = [
       { path: 'team', element: <View pageKey="team" Comp={TeamPage} /> },
       { path: 'sermons', element: <View pageKey="sermons" Comp={SermonsPage} /> },
       { path: 'events', element: <View pageKey="events" Comp={EventsPage} /> },
+      // One event. Rendered here rather than proxied from the CMS so it keeps
+      // the site header, nav and footer. Pre-rendered per event at build time
+      // (see includedRoutes in vite.config.js); anything newer falls back to
+      // the SPA shell and fetches live.
+      { path: 'events/:slug', element: <EventDetailPage /> },
       { path: 'ministries', element: <View pageKey="ministries" Comp={MinistriesPage} /> },
       { path: 'ministries/kids', ...ministry('ministry-kids') },
       { path: 'ministries/linked56', ...ministry('ministry-linked56') },

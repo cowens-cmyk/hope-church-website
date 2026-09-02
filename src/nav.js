@@ -59,5 +59,12 @@ export function keyForPath(pathname) {
     pathname.length > 1 && pathname.endsWith('/')
       ? pathname.slice(0, -1)
       : pathname;
-  return PATH_TO_KEY[clean] || 'home';
+  if (PATH_TO_KEY[clean]) return PATH_TO_KEY[clean];
+  // A single event lives at /events/<slug>, which is not in the map. Without
+  // this the header highlights Home while the visitor is plainly on an event
+  // page. Same for a sermon under /sermons/<...>.
+  const section = clean.split('/')[1];
+  if (section === 'events') return 'events';
+  if (section === 'sermons') return 'sermons';
+  return 'home';
 }

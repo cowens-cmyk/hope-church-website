@@ -3,10 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Hope Church — Gray / Johnson City, TN. Public website.",
+  "description": "Hope Church \u2014 Gray / Johnson City, TN. Public website.",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/gen-sitemap.mjs && vite-react-ssg build && node scripts/postbuild-404.mjs",
+    "build": "node scripts/gen-events.mjs && node scripts/gen-sitemap.mjs && vite-react-ssg build && node scripts/postbuild-404.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

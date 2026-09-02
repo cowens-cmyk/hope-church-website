@@ -61,7 +61,7 @@
     },
     {
       "source": "/events/:slug",
-      "destination": "https://hope-media.cowens-09f.workers.dev/events/:slug"
+      "destination": "/index.html"
     }
   ],
   "redirects": [
