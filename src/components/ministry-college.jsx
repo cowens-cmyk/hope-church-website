@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
-import { SubsplashCollegeCalendar } from './embeds.jsx';
+import { HopeCalendarEmbed } from './embeds.jsx';
 import { useServiceTimes } from '../serviceTimes.jsx';
 // Hope Church — College & Career ministry detail page (slug: ministry-college)
 // Ages 18–30. Young adults navigating college, work, and the in-between years.
@@ -187,7 +187,7 @@ function CollegeMinistryPage({ onNav }) {
             <p>Group nights, hangouts, service days, and the next big trip &mdash; everything happening in this ministry, pulled live so you never miss a thing.</p>
           </header>
           <div className="cc-calendar-frame">
-            <SubsplashCollegeCalendar/>
+            <HopeCalendarEmbed calendar="college"/>
           </div>
         </div>
       </section>

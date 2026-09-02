@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './shared.jsx';
-import { SubsplashMenCalendar } from './embeds.jsx';
+import { HopeCalendarEmbed } from './embeds.jsx';
 // Hope Church — H.I.T. Men (Men's Ministry) detail page (slug: ministry-men)
 // "Do not be conformed to this world, but be transformed by the renewal of
 //  your mind, that by testing you may discern what is the will of God, what is
@@ -151,7 +151,7 @@ function MenMinistryPage({ onNav }) {
             <p>Studies, breakfasts, service days, and the occasional cookout &mdash; pulled live so you never miss a thing.</p>
           </header>
           <div className="mn-calendar-frame">
-            <SubsplashMenCalendar/>
+            <HopeCalendarEmbed calendar="men"/>
           </div>
         </div>
       </section>
