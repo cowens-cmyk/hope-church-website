@@ -62,6 +62,16 @@
     {
       "source": "/events/:slug",
       "destination": "https://hope-media.cowens-09f.workers.dev/events/:slug"
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "analytics.hopejc.org"
+        }
+      ],
+      "destination": "https://hope-media.cowens-09f.workers.dev/$1"
     }
   ],
   "redirects": [
@@ -109,6 +119,23 @@
           "key": "next"
         }
       ]
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "analytics.hopejc.org"
+        }
+      ],
+      "missing": [
+        {
+          "type": "query",
+          "key": "next"
+        }
+      ],
+      "destination": "/analytics",
+      "permanent": false
     }
   ]
 }
