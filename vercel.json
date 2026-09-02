@@ -54,6 +54,14 @@
         }
       ],
       "destination": "https://hope-media.cowens-09f.workers.dev/$1"
+    },
+    {
+      "source": "/events/img/:path*",
+      "destination": "https://hope-media.cowens-09f.workers.dev/events/img/:path*"
+    },
+    {
+      "source": "/events/:slug",
+      "destination": "https://hope-media.cowens-09f.workers.dev/events/:slug"
     }
   ],
   "redirects": [

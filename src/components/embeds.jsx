@@ -403,7 +403,9 @@ function SubsplashFueledByHopeCalendar() {
 //   * The page measures itself and posts its height, so the frame grows to fit
 //     instead of scrolling inside a fixed box. `height` is only the starting
 //     size, used until the first message arrives.
-const CMS_ORIGIN = 'https://media.hopejc.org';
+// Overridable so `VITE_CMS_ORIGIN=http://127.0.0.1:8788 npm run dev` can preview
+// against a local worker. Production builds never set it.
+const CMS_ORIGIN = (import.meta.env && import.meta.env.VITE_CMS_ORIGIN) || 'https://media.hopejc.org';
 
 function HopeCmsEmbed({ slug, query = '', title = 'Hope Church embed', height = 760 }) {
   const frameRef = useRefSE(null);
@@ -440,9 +442,11 @@ function HopeCmsEmbed({ slug, query = '', title = 'Hope Church embed', height = 
 }
 
 // ---------- Hope Church calendar ----------
-// Replaces the Subsplash calendar embeds. `calendar` is a calendar slug from
-// the CMS ("master", "students", "women", ...) or "all" for everything.
-function HopeCalendarEmbed({ calendar = 'all', limit = 12, title = 'Upcoming events', height = 620 }) {
+// Replaces the Subsplash calendar embeds.
+// `calendar` is a calendar slug from the CMS ("students", "women", ...).
+// Left out, the embed shows the all-church calendar -- the default lives on
+// the server so the markup here never names one.
+function HopeCalendarEmbed({ calendar = '', limit = 12, title = 'Upcoming events', height = 620 }) {
   const frameRef = useRefSE(null);
   const [h, setH] = React.useState(height);
 
@@ -470,7 +474,8 @@ function HopeCalendarEmbed({ calendar = 'all', limit = 12, title = 'Upcoming eve
     return () => obs.disconnect();
   }, []);
 
-  const q = `?calendar=${encodeURIComponent(calendar)}&limit=${encodeURIComponent(limit)}`
+  const q = `?limit=${encodeURIComponent(limit)}`
+    + (calendar ? `&calendar=${encodeURIComponent(calendar)}` : '')
     + (theme ? `&theme=${encodeURIComponent(theme)}` : '');
   return (
     <div className="cms-embed-frame">
