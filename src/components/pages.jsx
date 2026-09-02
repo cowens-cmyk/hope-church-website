@@ -460,11 +460,7 @@ function SermonsPage() {
 function EventsPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Events"
-        title="What's happening at Hope."
-        lead="Classes, gatherings, retreats and serve days. Everyone is welcome."
-      />
+      <PageHeader eyebrow="Events" title="What's happening at Hope." />
       <section className="events-section">
         <div className="container">
           {/* The all-church calendar. Leaving `calendar` off is deliberate:
