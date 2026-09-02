@@ -458,7 +458,20 @@ function HopeCalendarEmbed({ calendar = 'all', limit = 12, title = 'Upcoming eve
     return () => window.removeEventListener('message', onMessage);
   }, []);
 
-  const q = `?calendar=${encodeURIComponent(calendar)}&limit=${encodeURIComponent(limit)}`;
+  // The site's light/dark toggle lives on <html data-theme>, which the iframe
+  // cannot read -- so pass it in, and follow it when the visitor changes it.
+  const [theme, setTheme] = React.useState('');
+  useEffectSE(() => {
+    const root = document.documentElement;
+    const read = () => setTheme(root.getAttribute('data-theme') || '');
+    read();
+    const obs = new MutationObserver(read);
+    obs.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => obs.disconnect();
+  }, []);
+
+  const q = `?calendar=${encodeURIComponent(calendar)}&limit=${encodeURIComponent(limit)}`
+    + (theme ? `&theme=${encodeURIComponent(theme)}` : '');
   return (
     <div className="cms-embed-frame">
       <iframe
