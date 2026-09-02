@@ -2,7 +2,7 @@ import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { useServiceTimes } from '../serviceTimes.jsx';
-import { HopeCmsEmbed, SubsplashScriptEmbed, GiveEmbed, SubsplashEvents } from './embeds.jsx';
+import { HopeCmsEmbed, SubsplashScriptEmbed, GiveEmbed, HopeCalendarEmbed } from './embeds.jsx';
 import { PODCASTS, ApplePodcastsIcon, SpotifyIcon, RssIcon } from './pages-extra.jsx';
 import { KidsMinistryPage } from './ministry-kids.jsx';
 import { Linked56MinistryPage } from './ministry-linked56.jsx';
@@ -460,12 +460,16 @@ function SermonsPage() {
 function EventsPage() {
   return (
     <>
-      <PageHeader eyebrow="Events" title="What's happening at Hope." />
+      <PageHeader
+        eyebrow="Events"
+        title="What's happening at Hope."
+        lead="Classes, gatherings, retreats and serve days. Everyone is welcome."
+      />
       <section className="events-section">
         <div className="container">
-          <div className="embed-frame">
-            <SubsplashEvents/>
-          </div>
+          {/* The all-church calendar. Leaving `calendar` off is deliberate:
+              the default lives on the server, so nothing here names one. */}
+          <HopeCalendarEmbed limit={30} height={1100} title="Upcoming events at Hope Church" />
         </div>
       </section>
     </>
