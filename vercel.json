@@ -85,7 +85,13 @@
         }
       ],
       "destination": "/calendar",
-      "permanent": false
+      "permanent": false,
+      "missing": [
+        {
+          "type": "query",
+          "key": "next"
+        }
+      ]
     },
     {
       "source": "/",
@@ -96,7 +102,13 @@
         }
       ],
       "destination": "/dashboard",
-      "permanent": false
+      "permanent": false,
+      "missing": [
+        {
+          "type": "query",
+          "key": "next"
+        }
+      ]
     }
   ]
 }
