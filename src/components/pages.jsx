@@ -2,7 +2,7 @@ import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { useServiceTimes } from '../serviceTimes.jsx';
-import { HopeCmsEmbed, SubsplashScriptEmbed, SubsplashEvents, GiveEmbed } from './embeds.jsx';
+import { HopeCmsEmbed, SubsplashScriptEmbed, GiveEmbed, HopeCalendarEmbed } from './embeds.jsx';
 import { PODCASTS, ApplePodcastsIcon, SpotifyIcon, RssIcon } from './pages-extra.jsx';
 import { KidsMinistryPage } from './ministry-kids.jsx';
 import { Linked56MinistryPage } from './ministry-linked56.jsx';
@@ -464,7 +464,7 @@ function EventsPage() {
       <section className="events-section">
         <div className="container">
           <div className="embed-frame">
-            <SubsplashEvents/>
+            <HopeCalendarEmbed calendar="all" limit={30}/>
           </div>
         </div>
       </section>

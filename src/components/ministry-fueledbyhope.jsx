@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './shared.jsx';
-import { SubsplashFueledByHopeCalendar } from './embeds.jsx';
+import { HopeCalendarEmbed } from './embeds.jsx';
 // Hope Church — Fueled by Hope (Senior Adult Ministry) detail page
 // slug: ministry-fueledbyhope
 //
@@ -137,7 +137,7 @@ function FueledByHopeMinistryPage({ onNav }) {
             <p>Pulled live from our church calendar so the dates, times, and locations are always current. See something you like &mdash; just come.</p>
           </header>
           <div className="fh-calendar-frame">
-            <SubsplashFueledByHopeCalendar/>
+            <HopeCalendarEmbed calendar="fueled-by-hope" limit={8}/>
           </div>
         </div>
       </section>

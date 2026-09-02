@@ -34,6 +34,30 @@
     {
       "source": "/sermons/:branch/:series/:slug",
       "destination": "https://hope-media.cowens-09f.workers.dev/media/:branch/:series/:slug"
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "calendar.hopejc.org"
+        }
+      ],
+      "destination": "https://hope-media.cowens-09f.workers.dev/$1"
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "dashboard.hopejc.org"
+        }
+      ],
+      "destination": "https://hope-media.cowens-09f.workers.dev/$1"
+    },
+    {
+      "source": "/events/:slug",
+      "destination": "https://hope-media.cowens-09f.workers.dev/events/:slug"
     }
   ],
   "redirects": [
@@ -46,6 +70,28 @@
         }
       ],
       "destination": "/admin",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "calendar.hopejc.org"
+        }
+      ],
+      "destination": "/calendar",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "dashboard.hopejc.org"
+        }
+      ],
+      "destination": "/dashboard",
       "permanent": false
     }
   ]

@@ -439,6 +439,39 @@ function HopeCmsEmbed({ slug, query = '', title = 'Hope Church embed', height = 
   );
 }
 
+// ---------- Hope Church calendar ----------
+// Replaces the Subsplash calendar embeds. `calendar` is a calendar slug from
+// the CMS ("master", "students", "women", ...) or "all" for everything.
+function HopeCalendarEmbed({ calendar = 'all', limit = 12, title = 'Upcoming events', height = 620 }) {
+  const frameRef = useRefSE(null);
+  const [h, setH] = React.useState(height);
+
+  useEffectSE(() => {
+    function onMessage(e) {
+      if (e.origin !== CMS_ORIGIN) return;
+      // Several calendars can share a page, so only listen to this iframe.
+      if (!frameRef.current || e.source !== frameRef.current.contentWindow) return;
+      const next = e.data && e.data.hopeEmbedHeight;
+      if (typeof next === 'number' && next > 120 && next < 6000) setH(next);
+    }
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, []);
+
+  const q = `?calendar=${encodeURIComponent(calendar)}&limit=${encodeURIComponent(limit)}`;
+  return (
+    <div className="cms-embed-frame">
+      <iframe
+        ref={frameRef}
+        src={`${CMS_ORIGIN}/calendar/embed${q}`}
+        title={title}
+        loading="lazy"
+        style={{ width: '100%', height: h, border: 0, display: 'block' }}
+      />
+    </div>
+  );
+}
+
 // ---------- Online Giving embed ----------
 // Planning Center giving, embedded from Church Center. Church Center's Giving
 // URLs send no X-Frame-Options (unlike /registrations/*, see src/discoverHope.js),
@@ -463,4 +496,4 @@ function GiveEmbed() {
   );
 }
 
-export { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, SubsplashMediaLibrary, SubsplashLinked56Calendar, SubsplashStudentsCalendar, SubsplashKidsCalendar, SubsplashCollegeCalendar, SubsplashWomenCalendar, SubsplashMenCalendar, SubsplashFueledByHopeCalendar, HopeCmsEmbed, GiveEmbed };
+export { SubsplashRecent, SubsplashScriptEmbed, SubsplashEvents, SubsplashMediaLibrary, SubsplashLinked56Calendar, SubsplashStudentsCalendar, SubsplashKidsCalendar, SubsplashCollegeCalendar, SubsplashWomenCalendar, SubsplashMenCalendar, SubsplashFueledByHopeCalendar, HopeCmsEmbed, HopeCalendarEmbed, GiveEmbed };

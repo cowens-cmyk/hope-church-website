@@ -1,7 +1,7 @@
 import React from 'react';
 import { resources } from '../resources.js';
 import { Icon, Button, SectionHeader } from './shared.jsx';
-import { SubsplashEvents, HopeCmsEmbed } from './embeds.jsx';
+import { HopeCmsEmbed, HopeCalendarEmbed } from './embeds.jsx';
 import { useServiceTimes, useFourthServiceLive } from '../serviceTimes.jsx';
 // Hope Church — 3 homepage hero variations + supporting blocks
 
@@ -170,7 +170,7 @@ function UpcomingEvents({ onEvents }) {
           hidden={!open}
         >
           <div className="embed-frame">
-            <SubsplashEvents/>
+            <HopeCalendarEmbed calendar="master" limit={4}/>
           </div>
           <div style={{textAlign:'center', marginTop: 40}}>
             <Button variant="secondary" size="lg" onClick={onEvents} iconRight="arrow">See All Events</Button>

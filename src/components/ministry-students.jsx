@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
-import { SubsplashStudentsCalendar, HopeCmsEmbed } from './embeds.jsx';
+import { HopeCmsEmbed, HopeCalendarEmbed } from './embeds.jsx';
 import { useServiceTimes } from '../serviceTimes.jsx';
 // Hope Church — Hope Students ministry detail page (slug: ministry-students)
 // 7th–12th grade. Wednesday-night driven + Sunday morning rhythm.
@@ -157,7 +157,7 @@ function StudentsMinistryPage({ onNav }) {
             <p>Wednesday nights, retreats, service days, and the rest — everything happening in Hope Students, pulled live so you never miss a thing.</p>
           </header>
           <div className="hs-calendar-frame">
-            <SubsplashStudentsCalendar/>
+            <HopeCalendarEmbed calendar="students" limit={8}/>
           </div>
         </div>
       </section>

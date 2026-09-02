@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
-import { SubsplashKidsCalendar } from './embeds.jsx';
+import { HopeCalendarEmbed } from './embeds.jsx';
 import { useServiceTimes, KidsServiceNote } from '../serviceTimes.jsx';
 // Hope Church — Kids Ministry detail page (slug: ministry-kids)
 // Uses PageHeader, Button, Icon from shared.jsx.
@@ -188,7 +188,7 @@ function KidsMinistryPage({ onNav }) {
             <p>Family events, kids&rsquo; nights, and special Sundays &mdash; everything happening in Hope Kids, pulled live so you never miss a thing.</p>
           </header>
           <div className="kids-calendar-frame">
-            <SubsplashKidsCalendar/>
+            <HopeCalendarEmbed calendar="kids" limit={8}/>
           </div>
         </div>
       </section>

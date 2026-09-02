@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './shared.jsx';
-import { SubsplashWomenCalendar } from './embeds.jsx';
+import { HopeCalendarEmbed } from './embeds.jsx';
 // Hope Church — Woven (Women's Ministry) detail page (slug: ministry-women)
 // "But speaking the truth in love, we must grow up in every way into him who is
 //  the head, into Christ, from whom the whole body, joined and knit together..."
@@ -117,7 +117,7 @@ function WomenMinistryPage({ onNav }) {
             <p>Bible studies, brunches, retreats, and prayer gatherings &mdash; everything happening in Woven, pulled live so you never miss a thing.</p>
           </header>
           <div className="wv-calendar-frame">
-            <SubsplashWomenCalendar/>
+            <HopeCalendarEmbed calendar="women" limit={8}/>
           </div>
         </div>
       </section>
