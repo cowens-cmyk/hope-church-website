@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './shared.jsx';
-import { HopeCalendarEmbed } from './embeds.jsx';
+import { SubsplashLinked56Calendar } from './embeds.jsx';
 // Hope Church — Linked 56 ministry detail page (slug: ministry-linked56)
 // 5th–6th grade tweens. Hope Tweens sub-brand. Identity in Christ.
 // Copy sourced from Linked 56 print/social materials.
@@ -87,7 +87,7 @@ function Linked56MinistryPage({ onNav }) {
           <p className="l56-block-times">The Linked 56 calendar</p>
           <p className="l56-block-body">Events, retreats, service days, and milestones &mdash; everything happening in Linked 56, pulled live so you never miss a thing.</p>
           <div className="l56-calendar-frame">
-            <HopeCalendarEmbed calendar="linked-56" limit={8}/>
+            <SubsplashLinked56Calendar/>
           </div>
         </div>
       </section>
