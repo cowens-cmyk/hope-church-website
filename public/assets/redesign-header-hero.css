@@ -1,0 +1,124 @@
+/* =========================================================
+   HOPE CHURCH — HEADER / HERO REDESIGN (additive)
+
+   Loaded AFTER site.css and dark-mode.css so these rules win the
+   cascade for the properties they touch, without editing either
+   file in place. Every selector below either:
+     (a) targets a brand-new class (is-scrolled, menu-open, hero-a-card,
+         header-theme-toggle, hero-a-grid, ...), or
+     (b) adds a property to an existing selector that file didn't
+         already set (e.g. .site-header didn't have margin/border-radius/
+         transition before — this is the first rule to set them).
+   Nothing here removes or overrides an existing declared value other
+   than deliberately (the pill's border-radius/margin/box-shadow, the
+   hero grid's layout).
+   ========================================================= */
+
+/* ---------- Site header: floating rounded pill once scrolled ---------- */
+.site-header {
+  margin: 0;
+  border-radius: 0;
+  transition: margin 380ms var(--ease-out), border-radius 380ms var(--ease-out),
+              box-shadow 320ms var(--ease-out), border-color 320ms var(--ease-out);
+}
+/* Plain margin/border-radius/box-shadow transition — no position or
+   backdrop-filter change — so this can't reintroduce the position:fixed
+   .mobile-menu containing-block bug site.css already works around at
+   the 880px breakpoint (see that file's comment on .site-header). */
+.site-header.is-scrolled {
+  margin: 12px clamp(10px, 3vw, 22px) 0;
+  border-radius: 999px;
+  border-bottom-color: transparent;
+  box-shadow: 0 14px 32px rgba(0,46,98,0.14), 0 2px 8px rgba(0,46,98,0.07);
+}
+[data-theme="dark"] .site-header.is-scrolled {
+  box-shadow: 0 14px 32px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
+}
+/* Full-width and square again while the mobile drawer is open, so the
+   drawer (positioned off this header's height) lines up correctly. */
+.site-header.menu-open { margin: 0; border-radius: 0; box-shadow: none; }
+
+.site-header-inner { transition: height 320ms var(--ease-out); }
+.site-header.is-scrolled .site-header-inner { height: 72px; }
+
+/* ---------- Header theme toggle (replaces the sunday-strip's) ---------- */
+.site-header-actions { display: flex; align-items: center; gap: 6px; }
+.header-theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%; flex: none;
+  background: transparent; border: 0; color: var(--fg-2); cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+.header-theme-toggle:hover { background: var(--ink-100); color: var(--fg-1); }
+.header-theme-toggle svg { width: 19px; height: 19px; }
+.site-header.dark .header-theme-toggle,
+[data-theme="dark"] .header-theme-toggle { color: rgba(255,255,255,0.85); }
+.site-header.dark .header-theme-toggle:hover,
+[data-theme="dark"] .header-theme-toggle:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+/* ---------- Hero: two-column layout for copy + next-service card ---------- */
+.hero-a-grid { display: grid; gap: 40px; }
+@media (min-width: 1100px) {
+  .hero-a-grid { grid-template-columns: 1.6fr 0.8fr; align-items: end; gap: 64px; }
+}
+
+/* Next-service card — real service-time data only (useServiceTimes /
+   useFourthServiceLive), surfaced closer to the fold than the old
+   sunday-strip did. Shows the next start time and the same note text
+   ServiceTimes already renders elsewhere; nothing invented. */
+.hero-a-card {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 22px;
+  padding: 22px 24px 20px;
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  display: grid; gap: 14px;
+}
+.hero-a-card-top {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85);
+}
+.hero-a-card-chip {
+  display: inline-flex; padding: 4px 11px; border-radius: 999px;
+  background: var(--hope-sky); color: var(--hope-navy); font-size: 12px; font-weight: 800;
+  white-space: nowrap;
+}
+.hero-a-card-time { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.02em; line-height: 1; font-size: 52px; color: #fff; }
+.hero-a-card-time small { font-size: 0.4em; font-weight: 700; margin-left: 3px; }
+.hero-a-card-note { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.45; margin: 0; }
+.hero-a-card-foot {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px;
+  border-top: 1px solid rgba(255,255,255,0.18); padding-top: 14px;
+  font-size: 14px; color: rgba(255,255,255,0.82);
+}
+.hero-a-card-foot a { color: #fff; font-weight: 700; }
+@media (prefers-reduced-transparency: reduce) {
+  .hero-a-card { background: rgba(0,26,54,0.85); backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+@media (max-width: 720px) {
+  .hero-a-card { padding: 20px 20px 18px; }
+}
+
+/* ---------- Hero: one orchestrated entrance, nothing scattered ----------
+   .hero-photo-anim was already present as a class in the JSX with no
+   matching rule anywhere (dead/no-op). This gives it the only real motion
+   this pass adds beyond the header: the photo settles, then headline/card
+   rise in a short stagger. Everything else on the page stays static until
+   the visitor scrolls. */
+.hero-a-photo.hero-photo-anim { animation: hero-photo-settle 1.1s var(--ease-out) both; }
+@keyframes hero-photo-settle { from { opacity: 0; transform: scale(1.045); } to { opacity: 1; transform: none; } }
+.hero-a-eyebrow, .hero-a-title, .hero-a-actions, .hero-a-card {
+  animation: hero-rise 0.7s var(--ease-out) both;
+}
+.hero-a-eyebrow { animation-delay: 0.05s; }
+.hero-a-title { animation-delay: 0.12s; }
+.hero-a-actions { animation-delay: 0.22s; }
+.hero-a-card { animation-delay: 0.3s; }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-a-photo.hero-photo-anim,
+  .hero-a-eyebrow, .hero-a-title, .hero-a-actions, .hero-a-card { animation: none; opacity: 1; transform: none; }
+  .site-header { transition: none; }
+}

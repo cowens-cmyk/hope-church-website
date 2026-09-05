@@ -16,7 +16,7 @@ import { KEY_TO_PATH, pathFor, keyForPath } from './nav.js';
 import Seo from './seo.jsx';
 
 import {
-  AnnouncementBar, SundayStrip, SiteHeader, Footer, NewHereBlock, ServiceTimes,
+  AnnouncementBar, SiteHeader, Footer, NewHereBlock, ServiceTimes,
 } from './components/shared.jsx';
 import {
   HeroA, ThisWeekSermon, UpcomingEvents, MinistriesBlock, AppBand, GiveCTA,
@@ -180,7 +180,6 @@ function Layout() {
         text={<>A 4th service is coming! Starting <strong>Sunday, September 20</strong> we&rsquo;re adding a <strong>12:45pm</strong> service.</>}
         onDismiss={dismissBanner}
       />
-      <SundayStrip />
       <SiteHeader onNav={onNav} current={current} dark={false} />
       <main>
         <Outlet />

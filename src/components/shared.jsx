@@ -33,6 +33,8 @@ function Icon({ name, size = 18, color = 'currentColor', strokeWidth = 1.75 }) {
     apple: <path d="M18 10c-.6 1-1.5 2-3 2s-1.5-1-3-1-2 1-3 1-2.5-1-3-2C4 8 5 5 8 5s2 1 3 1 2-1 3-1 3 0 4 5zM13 3a3 3 0 0 0-3 3"/>,
     camera: <><path d="M3 7h3l2-3h8l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/></>,
     android: <><path d="M2 15.5l4-6M22 15.5l-4-6"/><rect x="4" y="9.5" width="16" height="11" rx="2"/><circle cx="9" cy="6" r="0.5" fill="currentColor"/><circle cx="15" cy="6" r="0.5" fill="currentColor"/><line x1="8" y1="4" x2="9" y2="6"/><line x1="16" y1="4" x2="15" y2="6"/></>,
+    sun: <><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></>,
+    moon: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>,
   };
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
@@ -251,6 +253,28 @@ function SiteHeader({ onNav, current, dark = false }) {
   const isDark = dark || theme === 'dark';
   const logo = isDark ? resources.logoHorizReversed : resources.logoHorizBlue;
 
+  // Floating-pill header: turns on past a small scroll threshold. Plain
+  // scroll listener (not IntersectionObserver) since there's no fixed anchor
+  // element to observe — this just tracks a scrollY threshold.
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Simple light/dark flip that lives in the header now that the strip (and
+  // its Auto/Light/Dark ThemeToggle) is no longer rendered site-wide. Uses
+  // the same 'hope_theme' localStorage key and <html data-theme> attribute
+  // as the existing bootstrap script and useResolvedTheme, so it stays in
+  // sync with anything else reading theme state.
+  const flipTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('hope_theme', next); } catch { /* ignore */ }
+  };
+
   // Lock body scroll when menu open + scroll to top so menu aligns with header
   useEffect(() => {
     if (menuOpen) {
@@ -288,7 +312,7 @@ function SiteHeader({ onNav, current, dark = false }) {
   };
 
   return (
-    <header className={`site-header ${dark ? 'dark' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+    <header className={`site-header ${dark ? 'dark' : ''} ${menuOpen ? 'menu-open' : ''} ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="container site-header-inner">
         <a className="brand" href="/" onClick={(e)=>{e.preventDefault();go('home');}}>
           <img src={logo} alt="Hope Church" />
@@ -348,17 +372,28 @@ function SiteHeader({ onNav, current, dark = false }) {
             );
           })}
         </nav>
-        <div className="site-cta">
-          <Button variant="primary" size="sm" onClick={()=>onNav('visit')}>Plan a Visit</Button>
+        <div className="site-header-actions">
+          <button
+            type="button"
+            className="header-theme-toggle"
+            onClick={flipTheme}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            <Icon name={isDark ? 'moon' : 'sun'} size={19} strokeWidth={2}/>
+          </button>
+          <div className="site-cta">
+            <Button variant="primary" size="sm" onClick={()=>onNav('visit')}>Plan a Visit</Button>
+          </div>
+          <button
+            className="site-burger"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(o => !o)}
+          >
+            <Icon name={menuOpen ? 'x' : 'menu'} size={26}/>
+          </button>
         </div>
-        <button
-          className="site-burger"
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(o => !o)}
-        >
-          <Icon name={menuOpen ? 'x' : 'menu'} size={26}/>
-        </button>
       </div>
 
       {/* Mobile slide-down menu */}

@@ -5,26 +5,104 @@ import { HopeCmsEmbed, HopeCalendarEmbed } from './embeds.jsx';
 import { useServiceTimes, useFourthServiceLive } from '../serviceTimes.jsx';
 // Hope Church — 3 homepage hero variations + supporting blocks
 
+const { useState, useEffect } = React;
+
+// Which real Sunday service is next, purely from the same st.first/second/
+// third/fourth strings ServiceTimes already renders — no invented figures,
+// no assumed service length. A service simply stops being "next" once its
+// start time passes; the loop then looks at next Sunday.
+function parseClock(label) {
+  const m = /(\d+):(\d+)(am|pm)/i.exec(label);
+  let h = parseInt(m[1], 10);
+  const min = parseInt(m[2], 10);
+  const ap = m[3].toLowerCase();
+  if (ap === 'pm' && h !== 12) h += 12;
+  if (ap === 'am' && h === 12) h = 0;
+  return { h, min };
+}
+const DAY_MS = 24 * 60 * 60 * 1000;
+function useNextService(st, fourthLive) {
+  const [next, setNext] = useState(null);
+  useEffect(() => {
+    const ALL_CLASSES = 'All classes (nursery–Linked 56)';
+    const services = [
+      { label: st.first, name: 'First Service', note: st.isNew ? 'Nursery & preschool only' : null },
+      { label: st.second, name: 'Second Service', note: st.isNew ? ALL_CLASSES : null },
+      { label: st.third, name: 'Third Service', note: st.isNew ? ALL_CLASSES : null },
+    ];
+    if (st.isNew && fourthLive) services.push({ label: st.fourth, name: 'Fourth Service', note: ALL_CLASSES });
+
+    function compute() {
+      const now = new Date();
+      for (let d = 0; d < 8; d++) {
+        const day = new Date(now.getFullYear(), now.getMonth(), now.getDate() + d);
+        if (day.getDay() !== 0) continue;
+        for (const svc of services) {
+          const { h, min } = parseClock(svc.label);
+          const start = new Date(day.getFullYear(), day.getMonth(), day.getDate(), h, min);
+          if (start > now) {
+            const dayLabel =
+              start - now < DAY_MS && start.toDateString() === new Date(now.getTime() + DAY_MS).toDateString()
+                ? 'Tomorrow'
+                : start.toDateString() === now.toDateString()
+                ? 'Today'
+                : `Sun, ${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
+            return { svc, start, dayLabel };
+          }
+        }
+      }
+      return null;
+    }
+    setNext(compute());
+    const id = setInterval(() => setNext(compute()), 60000);
+    return () => clearInterval(id);
+  }, [st, fourthLive]);
+  return next;
+}
+
 // ======================================================
 // HERO A — Full-bleed photo, dark scrim, mission-forward
 // ======================================================
 function HeroA({ onVisit, onWatch }) {
   const st = useServiceTimes();
   const fourthLive = useFourthServiceLive();
+  const next = useNextService(st, fourthLive);
   return (
     <section className="hero-a" data-screen-label="Hero A">
       <div className="hero-a-media">
         <div className="hero-a-photo fallback hero-photo-anim" />
       </div>
       <div className="hero-a-inner">
-        <span className="eyebrow hero-a-eyebrow">Welcome to Hope Church</span>
-        <h1 className="hero-a-title">Love God.<br/>Love <em>people.</em><br/>Make disciples.</h1>
-        <div className="hero-a-actions">
-          <Button variant="primary" size="xl" onClick={onVisit} iconRight="arrow">Plan Your Visit</Button>
-          <a className="footer-live-btn hero-live-btn" href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">
-            <span className="live-dot" aria-hidden="true"/>
-            Watch live at {st.stream}
-          </a>
+        <div className="hero-a-grid">
+          <div className="hero-a-copy">
+            <span className="eyebrow hero-a-eyebrow">Welcome to Hope Church</span>
+            <h1 className="hero-a-title">Love God.<br/>Love <em>people.</em><br/>Make disciples.</h1>
+            <div className="hero-a-actions">
+              <Button variant="primary" size="xl" onClick={onVisit} iconRight="arrow">Plan Your Visit</Button>
+              <a className="footer-live-btn hero-live-btn" href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">
+                <span className="live-dot" aria-hidden="true"/>
+                Watch live at {st.stream}
+              </a>
+            </div>
+          </div>
+          {next && (
+            <aside className="hero-a-card" aria-live="polite">
+              <div className="hero-a-card-top">
+                <span>Next service</span>
+                <span className="hero-a-card-chip">{next.dayLabel}</span>
+              </div>
+              <div className="hero-a-card-time">
+                {next.svc.label.replace(/am|pm/i, '')}<small>{/pm/i.test(next.svc.label) ? 'pm' : 'am'}</small>
+              </div>
+              <p className="hero-a-card-note">
+                {next.svc.name}{next.svc.note ? `. ${next.svc.note}.` : '.'}
+              </p>
+              <div className="hero-a-card-foot">
+                <span>5034 Bobby Hicks Hwy</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener">Directions</a>
+              </div>
+            </aside>
+          )}
         </div>
       </div>
       <div className="hero-a-bottom">
