@@ -70,6 +70,11 @@
   <link rel="stylesheet" href="/assets/podcast-prayer.css"/>
   <link rel="stylesheet" href="/assets/dark-mode.css"/>
 
+  <!-- Header bar + hero animation — additive only, loaded last so it wins
+       the cascade for the properties it touches without editing site.css
+       or dark-mode.css in place. See the file's own header comment. -->
+  <link rel="stylesheet" href="/assets/redesign-header-hero.css"/>
+
   <!-- Theme detection — runs BEFORE React so there's no flash of light mode.
        Resolution order:
          1. ?theme= URL param (light|dark)

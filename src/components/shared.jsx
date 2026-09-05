@@ -197,6 +197,57 @@ function ThemeToggle() {
   );
 }
 
+// ---------- Simple Theme Toggle (light/dark only, no Auto) ----------
+// Same markup/classes as ThemeToggle (below) so it inherits its styling
+// with no new CSS, just a simplified 2-state flip instead of the
+// Auto -> Light -> Dark -> Auto cycle. Uses the same 'hope_theme'
+// localStorage key and <html data-theme> attribute as the existing
+// bootstrap script and useResolvedTheme, so it stays in sync with
+// anything else reading theme state. ThemeToggle itself is left
+// untouched below in case anything else still uses it.
+function SimpleThemeToggle() {
+  const theme = useResolvedTheme();
+  const isDark = theme === 'dark';
+  const flip = () => {
+    const next = isDark ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('hope_theme', next); } catch {}
+  };
+  const title = isDark ? 'Theme: Dark. Click for Light.' : 'Theme: Light. Click for Dark.';
+  return (
+    <button
+      type="button"
+      className="theme-toggle"
+      onClick={flip}
+      title={title}
+      aria-label={title}
+    >
+      <span className="theme-toggle-icon" aria-hidden="true">
+        {isDark ? (
+          // moon
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+        ) : (
+          // sun
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2"  x2="12" y2="4"/>
+            <line x1="12" y1="20" x2="12" y2="22"/>
+            <line x1="2"  y1="12" x2="4"  y2="12"/>
+            <line x1="20" y1="12" x2="22" y2="12"/>
+            <line x1="4.9" y1="4.9"  x2="6.3" y2="6.3"/>
+            <line x1="17.7" y1="17.7" x2="19.1" y2="19.1"/>
+            <line x1="4.9" y1="19.1" x2="6.3" y2="17.7"/>
+            <line x1="17.7" y1="6.3"  x2="19.1" y2="4.9"/>
+          </svg>
+        )}
+      </span>
+      <span className="theme-toggle-label">{isDark ? 'Dark' : 'Light'}</span>
+    </button>
+  );
+}
+
 // ---------- Sunday Strip (sticky service times, top of page) ----------
 function SundayStrip() {
   const st = useServiceTimes();
@@ -214,7 +265,7 @@ function SundayStrip() {
         <div className="sunday-strip-right">
           <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener"><Icon name="pin" size={13}/> 5034 Bobby Hicks Hwy</a>
           <a href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">Watch Live on Sundays at {st.stream}</a>
-          <ThemeToggle/>
+          <SimpleThemeToggle/>
         </div>
       </div>
     </div>
@@ -250,6 +301,17 @@ function SiteHeader({ onNav, current, dark = false }) {
   const theme = useResolvedTheme();
   const isDark = dark || theme === 'dark';
   const logo = isDark ? resources.logoHorizReversed : resources.logoHorizBlue;
+
+  // Floating-pill header: turns on past a small scroll threshold. Plain
+  // scroll listener (not IntersectionObserver) since there's no fixed anchor
+  // element to observe — this just tracks a scrollY threshold.
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   // Lock body scroll when menu open + scroll to top so menu aligns with header
   useEffect(() => {
@@ -288,7 +350,7 @@ function SiteHeader({ onNav, current, dark = false }) {
   };
 
   return (
-    <header className={`site-header ${dark ? 'dark' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+    <header className={`site-header ${dark ? 'dark' : ''} ${menuOpen ? 'menu-open' : ''} ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="container site-header-inner">
         <a className="brand" href="/" onClick={(e)=>{e.preventDefault();go('home');}}>
           <img src={logo} alt="Hope Church" />
