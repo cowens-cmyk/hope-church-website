@@ -84,6 +84,22 @@
        Also keeps the theme in sync if the OS preference changes while open. -->
   <script>
     (function () {
+      // One-time reset back to Auto.
+      //
+      // For a while the toggle had no Auto position: the first click saved
+      // 'light' or 'dark' and nothing could ever remove it, so anyone who
+      // pressed it once stopped following their device from then on -- with no
+      // way back and no sign that a lasting choice had been made. Auto is the
+      // toggle's first position again, but a saved value still wins over the
+      // system preference (correctly), so those visitors would stay stuck.
+      // This clears the key once, and once only: bump the marker to do it again.
+      try {
+        if (localStorage.getItem('hope_theme_auto_reset') !== '1') {
+          localStorage.removeItem('hope_theme');
+          localStorage.setItem('hope_theme_auto_reset', '1');
+        }
+      } catch (e) {}
+
       function clockTheme() {
         var h = new Date().getHours();
         return (h >= 19 || h < 7) ? 'dark' : 'light';

@@ -198,6 +198,13 @@ function ThemeToggle() {
 }
 
 // ---------- Simple Theme Toggle (light/dark only, no Auto) ----------
+// UNUSED. Kept only so the change back to ThemeToggle is a one-line revert.
+//
+// Why it was retired: with no Auto position, the first click wrote 'light' or
+// 'dark' to hope_theme and there was no way to remove it again, so the site
+// stopped following the device from that click onward -- permanently, and
+// invisibly, since the button gives no hint that it is making a lasting choice.
+// ThemeToggle's third position removes the key and hands the decision back.
 // Same markup/classes as ThemeToggle (below) so it inherits its styling
 // with no new CSS, just a simplified 2-state flip instead of the
 // Auto -> Light -> Dark -> Auto cycle. Uses the same 'hope_theme'
@@ -265,7 +272,7 @@ function SundayStrip() {
         <div className="sunday-strip-right">
           <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener"><Icon name="pin" size={13}/> 5034 Bobby Hicks Hwy</a>
           <a href="https://www.youtube.com/@hopechurchjohnsoncity" target="_blank" rel="noopener">Watch Live on Sundays at {st.stream}</a>
-          <SimpleThemeToggle/>
+          <ThemeToggle/>
         </div>
       </div>
     </div>
