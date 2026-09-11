@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["TCAQTA64TB.com.subsplashconsulting.3NDNCG"],
+        "components": [
+          { "/": "/events/img/*", "exclude": true, "comment": "event artwork files, not pages" },
+          { "/": "/sermons", "comment": "the library" },
+          { "/": "/sermons/*", "comment": "a branch, or one message" },
+          { "/": "/events", "comment": "the calendar" },
+          { "/": "/events/*", "comment": "one event" },
+          { "/": "/podcast" },
+          { "/": "/podcast/*" },
+          { "/": "/give" }
+        ]
+      }
+    ]
+  }
+}
