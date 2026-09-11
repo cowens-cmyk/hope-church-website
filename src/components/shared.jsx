@@ -1,4 +1,5 @@
 import React from 'react';
+import { hrefFor } from '../announcement.jsx';
 import { resources } from '../resources.js';
 import { pathFor } from '../nav.js';
 import { useServiceTimes, useFourthServiceLive } from '../serviceTimes.jsx';
@@ -55,11 +56,14 @@ function Button({ variant = 'primary', size = 'md', children, onClick, icon, ico
 // ---------- Announcement bar ----------
 function AnnouncementBar({ text, link, onDismiss, visible }) {
   if (!visible) return null;
+  // `link` is { label, url } from the CMS. It used to be a bare string drawn
+  // with href="#", which went nowhere.
+  const href = link && link.url ? hrefFor(link.url) : null;
   return (
     <div className="announce-bar">
       <div className="announce-bar-inner">
         <span className="announce-bar-dot" />
-        <span>{text} {link && <a href="#">{link}</a>}</span>
+        <span>{text}{href && link.label ? <> <a href={href}>{link.label}</a></> : null}</span>
       </div>
       <button className="announce-bar-close" onClick={onDismiss} aria-label="Dismiss">×</button>
     </div>
