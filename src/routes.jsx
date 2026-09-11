@@ -14,6 +14,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 import { KEY_TO_PATH, pathFor, keyForPath } from './nav.js';
 import Seo from './seo.jsx';
+import { useAnnouncement, renderRich } from './announcement.jsx';
 
 import {
   AnnouncementBar, SundayStrip, SiteHeader, Footer, NewHereBlock, ServiceTimes,
@@ -133,52 +134,24 @@ function NotFound() {
 }
 
 /* ---------- shared layout (header + footer wrap every page) ---------- */
-// Fourth-service announcement window (absolute instants, timezone-proof):
-//   Reveals   Tuesday, August 25 2026 at 8:00am ET (EDT = UTC-4 -> 12:00 UTC)
-//   Auto-hides Sunday, September 20 2026 at 2:00pm ET (the 12:45 service has
-//              started, so it is no longer "coming" -> 18:00 UTC)
-// Add ?previewBanner to any URL to force it visible outside that window.
-const SVC_BANNER_REVEAL = Date.parse('2026-08-25T12:00:00Z');
-const SVC_BANNER_HIDE = Date.parse('2026-09-20T18:00:00Z');
-// Bumping this key re-shows the bar to visitors who dismissed the previous one.
-const SVC_BANNER_DISMISS_KEY = 'fourth-service-banner-dismissed';
-
 function Layout() {
   const location = useLocation();
   const current = keyForPath(location.pathname);
   const onNav = useNav();
 
-  const [bannerVisible, setBannerVisible] = useState(false);
-  useEffect(() => {
-    let preview = false;
-    let dismissed = false;
-    try {
-      // Persist preview across in-app navigation (param is dropped on client nav).
-      if (new URLSearchParams(window.location.search).has('previewBanner')) {
-        window.sessionStorage.setItem('previewBanner', '1');
-      }
-      preview = window.sessionStorage.getItem('previewBanner') === '1';
-      dismissed = window.localStorage.getItem(SVC_BANNER_DISMISS_KEY) === '1';
-    } catch { /* ignore */ }
-    const now = Date.now();
-    const inWindow = now >= SVC_BANNER_REVEAL && now < SVC_BANNER_HIDE;
-    // Preview always wins, so ?previewBanner reliably shows it even if previously dismissed.
-    setBannerVisible(preview || (inWindow && !dismissed));
-  }, [location.pathname]);
-
-  const dismissBanner = () => {
-    setBannerVisible(false);
-    try { window.localStorage.setItem(SVC_BANNER_DISMISS_KEY, '1'); } catch { /* ignore */ }
-  };
+  // The announcement comes from the CMS now -- the same document the apps read.
+  // Its text and schedule used to be constants here; see src/announcement.jsx.
+  const [announcement, dismissAnnouncement] = useAnnouncement(location.pathname);
 
   return (
     <div data-screen-label={`Site · ${current}`}>
       <ScrollToTop />
       <LegacyPageRedirect />
       <AnnouncementBar
-        visible={bannerVisible}
-        text={<>A 4th service is coming! Starting <strong>Sunday, September 20</strong> we&rsquo;re adding a <strong>12:45pm</strong> service.</>}
-        onDismiss={dismissBanner}
+        visible={!!announcement}
+        text={announcement ? renderRich(announcement.text) : null}
+        link={announcement ? announcement.link : null}
+        onDismiss={dismissAnnouncement}
       />
       <SundayStrip />
       <SiteHeader onNav={onNav} current={current} dark={false} />
