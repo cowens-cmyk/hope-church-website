@@ -28,15 +28,18 @@ export const NEW_SERVICE_TIMES = NEW;
 // Shared note: under the new schedule the 7:30 service is nursery & preschool
 // only (no K–4th grade, no Linked 5–6th).
 
-// The fourth service (12:45pm) begins Sunday, September 20 2026 at 12:45pm ET
-// (EDT = UTC-4 -> 16:45 UTC). Until that instant the site shows it as "coming
-// soon"; after it, as a regular service — flipped automatically, no redeploy.
-// Add ?previewFourth=live (or =soon) to any URL to force a state for QA.
-export const FOURTH_SERVICE_START = Date.parse('2026-09-20T16:45:00Z');
+// The fourth service (12:45pm) is running. It was gated on
+// 2026-09-20T16:45:00Z while it was still being announced; the church brought
+// it forward, so the gate now sits in the past and the service shows as an
+// ordinary one everywhere. The constant is kept rather than deleted because
+// every "is the fourth service on?" decision on the site reads it, and a date
+// in the past answers that question without any of those call sites changing.
+// Add ?previewFourth=soon to any URL to see the pre-launch state again.
+export const FOURTH_SERVICE_START = Date.parse('2026-09-13T00:00:00Z');
 
 // Initial state is deliberately `false` so the pre-rendered HTML and the first
-// client render agree (no hydration mismatch); the effect corrects it. After
-// Sep 20 a redeploy bakes the live state into the static HTML for crawlers.
+// client render agree (no hydration mismatch); the effect corrects it. The
+// build bakes the live state into the static HTML for crawlers.
 export function useFourthServiceLive() {
   const [live, setLive] = useState(false);
   useEffect(() => {
