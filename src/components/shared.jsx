@@ -262,6 +262,7 @@ function SimpleThemeToggle() {
 // ---------- Sunday Strip (sticky service times, top of page) ----------
 function SundayStrip() {
   const st = useServiceTimes();
+  const fourthLive = useFourthServiceLive();
   return (
     <div className="sunday-strip">
       <div className="container sunday-strip-inner">
@@ -271,6 +272,7 @@ function SundayStrip() {
             <span>{st.first}</span><em/>
             <span>{st.second}</span><em/>
             <span>{st.third}</span>
+            {fourthLive && <><em/><span>{st.fourth}</span></>}
           </div>
         </div>
         <div className="sunday-strip-right">
@@ -286,6 +288,7 @@ function SundayStrip() {
 // ---------- Site Header ----------
 function SiteHeader({ onNav, current, dark = false }) {
   const st = useServiceTimes();
+  const fourthLive = useFourthServiceLive();
   const involvedItems = [
     { id: 'lifegroups', label: 'Groups', desc: '', href: 'https://hopejc.churchcenter.com/groups/life-groups?enrollment=open_signup%2Crequest_to_join&filter=enrollment' },
     { id: 'serve', label: 'Serve', desc: 'Find a team that fits your gifts and schedule.' },
@@ -296,7 +299,7 @@ function SiteHeader({ onNav, current, dark = false }) {
   const involvedIds = involvedItems.map(i => i.id);
   const links = [
     { id: 'home', label: 'Home' },
-    { id: 'visit', label: 'I\u2019m New' },
+    { id: 'visit', label: 'I’m New' },
     { id: 'about', label: 'About' },
     { id: 'sermons', label: 'Sermons' },
     { id: 'events', label: 'Events' },
@@ -491,7 +494,9 @@ function SiteHeader({ onNav, current, dark = false }) {
         </div>
         <div className="mobile-menu-foot">
           <div className="mobile-menu-foot-label">Sundays</div>
-          <div className="mobile-menu-foot-times">{st.first.replace('am','')} · {st.second.replace('am','')} · {st.third}</div>
+          <div className="mobile-menu-foot-times">
+            {st.first.replace('am','')} · {st.second.replace('am','')} · {fourthLive ? <>{st.third.replace('am','')} · {st.fourth}</> : st.third}
+          </div>
           <a href="https://www.google.com/maps/search/?api=1&query=5034+Bobby+Hicks+Hwy+Johnson+City+TN" target="_blank" rel="noopener" className="mobile-menu-foot-addr">
             <Icon name="pin" size={14}/> 5034 Bobby Hicks Hwy, Johnson City, TN
           </a>
@@ -534,8 +539,8 @@ function ServiceTimes() {
     { t: st.second.replace('am',''), s: 'am', name: 'Second Service', note: st.isNew ? ALL_CLASSES : null },
     { t: st.third.replace('am',''), s: 'am', name: 'Third Service', note: st.isNew ? ALL_CLASSES : null },
   ];
-  // The 12:45 service shows as "coming soon" until it starts on Sep 20, then
-  // becomes an ordinary card alongside the others.
+  // The 12:45 service shows as "coming soon" before it starts, then becomes an
+  // ordinary card alongside the others.
   if (st.isNew) times.push({
     t: st.fourth.replace('pm',''), s: 'pm', name: 'Fourth Service',
     note: ALL_CLASSES, soon: !fourthLive,
