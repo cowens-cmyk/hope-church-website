@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, Button, SectionHeader } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
-import { DISCOVER_HOPE, useDiscoverHopeSignupOpen } from '../discoverHope.js';
+import { useNextDiscoverHope } from '../discoverHope.js';
 // Hope Church — "Get Involved" subpages: Groups, Missions, Connect Card, Discover Hope
 
 const { useState: useStateGI } = React;
@@ -324,9 +324,10 @@ function ConnectCardPage() {
 
 // ---------- Discover Hope (new members class) ----------
 function DiscoverHopePage({ onNav }) {
-  // Sign-up link + cutoff date live in src/discoverHope.js — update it there
-  // each month. Past the cutoff this flips to "Sign up coming soon" on its own.
-  const signupOpen = useDiscoverHopeSignupOpen();
+  // The next class comes from the events calendar in the CMS (src/discoverHope.js).
+  // Adding next month's Discover Hope there, with its sign-up link, puts it here.
+  const next = useNextDiscoverHope();
+  const signupOpen = next.open;
 
   return (
     <>
@@ -411,14 +412,14 @@ function DiscoverHopePage({ onNav }) {
                 <div className="discover-signup">
                   <div className="discover-signup-next">
                     <span className="discover-signup-label">Next class</span>
-                    <strong>{DISCOVER_HOPE.classLabel}</strong>
-                    <span className="discover-signup-time">6:30pm &middot; Hope Church</span>
+                    <strong>{next.label}</strong>
+                    <span className="discover-signup-time">{next.time} &middot; Hope Church</span>
                   </div>
                   {/* Church Center blocks framing on /registrations/* — this has
                       to open in a new tab. See src/discoverHope.js for details. */}
                   <a
                     className="btn btn-primary btn-lg discover-signup-btn"
-                    href={DISCOVER_HOPE.signupUrl}
+                    href={next.signupUrl}
                     target="_blank"
                     rel="noopener"
                   >
@@ -433,7 +434,9 @@ function DiscoverHopePage({ onNav }) {
             ) : (
               <div className="visit-card discover-form-card discover-form-card-soon">
                 <h2>Sign up coming soon</h2>
-                <div className="sub">Registration for the next Discover Hope isn&rsquo;t open just yet.</div>
+                <div className="sub">{next.label
+                  ? <>The next class is <strong>{next.label}</strong> at {next.time}. Sign-up opens soon.</>
+                  : <>Registration for the next Discover Hope isn&rsquo;t open just yet.</>}</div>
                 <div className="discover-signup discover-signup-soon">
                   <p>Discover Hope meets the <strong>first Wednesday of every month at 6:30pm</strong>. We post the sign-up here as soon as the next class opens &mdash; usually a few weeks ahead.</p>
                   <p>Don&rsquo;t want to keep checking back? Reach out and we&rsquo;ll let you know the moment it&rsquo;s live.</p>
