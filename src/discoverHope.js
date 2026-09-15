@@ -1,65 +1,77 @@
 import React from 'react';
+import BUILT from './generated/discover-hope.json';
+import { todayInJohnsonCity, pickNextDiscoverHope, classLabel, timeLabel } from './discoverHopeNext.js';
 
-/* Hope Church — Discover Hope sign-up, single source of truth.
+/* Hope Church — the next Discover Hope class, read from the events calendar.
 
-   Discover Hope meets the first Wednesday of every month at 6:30pm.
-   Registration lives in Church Center and gets a brand-new link for each
-   month's class, so this file is the one place that has to change.
+   Discover Hope is an ordinary event in the CMS. To post next month's class,
+   add it on the CMS Events page with its Church Center sign-up link -- that is
+   the whole job. The CMS rebuilds the site whenever an event changes, and this
+   page also checks the live calendar when it loads, so a new class shows up
+   even before that rebuild finishes.
 
-   ── Posting next month's class ──────────────────────────────────────
-   Update the three fields below:
-     signupUrl   the new Church Center registration link
-     classLabel  the class date, written the way it should read on the page
-     closesAt    midnight ET the morning AFTER the class (table below)
+   This used to be three hand-edited fields in this file (link, date label and
+   a cutoff instant), so the page went stale every month until someone edited
+   code. In mid-September 2026 it was still pointing at September 2 and showing
+   "Sign up coming soon" while the October class sat on the events page.
 
-   Once `closesAt` passes, the sign-up button comes down on its own and the
-   page shows "Sign up coming soon" — no deploy needed to pull the old link.
-   The next deploy with a fresh signupUrl puts the button back.
+   How the page decides:
+     * The next class is the earliest event titled "Discover Hope" that has not
+       finished, by the date in Johnson City (src/discoverHopeNext.js).
+     * With a sign-up link, it shows the date and the sign-up button.
+     * Without a link yet, "Sign up coming soon", naming the date.
+     * With no upcoming class on the calendar, "Sign up coming soon" alone.
 
-   ── closesAt for upcoming classes ───────────────────────────────────
-     Wed Sep 2 2026  ->  '2026-09-03T04:00:00Z'
-     Wed Oct 7 2026  ->  '2026-10-08T04:00:00Z'
-     Wed Nov 4 2026  ->  '2026-11-05T05:00:00Z'   (EST — clocks fell back Nov 1)
-     Wed Dec 2 2026  ->  '2026-12-03T05:00:00Z'
-     Wed Jan 6 2027  ->  '2027-01-07T05:00:00Z'
-     Wed Feb 3 2027  ->  '2027-02-04T05:00:00Z'
-   These are UTC instants so the cutoff lands at midnight in Johnson City no
-   matter where the visitor is. Eastern is UTC-4 in summer (T04:00:00Z) and
-   UTC-5 in winter (T05:00:00Z) — DST flips the first Sunday in November and
-   the second Sunday in March. (Congress keeps floating permanent DST; as of
-   Aug 2026 it is not law and clocks still change. If that ever passes, every
-   closesAt below the switch becomes T04:00:00Z year-round.)
+   The build writes src/generated/discover-hope.json (scripts/gen-discover-hope.mjs)
+   so the class is in the pre-rendered HTML for crawlers and no-JS visitors.
+   The server render and the first client render both start from that file, so
+   they agree and React reports no hydration mismatch; the effect then applies
+   today's date and the live calendar.
 
-   QA: append ?previewSignup=closed to the page URL to see the "coming soon"
-   state early, or ?previewSignup=open to force the sign-up back on. */
+   QA: append ?previewSignup=closed to see the "coming soon" state. */
 
 const { useState, useEffect } = React;
 
-export const DISCOVER_HOPE = {
-  signupUrl: 'https://hopejc.churchcenter.com/registrations/events/3816583',
-  classLabel: 'Wednesday, September 2',
-  closesAt: Date.parse('2026-09-03T04:00:00Z'), // midnight ET, Thu Sep 3 2026
-};
+const CMS_ORIGIN = (import.meta.env && import.meta.env.VITE_CMS_ORIGIN) || 'https://media.hopejc.org';
 
-/* True while the current class's sign-up should be showing.
+function previewClosed() {
+  try {
+    return new URLSearchParams(window.location.search).get('previewSignup') === 'closed';
+  } catch {
+    return false;
+  }
+}
 
-   The static/SSR render bakes in "open" so the sign-up is in the HTML for
-   crawlers and no-JS visitors; the effect below closes it once closesAt has
-   passed. That means a visitor with JS off could still see a stale button in
-   the gap between a class and the next update — the Church Center link itself
-   stops accepting registrations at that point, so it fails safe. */
-export function useDiscoverHopeSignupOpen() {
-  const [open, setOpen] = useState(true);
+export function useNextDiscoverHope() {
+  const [cls, setCls] = useState(BUILT || null);
+  // null until mounted: the server has no "today", so the baked class is shown as-is.
+  const [today, setToday] = useState(null);
+  const [forcedClosed, setForcedClosed] = useState(false);
+
   useEffect(() => {
-    let force = null;
-    try {
-      const p = new URLSearchParams(window.location.search).get('previewSignup');
-      if (p === 'open') force = true;
-      else if (p === 'closed') force = false;
-    } catch { /* ignore */ }
-    setOpen(force !== null ? force : Date.now() < DISCOVER_HOPE.closesAt);
+    setToday(todayInJohnsonCity());
+    setForcedClosed(previewClosed());
+    let cancelled = false;
+    fetch(`${CMS_ORIGIN}/api/public/calendar`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((body) => {
+        if (!cancelled && body && Array.isArray(body.events)) {
+          setCls(pickNextDiscoverHope(body.events, todayInJohnsonCity()));
+        }
+      })
+      .catch(() => { /* keep the copy baked in at build */ });
+    return () => { cancelled = true; };
   }, []);
-  return open;
+
+  const current = cls && (today === null || cls.endDate >= today) ? cls : null;
+  const signupUrl = current && current.signupUrl ? current.signupUrl : null;
+
+  return {
+    open: !!signupUrl && !forcedClosed,
+    signupUrl,
+    label: current ? classLabel(current.date) : null,
+    time: current ? timeLabel(current.time) : null,
+  };
 }
 
 /* ── Why this is a button and not an embedded form ──────────────────
