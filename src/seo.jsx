@@ -165,6 +165,10 @@ export const META = {
     title: `Privacy Policy | ${BRAND}`,
     description: 'How Hope Church collects, uses, and protects your information.',
   },
+  'delete-account': {
+    title: `Delete your account | ${BRAND}`,
+    description: 'How to delete your Hope Church app account and everything stored with it.',
+  },
   terms: {
     title: `Terms of Service | ${BRAND}`,
     description:
