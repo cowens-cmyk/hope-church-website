@@ -2,20 +2,24 @@ import React from 'react';
 import { Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
 import { HopeCmsEmbed, HopeCalendarEmbed } from './embeds.jsx';
-import { useServiceTimes } from '../serviceTimes.jsx';
+import { useServiceTimes, useFourthServiceLive } from '../serviceTimes.jsx';
 // Hope Church — Hope Students ministry detail page (slug: ministry-students)
 // 7th–12th grade. Wednesday-night driven + Sunday morning rhythm.
 
 function StudentsMinistryPage({ onNav }) {
   const st = useServiceTimes();
+  const fourthLive = useFourthServiceLive();
   const LEARN_MORE_URL = 'https://mytt.ag/pbk16kkr?utm_source=ig&utm_medium=social&utm_content=link_in_bio';
   const SERVE_URL = 'https://hopejc.churchcenter.com/people/forms/346151';
 
+  // What a Wednesday night holds. These used to be numbered "01 · The Beat"
+  // ... "04 · The Beat", which read as a countdown to something and named a
+  // thing the ministry does not have.
   const beats = [
-    { n: '01', t: 'Worship',      p: 'Loud, honest, and led by students. We come in singing — together.' },
-    { n: '02', t: 'Message',      p: 'A real word for where students actually are — the questions, the pressure, the in-between.' },
-    { n: '03', t: 'Small Groups', p: 'The room shrinks. Real friends, real leaders, real conversation.' },
-    { n: '04', t: 'Fun',          p: 'Games, food, hangouts — the reason most students keep coming back.' },
+    { t: 'Worship',      p: 'Loud, honest, and led by students. We come in singing — together.' },
+    { t: 'Message',      p: 'A real word for where students actually are — the questions, the pressure, the in-between.' },
+    { t: 'Small Groups', p: 'The room shrinks. Real friends, real leaders, real conversation.' },
+    { t: 'Fun',          p: 'Games, food, hangouts — the reason most students keep coming back.' },
   ];
 
   return (
@@ -44,8 +48,8 @@ function StudentsMinistryPage({ onNav }) {
                 <div className="hs-stat-label">Wed Night</div>
               </div>
               <div>
-                <div className="hs-stat-num">3<em>×</em></div>
-                <div className="hs-stat-label">Sunday AM</div>
+                <div className="hs-stat-num">{fourthLive ? 4 : 3}<em>×</em></div>
+                <div className="hs-stat-label">Sundays</div>
               </div>
             </div>
           </div>
@@ -76,8 +80,7 @@ function StudentsMinistryPage({ onNav }) {
           </div>
           <div className="hs-beats">
             {beats.map((b) => (
-              <article className="hs-beat" key={b.n}>
-                <span className="hs-beat-num">{b.n} · The Beat</span>
+              <article className="hs-beat" key={b.t}>
                 <h4>{b.t}</h4>
                 <p>{b.p}</p>
               </article>
@@ -97,6 +100,7 @@ function StudentsMinistryPage({ onNav }) {
               <span className="hs-sunday-time">{st.first}</span>
               <span className="hs-sunday-time">{st.second}</span>
               <span className="hs-sunday-time">{st.third}</span>
+              {fourthLive && <span className="hs-sunday-time">{st.fourth}</span>}
             </div>
           </div>
           <div className="hs-sunday-photo">

@@ -2,12 +2,13 @@ import React from 'react';
 import { Icon, Button } from './shared.jsx';
 import { PageHeader } from './pages.jsx';
 import { HopeCalendarEmbed } from './embeds.jsx';
-import { useServiceTimes, KidsServiceNote } from '../serviceTimes.jsx';
+import { useServiceTimes, useFourthServiceLive, KidsServiceNote } from '../serviceTimes.jsx';
 // Hope Church — Kids Ministry detail page (slug: ministry-kids)
 // Uses PageHeader, Button, Icon from shared.jsx.
 
 function KidsMinistryPage({ onNav }) {
   const st = useServiceTimes();
+  const fourthLive = useFourthServiceLive();
   const SERVE_URL = 'https://hopejc.churchcenter.com/people/forms/343180';
   const FB_URL = 'https://www.facebook.com/groups/422411476309472';
 
@@ -116,6 +117,7 @@ function KidsMinistryPage({ onNav }) {
               <span>{st.first}</span><span className="kids-dot">&middot;</span>
               <span>{st.second}</span><span className="kids-dot">&middot;</span>
               <span>{st.third}</span>
+              {fourthLive && <><span className="kids-dot">&middot;</span><span>{st.fourth}</span></>}
             </div>
             <KidsServiceNote className="kids-service-note" />
           </header>

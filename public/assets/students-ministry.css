@@ -183,13 +183,7 @@
   transform: translateY(-2px);
   border-color: var(--hs-blue-deep);
 }
-.hs-beat-num {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: 11px; letter-spacing: 0.2em;
-  color: var(--hs-blue-deep);
-  margin-bottom: 8px;
-  display: block;
-}
+
 .hs-beat h4 {
   font-family: var(--font-display); font-weight: 900;
   font-size: 22px; letter-spacing: -0.015em;
