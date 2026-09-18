@@ -256,7 +256,7 @@ function AppBand() {
                 <div className="app-store-btn-big">App Store</div>
               </div>
             </a>
-            <a className="app-store-btn" href="https://play.google.com/store/apps/details?id=com.subsplashconsulting.s_3NDNCG&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+            <a className="app-store-btn" href="https://play.google.com/store/apps/details?id=org.hopejc.app" target="_blank" rel="noopener" aria-label="Get it on Google Play">
               <GoogleBadge/>
               <div>
                 <div className="app-store-btn-small">Get it on</div>

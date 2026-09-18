@@ -598,7 +598,7 @@ export { PrayerRequestPage, GetHelpPage, PodcastPage, PODCASTS, AppPage, ApplePo
 // App Page
 // ============================================================
 const APP_STORE_URL = 'https://apps.apple.com/us/app/hope-church-jc/id1427669078';
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.subsplashconsulting.s_3NDNCG&pcampaignid=web_share';
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=org.hopejc.app';
 
 function AppPageAppleBadge() {
   return (
