@@ -74,6 +74,12 @@ function PrivacyPage() {
         to target anything at you.
       </p>
       <p>
+        <strong>Your church record.</strong> If the email on your account is confirmed and
+        matches your record in Planning Center, our church database, we link the two. That lets
+        our staff see which app account is yours and send a notification to a group or team
+        you are part of. Deleting your account removes the link.
+      </p>
+      <p>
         <strong>Notifications.</strong> If you turn on notifications, your device gives us a
         notification token so we can send announcements to your phone. The token identifies the
         app on that device. If you are signed in, we also note which account the device belongs
