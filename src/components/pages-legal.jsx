@@ -24,7 +24,7 @@ function PrivacyPage() {
       eyebrow="Legal"
       title="Privacy Policy"
       lead="What Hope Church collects on this website and in our app, why, and what you can do about it."
-      updated="September 17, 2026"
+      updated="September 18, 2026"
     >
       <p>
         Hope Church (&ldquo;we&rdquo;, &ldquo;us&rdquo;) runs hopejc.org and the Hope Church
@@ -74,9 +74,18 @@ function PrivacyPage() {
         to target anything at you.
       </p>
       <p>
+        <strong>Your church record.</strong> If the email on your account is confirmed and
+        matches your record in Planning Center, our church database, we link the two. That lets
+        our staff see which app account is yours and send a notification to a group or team
+        you are part of. Deleting your account removes the link.
+      </p>
+      <p>
         <strong>Notifications.</strong> If you turn on notifications, your device gives us a
-        notification token so we can send announcements to your phone. It identifies the app
-        on that device, not you personally.
+        notification token so we can send announcements to your phone. The token identifies the
+        app on that device. If you are signed in, we also note which account the device belongs
+        to and the name on that account, so notifications meant for you reach you and our staff
+        can see who has notifications turned on. You choose which kinds of notification you get
+        in the app&rsquo;s notification settings. Deleting your account removes all of this.
       </p>
       <p>
         <strong>How the app is used.</strong> The app sends us basic usage information: a
@@ -84,9 +93,9 @@ function PrivacyPage() {
         screens and messages get opened. This tells us things like how many people listened to
         a message &mdash; never who listened to what as a matter of record. The random
         identifier is not your device&rsquo;s advertising ID, and before we store it, it is
-        scrambled with a secret key. This information is folded into daily totals, so what we
-        keep is counts, not a history of any individual. We do not have, and do not use, any
-        advertising identifier.
+        scrambled with a secret key. We keep that scrambled identifier with each day the app is
+        opened, which is how we count how many people use it; it is not connected to your name
+        or your account. We do not have, and do not use, any advertising identifier.
       </p>
       <p>
         <strong>Searches</strong> you type in the app are sent to our own server to find
@@ -109,7 +118,7 @@ function PrivacyPage() {
       </p>
       <ul>
         <li><strong>Planning Center</strong> &mdash; giving, event registrations, groups, forms, and our church records.</li>
-        <li><strong>Google Firebase</strong> &mdash; app accounts, the storage that syncs your notes and highlights, and Android notifications.</li>
+        <li><strong>Google Firebase</strong> &mdash; app accounts, profile photos, the storage that syncs your notes and highlights, and notification delivery.</li>
         <li><strong>Apple</strong> &mdash; notifications to iPhones.</li>
         <li><strong>Cloudflare</strong> &mdash; hosts our sermon library, audio, and app data.</li>
         <li><strong>Vercel</strong> &mdash; hosts this website.</li>
@@ -125,8 +134,9 @@ function PrivacyPage() {
 
       <h2>Deleting your account and your information</h2>
       <p>
-        You can delete your account, and everything stored with it, from inside the app: open
-        the menu, go to your account, and choose <strong>Delete account</strong>. It removes
+        You can delete your account, and everything stored with it, from inside the app: tap the
+        person icon at the top right of the Home screen, scroll down, and choose{' '}
+        <strong>Delete account</strong>. It removes
         your notes, saved places, Bible highlights and profile, and it cannot be undone.
       </p>
       <p>
@@ -228,7 +238,7 @@ function DeleteAccountPage() {
       eyebrow="Your Account"
       title="Delete your account"
       lead="How to remove your Hope Church app account and everything stored with it."
-      updated="September 17, 2026"
+      updated="September 18, 2026"
     >
       <p>
         If you made an account in the <strong>Hope Church</strong> app, you can delete it and
@@ -239,7 +249,7 @@ function DeleteAccountPage() {
       <h2>The fastest way: in the app</h2>
       <ol>
         <li>Open the Hope Church app.</li>
-        <li>Open the menu, then <strong>Account</strong>.</li>
+        <li>Tap the person icon at the top right of the Home screen.</li>
         <li>Tap <strong>Delete account</strong> and confirm.</li>
       </ol>
       <p>Your account is removed straight away.</p>
