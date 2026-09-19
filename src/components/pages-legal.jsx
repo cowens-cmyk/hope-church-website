@@ -77,7 +77,9 @@ function PrivacyPage() {
         <strong>Notifications.</strong> If you turn on notifications, your device gives us a
         notification token so we can send announcements to your phone. The token identifies the
         app on that device. If you are signed in, we also note which account the device belongs
-        to, so notifications meant for you reach you; deleting your account removes that link.
+        to and the name on that account, so notifications meant for you reach you and our staff
+        can see who has notifications turned on. You choose which kinds of notification you get
+        in the app&rsquo;s notification settings. Deleting your account removes all of this.
       </p>
       <p>
         <strong>How the app is used.</strong> The app sends us basic usage information: a
