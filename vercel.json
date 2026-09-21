@@ -136,6 +136,17 @@
       ],
       "destination": "/analytics",
       "permanent": false
+    },
+    {
+      "source": "/((?!\\.well-known).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "hopejc.org"
+        }
+      ],
+      "destination": "https://www.hopejc.org/$1",
+      "permanent": true
     }
   ]
 }
