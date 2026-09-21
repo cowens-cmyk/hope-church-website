@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.hopejc.app",
+      "sha256_cert_fingerprints": [
+        "7D:78:B5:71:9A:12:51:8B:83:B7:8E:F8:AE:89:C4:DA:EE:45:FF:D1:8E:DB:54:BE:1D:A0:58:C0:CE:A2:BF:04"
+      ]
+    }
+  }
+]
