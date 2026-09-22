@@ -714,14 +714,13 @@ function ServePage() {
       teams: [
         {
           t: 'Join the First Impressions Team',
-          p: 'One team, six ways to serve. When you sign up we\u2019ll learn a little about you and help match you to the role that fits best — no experience needed.',
+          p: 'One team, five ways to serve. When you sign up we\u2019ll learn a little about you and help match you to the role that fits best — no experience needed.',
           roles: [
             { name: 'Parking Lot', desc: 'Directing parking, securing the campus, and welcoming families as they arrive.' },
             { name: 'Greeters', desc: 'Smiling, eye contact, and a real conversation with every person who walks in.' },
             { name: 'Next Steps', desc: 'Front-lines team for first-time visitors — general info, childcare, seating, and more.' },
             { name: 'Ushers', desc: 'Greeting, seating, collecting tithes and offerings, and tidying the room afterward.' },
             { name: 'Fellowship', desc: 'Preparing coffee and food so people feel at home and want to stay a while.' },
-            { name: 'Coffee', desc: 'Arriving early to get coffee ready, and keeping it going between services.' },
           ],
           href: 'https://hopejc.churchcenter.com/people/forms/343187',
           wide: true,
