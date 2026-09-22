@@ -85,7 +85,11 @@ function PrivacyPage() {
         app on that device. If you are signed in, we also note which account the device belongs
         to and the name on that account, so notifications meant for you reach you and our staff
         can see who has notifications turned on. You choose which kinds of notification you get
-        in the app&rsquo;s notification settings. Deleting your account removes all of this.
+        in the app&rsquo;s notification settings. With the token the app sends a second random
+        identifier, used only to recognise when your phone has been given a new token so the
+        same notification is not sent to it twice. On an iPhone it stays on the phone even if
+        the app is deleted and installed again. Deleting your account removes all of this,
+        including that identifier.
       </p>
       <p>
         <strong>How the app is used.</strong> The app sends us basic usage information: a
