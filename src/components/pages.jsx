@@ -721,7 +721,7 @@ function ServePage() {
             { name: 'Next Steps', desc: 'Front-lines team for first-time visitors — general info, childcare, seating, and more.' },
             { name: 'Ushers', desc: 'Greeting, seating, collecting tithes and offerings, and tidying the room afterward.' },
             { name: 'Fellowship', desc: 'Preparing coffee and food so people feel at home and want to stay a while.' },
-            { name: 'Environment', desc: 'Making sure the house is in order — bathrooms stocked, supplies ready, details handled.' },
+            { name: 'Coffee', desc: 'Arriving early to get coffee ready, and keeping it going between services.' },
           ],
           href: 'https://hopejc.churchcenter.com/people/forms/343187',
           wide: true,
