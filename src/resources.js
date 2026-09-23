@@ -8,7 +8,7 @@ export const resources = {
   logoHorizReversed: '/assets/logo-horizontal-reversed.png',
   logoStackedReversed: '/assets/logo-stacked-reversed.png',
   iconWhite: '/assets/icon-white.png',
-  appScreenshot: '/assets/app-screenshot.png',
+  appScreenshot: '/assets/app-screenshot.jpg',
   lobbyWelcome: '/assets/lobby-welcome.jpg',
   aboutOriginWorship: '/assets/about-origin-worship.jpg',
   aboutVisionWelcome: '/assets/about-vision-welcome.jpg',
