@@ -39,6 +39,25 @@
   text-wrap: balance;
 }
 
+.ev-title--x {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  color: var(--fg-3, var(--fg-2));
+}
+
+.ev-cancelled {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #b42318;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .ev-summary {
   margin: 14px 0 0;
   font-size: var(--fs-body-lg);

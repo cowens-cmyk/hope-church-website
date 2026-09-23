@@ -141,8 +141,15 @@ export default function EventDetailPage() {
               {event.time_label ? <span className="ev-dot" aria-hidden="true">·</span> : null}
               {event.time_label}
             </p>
-            <h1 className="ev-title">{event.title}</h1>
+            {/* A cancelled event keeps its page. The CMS also puts "Cancelled:" in
+                front of the title for apps that predate the flag; here the flag
+                draws a label and the real title, struck through. */}
+            {event.cancelled && <p className="ev-cancelled">Cancelled</p>}
+            <h1 className={event.cancelled ? 'ev-title ev-title--x' : 'ev-title'}>
+              {event.cancelled ? (event.base_title || event.title) : event.title}
+            </h1>
             {(() => {
+              if (event.cancelled && event.cancel_note) return <p className="ev-summary">{event.cancel_note}</p>;
               const s = (event.summary || '').trim();
               const d = (event.description || '').replace(/\s+/g, ' ').trim();
               if (!s || d.startsWith(s.replace(/\s+/g, ' '))) return null;
